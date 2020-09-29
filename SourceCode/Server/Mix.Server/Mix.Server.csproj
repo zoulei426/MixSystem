@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>D:\工作空间\WPF_Projects\MixSystem\SourceCode\Server\Mix.Server\Mix.Server.xml</DocumentationFile>
+    <DocumentationFile></DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,8 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Library\Mix.Entity\Mix.Library.Entity.csproj" />
-    <ProjectReference Include="..\..\Library\Mix.Repository\Mix.Library.Repository.csproj" />
+    <ProjectReference Include="..\..\Libraries\Mix.Library.Entity\Mix.Library.Entity.csproj" />
+    <ProjectReference Include="..\..\Libraries\Mix.Library.Repository\Mix.Library.Repository.csproj" />
   </ItemGroup>
 
 
