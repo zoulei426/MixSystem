@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mix.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Mix.Core.BindableObject">
+            <summary>
+            INotifyPropertyChanged实现类
+            </summary>
+        </member>
+        <member name="M:Mix.Core.BindableObject.TryClone(System.Object)">
+            <summary>
+            TryClone
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Core.BindableObject.Clone">
+            <summary>
+            克隆
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Core.BindableObject.Dispose">
+            <summary>
+            回收
+            </summary>
+        </member>
+        <member name="T:Mix.Core.IEnumerableExtension">
+            <summary>
+            可枚举扩展
+            </summary>
+        </member>
+        <member name="M:Mix.Core.IEnumerableExtension.TryToList``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            ToList 的安全版本，如果发生异常并不会导致程序崩溃，而是返回null。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Core.IEnumerableExtension.IsNullOrEmpty(System.Collections.IEnumerable)">
+            <summary>
+            集合是否为空
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Core.IEnumerableExtension.Clone(System.Collections.IList)">
+            <summary>
+            克隆集合
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Core.ObjectBase">
+            <summary>
+            核心类
+            </summary>
+        </member>
+        <member name="M:Mix.Core.ObjectBase.TryClone(System.Object)">
+            <summary>
+            TryClone
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Core.ObjectBase.Clone">
+            <summary>
+            克隆
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Core.ObjectBase.Dispose">
+            <summary>
+            回收
+            </summary>
+        </member>
+        <member name="T:Mix.Core.ValidableObject">
+            <summary>
+            可验证对象
+            </summary>
+        </member>
+        <member name="F:Mix.Core.ValidableObject._DataErrors">
+            <summary>
+            验证错误集合
+            </summary>
+        </member>
+        <member name="F:Mix.Core.ValidableObject._Validator">
+            <summary>
+            验证器
+            </summary>
+        </member>
+        <member name="P:Mix.Core.ValidableObject.Error">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="P:Mix.Core.ValidableObject.Item(System.String)">
+            <summary>
+            Gets the error message for the property with the given name.
+            </summary>
+            <param name="columnName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Core.ValidableObject.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="M:Mix.Core.ValidableObject.Validate(System.String)">
+            <summary>
+            验证方法
+            </summary>
+            <param name="columnName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Core.ValidableObject.RemoveDic(System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            移除字典
+            </summary>
+            <param name="dics"></param>
+            <param name="dicKey"></param>
+        </member>
+        <member name="M:Mix.Core.ValidableObject.AddDic(System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            添加字典
+            </summary>
+            <param name="dics"></param>
+            <param name="dicKey"></param>
+        </member>
+    </members>
+</doc>

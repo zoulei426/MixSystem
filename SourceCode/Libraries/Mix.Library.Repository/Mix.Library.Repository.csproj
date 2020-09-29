@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\工作空间\WPF_Projects\MixSystem\SourceCode\Library\Mix.Repository\Mix.Repository.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FreeSql.Extensions.Linq" Version="1.9.0" />
+    <PackageReference Include="FreeSql.Provider.Sqlite" Version="1.9.0" />
+    <PackageReference Include="FreeSql.Repository" Version="1.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Framework\Mix.Core\Mix.Core.csproj" />
+    <ProjectReference Include="..\Mix.Library.Entity\Mix.Library.Entity.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>5d2cc329-1af1-46ec-a1ea-2c456ce7cc8a</UserSecretsId>
+    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+    <DockerfileContext>..\..\..</DockerfileContext>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\工作空间\WPF_Projects\MixSystem\SourceCode\Server\Mix.Server\Mix.Server.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Library\Mix.Entity\Mix.Library.Entity.csproj" />
+    <ProjectReference Include="..\..\Library\Mix.Repository\Mix.Library.Repository.csproj" />
+  </ItemGroup>
+
+
+</Project>

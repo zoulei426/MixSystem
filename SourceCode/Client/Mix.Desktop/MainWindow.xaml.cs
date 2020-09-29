@@ -20,6 +20,9 @@ namespace Mix.Desktop
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// 构造
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
