@@ -5,33 +5,14 @@ using System.Threading;
 
 namespace Mix.Windows.Core
 {
-    public class Logger : ILoggerFacade, IDisposable
+    public class Logger : ILogger
     {
        
-
-        public void Log(string message, Category category, Priority priority)
-        {
-            switch (category)
-            {
-                case Category.Debug:
-                    break;
-                case Category.Exception:
-                    break;
-                case Category.Info:
-                    break;
-                case Category.Warn:
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        static readonly object locker = new object();
-        NLog.Logger _logger;
+        readonly NLog.Logger _Logger;
 
         private Logger(NLog.Logger logger)
         {
-            _logger = logger;
+            _Logger = logger;
         }
 
         public Logger(string name) : this(LogManager.GetLogger(name))
@@ -45,77 +26,35 @@ namespace Mix.Windows.Core
             Default = new Logger(NLog.LogManager.GetCurrentClassLogger());
         }
 
-        public static void WriteLog1(string name, string msg)
+        public void Debug(string message)
         {
-            LogModels lm = new LogModels();
-            lm.Name = name;
-            lm.Msg = msg;
-
-            ParameterizedThreadStart tStart = new ParameterizedThreadStart(ThreadWriteLog);
-            Thread thread = new Thread(tStart);
-            thread.Start(lm);//传递参数 
+            _Logger.Debug(message);
         }
 
-        public static void ThreadWriteLog(object arg)
+        public void Info(string message)
         {
-            lock (locker)
-            {
-                LogModels lm = (LogModels)arg;
-                LogManager.Configuration.Variables["LogDir"] = lm.Name;
-                Logger logger = new Logger("ESDLog");
-                logger.Info(lm.Msg);
-            }
+            _Logger.Info(message);
         }
 
-        #region Debug
-        public void Debug(string msg, params object[] args)
+        public void Warn(string message)
         {
-            _logger.Debug(msg, args);
+            _Logger.Warn(message);
         }
 
-        public void Debug(string msg, Exception err)
+        public void Trace(string message)
         {
-            _logger.Debug(err, msg);
-        }
-        #endregion
-
-        #region Info
-        public void Info(string msg, params object[] args)
-        {
-            _logger.Info(msg, args);
+            _Logger.Trace(message);
         }
 
-        public void Info(string msg, Exception err)
+        public void Error(string message, Exception exception)
         {
-            _logger.Info(err, msg);
+            _Logger.Error(message, exception);
         }
-        #endregion
-        #region Custom
-        #endregion
 
-        public void Dispose()
+        public void Fatal(string message, Exception exception)
         {
-            throw new NotImplementedException();
+            _Logger.Fatal(message, exception);
         }
     }
 
-    public class MyLogEventInfo : LogEventInfo
-    {
-        public MyLogEventInfo() { }
-        public MyLogEventInfo(LogLevel level, string loggerName, string message) : base(level, loggerName, message)
-        { }
-
-        public override string ToString()
-        {
-            //Message format
-            //Log Event: Logger='XXX' Level=Info Message='XXX' SequenceID=5
-            return FormattedMessage;
-        }
-    }
-
-    public class LogModels
-    {
-        public string Name { set; get; }
-        public string Msg { set; get; }
-    }
 }

@@ -44,7 +44,6 @@ namespace Mix.Windows.Core
         {
             new CultureInfo("zh-CN"),
             new CultureInfo("en-US"),
-            new CultureInfo("ja"),
         };
 
         public void AddResourceManager(ResourceManager resourceManager)

@@ -1,14 +1,10 @@
 ﻿using Mix.Windows.Core;
+using Mix.Windows.WPF;
 using Prism.Ioc;
-using Prism.Logging;
+using Prism.Mvvm;
 using Prism.Unity;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
-using System.Data;
 using System.Globalization;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
@@ -24,17 +20,6 @@ namespace Mix.Desktop
 
         #region Methods - Override
 
-        /// <summary>
-        /// 创建窗体
-        /// </summary>
-        /// <returns></returns>
-        protected override Window CreateShell()
-        {
-            InitializeCultureInfo();
-            return Container.Resolve<LoginWindow>();
-        }
-
-       
 
         /// <summary>
         /// 启动
@@ -54,9 +39,28 @@ namespace Mix.Desktop
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterSingleton<ILoggerFacade, Logger>();
-            containerRegistry.RegisterInstance(new ConfigureFile().Load());
+            containerRegistry.RegisterSingleton<ILogger, Logger>();
+            //containerRegistry.RegisterInstance(new ConfigureFile().Load());
         }
+
+        protected override void ConfigureViewModelLocator()
+        {
+            base.ConfigureViewModelLocator();
+            ViewModelLocationProvider.Register<LoginWindow, LoginWindowViewModel>();
+            //ViewModelLocationProvider.SetDefaultViewModelFactory(new ViewModelResolver(() => Container).UseDefaultConfigure().ResolveViewModelForView);
+        }
+
+        /// <summary>
+        /// 创建窗体
+        /// </summary>
+        /// <returns></returns>
+        protected override Window CreateShell()
+        {
+            //InitializeCultureInfo();
+            return Container.Resolve<LoginWindow>();
+        }
+
+        
         #endregion
 
         #region Methods - Private

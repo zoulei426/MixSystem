@@ -1,4 +1,5 @@
 ﻿using Mix.Core;
+using Mix.Windows.Core;
 using Prism.Events;
 using Prism.Ioc;
 using Prism.Logging;
@@ -7,6 +8,7 @@ using Prism.Regions;
 using Prism.Services.Dialogs;
 using System;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace Mix.Windows.WPF
 {
@@ -31,19 +33,19 @@ namespace Mix.Windows.WPF
 		protected ViewModelBase(IContainerExtension container)
 		{
 			Container = container;
+			_DialogService = container.Resolve<IDialogService>();
+			_RegionManager = container.Resolve<IRegionManager>();
 			EventAggregator = container.Resolve<IEventAggregator>();
-			this._DialogService = container.Resolve<IDialogService>();
-			Logger = container.Resolve<ILoggerFacade>();
-			this._RegionManager = container.Resolve<IRegionManager>();
+			Logger = container.Resolve<ILogger>();
 		}
 		#endregion
 
-
+		public Dispatcher Dispatcher { get; set; }
 
 		/// <summary>
 		/// 日志对象
 		/// </summary>
-		protected ILoggerFacade Logger { get; }
+		protected ILogger Logger { get; }
 
 		/// <summary>
 		/// 事件汇总器，用于发布或订阅事件
@@ -60,7 +62,7 @@ namespace Mix.Windows.WPF
 		/// </summary>
 		protected IContainerExtension Container { get; }
 
-
+		protected virtual void Invoke(Action action) => Dispatcher.Invoke(action);
 
 		/// <summary>
 		/// 导航到指定Page
