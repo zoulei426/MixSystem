@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:Mix.Desktop"
         xmlns:prism="http://prismlibrary.com/" 
         xmlns:controls="clr-namespace:Mix.Windows.Controls;assembly=Mix.Windows.Controls"
+        xmlns:wpf="clr-namespace:Mix.Windows.WPF;assembly=Mix.Windows.WPF"
+        xmlns:i18nResources="clr-namespace:Mix.Desktop.I18nResources"
         prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
@@ -16,7 +18,7 @@
         <TabControl Margin="60 40 60 30" WindowChrome.IsHitTestVisibleInChrome="True">
             <!-- 登录界面 --> 
             <TabItem x:Name="SignInTabItem" IsSelected="True"
-                     Header="登录">
+                     Header="{wpf:I18n {x:Static i18nResources:Language.Login}}">
                 <local:SignInPanel Margin="0 16 0 0" />
                 <TabItem.Triggers>
                     <EventTrigger RoutedEvent="Selector.Selected">

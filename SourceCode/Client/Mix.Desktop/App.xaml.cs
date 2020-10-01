@@ -42,14 +42,9 @@ namespace Mix.Desktop
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<ILogger, Logger>();
-            //containerRegistry.RegisterInstance(new ConfigureFile().Load());
+            containerRegistry.RegisterInstance(new ConfigureFile().Load());
         }
 
-        protected override void RegisterRequiredTypes(IContainerRegistry containerRegistry)
-        {
-            base.RegisterRequiredTypes(containerRegistry);
-            //containerRegistry.RegisterSingleton<ILogger, Logger>();
-        }
 
         protected override void ConfigureViewModelLocator()
         {
@@ -63,7 +58,7 @@ namespace Mix.Desktop
         /// <returns></returns>
         protected override Window CreateShell()
         {
-            //InitializeCultureInfo();
+            InitializeCultureInfo();
             return Container.Resolve<LoginWindow>();
         }
 
@@ -84,7 +79,7 @@ namespace Mix.Desktop
             }
 
             I18nManager.Instance.CurrentUICulture = language;
-            //I18nManager.Instance.AddResourceManager(UiResources.ResourceManager);
+            I18nManager.Instance.AddResourceManager(I18nResources.LangRes.ResourceManager);
         }
 
         /// <summary>

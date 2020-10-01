@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mix.Windows.Core;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Globalization;
@@ -6,7 +7,7 @@ using System.Resources;
 using System.Threading;
 using System.Windows;
 
-namespace Mix.Windows.Core
+namespace Mix.Windows.WPF
 {
     public class I18nManager
     {
@@ -43,7 +44,7 @@ namespace Mix.Windows.Core
         public IEnumerable<CultureInfo> AvailableCultureInfos => new[]
         {
             new CultureInfo("zh-CN"),
-            new CultureInfo("en-US"),
+            new CultureInfo("en-US")
         };
 
         public void AddResourceManager(ResourceManager resourceManager)
@@ -56,11 +57,11 @@ namespace Mix.Windows.Core
 
         private void OnCurrentUICultureChanged() => CurrentUICultureChanged?.Invoke();
 
-        //public object Get(ComponentResourceKey key)
-        //{
-        //    return GetCurrentResourceManager(key.TypeInTargetAssembly.FullName)?.GetObject(key.ResourceId.ToString(), CurrentUICulture)
-        //           ?? $"<MISSING: {key}>";
-        //}
+        public object Get(ComponentResourceKey key)
+        {
+            return GetCurrentResourceManager(key.TypeInTargetAssembly.FullName)?.GetObject(key.ResourceId.ToString(), CurrentUICulture)
+                   ?? $"<MISSING: {key}>";
+        }
 
         private ResourceManager GetCurrentResourceManager(string key)
         {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mix.Windows.Core
+namespace Mix.Windows.WPF
 {
     public interface ILocalizable
     {
