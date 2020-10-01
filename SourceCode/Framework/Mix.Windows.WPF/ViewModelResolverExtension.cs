@@ -17,12 +17,12 @@ namespace Mix.Windows.WPF
             {
                 viewModel.Dispatcher = view.Dispatcher;
             })
-            //.IfInheritsFrom<ILocalizable>((view, viewModel) =>
-            //{
-            //    viewModel.I18nManager = I18nManager.Instance;
-            //    view.Loaded += (sender, args) => I18nManager.Instance.CurrentUICultureChanged += viewModel.OnCurrentUICultureChanged;
-            //    view.Unloaded += (sender, args) => I18nManager.Instance.CurrentUICultureChanged -= viewModel.OnCurrentUICultureChanged;
-            //})
+            .IfInheritsFrom<ILocalizable>((view, viewModel) =>
+            {
+                viewModel.I18nManager = I18nManager.Instance;
+                view.Loaded += (sender, args) => I18nManager.Instance.CurrentUICultureChanged += viewModel.OnCurrentUICultureChanged;
+                view.Unloaded += (sender, args) => I18nManager.Instance.CurrentUICultureChanged -= viewModel.OnCurrentUICultureChanged;
+            })
             .IfInheritsFrom<IViewLoadedAndUnloadedAware>((view, viewModel) =>
             {
                 view.Loaded += (sender, e) => viewModel.OnLoaded();
@@ -41,15 +41,15 @@ namespace Mix.Windows.WPF
 
                 view.Loaded += (sender, args) => onLoadedMethod(sender);
                 view.Unloaded += (sender, args) => onUnloadedMethod(sender);
+            })
+            .IfInheritsFrom<INotificable>((view, viewModel, container) =>
+            {
+                //viewModel.GlobalMessageQueue = container.Resolve<ISnackbarMessageQueue>();
             });
-            //.IfInheritsFrom<INotificable>((view, viewModel, container) =>
-            //{
-            //    viewModel.GlobalMessageQueue = container.Resolve<ISnackbarMessageQueue>();
-            //});
-            //.IfInheritsFrom<IAwareTabItemSelectionChanged>((view, viewModel) =>
-            //{
-            //    TabControlHelper.SetAwareSelectionChanged(view, true);
-            //});
+        //.IfInheritsFrom<IAwareTabItemSelectionChanged>((view, viewModel) =>
+        //{
+        //    TabControlHelper.SetAwareSelectionChanged(view, true);
+        //});
 
         public static IViewModelResolver IfInheritsFrom<TViewModel>(this IViewModelResolver @this, Action<FrameworkElement, TViewModel> configuration)
         {

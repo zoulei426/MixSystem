@@ -20,13 +20,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Framework\Mix.Windows.Controls\Mix.Windows.Controls.csproj" />
     <ProjectReference Include="..\..\Framework\Mix.Windows.Core\Mix.Windows.Core.csproj" />
     <ProjectReference Include="..\..\Framework\Mix.Windows.WPF\Mix.Windows.WPF.csproj" />
     <ProjectReference Include="..\..\Libraries\Mix.Library.Repository\Mix.Library.Repository.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Configs\NLog.config">
+    <None Update="NLog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="I18nResources\ResKeys.tt">
@@ -42,6 +43,10 @@
 
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Configs\" />
   </ItemGroup>
 
 </Project>

@@ -1,10 +1,12 @@
 ﻿using Mix.Windows.Core;
 using Mix.Windows.WPF;
 using Prism.Ioc;
+using Prism.Logging;
 using Prism.Mvvm;
 using Prism.Unity;
 using System;
 using System.Globalization;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
@@ -14,7 +16,7 @@ namespace Mix.Desktop
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : PrismApplication
+    public partial class App
     {
         #region Methods
 
@@ -43,11 +45,16 @@ namespace Mix.Desktop
             //containerRegistry.RegisterInstance(new ConfigureFile().Load());
         }
 
+        protected override void RegisterRequiredTypes(IContainerRegistry containerRegistry)
+        {
+            base.RegisterRequiredTypes(containerRegistry);
+            //containerRegistry.RegisterSingleton<ILogger, Logger>();
+        }
+
         protected override void ConfigureViewModelLocator()
         {
-            base.ConfigureViewModelLocator();
-            ViewModelLocationProvider.Register<LoginWindow, LoginWindowViewModel>();
-            //ViewModelLocationProvider.SetDefaultViewModelFactory(new ViewModelResolver(() => Container).UseDefaultConfigure().ResolveViewModelForView);
+            ViewModelLocationProvider.SetDefaultViewModelFactory(
+                new ViewModelResolver(() => Container).UseDefaultConfigure().ResolveViewModelForView);
         }
 
         /// <summary>
@@ -87,7 +94,11 @@ namespace Mix.Desktop
         /// <param name="e"></param>
         private void App_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            throw new NotImplementedException();
+            Exception ex = e.Exception;
+            MessageBox.Show($"程序运行出错，原因：{ex.Message}-{ex.InnerException?.Message}", 
+                "系统提示", MessageBoxButton.OK, MessageBoxImage.Error);
+            Container.Resolve<ILogger>().Error(ex.Message, ex);
+            e.Handled = true;
         }
 
         /// <summary>
@@ -97,7 +108,13 @@ namespace Mix.Desktop
         /// <param name="e"></param>
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-            throw new NotImplementedException();
+            var ex = e.ExceptionObject as Exception;
+            if (ex != null)
+            {
+                MessageBox.Show($"程序组件出错，原因：{ex.Message}", 
+                    "系统提示", MessageBoxButton.OK, MessageBoxImage.Error);
+                Container.Resolve<ILogger>().Error(ex.Message, ex);
+            }
         }
 
         /// <summary>
@@ -107,9 +124,11 @@ namespace Mix.Desktop
         /// <param name="e"></param>
         private void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
         {
-            //task线程内未处理捕获
-            //MessageBoxHelper.Exception(e.Exception, SystemInfo.CATCH_THREAD_UNHANDLED_EXCEPTION);
-            //设置该异常已察觉（这样处理后就不会引起程序崩溃）
+            Exception ex = e.Exception;
+            MessageBox.Show($"执行任务出错，原因：{ex.Message}", 
+                "系统提示", MessageBoxButton.OK, MessageBoxImage.Error);
+            Container.Resolve<ILogger>().Error(ex.Message, ex);
+            //设置该异常已察觉
             e.SetObserved();
         }
         #endregion

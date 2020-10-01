@@ -1,0 +1,20 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Mix.Windows.Controls">
+    <Style TargetType="local:SwitchLoadingViewContainer">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="LoadingContent">
+            <Setter.Value>
+                <ProgressBar IsIndeterminate="True" Width="24" Height="24" Margin="16" Value="33"
+                             Style="{DynamicResource MaterialDesignCircularProgressBar}"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Content" Value="{Binding LoadedContent, RelativeSource={RelativeSource Self}}" />
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsLoading, RelativeSource={RelativeSource Self}}" Value="True">
+                <Setter Property="Content" Value="{Binding LoadingContent, RelativeSource={RelativeSource Self}}"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

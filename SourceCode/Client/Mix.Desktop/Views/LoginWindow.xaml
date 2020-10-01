@@ -5,10 +5,56 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mix.Desktop"
         xmlns:prism="http://prismlibrary.com/" 
+        xmlns:controls="clr-namespace:Mix.Windows.Controls;assembly=Mix.Windows.Controls"
         prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        WindowStartupLocation="CenterScreen"
+        Title="LoginWindow" x:Name="OwnerWindow"
+        Height="321" Width="430"
+        Style="{StaticResource MixWindowStyle}">
+    <controls:SwitchLoadingViewContainer IsLoading="{Binding IsLoading}">
+        <TabControl Margin="60 40 60 30" WindowChrome.IsHitTestVisibleInChrome="True">
+            <!-- 登录界面 --> 
+            <TabItem x:Name="SignInTabItem" IsSelected="True"
+                     Header="登录">
+                <local:SignInPanel Margin="0 16 0 0" />
+                <TabItem.Triggers>
+                    <EventTrigger RoutedEvent="Selector.Selected">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation BeginTime="00:00:00" Duration="00:00:00.500" 
+                                                 Storyboard.Target="{Binding ElementName=OwnerWindow}"
+                                                 Storyboard.TargetProperty="Height" From="384" To="321">
+                                    <DoubleAnimation.EasingFunction>
+                                        <BackEase  EasingMode="EaseOut"/>
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </TabItem.Triggers>
+            </TabItem>
+
+            <!-- 注册界面 --> 
+            <TabItem x:Name="SignUpTabItem"
+                     Header="注册">
+                <local:SignUpPanel Margin="0 16 0 0" />
+                <TabItem.Triggers>
+                    <EventTrigger RoutedEvent="Selector.Selected">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation BeginTime="00:00:00" Duration="00:00:00.500" 
+                                                 Storyboard.Target="{Binding ElementName=OwnerWindow}"
+                                                 Storyboard.TargetProperty="Height" From="321" To="384">
+                                    <DoubleAnimation.EasingFunction>
+                                        <BackEase  EasingMode="EaseOut"/>
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </TabItem.Triggers>
+            </TabItem>
+        </TabControl>
+    </controls:SwitchLoadingViewContainer>
 </Window>

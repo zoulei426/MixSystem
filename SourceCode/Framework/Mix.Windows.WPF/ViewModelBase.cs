@@ -23,14 +23,16 @@ namespace Mix.Windows.WPF
 		private readonly IDialogService _DialogService;
 		private readonly IRegionManager _RegionManager;
 
-		#endregion
+        #endregion
 
-		#region Ctor
+        #region Ctor
+
+
 		/// <summary>
 		/// 基类ViewModel构造函数
 		/// </summary>
 		/// <param name="container">注入容器</param>
-		protected ViewModelBase(IContainerExtension container)
+		public ViewModelBase(IContainerExtension container)
 		{
 			Container = container;
 			_DialogService = container.Resolve<IDialogService>();

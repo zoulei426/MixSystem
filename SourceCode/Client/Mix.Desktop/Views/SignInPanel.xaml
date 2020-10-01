@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="Mix.Desktop.SignInPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Mix.Desktop"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="16"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <md:PackIcon Kind="Account" VerticalAlignment="Bottom" Margin="6"/>
+            <TextBox Grid.Row="0" Grid.Column="1" 
+                     md:HintAssist.Hint="邮箱"
+                     Text="{Binding Email}"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     FontFamily="Microsoft Yahei Regular"/>
+            <md:PackIcon Grid.Column="0" Grid.Row="2" Kind="Key" VerticalAlignment="Bottom" Margin="6"/>
+            <PasswordBox Name="PasswordBox" Grid.Column="1" Grid.Row="2" 
+                         md:HintAssist.Hint="密码" 
+                         Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                         FontFamily="Microsoft Yahei Regular"/>
+        </Grid>
+        <StackPanel Grid.Row="2" Margin="6 0" Orientation="Horizontal">
+            <CheckBox IsChecked="{Binding IsRememberPassword}" Focusable="False" 
+                      Content="记住我"/>
+            <CheckBox IsChecked="{Binding IsAutoSignIn}" Focusable="False" Margin="16 0 0 0" 
+                      Content="自动登录"/>
+        </StackPanel>
+        <Button Grid.Row="4" IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}"
+                Command="{Binding SignInCommand}" 
+                CommandParameter="{Binding ElementName=PasswordBox}"
+                Margin="28 0" 
+                Content="登录"/>
+    </Grid>
+</UserControl>
