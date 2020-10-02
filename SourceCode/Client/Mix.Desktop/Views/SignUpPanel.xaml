@@ -42,18 +42,18 @@
 
             <md:PackIcon Grid.Column="0" Grid.Row="2" Kind="Account" VerticalAlignment="Bottom" Margin="6" />
             <TextBox Grid.Column="1" Grid.Row="2"
-                     md:HintAssist.Hint="用户名"
+                     md:HintAssist.Hint="{wpf:I18n {x:Static i18nResources:Language.UserName}}"
                      Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
                      Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
 
             <md:PackIcon Grid.Column="0" Grid.Row="4" Kind="Key" VerticalAlignment="Bottom" Margin="6" />
             <PasswordBox Name="PasswordBox" Grid.Column="1" Grid.Row="4"
-                         md:HintAssist.Hint="密码"
+                         md:HintAssist.Hint="{wpf:I18n {x:Static i18nResources:Language.Password}}"
                          Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
 
             <md:PackIcon Grid.Column="0" Grid.Row="6" Kind="Check" VerticalAlignment="Bottom" Margin="6" />
             <TextBox Grid.Column="1" Grid.Row="6"
-                     md:HintAssist.Hint="验证码"
+                     md:HintAssist.Hint="{wpf:I18n {x:Static i18nResources:Language.VerificationCode}}"
                      Text="{Binding VerificationCode, UpdateSourceTrigger=PropertyChanged}"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
         </Grid>
@@ -68,14 +68,14 @@
             <Button Command="{Binding SendVerificationCodeCommand}">
                 <Button.Style>
                     <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
-                        <Setter Property="Content" Value="发送验证码" />
+                        <Setter Property="Content" Value="{wpf:I18n {x:Static i18nResources:Language.SendVerificationCode}}" />
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding IsLocked}" Value="True">
                                 <Setter Property="Content">
                                     <Setter.Value>
                                         <TextBlock>
                                             <Run Text="{Binding RemainingTimeBasedSecond}" />
-                                            <Run Text="重" />
+                                            <Run Text="{wpf:I18n {x:Static i18nResources:Language.RetrySeconds}}" />
                                         </TextBlock>
                                     </Setter.Value>
                                 </Setter>
@@ -88,7 +88,7 @@
             <Button Grid.Column="2" IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}"
                     Command="{Binding SignUpCommand}"
                     CommandParameter="{Binding ElementName=PasswordBox}"
-                    Content="注册" Cursor="Hand" />
+                    Content="{wpf:I18n {x:Static i18nResources:Language.Confirm}}" Cursor="Hand" />
         </Grid>
     </Grid>
 </UserControl>

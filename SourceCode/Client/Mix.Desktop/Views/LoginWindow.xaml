@@ -39,7 +39,7 @@
 
             <!-- 注册界面 -->
             <TabItem x:Name="SignUpTabItem"
-                     Header="注册">
+                     Header="{wpf:I18n {x:Static i18nResources:Language.SignUp}}">
                 <local:SignUpPanel Margin="0 16 0 0" />
                 <TabItem.Triggers>
                     <EventTrigger RoutedEvent="Selector.Selected">

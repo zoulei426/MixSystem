@@ -7,7 +7,7 @@ namespace Mix.Library.Repository
     /// <summary>
     /// 账户仓储
     /// </summary>
-    public class AccountRepository
+    public class AccountRepository : IAccountRepository
     {
         private static readonly IFreeSql fsql = new FreeSql.FreeSqlBuilder()
             .UseConnectionString(FreeSql.DataType.Sqlite, @"data source=D:\Database\Sqlite\test.db")

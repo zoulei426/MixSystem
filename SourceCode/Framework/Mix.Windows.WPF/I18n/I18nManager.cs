@@ -1,4 +1,5 @@
-﻿using Mix.Windows.Core;
+﻿using Mix.Core;
+using Mix.Windows.Core;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -10,8 +11,8 @@ namespace Mix.Windows.WPF
 {
     public class I18nManager
     {
-        private readonly IConfigureFile _configure;
-        private readonly ConcurrentDictionary<string, ResourceManager> _resourceManagerStorage = new ConcurrentDictionary<string, ResourceManager>();
+        private readonly IConfigureFile _Configure;
+        private readonly ConcurrentDictionary<string, ResourceManager> _ResourceManagerStorage = new ConcurrentDictionary<string, ResourceManager>();
 
         public event Action CurrentUICultureChanged;
 
@@ -24,7 +25,7 @@ namespace Mix.Windows.WPF
 
         private I18nManager(IConfigureFile configure)
         {
-            _configure = configure;
+            _Configure = configure;
         }
 
         public CultureInfo CurrentUICulture
@@ -35,11 +36,14 @@ namespace Mix.Windows.WPF
                 if (EqualityComparer<CultureInfo>.Default.Equals(value, CultureInfo.DefaultThreadCurrentUICulture)) return;
 
                 CultureInfo.DefaultThreadCurrentUICulture = value;
-                _configure.SetValue("language", value);
+                _Configure.SetValue(SystemConst.LANGUAGE, value);
                 OnCurrentUICultureChanged();
             }
         }
 
+        /// <summary>
+        /// 已支持的语言
+        /// </summary>
         public IEnumerable<CultureInfo> AvailableCultureInfos => new[]
         {
             new CultureInfo("zh-CN"),
@@ -48,10 +52,10 @@ namespace Mix.Windows.WPF
 
         public void AddResourceManager(ResourceManager resourceManager)
         {
-            if (_resourceManagerStorage.ContainsKey(resourceManager.BaseName))
+            if (_ResourceManagerStorage.ContainsKey(resourceManager.BaseName))
                 throw new ArgumentException("", nameof(resourceManager));
 
-            _resourceManagerStorage[resourceManager.BaseName] = resourceManager;
+            _ResourceManagerStorage[resourceManager.BaseName] = resourceManager;
         }
 
         private void OnCurrentUICultureChanged() => CurrentUICultureChanged?.Invoke();
@@ -64,7 +68,7 @@ namespace Mix.Windows.WPF
 
         private ResourceManager GetCurrentResourceManager(string key)
         {
-            return _resourceManagerStorage.TryGetValue(key, out var value) ? value : null;
+            return _ResourceManagerStorage.TryGetValue(key, out var value) ? value : null;
         }
     }
 }

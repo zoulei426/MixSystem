@@ -37,20 +37,20 @@
                      FontFamily="Microsoft Yahei Regular" />
             <md:PackIcon Grid.Column="0" Grid.Row="2" Kind="Key" VerticalAlignment="Bottom" Margin="6" />
             <PasswordBox Name="PasswordBox" Grid.Column="1" Grid.Row="2"
-                         md:HintAssist.Hint="密码"
+                         md:HintAssist.Hint="{wpf:I18n {x:Static i18nResources:Language.Password}}"
                          Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
                          FontFamily="Microsoft Yahei Regular" />
         </Grid>
         <StackPanel Grid.Row="2" Margin="6 0" Orientation="Horizontal">
-            <CheckBox IsChecked="{Binding IsRememberPassword}" Focusable="False"
-                      Content="记住我" />
+            <CheckBox IsChecked="{Binding IsRememberMe}" Focusable="False"
+                      Content="{wpf:I18n {x:Static i18nResources:Language.RememberMe}}" />
             <CheckBox IsChecked="{Binding IsAutoSignIn}" Focusable="False" Margin="16 0 0 0"
-                      Content="自动登录" />
+                      Content="{wpf:I18n {x:Static i18nResources:Language.AutomaticLogin}}" />
         </StackPanel>
         <Button Grid.Row="4" IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}"
                 Command="{Binding SignInCommand}"
                 CommandParameter="{Binding ElementName=PasswordBox}"
                 Margin="28 0"
-                Content="登录" />
+                Content="{wpf:I18n {x:Static i18nResources:Language.Login}}" />
     </Grid>
 </UserControl>

@@ -59,6 +59,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="I18nResources\LangRes.en-US.resx">
+      <SubType>Designer</SubType>
+      <LastGenOutput>LangRes.zh-CN.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="I18nResources\LangRes.zh-CN.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>LangRes.zh-CN.Designer.cs</LastGenOutput>

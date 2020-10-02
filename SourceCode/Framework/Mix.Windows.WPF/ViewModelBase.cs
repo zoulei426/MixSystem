@@ -34,6 +34,9 @@ namespace Mix.Windows.WPF
             _RegionManager = container.Resolve<IRegionManager>();
             EventAggregator = container.Resolve<IEventAggregator>();
             Logger = container.Resolve<ILogger>();
+            ConfigureFile = Container.Resolve<IConfigureFile>();
+
+            RegisterCommands();
         }
 
         #endregion Ctor
@@ -60,7 +63,19 @@ namespace Mix.Windows.WPF
         /// </summary>
         protected IContainerExtension Container { get; }
 
+        /// <summary>
+        /// 配置文件
+        /// </summary>
+        protected IConfigureFile ConfigureFile { get; }
+
         protected virtual void Invoke(Action action) => Dispatcher.Invoke(action);
+
+        /// <summary>
+        /// 注册命令
+        /// </summary>
+        protected virtual void RegisterCommands()
+        {
+        }
 
         /// <summary>
         /// 导航到指定Page

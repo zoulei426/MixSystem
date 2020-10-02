@@ -9,12 +9,12 @@ namespace Mix.Windows.WPF
     {
         object IValueConverter.Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return Convert(value.ConvertTo<TSource>(), parameter.ConvertTo<TParameter>());
+            return Convert(value.CastTo<TSource>(), parameter.CastTo<TParameter>());
         }
 
         object IValueConverter.ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return ConvertBack(value.ConvertTo<TTarget>(), parameter.ConvertTo<TParameter>());
+            return ConvertBack(value.CastTo<TTarget>(), parameter.CastTo<TParameter>());
         }
 
         protected virtual TTarget ConvertNonNullValue(TSource value, TParameter parameter) => throw new NotSupportedException();

@@ -1,4 +1,5 @@
-﻿using Mix.Windows.Core;
+﻿using Mix.Core;
+using Mix.Windows.Core;
 using Mix.Windows.WPF;
 using Prism.Ioc;
 using Prism.Mvvm;
@@ -54,7 +55,7 @@ namespace Mix.Desktop
         protected override Window CreateShell()
         {
             InitializeCultureInfo();
-            return Container.Resolve<MainWindow>();
+            return Container.Resolve<LoginWindow>();
         }
 
         #endregion Methods - Override
@@ -66,11 +67,11 @@ namespace Mix.Desktop
             var configure = Container.Resolve<IConfigureFile>();
 
             I18nManager.Initialize(configure);
-            var language = configure.GetValue<CultureInfo>("language");
+            var language = configure.GetValue<CultureInfo>(SystemConst.LANGUAGE);
             if (language == null)
             {
                 language = CultureInfo.InstalledUICulture;
-                configure.SetValue("language", language);
+                configure.SetValue(SystemConst.LANGUAGE, language);
             }
 
             I18nManager.Instance.CurrentUICulture = language;

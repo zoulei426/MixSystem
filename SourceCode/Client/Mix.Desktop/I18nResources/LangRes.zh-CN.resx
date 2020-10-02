@@ -120,6 +120,9 @@
   <data name="AutomaticLogin" xml:space="preserve">
     <value>自动登录</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
   <data name="Confirm" xml:space="preserve">
     <value>确认</value>
   </data>
@@ -137,6 +140,12 @@
   </data>
   <data name="RetrySeconds" xml:space="preserve">
     <value>秒后重试</value>
+  </data>
+  <data name="SendVerificationCode" xml:space="preserve">
+    <value>发送验证码</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>注册</value>
   </data>
   <data name="UserName" xml:space="preserve">
     <value>用户名</value>
