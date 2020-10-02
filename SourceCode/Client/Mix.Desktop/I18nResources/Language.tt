@@ -20,7 +20,7 @@
 using System.Windows;
 
 <#
-    const string ResourceFileName = "LangRes.resx";
+    const string ResourceFileName = "LangRes.zh-CN.resx";
 #>
 
 namespace <#=System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("NamespaceHint").ToString()#>
@@ -33,7 +33,7 @@ namespace <#=System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("Names
         .Select(item => item.Attribute("name")?.Value)
         .Where(item => item != null);
 
-	var resourceDesignerName = Path.GetFileNameWithoutExtension(ResourceFileName);
+	var resourceDesignerName = Path.GetFileNameWithoutExtension(ResourceFileName).Replace(".zh-CN","");
 
     foreach (string resourceKey in resourceKeys)
     {

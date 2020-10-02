@@ -14,7 +14,14 @@ namespace Mix.Desktop.I18nResources
 {
 	public static class Language
 	{
+		public static readonly ComponentResourceKey AutomaticLogin = new ComponentResourceKey(typeof(LangRes), nameof(AutomaticLogin));
 		public static readonly ComponentResourceKey Confirm = new ComponentResourceKey(typeof(LangRes), nameof(Confirm));
+		public static readonly ComponentResourceKey Email = new ComponentResourceKey(typeof(LangRes), nameof(Email));
 		public static readonly ComponentResourceKey Login = new ComponentResourceKey(typeof(LangRes), nameof(Login));
+		public static readonly ComponentResourceKey Password = new ComponentResourceKey(typeof(LangRes), nameof(Password));
+		public static readonly ComponentResourceKey RememberMe = new ComponentResourceKey(typeof(LangRes), nameof(RememberMe));
+		public static readonly ComponentResourceKey RetrySeconds = new ComponentResourceKey(typeof(LangRes), nameof(RetrySeconds));
+		public static readonly ComponentResourceKey UserName = new ComponentResourceKey(typeof(LangRes), nameof(UserName));
+		public static readonly ComponentResourceKey VerificationCode = new ComponentResourceKey(typeof(LangRes), nameof(VerificationCode));
 	}
 }

@@ -117,13 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Lang000001" xml:space="preserve">
+  <data name="AutomaticLogin" xml:space="preserve">
+    <value>自动登录</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
     <value>确认</value>
   </data>
-  <data name="Lang000002" xml:space="preserve">
-    <value>取消</value>
+  <data name="Email" xml:space="preserve">
+    <value>邮箱</value>
   </data>
-  <data name="Lang000003" xml:space="preserve">
-    <value>提交</value>
+  <data name="Login" xml:space="preserve">
+    <value>登录</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>密码</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>记住密码</value>
+  </data>
+  <data name="RetrySeconds" xml:space="preserve">
+    <value>秒后重试</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+  <data name="VerificationCode" xml:space="preserve">
+    <value>验证码</value>
   </data>
 </root>

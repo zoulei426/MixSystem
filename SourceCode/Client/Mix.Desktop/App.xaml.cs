@@ -1,12 +1,9 @@
 ﻿using Mix.Windows.Core;
 using Mix.Windows.WPF;
 using Prism.Ioc;
-using Prism.Logging;
 using Prism.Mvvm;
-using Prism.Unity;
 using System;
 using System.Globalization;
-using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
@@ -21,7 +18,6 @@ namespace Mix.Desktop
         #region Methods
 
         #region Methods - Override
-
 
         /// <summary>
         /// 启动
@@ -45,7 +41,6 @@ namespace Mix.Desktop
             containerRegistry.RegisterInstance(new ConfigureFile().Load());
         }
 
-
         protected override void ConfigureViewModelLocator()
         {
             ViewModelLocationProvider.SetDefaultViewModelFactory(
@@ -59,13 +54,13 @@ namespace Mix.Desktop
         protected override Window CreateShell()
         {
             InitializeCultureInfo();
-            return Container.Resolve<LoginWindow>();
+            return Container.Resolve<MainWindow>();
         }
 
-        
-        #endregion
+        #endregion Methods - Override
 
         #region Methods - Private
+
         private void InitializeCultureInfo()
         {
             var configure = Container.Resolve<IConfigureFile>();
@@ -90,7 +85,7 @@ namespace Mix.Desktop
         private void App_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
             Exception ex = e.Exception;
-            MessageBox.Show($"程序运行出错，原因：{ex.Message}-{ex.InnerException?.Message}", 
+            MessageBox.Show($"程序运行出错，原因：{ex.Message}-{ex.InnerException?.Message}",
                 "系统提示", MessageBoxButton.OK, MessageBoxImage.Error);
             Container.Resolve<ILogger>().Error(ex.Message, ex);
             e.Handled = true;
@@ -106,7 +101,7 @@ namespace Mix.Desktop
             var ex = e.ExceptionObject as Exception;
             if (ex != null)
             {
-                MessageBox.Show($"程序组件出错，原因：{ex.Message}", 
+                MessageBox.Show($"程序组件出错，原因：{ex.Message}",
                     "系统提示", MessageBoxButton.OK, MessageBoxImage.Error);
                 Container.Resolve<ILogger>().Error(ex.Message, ex);
             }
@@ -120,22 +115,15 @@ namespace Mix.Desktop
         private void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
         {
             Exception ex = e.Exception;
-            MessageBox.Show($"执行任务出错，原因：{ex.Message}", 
+            MessageBox.Show($"执行任务出错，原因：{ex.Message}",
                 "系统提示", MessageBoxButton.OK, MessageBoxImage.Error);
             Container.Resolve<ILogger>().Error(ex.Message, ex);
             //设置该异常已察觉
             e.SetObserved();
         }
-        #endregion
 
-        #endregion
+        #endregion Methods - Private
 
-
-        
-
-
-
-
-       
+        #endregion Methods
     }
 }

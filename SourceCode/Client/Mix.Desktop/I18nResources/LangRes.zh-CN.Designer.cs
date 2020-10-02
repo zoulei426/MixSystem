@@ -61,6 +61,15 @@ namespace Mix.Desktop.I18nResources {
         }
         
         /// <summary>
+        ///   查找类似 自动登录 的本地化字符串。
+        /// </summary>
+        internal static string AutomaticLogin {
+            get {
+                return ResourceManager.GetString("AutomaticLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 确认 的本地化字符串。
         /// </summary>
         internal static string Confirm {
@@ -70,11 +79,65 @@ namespace Mix.Desktop.I18nResources {
         }
         
         /// <summary>
+        ///   查找类似 邮箱 的本地化字符串。
+        /// </summary>
+        internal static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 登录 的本地化字符串。
         /// </summary>
         internal static string Login {
             get {
                 return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 密码 的本地化字符串。
+        /// </summary>
+        internal static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 记住密码 的本地化字符串。
+        /// </summary>
+        internal static string RememberMe {
+            get {
+                return ResourceManager.GetString("RememberMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 秒后重试 的本地化字符串。
+        /// </summary>
+        internal static string RetrySeconds {
+            get {
+                return ResourceManager.GetString("RetrySeconds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 用户名 的本地化字符串。
+        /// </summary>
+        internal static string UserName {
+            get {
+                return ResourceManager.GetString("UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 验证码 的本地化字符串。
+        /// </summary>
+        internal static string VerificationCode {
+            get {
+                return ResourceManager.GetString("VerificationCode", resourceCulture);
             }
         }
     }
