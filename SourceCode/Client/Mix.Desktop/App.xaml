@@ -12,7 +12,7 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
 
-                <ResourceDictionary Source="pack://application:,,,/Mix.Windows.Controls;component/Styles/MixTheme.Defaults.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Mix.Windows.Controls;component/Styles/MixTheme.Defaults.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

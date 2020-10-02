@@ -98,8 +98,7 @@ namespace Mix.Desktop
         /// <param name="e"></param>
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-            var ex = e.ExceptionObject as Exception;
-            if (ex != null)
+            if (e.ExceptionObject is Exception ex)
             {
                 MessageBox.Show($"程序组件出错，原因：{ex.Message}",
                     "系统提示", MessageBoxButton.OK, MessageBoxImage.Error);

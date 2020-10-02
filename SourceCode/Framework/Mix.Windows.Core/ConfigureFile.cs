@@ -4,15 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mix.Windows.Core
 {
     public class ConfigureFile : IConfigureFile
     {
         private JObject _storage;
-        private string _filePath = Path.Combine( SystemPath.Configs, "system.config");
+        private string _filePath = Path.Combine(SystemPath.Configs, "system.config");
 
         public event EventHandler<ValueChangedEventArgs> ValueChanged;
 
@@ -57,7 +55,6 @@ namespace Mix.Windows.Core
             Clear();
             File.Delete(_filePath);
         }
-
 
         private void Save() => WriteToLocal(_filePath, _storage.ToString(Formatting.Indented));
 

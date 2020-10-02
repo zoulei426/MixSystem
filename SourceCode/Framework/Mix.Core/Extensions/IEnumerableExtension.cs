@@ -68,9 +68,6 @@ namespace Mix.Core
             return list;
         }
 
-       
-
-
         #endregion Methods
     }
 }

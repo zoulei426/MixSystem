@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mix.Windows.Core
 {
@@ -16,7 +12,7 @@ namespace Mix.Windows.Core
         void Debug(string message, params object[] args);
 
         void Debug(string message, Exception exception);
-        
+
         void Info(string message);
 
         void Info(string message, params object[] args);

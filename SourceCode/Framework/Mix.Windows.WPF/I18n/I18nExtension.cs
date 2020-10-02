@@ -11,7 +11,9 @@ namespace Mix.Windows.WPF
         [ConstructorArgument(nameof(Key))]
         public ComponentResourceKey Key { get; set; }
 
-        public I18nExtension() { }
+        public I18nExtension()
+        {
+        }
 
         public I18nExtension(ComponentResourceKey key) => Key = key;
 
@@ -26,7 +28,7 @@ namespace Mix.Windows.WPF
 
         private object ProvideValueFromKey(IServiceProvider serviceProvider, ComponentResourceKey key)
         {
-            if (!(serviceProvider.GetService(typeof(IProvideValueTarget)) is IProvideValueTarget provideValueTarget))
+            if (serviceProvider.GetService(typeof(IProvideValueTarget)) is not IProvideValueTarget provideValueTarget)
                 throw new ArgumentException(
                     $"The {nameof(serviceProvider)} must implement {nameof(IProvideValueTarget)} interface.");
 
@@ -42,7 +44,6 @@ namespace Mix.Windows.WPF
                 Mode = BindingMode.OneWay
             }.ProvideValue(serviceProvider);
         }
-
 
         //private BindableBase _dataContext;
 

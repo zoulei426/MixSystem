@@ -46,8 +46,10 @@ namespace Mix.Windows.Core
                 {
                     case DelegateType.Action:
                         return GetAction<TDelegate>(methodName);
+
                     case DelegateType.ActionWithParams:
                         return GetActionWithParams<TDelegate>(methodName, argTypes);
+
                     default:
                         throw new NotSupportedException();
                 }

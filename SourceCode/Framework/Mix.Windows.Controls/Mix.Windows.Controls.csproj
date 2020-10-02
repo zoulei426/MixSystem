@@ -5,6 +5,10 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\Build\Debug\</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="3.2.0" />
     <PackageReference Include="System.Windows.Interactivity.WPF" Version="2.0.20525" />

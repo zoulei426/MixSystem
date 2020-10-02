@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Mix.Windows.WPF.Convertors
+﻿namespace Mix.Windows.WPF.Convertors
 {
     public class NotConverter : ValueConverterBase<bool, bool>
     {

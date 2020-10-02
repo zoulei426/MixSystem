@@ -8,6 +8,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile></DocumentationFile>
+    <OutputPath>..\Build\Debug\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -63,5 +64,4 @@
       <LastGenOutput>LangRes.zh-CN.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-
 </Project>

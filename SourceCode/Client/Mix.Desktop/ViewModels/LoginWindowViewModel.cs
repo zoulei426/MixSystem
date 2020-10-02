@@ -1,7 +1,6 @@
 ﻿using Mix.Windows.WPF;
 using Prism.Ioc;
 using System.Windows.Controls;
-using Unity;
 
 namespace Mix.Desktop
 {
@@ -11,7 +10,7 @@ namespace Mix.Desktop
 
         private TabItem _SignInTabItem;
 
-        #endregion
+        #endregion Fields
 
         #region Ctor
 
@@ -21,7 +20,6 @@ namespace Mix.Desktop
         /// <param name="container"></param>
         public LoginWindowViewModel(IContainerExtension container) : base(container)
         {
-            
         }
 
         public void OnLoaded(LoginWindow view)
@@ -33,12 +31,6 @@ namespace Mix.Desktop
         {
         }
 
-        #endregion
-
-        #region Commands
-
-
-        #endregion
-
+        #endregion Ctor
     }
 }

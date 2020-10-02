@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mix.Core
 {
@@ -22,6 +20,7 @@ namespace Mix.Core
         private readonly Dictionary<string, string> _DataErrors = new Dictionary<string, string>();
 
         private string _Error;
+
         /// <summary>
         /// 验证器
         /// </summary>
@@ -32,6 +31,7 @@ namespace Mix.Core
         #endregion Fields
 
         #region Properties
+
         /// <summary>
         /// 错误信息
         /// </summary>
@@ -80,7 +80,6 @@ namespace Mix.Core
                     _ValidateMI = validatorCls.GetMethods().FirstOrDefault(t => t.Name.Equals("Validate"));
                 }
 
-
                 var result = _ValidateMI.Invoke(_Validator, new object[] { this }) as FluentValidation.Results.ValidationResult;
 
                 var errors = result.Errors.Where(lol => lol.PropertyName == columnName).ToList();
@@ -94,8 +93,6 @@ namespace Mix.Core
                 RemoveDic(_DataErrors, columnName);
                 return null;
                 //return firstOrDefault?.ErrorMessage;
-
-
             }
             catch (Exception ex)
             {

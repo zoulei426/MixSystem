@@ -4,9 +4,9 @@
                     xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
                     xmlns:converters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf">
     <Style x:Key="MainTabItemStyle" TargetType="{x:Type TabItem}">
-        <Setter Property="Background" Value="{StaticResource PrimaryHueMidBrush}"/>
-        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        <Setter Property="Background" Value="{StaticResource PrimaryHueMidBrush}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TabItem">
@@ -16,30 +16,30 @@
                                 <VisualStateGroup.Transitions>
                                     <VisualTransition From="{x:Null}" GeneratedDuration="0:0:0.6" Storyboard="{x:Null}" To="Normal">
                                         <VisualTransition.GeneratedEasingFunction>
-                                            <CircleEase EasingMode="EaseOut"/>
+                                            <CircleEase EasingMode="EaseOut" />
                                         </VisualTransition.GeneratedEasingFunction>
                                     </VisualTransition>
                                 </VisualStateGroup.Transitions>
-                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="Normal" />
                                 <VisualState x:Name="MouseOver">
                                     <Storyboard>
-                                        <DoubleAnimation Duration="0" To="0.4" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="mouseOverBorder"/>
-                                        <DoubleAnimation Duration="0" To="0.2" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="mouseOverRectangle"/>
+                                        <DoubleAnimation Duration="0" To="0.4" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="mouseOverBorder" />
+                                        <DoubleAnimation Duration="0" To="0.2" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="mouseOverRectangle" />
                                     </Storyboard>
                                 </VisualState>
-                                <VisualState x:Name="Disabled"/>
+                                <VisualState x:Name="Disabled" />
                             </VisualStateGroup>
                             <VisualStateGroup x:Name="SelectionStates">
                                 <VisualStateGroup.Transitions>
-                                    <VisualTransition From="{x:Null}" GeneratedDuration="0:0:0.4" GeneratedEasingFunction="{x:Null}" Storyboard="{x:Null}" To="{x:Null}"/>
+                                    <VisualTransition From="{x:Null}" GeneratedDuration="0:0:0.4" GeneratedEasingFunction="{x:Null}" Storyboard="{x:Null}" To="{x:Null}" />
                                 </VisualStateGroup.Transitions>
                                 <VisualState x:Name="Selected">
                                     <Storyboard>
-                                        <DoubleAnimation Duration="0" To="0.8" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="selectedBorder"/>
-                                        <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="selectedRectangle"/>
+                                        <DoubleAnimation Duration="0" To="0.8" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="selectedBorder" />
+                                        <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="selectedRectangle" />
                                     </Storyboard>
                                 </VisualState>
-                                <VisualState x:Name="Unselected"/>
+                                <VisualState x:Name="Unselected" />
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
 
@@ -47,7 +47,7 @@
                             <Border.Background>
                                 <TemplateBinding Property="Foreground">
                                     <TemplateBinding.Converter>
-                                        <converters:BrushRoundConverter LowValue="{StaticResource PrimaryHueMidBrush}" HighValue="White"/>
+                                        <converters:BrushRoundConverter LowValue="{StaticResource PrimaryHueMidBrush}" HighValue="White" />
                                     </TemplateBinding.Converter>
                                 </TemplateBinding>
                             </Border.Background>
@@ -56,32 +56,32 @@
                             <Border.Background>
                                 <TemplateBinding Property="Foreground">
                                     <TemplateBinding.Converter>
-                                        <converters:BrushRoundConverter LowValue="{StaticResource PrimaryHueMidBrush}" HighValue="White"/>
+                                        <converters:BrushRoundConverter LowValue="{StaticResource PrimaryHueMidBrush}" HighValue="White" />
                                     </TemplateBinding.Converter>
                                 </TemplateBinding>
                             </Border.Background>
                         </Border>
                         <ContentPresenter x:Name="contentPresenter" ContentSource="Header" Focusable="False" VerticalAlignment="Center" HorizontalAlignment="Center"
-                                          Margin="0" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                          Margin="0" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         <md:Ripple x:Name="Ripple" ContentTemplate="{TemplateBinding ContentTemplate}" Focusable="False" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}">
                             <md:Ripple.Feedback>
                                 <TemplateBinding Property="Foreground">
                                     <TemplateBinding.Converter>
-                                        <converters:BrushRoundConverter LowValue="White" HighValue="Black"/>
+                                        <converters:BrushRoundConverter LowValue="White" HighValue="Black" />
                                     </TemplateBinding.Converter>
                                 </TemplateBinding>
                             </md:Ripple.Feedback>
                         </md:Ripple>
 
-                        <Rectangle Width="4" HorizontalAlignment="Left" x:Name="selectedRectangle" Fill="#9FA4FE" Opacity="0"/>
-                        <Rectangle Width="4" HorizontalAlignment="Left" x:Name="mouseOverRectangle" Fill="#9FA4FE" Opacity="0"/>
+                        <Rectangle Width="4" HorizontalAlignment="Left" x:Name="selectedRectangle" Fill="#9FA4FE" Opacity="0" />
+                        <Rectangle Width="4" HorizontalAlignment="Left" x:Name="mouseOverRectangle" Fill="#9FA4FE" Opacity="0" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Opacity" Value="0.56"/>
+                            <Setter Property="Opacity" Value="0.56" />
                         </Trigger>
                         <Trigger SourceName="contentPresenter" Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter Property="Cursor" Value="Hand" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -90,28 +90,28 @@
     </Style>
 
     <Style x:Key="MainTabControlStyle" TargetType="{x:Type TabControl}">
-        <Setter Property="TabStripPlacement" Value="Left"/>
-        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        <Setter Property="TabStripPlacement" Value="Left" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TabControl}">
                     <Grid ClipToBounds="true" SnapsToDevicePixels="true" KeyboardNavigation.TabNavigation="Local">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto" />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition />
-                            <RowDefinition Height="112"/>
+                            <RowDefinition Height="112" />
                         </Grid.RowDefinitions>
                         <ScrollViewer Grid.Column="0" Grid.Row="0" VerticalScrollBarVisibility="Auto">
                             <TabPanel Background="Transparent" IsItemsHost="true" KeyboardNavigation.TabIndex="1" Panel.ZIndex="1" />
                         </ScrollViewer>
                         <Border Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" BorderBrush="{TemplateBinding BorderBrush}"
-                                KeyboardNavigation.DirectionalNavigation="Contained" 
+                                KeyboardNavigation.DirectionalNavigation="Contained"
                                 KeyboardNavigation.TabIndex="2" KeyboardNavigation.TabNavigation="Local">
-                            <ContentPresenter x:Name="PART_SelectedContentHost" ContentSource="SelectedContent" Margin="0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            <ContentPresenter x:Name="PART_SelectedContentHost" ContentSource="SelectedContent" Margin="0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </Border>
                     </Grid>
                 </ControlTemplate>
@@ -120,54 +120,54 @@
     </Style>
 
     <Style TargetType="{x:Type TabItem}">
-        <Setter Property="Foreground" Value="{StaticResource PrimaryHueMidBrush}"/>
-        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        <Setter Property="Foreground" Value="{StaticResource PrimaryHueMidBrush}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TabItem}">
-                    <Grid x:Name="Root" SnapsToDevicePixels="true" >
+                    <Grid x:Name="Root" SnapsToDevicePixels="true">
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="SelectionStates">
                                 <VisualStateGroup.Transitions>
                                     <VisualTransition From="{x:Null}" GeneratedDuration="0:0:0.6" Storyboard="{x:Null}" To="{x:Null}">
                                         <VisualTransition.GeneratedEasingFunction>
-                                            <CircleEase EasingMode="EaseOut"/>
+                                            <CircleEase EasingMode="EaseOut" />
                                         </VisualTransition.GeneratedEasingFunction>
                                     </VisualTransition>
                                 </VisualStateGroup.Transitions>
-                                <VisualState x:Name="Unselected"/>
+                                <VisualState x:Name="Unselected" />
                                 <VisualState x:Name="Selected">
                                     <Storyboard>
-                                        <DoubleAnimation To="1" Storyboard.TargetName="selectedUnderline" Storyboard.TargetProperty="Opacity"/>
+                                        <DoubleAnimation To="1" Storyboard.TargetName="selectedUnderline" Storyboard.TargetProperty="Opacity" />
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualStateGroup.Transitions>
-                                    <VisualTransition From="{x:Null}" GeneratedDuration="0:0:0.6" GeneratedEasingFunction="{x:Null}" Storyboard="{x:Null}" To="{x:Null}"/>
+                                    <VisualTransition From="{x:Null}" GeneratedDuration="0:0:0.6" GeneratedEasingFunction="{x:Null}" Storyboard="{x:Null}" To="{x:Null}" />
                                 </VisualStateGroup.Transitions>
-                                <VisualState x:Name="Normal"/>
-                                <VisualState x:Name="MouseOver" >
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver">
                                     <Storyboard>
-                                        <DoubleAnimation To="0.4" Storyboard.TargetName="mouseOverUnderline" Storyboard.TargetProperty="Opacity"/>
+                                        <DoubleAnimation To="0.4" Storyboard.TargetName="mouseOverUnderline" Storyboard.TargetProperty="Opacity" />
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
                         <!--<ContentPresenter x:Name="contentPresenter" ContentSource="Header" Focusable="False"
-                                          Margin="8" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>-->
+                                          Margin="8" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />-->
                         <TextBlock x:Name="contentPresenter" Text="{TemplateBinding Header}"  Focusable="False" Margin="8"
-                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                        <Rectangle x:Name="selectedUnderline" Margin="8 0" Opacity="0" Height="4" Focusable="False" VerticalAlignment="Bottom" Fill="{TemplateBinding Foreground}"/>
-                        <Rectangle x:Name="mouseOverUnderline" Margin="8 0" Opacity="0" Height="4" Focusable="False" VerticalAlignment="Bottom" Fill="{TemplateBinding Foreground}"/>
+                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        <Rectangle x:Name="selectedUnderline" Margin="8 0" Opacity="0" Height="4" Focusable="False" VerticalAlignment="Bottom" Fill="{TemplateBinding Foreground}" />
+                        <Rectangle x:Name="mouseOverUnderline" Margin="8 0" Opacity="0" Height="4" Focusable="False" VerticalAlignment="Bottom" Fill="{TemplateBinding Foreground}" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter Property="Cursor" Value="Hand" />
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="contentPresenter" Property="TextBlock.FontWeight" Value="Bold"/>
+                            <Setter TargetName="contentPresenter" Property="TextBlock.FontWeight" Value="Bold" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -178,12 +178,12 @@
     <Storyboard x:Key="RightToLeftMovedStoryboard">
         <DoubleAnimation BeginTime="00:00:00" Duration="00:00:00.600" Storyboard.TargetProperty="RenderTransform.X" From="-200" To="0">
             <DoubleAnimation.EasingFunction>
-                <CubicEase  EasingMode="EaseOut"/>
+                <CubicEase  EasingMode="EaseOut" />
             </DoubleAnimation.EasingFunction>
         </DoubleAnimation>
         <DoubleAnimation BeginTime="00:00:00" Duration="00:00:00.600" Storyboard.TargetProperty="Opacity" From="0" To="1">
             <DoubleAnimation.EasingFunction>
-                <PowerEase  EasingMode="EaseIn"/>
+                <PowerEase  EasingMode="EaseIn" />
             </DoubleAnimation.EasingFunction>
         </DoubleAnimation>
     </Storyboard>
@@ -191,34 +191,34 @@
     <Storyboard x:Key="LeftToRightMovedStoryboard">
         <DoubleAnimation BeginTime="00:00:00" Duration="00:00:00.600" Storyboard.TargetProperty="RenderTransform.X" From="200" To="0">
             <DoubleAnimation.EasingFunction>
-                <CubicEase  EasingMode="EaseOut"/>
+                <CubicEase  EasingMode="EaseOut" />
             </DoubleAnimation.EasingFunction>
         </DoubleAnimation>
         <DoubleAnimation BeginTime="00:00:00" Duration="00:00:00.600" Storyboard.TargetProperty="Opacity" From="0" To="1">
             <DoubleAnimation.EasingFunction>
-                <PowerEase  EasingMode="EaseIn"/>
+                <PowerEase  EasingMode="EaseIn" />
             </DoubleAnimation.EasingFunction>
         </DoubleAnimation>
     </Storyboard>
 
     <Style TargetType="{x:Type TabControl}">
-        <Setter Property="local:TabControlHelper.LeftToRightAnimation" Value="{StaticResource LeftToRightMovedStoryboard}"/>
-        <Setter Property="local:TabControlHelper.RightToLeftAnimation" Value="{StaticResource RightToLeftMovedStoryboard}"/>
-        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        <Setter Property="local:TabControlHelper.LeftToRightAnimation" Value="{StaticResource LeftToRightMovedStoryboard}" />
+        <Setter Property="local:TabControlHelper.RightToLeftAnimation" Value="{StaticResource RightToLeftMovedStoryboard}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TabControl}">
                     <Grid ClipToBounds="true" SnapsToDevicePixels="true" KeyboardNavigation.TabNavigation="Local">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto" />
                             <RowDefinition />
                         </Grid.RowDefinitions>
-                        <TabPanel Background="Transparent" IsItemsHost="true" KeyboardNavigation.TabIndex="1" Panel.ZIndex="1"/>
-                        <Border Grid.Row="1" BorderThickness="0" 
+                        <TabPanel Background="Transparent" IsItemsHost="true" KeyboardNavigation.TabIndex="1" Panel.ZIndex="1" />
+                        <Border Grid.Row="1" BorderThickness="0"
                                 KeyboardNavigation.DirectionalNavigation="Contained"
                                 KeyboardNavigation.TabIndex="2" KeyboardNavigation.TabNavigation="Local">
-                            <ContentPresenter x:Name="PART_SelectedContentHost" ContentSource="SelectedContent" Margin="0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            <ContentPresenter x:Name="PART_SelectedContentHost" ContentSource="SelectedContent" Margin="0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </Border>
                     </Grid>
                 </ControlTemplate>
@@ -226,11 +226,11 @@
         </Setter>
     </Style>
 
-    <EventTrigger x:Key="LeftToRightMovedEventTrigger" RoutedEvent="local:TabControlHelper.LeftToRightMoved" >
-        <BeginStoryboard Storyboard="{Binding Path=(local:TabControlHelper.LeftToRightAnimation), RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TabControl, AncestorLevel=1}}"/>
+    <EventTrigger x:Key="LeftToRightMovedEventTrigger" RoutedEvent="local:TabControlHelper.LeftToRightMoved">
+        <BeginStoryboard Storyboard="{Binding Path=(local:TabControlHelper.LeftToRightAnimation), RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TabControl, AncestorLevel=1}}" />
     </EventTrigger>
 
-    <EventTrigger x:Key="RightToLeftMovedEventTrigger" RoutedEvent="local:TabControlHelper.RightToLeftMoved" >
-        <BeginStoryboard Storyboard="{Binding Path=(local:TabControlHelper.RightToLeftAnimation), RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TabControl, AncestorLevel=1}}"/>
+    <EventTrigger x:Key="RightToLeftMovedEventTrigger" RoutedEvent="local:TabControlHelper.RightToLeftMoved">
+        <BeginStoryboard Storyboard="{Binding Path=(local:TabControlHelper.RightToLeftAnimation), RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TabControl, AncestorLevel=1}}" />
     </EventTrigger>
 </ResourceDictionary>

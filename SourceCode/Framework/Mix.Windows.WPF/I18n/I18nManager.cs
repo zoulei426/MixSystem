@@ -4,7 +4,6 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Resources;
-using System.Threading;
 using System.Windows;
 
 namespace Mix.Windows.WPF

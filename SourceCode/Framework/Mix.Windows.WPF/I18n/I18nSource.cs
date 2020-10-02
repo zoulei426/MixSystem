@@ -1,5 +1,4 @@
-﻿using Mix.Windows.Core;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Windows;
 
 namespace Mix.Windows.WPF

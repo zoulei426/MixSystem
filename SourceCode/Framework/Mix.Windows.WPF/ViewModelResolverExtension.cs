@@ -2,10 +2,7 @@
 using Mix.Windows.Core;
 using Prism.Ioc;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace Mix.Windows.WPF
@@ -46,6 +43,7 @@ namespace Mix.Windows.WPF
             {
                 //viewModel.GlobalMessageQueue = container.Resolve<ISnackbarMessageQueue>();
             });
+
         //.IfInheritsFrom<IAwareTabItemSelectionChanged>((view, viewModel) =>
         //{
         //    TabControlHelper.SetAwareSelectionChanged(view, true);

@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mix.Desktop"
-        xmlns:prism="http://prismlibrary.com/" 
+        xmlns:prism="http://prismlibrary.com/"
         xmlns:controls="clr-namespace:Mix.Windows.Controls;assembly=Mix.Windows.Controls"
         xmlns:wpf="clr-namespace:Mix.Windows.WPF;assembly=Mix.Windows.WPF"
         xmlns:i18nResources="clr-namespace:Mix.Desktop.I18nResources"
@@ -16,7 +16,7 @@
         Style="{StaticResource MixWindowStyle}">
     <controls:SwitchLoadingViewContainer IsLoading="{Binding IsLoading}">
         <TabControl Margin="60 40 60 30" WindowChrome.IsHitTestVisibleInChrome="True">
-            <!-- 登录界面 --> 
+            <!-- 登录界面 -->
             <TabItem x:Name="SignInTabItem" IsSelected="True"
                      Header="{wpf:I18n {x:Static i18nResources:Language.Login}}">
                 <local:SignInPanel Margin="0 16 0 0" />
@@ -24,11 +24,11 @@
                     <EventTrigger RoutedEvent="Selector.Selected">
                         <BeginStoryboard>
                             <Storyboard>
-                                <DoubleAnimation BeginTime="00:00:00" Duration="00:00:00.500" 
+                                <DoubleAnimation BeginTime="00:00:00" Duration="00:00:00.500"
                                                  Storyboard.Target="{Binding ElementName=OwnerWindow}"
                                                  Storyboard.TargetProperty="Height" From="384" To="321">
                                     <DoubleAnimation.EasingFunction>
-                                        <BackEase  EasingMode="EaseOut"/>
+                                        <BackEase  EasingMode="EaseOut" />
                                     </DoubleAnimation.EasingFunction>
                                 </DoubleAnimation>
                             </Storyboard>
@@ -37,7 +37,7 @@
                 </TabItem.Triggers>
             </TabItem>
 
-            <!-- 注册界面 --> 
+            <!-- 注册界面 -->
             <TabItem x:Name="SignUpTabItem"
                      Header="注册">
                 <local:SignUpPanel Margin="0 16 0 0" />
@@ -45,11 +45,11 @@
                     <EventTrigger RoutedEvent="Selector.Selected">
                         <BeginStoryboard>
                             <Storyboard>
-                                <DoubleAnimation BeginTime="00:00:00" Duration="00:00:00.500" 
+                                <DoubleAnimation BeginTime="00:00:00" Duration="00:00:00.500"
                                                  Storyboard.Target="{Binding ElementName=OwnerWindow}"
                                                  Storyboard.TargetProperty="Height" From="321" To="384">
                                     <DoubleAnimation.EasingFunction>
-                                        <BackEase  EasingMode="EaseOut"/>
+                                        <BackEase  EasingMode="EaseOut" />
                                     </DoubleAnimation.EasingFunction>
                                 </DoubleAnimation>
                             </Storyboard>

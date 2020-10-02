@@ -29,8 +29,6 @@ namespace Mix.Windows.Core
                 ? JsonConvert.DeserializeObject<T>(json, JsonDeserializerSettings)
                 : default;
         }
-
-
     }
 
     public class FileLocatorConverter : JsonConverter

@@ -1,7 +1,5 @@
-﻿using Prism.Logging;
+﻿using NLog;
 using System;
-using NLog;
-using System.Threading;
 
 namespace Mix.Windows.Core
 {
@@ -89,7 +87,5 @@ namespace Mix.Windows.Core
         {
             _Logger.Trace(message);
         }
-       
     }
-
 }

@@ -55,12 +55,6 @@ namespace Mix.Core
 
         #endregion Methods - Virtual
 
-        #region Methods - Private
-
-
-
-        #endregion Methods - Private
-
         #endregion Methods
     }
 }

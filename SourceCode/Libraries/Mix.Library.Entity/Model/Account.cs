@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Mix.Core;
+using System;
 using System.ComponentModel;
-using System.Text;
-using Mix.Core;
 
 namespace Mix.Library.Entity.Model
 {
@@ -20,6 +18,7 @@ namespace Mix.Library.Entity.Model
             get { return _ID; }
             set { SetProperty(ref _ID, value); }
         }
+
         private Guid _ID;
 
         /// <summary>
@@ -31,6 +30,7 @@ namespace Mix.Library.Entity.Model
             get { return _UserName; }
             set { SetProperty(ref _UserName, value); }
         }
+
         private string _UserName;
 
         /// <summary>
@@ -42,6 +42,7 @@ namespace Mix.Library.Entity.Model
             get { return _Password; }
             set { SetProperty(ref _Password, value); }
         }
+
         private string _Password;
 
         /// <summary>
@@ -53,6 +54,7 @@ namespace Mix.Library.Entity.Model
             get { return _CreateTime; }
             set { SetProperty(ref _CreateTime, value); }
         }
+
         private DateTime _CreateTime;
 
         /// <summary>
@@ -64,7 +66,7 @@ namespace Mix.Library.Entity.Model
             get { return _UpdateTime; }
             set { SetProperty(ref _UpdateTime, value); }
         }
-        private DateTime _UpdateTime;
 
+        private DateTime _UpdateTime;
     }
 }

@@ -17,24 +17,23 @@ namespace Mix.Windows.Core
         /// </summary>
         private static readonly Regex RegexFileLocation = new Regex(@"^([\\/]?(?:\w:)?(?:[^\\/]+?[\\/])*?)([^\\/]+?(?:\.(\w+?))?)?$", RegexOptions.Compiled);
 
-
         /// <summary>
-        /// Gets a string representing the full path of the file. 
+        /// Gets a string representing the full path of the file.
         /// </summary>
         public string FullPath { get; }
 
         /// <summary>
-        /// Gets a string representing the folder where the file is located. 
+        /// Gets a string representing the folder where the file is located.
         /// </summary>
         public string FolderPath { get; }
 
         /// <summary>
-        /// Gets a string representing the file name. 
+        /// Gets a string representing the file name.
         /// </summary>
         public string FileName { get; }
 
         /// <summary>
-        /// Gets a string representing the file extension. 
+        /// Gets a string representing the file extension.
         /// </summary>
         public string FileExtension { get; }
 
@@ -51,7 +50,7 @@ namespace Mix.Windows.Core
 
             FullPath = matchResult.Groups[0].Value;
             var temp = matchResult.Groups[1].Value;
-            if (!string.IsNullOrEmpty(temp)) FolderPath = temp.Remove(temp.Length - 1); // Remove the "\" or "/" at the end. 
+            if (!string.IsNullOrEmpty(temp)) FolderPath = temp.Remove(temp.Length - 1); // Remove the "\" or "/" at the end.
             FileName = matchResult.Groups[2].Value;
             FileExtension = matchResult.Groups[3].Value.ToLower();
         }
@@ -66,7 +65,7 @@ namespace Mix.Windows.Core
 
         public static bool operator ==(FileLocator left, FileLocator right)
         {
-            if ((object)left == null || (object)right == null)
+            if (left is null || right is null)
                 return Equals(left, right);
 
             return left.Equals(right);
@@ -76,7 +75,7 @@ namespace Mix.Windows.Core
 
         public override int GetHashCode() => FullPath != null ? FullPath.GetHashCode() : 0;
 
-        #endregion
+        #endregion Implements Equals
 
         public static implicit operator FileLocator(string filePath) => string.IsNullOrEmpty(filePath) ? null : new FileLocator(filePath);
 
