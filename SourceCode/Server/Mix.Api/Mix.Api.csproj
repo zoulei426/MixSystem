@@ -5,10 +5,12 @@
     <UserSecretsId>5d2cc329-1af1-46ec-a1ea-2c456ce7cc8a</UserSecretsId>
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
     <DockerfileContext>..\..\..</DockerfileContext>
+    <AssemblyName>Mix.Api</AssemblyName>
+    <RootNamespace>Mix.Api</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>..\Build\Debug\Mix.Server.xml</DocumentationFile>
+    <DocumentationFile>..\Build\Debug\Mix.Api.xml</DocumentationFile>
     <OutputPath>..\Build\Debug\</OutputPath>
   </PropertyGroup>
 

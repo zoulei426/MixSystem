@@ -17,7 +17,7 @@
                 "ASPNETCORE_ENVIRONMENT": "Development"
             }
         },
-        "Mix.Server": {
+        "Mix.Api": {
             "commandName": "Project",
             "launchBrowser": true,
             "launchUrl": "",

@@ -8,13 +8,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Mix.Server.Controllers
+namespace Mix.Api.Controllers
 {
     /// <summary>
     /// 账户控制器
     /// </summary>
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class AccountController : Controller
     {
         private IAccountRepository _AccountRepository;

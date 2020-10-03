@@ -10,16 +10,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
 WORKDIR /src
-COPY ["SourceCode/Server/Mix.Server/Mix.Server.csproj", "SourceCode/Server/Mix.Server/"]
-RUN dotnet restore "SourceCode/Server/Mix.Server/Mix.Server.csproj"
+COPY ["SourceCode/Server/Mix.Api/Mix.Api.csproj", "SourceCode/Server/Mix.Api/"]
+RUN dotnet restore "SourceCode/Server/Mix.Api/Mix.Api.csproj"
 COPY . .
-WORKDIR "/src/SourceCode/Server/Mix.Server"
-RUN dotnet build "Mix.Server.csproj" -c Release -o /app/build
+WORKDIR "/src/SourceCode/Server/Mix.Api"
+RUN dotnet build "Mix.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Mix.Server.csproj" -c Release -o /app/publish
+RUN dotnet publish "Mix.Api.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Mix.Server.dll"]
+ENTRYPOINT ["dotnet", "Mix.Api.dll"]

@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using System.Reflection;
 
-namespace Mix.Server
+namespace Mix.Api
 {
     /// <summary>
     /// Ö÷³ÌÐò

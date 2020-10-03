@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Mix.Server
+namespace Mix.Api
 {
     /// <summary>
     /// 生成环境启动

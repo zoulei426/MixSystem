@@ -10,7 +10,7 @@ using Mix.Library.Repository;
 using System;
 using System.IO;
 
-namespace Mix.Server
+namespace Mix.Api
 {
     /// <summary>
     /// 开发模式启动
