@@ -1,0 +1,26 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "Mix.Library.Entity.Protos";
+
+package Protos;
+
+service Accounts{
+	rpc Login(LoginRequest) returns (LoginResponse) {}
+}
+
+message LoginRequest {
+    Account account = 1;
+}
+
+message LoginResponse {
+	int32 code = 1;
+	string message = 2;
+}
+
+
+
+message Account{
+	int32 id = 1;
+	string userName = 2;
+	string password = 3;
+}

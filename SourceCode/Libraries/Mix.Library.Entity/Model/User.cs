@@ -7,7 +7,7 @@ namespace Mix.Library.Entity.Model
     /// <summary>
     /// 账户
     /// </summary>
-    public class Account : ValidableObject
+    public class User : ValidableObject
     {
         /// <summary>
         /// 标识
@@ -44,29 +44,5 @@ namespace Mix.Library.Entity.Model
         }
 
         private string _Password;
-
-        /// <summary>
-        /// 创建时间
-        /// </summary>
-        [DisplayName("创建时间")]
-        public DateTime CreateTime
-        {
-            get { return _CreateTime; }
-            set { SetProperty(ref _CreateTime, value); }
-        }
-
-        private DateTime _CreateTime;
-
-        /// <summary>
-        /// 更新时间
-        /// </summary>
-        [DisplayName("更新时间")]
-        public DateTime UpdateTime
-        {
-            get { return _UpdateTime; }
-            set { SetProperty(ref _UpdateTime, value); }
-        }
-
-        private DateTime _UpdateTime;
     }
 }

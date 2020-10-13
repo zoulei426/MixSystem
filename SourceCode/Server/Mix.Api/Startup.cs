@@ -6,36 +6,29 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Mix.Core;
-using Mix.Library.Repository;
 using System;
 using System.IO;
 
 namespace Mix.Api
 {
     /// <summary>
-    /// 开发模式启动
+    /// Startup
     /// </summary>
-    public class StartupDevelopment
+    public class Startup
     {
         /// <summary>
         /// 构造
         /// </summary>
         /// <param name="configuration"></param>
-        public StartupDevelopment(IConfiguration configuration)
+        public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            AccountRepository = new AccountRepository();
         }
 
         /// <summary>
         /// 配置
         /// </summary>
         public IConfiguration Configuration { get; }
-
-        /// <summary>
-        /// 账户仓储
-        /// </summary>
-        public IAccountRepository AccountRepository { get; }
 
         /// <summary>
         /// 服务配置
@@ -74,7 +67,7 @@ namespace Mix.Api
                 // include document file
                 option.IncludeXmlComments(
                     Path.Combine(AppContext.BaseDirectory,
-                        $"{typeof(StartupDevelopment).Assembly.GetName().Name}.xml")
+                        $"{typeof(Startup).Assembly.GetName().Name}.xml")
                     , true);
 
                 // 为 Swagger 添加 Bearer Token 认证
@@ -99,8 +92,6 @@ namespace Mix.Api
                     }
                 });
             });
-
-            services.AddSingleton(AccountRepository);
         }
 
         /// <summary>
@@ -119,7 +110,7 @@ namespace Mix.Api
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

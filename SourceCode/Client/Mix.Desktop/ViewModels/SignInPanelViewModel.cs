@@ -1,4 +1,6 @@
-﻿using Mix.Core;
+﻿using Grpc.Core;
+using Grpc.Net.Client;
+using Mix.Core;
 using Mix.Windows.Core;
 using Mix.Windows.WPF;
 using Prism.Commands;
@@ -7,6 +9,7 @@ using System;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
+using static Mix.Library.Entity.Protos.Accounts;
 
 namespace Mix.Desktop
 {
@@ -47,6 +50,9 @@ namespace Mix.Desktop
 
         private bool _IsAutoSignIn;
 
+        private ChannelBase channel;
+        private AccountsClient accountsClient;
+
         #endregion Properties
 
         #region Commands
@@ -57,6 +63,9 @@ namespace Mix.Desktop
 
         public SignInPanelViewModel(IContainerExtension container) : base(container)
         {
+            channel = GrpcChannel.ForAddress("https://localhost:5001");
+            //channel = new Channel("localhost:5001", ChannelCredentials.Insecure);
+            accountsClient = new AccountsClient(channel);
         }
 
         protected override void RegisterCommands()
@@ -72,7 +81,18 @@ namespace Mix.Desktop
                             ? password.Password
                             : password.Password.ToMd5();
 
-            await SignInAsync(Email, passwordMd5);
+            var response = await accountsClient.LoginAsync(new Library.Entity.Protos.LoginRequest
+            {
+                Account = new Library.Entity.Protos.Account
+                {
+                    Id = 1,
+                    UserName = "test",
+                    Password = passwordMd5
+                }
+            });
+
+            ShellManager.Switch<LoginWindow, MainWindow>();
+            //await SignInAsync(Email, passwordMd5);
         }
 
         private async Task SignInAsync(string username, string passwordMd5)

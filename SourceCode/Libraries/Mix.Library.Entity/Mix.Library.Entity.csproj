@@ -1,20 +1,40 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile></DocumentationFile>
-    <OutputPath>..\Build\Debug\</OutputPath>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DocumentationFile></DocumentationFile>
+		<OutputPath>..\Build\Debug\</OutputPath>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="FluentValidation" Version="9.2.2" />
+		<PackageReference Include="Google.Protobuf" Version="3.13.0" />
+		<PackageReference Include="Grpc" Version="2.32.0" />
+		<PackageReference Include="Grpc.Tools" Version="2.32.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="FluentValidation" Version="9.2.2" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\Framework\Mix.Core\Mix.Core.csproj" />
+		<ProjectReference Include="..\..\Framework\Mix.Data\Mix.Data.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Framework\Mix.Core\Mix.Core.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="Database\" />
+		<Folder Include="Protos\cs\" />
+	</ItemGroup>
 
+	<ItemGroup>
+	  <None Update="Protos\account.proto" GrpcServices="Server">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+	  <Exec Command="protoc -I .\Protos\ --csharp_out ./Protos/cs --grpc_out ./Protos/cs --plugin=protoc-gen-grpc=D:\Protoc\bin\grpc_csharp_plugin.exe .\Protos\*.proto" />
+	</Target>
 </Project>

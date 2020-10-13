@@ -20,4 +20,7 @@
     <ProjectReference Include="..\Mix.Library.Entity\Mix.Library.Entity.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Account\" />
+  </ItemGroup>
 </Project>
