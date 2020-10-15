@@ -10,6 +10,20 @@
 
 	<ItemGroup>
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+		<PackageReference Include="Autofac" Version="6.0.0" />
+		<PackageReference Include="FreeSql" Version="1.9.0" />
+		<PackageReference Include="Serilog" Version="2.10.0" />
+		<PackageReference Include="ToolGood.Words" Version="3.0.2.4" />
 		<ProjectReference Include="..\Mix.Core\Mix.Core.csproj" />
+		<ProjectReference Include="..\Mix.Data\Mix.Data.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="wwwroot\_Illegal\IllegalKeywords.txt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="wwwroot\_Illegal\IllegalUrls.txt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	</ItemGroup>
 </Project>

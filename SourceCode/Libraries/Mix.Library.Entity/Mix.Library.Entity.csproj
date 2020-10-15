@@ -24,7 +24,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="Database\" />
 		<Folder Include="Protos\cs\" />
 	</ItemGroup>
 

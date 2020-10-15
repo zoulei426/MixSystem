@@ -83,12 +83,9 @@ namespace Mix.Desktop
 
             var response = await accountsClient.LoginAsync(new Library.Entity.Protos.LoginRequest
             {
-                Account = new Library.Entity.Protos.Account
-                {
-                    Id = 1,
-                    UserName = "test",
-                    Password = passwordMd5
-                }
+                Username = Email,
+                Password = password.Password
+                
             });
 
             ShellManager.Switch<LoginWindow, MainWindow>();

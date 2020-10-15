@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
+using StackExchange.Redis;
 
 namespace Mix.Api.Controllers
 {
@@ -9,11 +11,17 @@ namespace Mix.Api.Controllers
     [Route("api/[controller]")]
     public class AccountController : ControllerBase
     {
+        private readonly IConnectionMultiplexer redis;
+
+        private readonly IDatabase db;
+
         /// <summary>
         /// 构造
         /// </summary>
-        public AccountController()
+        public AccountController(IConnectionMultiplexer redis)
         {
+            this.redis = redis;
+            this.db = redis.GetDatabase();
         }
 
         /// <summary>
@@ -24,6 +32,10 @@ namespace Mix.Api.Controllers
         public IActionResult GetAll()
         {
             var str = "123";
+
+            db.StringSet("name", "Alice");
+            str = db.StringGet("name");
+
             return Ok(str);
         }
     }

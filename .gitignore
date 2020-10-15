@@ -348,3 +348,5 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/SourceCode/Framework/Mix.Service.Core/wwwroot/_Illegal/IllegalUrls.txt
+/SourceCode/Framework/Mix.Service.Core/wwwroot/_Illegal/IllegalKeywords.txt

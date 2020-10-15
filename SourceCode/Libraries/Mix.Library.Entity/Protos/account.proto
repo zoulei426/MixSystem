@@ -6,21 +6,45 @@ package Protos;
 
 service Accounts{
 	rpc Login(LoginRequest) returns (LoginResponse) {}
+	rpc Register(RegisterRequest) returns (RegisterResponse) {}
 }
 
 message LoginRequest {
-    Account account = 1;
+    string username = 1; // 用户名
+	string password = 2; // 密码
 }
 
 message LoginResponse {
-	int32 code = 1;
-	string message = 2;
+	Tokens tokens = 1;
+}
+
+message RegisterRequest {
+	string username = 1; // 用户名
+	string password = 2; // 密码
+	string email = 3; // 邮箱
+}
+
+message RegisterResponse {
+	UnifyResponseDto response = 1;
+}
+
+message Tokens {
+	string access_token = 1;
+	string refresh_token = 2;
+}
+
+// 响应DTO
+message UnifyResponseDto {
+	ErrorCode code = 1; // 代码
+	string message = 2; // 信息
 }
 
 
-
-message Account{
-	int32 id = 1;
-	string userName = 2;
-	string password = 3;
+// 错误码
+enum ErrorCode {
+	Success = 0; // 操作成功
+	Error = 1; // 失败
+	UnknownError = 2; // 未知错误
+	ServerUnknownError = 3; // 服务器未知错误
+	AuthenticationFailed = 4; // 认证失败
 }

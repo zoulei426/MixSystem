@@ -6,14 +6,20 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Autofac" Version="6.0.0" />
+		<PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.0.2" />
 		<PackageReference Include="Grpc.AspNetCore" Version="2.32.0" />
 		<PackageReference Include="Grpc.Tools" Version="2.32.0">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
+		<PackageReference Include="Serilog.AspNetCore" Version="3.4.0" />
+		<PackageReference Include="StackExchange.Redis" Version="2.1.58" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\..\Framework\Mix.Service.Core\Mix.Service.Core.csproj" />
 	  <ProjectReference Include="..\..\Libraries\Mix.Library.Entity\Mix.Library.Entity.csproj" />
+	  <ProjectReference Include="..\..\Libraries\Mix.Library.Repository\Mix.Library.Repository.csproj" />
 	</ItemGroup>
 </Project>

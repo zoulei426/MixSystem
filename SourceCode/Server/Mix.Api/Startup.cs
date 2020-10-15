@@ -8,6 +8,7 @@ using Microsoft.OpenApi.Models;
 using Mix.Core;
 using System;
 using System.IO;
+using StackExchange.Redis;
 
 namespace Mix.Api
 {
@@ -38,6 +39,9 @@ namespace Mix.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            // 注册redis
+            services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect("localhost"));
 
             // 配置验证器FluentValidtion
             services.AddMvc()
