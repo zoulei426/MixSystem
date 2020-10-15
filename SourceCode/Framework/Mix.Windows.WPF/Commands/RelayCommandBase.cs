@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace Mix.Windows.WPF
+namespace Mix.Windows.WPF.Commands
 {
     public abstract class RelayCommandBase : ICommand
     {

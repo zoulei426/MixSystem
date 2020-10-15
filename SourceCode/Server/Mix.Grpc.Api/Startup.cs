@@ -5,7 +5,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Mix.Data;
+using Mix.Data.Repositories;
 using Mix.Grpc.Api.Services;
+using Mix.Library.Repository.Accounts;
 using Mix.Service.Core;
 using Mix.Service.Core.Modules;
 using StackExchange.Redis;
@@ -34,7 +37,12 @@ namespace Mix.Grpc.Api
             services.AddFreeSql(configuration);
 
             // ×¢²áredis
-            services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect("localhost"));
+            //services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect("localhost"));
+
+            services.AddTransient<ICurrentUser, CurrentUser>();
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient(typeof(IAuditBaseRepository<>), typeof(AuditBaseRepository<>));
+            services.AddTransient(typeof(IAuditBaseRepository<,>), typeof(AuditBaseRepository<,>));
         }
 
         public void ConfigureContainer(ContainerBuilder builder)
@@ -52,7 +60,7 @@ namespace Mix.Grpc.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 

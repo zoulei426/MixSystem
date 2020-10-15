@@ -21,25 +21,7 @@ namespace Mix.Windows.WPF
 
         #endregion Fields
 
-        #region Ctor
-
-        /// <summary>
-        /// 基类ViewModel构造函数
-        /// </summary>
-        /// <param name="container">注入容器</param>
-        public ViewModelBase(IContainerExtension container)
-        {
-            Container = container;
-            _DialogService = container.Resolve<IDialogService>();
-            _RegionManager = container.Resolve<IRegionManager>();
-            EventAggregator = container.Resolve<IEventAggregator>();
-            Logger = container.Resolve<ILogger>();
-            ConfigureFile = Container.Resolve<IConfigureFile>();
-
-            RegisterCommands();
-        }
-
-        #endregion Ctor
+        #region Properties
 
         public Dispatcher Dispatcher { get; set; }
 
@@ -67,6 +49,30 @@ namespace Mix.Windows.WPF
         /// 配置文件
         /// </summary>
         protected IConfigureFile ConfigureFile { get; }
+
+        #endregion Properties
+
+        #region Ctor
+
+        /// <summary>
+        /// 基类ViewModel构造函数
+        /// </summary>
+        /// <param name="container">注入容器</param>
+        public ViewModelBase(IContainerExtension container)
+        {
+            Container = container;
+            _DialogService = container.Resolve<IDialogService>();
+            _RegionManager = container.Resolve<IRegionManager>();
+            EventAggregator = container.Resolve<IEventAggregator>();
+            Logger = container.Resolve<ILogger>();
+            ConfigureFile = Container.Resolve<IConfigureFile>();
+
+            RegisterCommands();
+        }
+
+        #endregion Ctor
+
+        #region Methods
 
         protected virtual void Invoke(Action action) => Dispatcher.Invoke(action);
 
@@ -113,5 +119,7 @@ namespace Mix.Windows.WPF
         {
             _DialogService.ShowDialog("ConfirmDialog", new DialogParameters($"message={message}"), callback);
         }
+
+        #endregion Methods
     }
 }

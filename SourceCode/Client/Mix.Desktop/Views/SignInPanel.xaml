@@ -6,7 +6,9 @@
              xmlns:local="clr-namespace:Mix.Desktop"
              xmlns:wpf="clr-namespace:Mix.Windows.WPF;assembly=Mix.Windows.WPF"
              xmlns:i18nResources="clr-namespace:Mix.Desktop.I18nResources"
+             xmlns:ctrls="clr-namespace:Mix.Windows.Controls;assembly=Mix.Windows.Controls"
              xmlns:prism="http://prismlibrary.com/"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
@@ -38,8 +40,13 @@
             <md:PackIcon Grid.Column="0" Grid.Row="2" Kind="Key" VerticalAlignment="Bottom" Margin="6" />
             <PasswordBox Name="PasswordBox" Grid.Column="1" Grid.Row="2"
                          md:HintAssist.Hint="{wpf:I18n {x:Static i18nResources:Language.Password}}"
+                         ctrls:PasswordBoxHelper.Password="{Binding Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                          Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
-                         FontFamily="Microsoft Yahei Regular" />
+                         FontFamily="Microsoft Yahei Regular">
+                <i:Interaction.Behaviors>
+                    <ctrls:PasswordBoxBehavior />
+                </i:Interaction.Behaviors>
+            </PasswordBox>
         </Grid>
         <StackPanel Grid.Row="2" Margin="6 0" Orientation="Horizontal">
             <CheckBox IsChecked="{Binding IsRememberMe}" Focusable="False"

@@ -13,7 +13,6 @@ using System.Threading.Tasks;
 
 namespace Mix.Grpc.Api
 {
-   
     public class Program
     {
         public static IConfiguration Configuration { get; } = new ConfigurationBuilder()
@@ -28,22 +27,24 @@ namespace Mix.Grpc.Api
             Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(Configuration)
                 .Enrich.FromLogContext()
                 .CreateLogger();
+
+            //CreateHostBuilder(args).Build().Run();
             try
             {
                 Log.Information("init main");
                 IHost webHost = CreateHostBuilder(args).Build();
-                try
-                {
-                    using var scope = webHost.Services.CreateScope();
-                    // get the IpPolicyStore instance
-                    //var ipPolicyStore = scope.ServiceProvider.GetRequiredService<IIpPolicyStore>();
-                    // seed IP data from appsettings
-                    //await ipPolicyStore.SeedAsync();
-                }
-                catch (Exception ex)
-                {
-                    Log.Fatal(ex, "IIpPolicyStore RUN Error");
-                }
+                //try
+                //{
+                //    using var scope = webHost.Services.CreateScope();
+                //    // get the IpPolicyStore instance
+                //    var ipPolicyStore = scope.ServiceProvider.GetRequiredService<IIpPolicyStore>();
+                //    // seed IP data from appsettings
+                //    await ipPolicyStore.SeedAsync();
+                //}
+                //catch (Exception ex)
+                //{
+                //    Log.Fatal(ex, "IIpPolicyStore RUN Error");
+                //}
                 await webHost.RunAsync();
             }
             catch (Exception ex)
@@ -54,7 +55,6 @@ namespace Mix.Grpc.Api
             {
                 Log.CloseAndFlush();
             }
-            CreateHostBuilder(args).Build().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -63,9 +63,8 @@ namespace Mix.Grpc.Api
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                })
-                .UseSerilog();
+                });
 
-      
+        //.UseSerilog();
     }
 }

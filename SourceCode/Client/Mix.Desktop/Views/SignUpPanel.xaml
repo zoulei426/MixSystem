@@ -6,7 +6,9 @@
              xmlns:local="clr-namespace:Mix.Desktop"
              xmlns:wpf="clr-namespace:Mix.Windows.WPF;assembly=Mix.Windows.WPF"
              xmlns:i18nResources="clr-namespace:Mix.Desktop.I18nResources"
+             xmlns:ctrls="clr-namespace:Mix.Windows.Controls;assembly=Mix.Windows.Controls"
              xmlns:prism="http://prismlibrary.com/"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
@@ -36,20 +38,25 @@
             <md:PackIcon Kind="Email" VerticalAlignment="Bottom" Margin="6" />
             <TextBox Grid.Column="1" Grid.Row="0"
                      md:HintAssist.Hint="{wpf:I18n {x:Static i18nResources:Language.Email}}"
-                     Text="{Binding EmailAddress, UpdateSourceTrigger=PropertyChanged}"
+                     Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"
                      Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
                      IsEnabled="{Binding IsLocked, Converter={StaticResource NotConverter}}" />
 
             <md:PackIcon Grid.Column="0" Grid.Row="2" Kind="Account" VerticalAlignment="Bottom" Margin="6" />
             <TextBox Grid.Column="1" Grid.Row="2"
                      md:HintAssist.Hint="{wpf:I18n {x:Static i18nResources:Language.UserName}}"
-                     Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
+                     Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}"
                      Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
 
             <md:PackIcon Grid.Column="0" Grid.Row="4" Kind="Key" VerticalAlignment="Bottom" Margin="6" />
             <PasswordBox Name="PasswordBox" Grid.Column="1" Grid.Row="4"
+                         ctrls:PasswordBoxHelper.Password="{Binding Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                          md:HintAssist.Hint="{wpf:I18n {x:Static i18nResources:Language.Password}}"
-                         Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                         Style="{StaticResource MaterialDesignFloatingHintPasswordBox}">
+                <i:Interaction.Behaviors>
+                    <ctrls:PasswordBoxBehavior />
+                </i:Interaction.Behaviors>
+            </PasswordBox>
 
             <md:PackIcon Grid.Column="0" Grid.Row="6" Kind="Check" VerticalAlignment="Bottom" Margin="6" />
             <TextBox Grid.Column="1" Grid.Row="6"

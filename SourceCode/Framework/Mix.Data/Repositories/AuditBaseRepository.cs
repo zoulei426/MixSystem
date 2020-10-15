@@ -58,14 +58,14 @@ namespace Mix.Data.Repositories
             if (entity is not ICreateAduitEntity e) return;
 
             e.CreateTime = DateTime.Now;
-            if (e.CreaterID.Equals(Guid.Empty) && CurrentUser.ID != null)
+            if (e.CreaterId.Equals(Guid.Empty) && CurrentUser.ID != null)
             {
-                e.CreaterID = CurrentUser.ID ?? Guid.Empty;
+                e.CreaterId = CurrentUser.ID ?? Guid.Empty;
             }
 
             if (entity is not IUpdateAuditEntity updateAuditEntity) return;
             updateAuditEntity.ModityTime = DateTime.Now;
-            updateAuditEntity.ModifierID = CurrentUser.ID;
+            updateAuditEntity.ModifierId = CurrentUser.ID;
         }
 
         /// <summary>
@@ -127,7 +127,7 @@ namespace Mix.Data.Repositories
         {
             if (entity is not IUpdateAuditEntity e) return;
             e.ModityTime = DateTime.Now;
-            e.ModifierID = CurrentUser.ID;
+            e.ModifierId = CurrentUser.ID;
         }
 
         /// <summary>
@@ -191,7 +191,7 @@ namespace Mix.Data.Repositories
             {
                 return Orm.Update<TEntity>(entity)
                            .Set(a => (a as IDeleteAduitEntity).IsDeleted, true)
-                           .Set(a => (a as IDeleteAduitEntity).DeleterID, CurrentUser.ID)
+                           .Set(a => (a as IDeleteAduitEntity).DeleterId, CurrentUser.ID)
                            .Set(a => (a as IDeleteAduitEntity).DeleteTime, DateTime.Now)
                            .ExecuteAffrows();
             }
@@ -213,7 +213,7 @@ namespace Mix.Data.Repositories
                 {
                     if (x1 is IDeleteAduitEntity softDelete)
                     {
-                        softDelete.DeleterID = CurrentUser.ID;
+                        softDelete.DeleterId = CurrentUser.ID;
                         softDelete.DeleteTime = DateTime.Now;
                         softDelete.IsDeleted = true;
                     }
@@ -237,7 +237,7 @@ namespace Mix.Data.Repositories
             {
                 return Orm.Update<TEntity>(entity)
                            .Set(a => (a as IDeleteAduitEntity).IsDeleted, true)
-                           .Set(a => (a as IDeleteAduitEntity).DeleterID, CurrentUser.ID)
+                           .Set(a => (a as IDeleteAduitEntity).DeleterId, CurrentUser.ID)
                            .Set(a => (a as IDeleteAduitEntity).DeleteTime, DateTime.Now)
                            .ExecuteAffrows();
             }
@@ -259,7 +259,7 @@ namespace Mix.Data.Repositories
                 {
                     if (x1 is IDeleteAduitEntity softDelete)
                     {
-                        softDelete.DeleterID = CurrentUser.ID;
+                        softDelete.DeleterId = CurrentUser.ID;
                         softDelete.DeleteTime = DateTime.Now;
                         softDelete.IsDeleted = true;
                     }
@@ -280,7 +280,7 @@ namespace Mix.Data.Repositories
             {
                 return await Orm.Update<TEntity>(entity)
                     .Set(a => (a as IDeleteAduitEntity).IsDeleted, true)
-                    .Set(a => (a as IDeleteAduitEntity).DeleterID, CurrentUser.ID)
+                    .Set(a => (a as IDeleteAduitEntity).DeleterId, CurrentUser.ID)
                     .Set(a => (a as IDeleteAduitEntity).DeleteTime, DateTime.Now)
                     .ExecuteAffrowsAsync();
             }
@@ -304,7 +304,7 @@ namespace Mix.Data.Repositories
                 }
                 return Orm.Update<TEntity>(items)
                     .Set(a => (a as IDeleteAduitEntity).IsDeleted, true)
-                    .Set(a => (a as IDeleteAduitEntity).DeleterID, CurrentUser.ID)
+                    .Set(a => (a as IDeleteAduitEntity).DeleterId, CurrentUser.ID)
                     .Set(a => (a as IDeleteAduitEntity).DeleteTime, DateTime.Now)
                     .ExecuteAffrows();
             }
@@ -328,7 +328,7 @@ namespace Mix.Data.Repositories
                 }
                 return await Orm.Update<TEntity>(items)
                      .Set(a => (a as IDeleteAduitEntity).IsDeleted, true)
-                     .Set(a => (a as IDeleteAduitEntity).DeleterID, CurrentUser.ID)
+                     .Set(a => (a as IDeleteAduitEntity).DeleterId, CurrentUser.ID)
                      .Set(a => (a as IDeleteAduitEntity).DeleteTime, DateTime.Now)
                      .ExecuteAffrowsAsync();
             }

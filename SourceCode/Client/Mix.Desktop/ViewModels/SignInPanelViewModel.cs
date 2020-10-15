@@ -1,8 +1,11 @@
 ﻿using Grpc.Core;
 using Grpc.Net.Client;
 using Mix.Core;
+using Mix.Library.Entity.Consts;
+using Mix.Library.Entity.Protos;
 using Mix.Windows.Core;
 using Mix.Windows.WPF;
+using Mix.Windows.WPF.Commands;
 using Prism.Commands;
 using Prism.Ioc;
 using System;
@@ -29,6 +32,17 @@ namespace Mix.Desktop
         private string _Email;
 
         /// <summary>
+        /// 密码
+        /// </summary>
+        public string Password
+        {
+            get { return _Password; }
+            set { SetProperty(ref _Password, value); }
+        }
+
+        private string _Password;
+
+        /// <summary>
         /// 是否记住密码
         /// </summary>
         public bool IsRememberMe
@@ -50,6 +64,7 @@ namespace Mix.Desktop
 
         private bool _IsAutoSignIn;
 
+        private SignUpArgs signUpArgs;
         private ChannelBase channel;
         private AccountsClient accountsClient;
 
@@ -61,42 +76,95 @@ namespace Mix.Desktop
 
         #endregion Commands
 
+        #region Ctor
+
         public SignInPanelViewModel(IContainerExtension container) : base(container)
         {
             channel = GrpcChannel.ForAddress("https://localhost:5001");
             //channel = new Channel("localhost:5001", ChannelCredentials.Insecure);
             accountsClient = new AccountsClient(channel);
+
+            EventAggregator.GetEvent<SignUpSuccessEvent>().Subscribe(signUpArgs =>
+            this.signUpArgs = signUpArgs);
+        }
+
+        #endregion Ctor
+
+        #region Methods
+
+        public void OnLoaded(SignInPanel view)
+        {
+            // 1. Login info from SignUpView
+            if (signUpArgs != null)
+            {
+                IsRememberMe = false;
+                IsAutoSignIn = false;
+                Email = signUpArgs.Username;
+                Password = signUpArgs.Password;
+
+                SignInCommand.Execute(null);
+                signUpArgs = null;
+                return;
+            }
+
+            // 2. If there is some residual information on username or password text box, no login information is loaded from elsewhere.
+            if (!string.IsNullOrEmpty(Email) || !string.IsNullOrEmpty(Password)) return;
+
+            // 3. No login info from config file.
+            if (!CanSignIn(ConfigureFile.GetValue<string>(ConfigureKeys.Username), ConfigureFile.GetValue<string>(ConfigureKeys.Password))) return;
+
+            // 4. Login info from config file.
+            IsRememberMe = true;
+            IsAutoSignIn = ConfigureFile.GetValue<bool>(ConfigureKeys.AutoSignIn);
+            Email = ConfigureFile.GetValue<string>(ConfigureKeys.Username);
+            Password = ConfigureFile.GetValue<string>(ConfigureKeys.Password).DecryptByDes();
+
+            if (IsAutoSignIn)
+            {
+                SignInCommand.Execute(null);
+            }
+        }
+
+        public void OnUnloaded(SignInPanel view)
+        {
         }
 
         protected override void RegisterCommands()
         {
-            SignInCommand = new RelayCommand<PasswordBox>(ExecuteSignIn, passwordBox => CanSignIn(Email, passwordBox.Password));
+            SignInCommand = new RelayCommand(ExecuteSignIn, () => CanSignIn(Email, Password));
         }
 
         private static bool CanSignIn(string username, string password) => !username.IsNullOrEmpty() && !password.IsNullOrEmpty();
 
-        private async void ExecuteSignIn(PasswordBox password)
+        private async void ExecuteSignIn()
         {
-            var passwordMd5 = password.Password == ConfigureFile.GetValue<string>(SystemConfigKeys.Password).DecryptByDes()
-                            ? password.Password
-                            : password.Password.ToMd5();
+            var passwordMd5 = Password == ConfigureFile.GetValue<string>(SystemConfigKeys.Password).DecryptByDes()
+                            ? Password
+                            : Password.ToMd5();
 
-            var response = await accountsClient.LoginAsync(new Library.Entity.Protos.LoginRequest
-            {
-                Username = Email,
-                Password = password.Password
-                
-            });
-
-            ShellManager.Switch<LoginWindow, MainWindow>();
-            //await SignInAsync(Email, passwordMd5);
+            await SignInAsync(Email, passwordMd5);
         }
 
         private async Task SignInAsync(string username, string passwordMd5)
         {
             EventAggregator.GetEvent<MainWindowLoadingEvent>().Publish(true);
+            LoginResponse response = null;
+            try
+            {
+                response = await accountsClient.LoginAsync(new Library.Entity.Protos.LoginRequest
+                {
+                    Username = Email,
+                    Password = passwordMd5
+                });
+            }
+            catch (Exception ex)
+            {
+                EventAggregator.GetEvent<MainWindowLoadingEvent>().Publish(false);
+                ConfigureFile.SetValue(SystemConfigKeys.AutoSignIn, false);
+                return;
+            }
 
-            if (!await AuthenticateAsync(username, passwordMd5))
+            if (response.Tokens.AccessToken.IsNullOrEmpty())
             {
                 EventAggregator.GetEvent<MainWindowLoadingEvent>().Publish(false);
                 ConfigureFile.SetValue(SystemConfigKeys.AutoSignIn, false);
@@ -114,17 +182,6 @@ namespace Mix.Desktop
             ShellManager.Switch<LoginWindow, MainWindow>();
         }
 
-        private Task<bool> AuthenticateAsync(string username, string passwordMd5)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void OnLoaded(SignInPanel view)
-        {
-        }
-
-        public void OnUnloaded(SignInPanel view)
-        {
-        }
+        #endregion Methods
     }
 }

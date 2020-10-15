@@ -16,7 +16,7 @@ namespace Mix.Data.Entities
         /// <summary>
         /// 创建者ID
         /// </summary>
-        public Guid CreaterID { get; set; }
+        public Guid CreaterId { get; set; }
 
         /// <summary>
         /// 创建时间
@@ -26,7 +26,7 @@ namespace Mix.Data.Entities
         /// <summary>
         /// 最后修改人ID
         /// </summary>
-        public Guid? ModifierID { get; set; }
+        public Guid? ModifierId { get; set; }
 
         /// <summary>
         /// 修改时间
@@ -41,7 +41,7 @@ namespace Mix.Data.Entities
         /// <summary>
         /// 删除人ID
         /// </summary>
-        public Guid? DeleterID { get; set; }
+        public Guid? DeleterId { get; set; }
 
         /// <summary>
         /// 删除时间

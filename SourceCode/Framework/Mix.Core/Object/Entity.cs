@@ -13,6 +13,6 @@ namespace Mix.Core
         /// 主键Id
         /// </summary>
         [Key]
-        public Guid ID { get; set; }
+        public Guid Id { get; set; }
     }
 }

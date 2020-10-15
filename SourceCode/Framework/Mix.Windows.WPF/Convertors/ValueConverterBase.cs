@@ -3,7 +3,7 @@ using System;
 using System.Globalization;
 using System.Windows.Data;
 
-namespace Mix.Windows.WPF
+namespace Mix.Windows.WPF.Convertors
 {
     public abstract class ValueConverterBase<TSource, TTarget, TParameter> : IValueConverter
     {

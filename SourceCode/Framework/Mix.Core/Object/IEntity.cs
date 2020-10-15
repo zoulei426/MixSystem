@@ -11,6 +11,6 @@ namespace Mix.Core
         /// <summary>
         /// 主键ID
         /// </summary>
-        Guid ID { get; set; }
+        Guid Id { get; set; }
     }
 }
