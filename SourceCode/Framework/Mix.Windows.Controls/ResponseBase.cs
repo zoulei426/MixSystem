@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Mix.Service.Core
+﻿namespace Mix.Service.Core
 {
     /// <summary>
     /// 响应基类

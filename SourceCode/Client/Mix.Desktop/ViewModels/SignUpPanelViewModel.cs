@@ -1,12 +1,10 @@
 ﻿using Grpc.Core;
 using Grpc.Net.Client;
+using Mix.Windows.Controls;
 using Mix.Windows.WPF;
 using Mix.Windows.WPF.Commands;
 using Prism.Ioc;
-using System;
 using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 using static Mix.Library.Entity.Protos.Accounts;
 
@@ -150,7 +148,7 @@ namespace Mix.Desktop
             {
                 //Password = string.Empty;
 
-                //MessageBox.Show("注册成功！");
+                Notify.Success("注册成功！");
                 EventAggregator.GetEvent<SignUpSuccessEvent>().Publish(new SignUpArgs
                 {
                     Username = Email,

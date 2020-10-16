@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Mix.Core
+﻿namespace Mix.Core
 {
     /// <summary>
     /// 实现该接口将自动注册到Ioc容器，生命周期为每次请求创建一个实例

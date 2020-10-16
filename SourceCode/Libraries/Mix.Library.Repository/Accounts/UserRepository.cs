@@ -3,10 +3,7 @@ using Mix.Data;
 using Mix.Data.Repositories;
 using Mix.Library.Entity.Databases.Accounts;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Mix.Library.Repository.Accounts

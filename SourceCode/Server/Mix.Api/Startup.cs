@@ -6,9 +6,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Mix.Core;
+using StackExchange.Redis;
 using System;
 using System.IO;
-using StackExchange.Redis;
 
 namespace Mix.Api
 {

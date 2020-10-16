@@ -1,9 +1,4 @@
 ﻿using Autofac;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
 
 namespace Mix.Grpc.Api
 {
@@ -15,7 +10,7 @@ namespace Mix.Grpc.Api
         protected override void Load(ContainerBuilder builder)
         {
 
-            string[] notIncludes = new string[] {  };
+            string[] notIncludes = new string[] { };
 
             //Assembly servicesDllFile = Assembly.Load("LinCms.Application");
             //builder.RegisterAssemblyTypes(servicesDllFile)
@@ -26,7 +21,7 @@ namespace Mix.Grpc.Api
 
 
             //一个接口多个实现，使用Named，区分
-            
+
         }
     }
 }

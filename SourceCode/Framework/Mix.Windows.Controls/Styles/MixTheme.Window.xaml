@@ -148,7 +148,7 @@
                                     </i:Interaction.Triggers>
                                     <md:PackIcon Kind="WindowClose"></md:PackIcon>
                                 </Button>
-                                <md:Snackbar MessageQueue="{Binding GlobalMessageQueue}" />
+                                <!--<md:Snackbar MessageQueue="{Binding GlobalMessageQueue}" />-->
                             </Grid>
                         </AdornerDecorator>
                     </Border>

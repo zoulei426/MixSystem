@@ -6,12 +6,8 @@ using Mix.Data;
 using Mix.Data.Entities;
 using Serilog;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using ToolGood.Words;
 
 namespace Mix.Service.Core
@@ -85,7 +81,7 @@ namespace Mix.Service.Core
                 Log.Logger.Error(e + e.StackTrace + e.Message + e.InnerException);
                 return;
             }
-           
+
         }
 
         #endregion

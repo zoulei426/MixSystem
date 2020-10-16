@@ -1,16 +1,16 @@
 ﻿using Grpc.Core;
 using Grpc.Net.Client;
-using Mix.Core;
 using Mix.Library.Entity.Consts;
 using Mix.Library.Entity.Protos;
+using Mix.Windows.Controls;
 using Mix.Windows.Core;
 using Mix.Windows.WPF;
 using Mix.Windows.WPF.Commands;
-using Prism.Commands;
 using Prism.Ioc;
 using System;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Input;
 using static Mix.Library.Entity.Protos.Accounts;
 
@@ -159,6 +159,7 @@ namespace Mix.Desktop
             }
             catch (Exception ex)
             {
+                Notify.Error(ex.Message);
                 EventAggregator.GetEvent<MainWindowLoadingEvent>().Publish(false);
                 ConfigureFile.SetValue(SystemConfigKeys.AutoSignIn, false);
                 return;
