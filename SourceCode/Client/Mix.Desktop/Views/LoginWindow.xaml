@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mix.Desktop"
         xmlns:prism="http://prismlibrary.com/"
-        xmlns:controls="clr-namespace:Mix.Windows.Controls;assembly=Mix.Windows.Controls"
+        xmlns:ctrls="clr-namespace:Mix.Windows.Controls;assembly=Mix.Windows.Controls"
         xmlns:wpf="clr-namespace:Mix.Windows.WPF;assembly=Mix.Windows.WPF"
         xmlns:i18nResources="clr-namespace:Mix.Desktop.I18nResources"
         prism:ViewModelLocator.AutoWireViewModel="True"
@@ -14,7 +14,7 @@
         Title="LoginWindow" x:Name="OwnerWindow"
         Height="321" Width="430"
         Style="{StaticResource MixWindowStyle}">
-    <controls:SwitchLoadingViewContainer IsLoading="{Binding IsLoading}">
+    <ctrls:SwitchLoadingViewContainer IsLoading="{Binding IsLoading}">
         <TabControl Margin="60 40 60 30" WindowChrome.IsHitTestVisibleInChrome="True">
             <!-- 登录界面 -->
             <TabItem x:Name="SignInTabItem" IsSelected="True"
@@ -58,5 +58,5 @@
                 </TabItem.Triggers>
             </TabItem>
         </TabControl>
-    </controls:SwitchLoadingViewContainer>
+    </ctrls:SwitchLoadingViewContainer>
 </Window>

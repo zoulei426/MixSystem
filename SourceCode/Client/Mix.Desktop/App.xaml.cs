@@ -3,8 +3,11 @@ using Mix.Windows.Core;
 using Mix.Windows.WPF;
 using Prism.Ioc;
 using Prism.Mvvm;
+using Serilog;
+using Serilog.Events;
 using System;
 using System.Globalization;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
@@ -28,6 +31,13 @@ namespace Mix.Desktop
         {
             base.OnStartup(e);
 
+            Log.Logger = new LoggerConfiguration()
+             .MinimumLevel.Information()//最小的记录等级
+             .MinimumLevel.Override("Microsoft", LogEventLevel.Information)//对其他日志进行重写,除此之外,目前框架只有微软自带的日志组件
+             .WriteTo.File(Path.Combine(SystemPath.Logs, "log.txt"),
+                      rollingInterval: RollingInterval.Day)
+             .CreateLogger();
+
             //UI线程未捕获异常处理事件
             DispatcherUnhandledException += App_DispatcherUnhandledException;
             //非UI线程未捕获异常处理事件
@@ -38,7 +48,6 @@ namespace Mix.Desktop
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterSingleton<ILogger, Logger>();
             containerRegistry.RegisterInstance(new ConfigureFile().Load());
         }
 

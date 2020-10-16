@@ -38,7 +38,7 @@
                                     <!--Window button-->
                                     <StackPanel Grid.Column="2" Orientation="Horizontal">
                                         <StackPanel.Resources>
-                                            <Style x:Key="WindowButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource FlatButtonStyle}">
+                                            <Style x:Key="WindowButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
                                                 <Setter Property="local:ControlHelper.MouseOverBackground" Value="{StaticResource PrimaryHueDarkBrush}" />
                                                 <Setter Property="local:ControlHelper.MouseOverForeground" Value="White" />
                                                 <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />

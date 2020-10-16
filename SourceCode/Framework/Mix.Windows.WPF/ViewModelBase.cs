@@ -28,7 +28,7 @@ namespace Mix.Windows.WPF
         /// <summary>
         /// 日志对象
         /// </summary>
-        protected ILogger Logger { get; }
+        //protected ILogger Logger { get; }
 
         /// <summary>
         /// 事件汇总器，用于发布或订阅事件
@@ -64,7 +64,7 @@ namespace Mix.Windows.WPF
             _DialogService = container.Resolve<IDialogService>();
             _RegionManager = container.Resolve<IRegionManager>();
             EventAggregator = container.Resolve<IEventAggregator>();
-            Logger = container.Resolve<ILogger>();
+            //Logger = container.Resolve<ILogger>();
             ConfigureFile = Container.Resolve<IConfigureFile>();
 
             RegisterCommands();
