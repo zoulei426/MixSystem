@@ -1,4 +1,5 @@
-﻿using Mix.Core;
+﻿using Microsoft.Extensions.Localization;
+using Mix.Core;
 using Mix.Windows.Core;
 using Prism.Events;
 using Prism.Ioc;
@@ -18,6 +19,7 @@ namespace Mix.Windows.WPF
 
         private readonly IDialogService _DialogService;
         private readonly IRegionManager _RegionManager;
+        private readonly IStringLocalizer _Localizer;
 
         #endregion Fields
 
@@ -29,6 +31,8 @@ namespace Mix.Windows.WPF
         /// 日志对象
         /// </summary>
         //protected ILogger Logger { get; }
+
+        protected IStringLocalizer Localizer => _Localizer;
 
         /// <summary>
         /// 事件汇总器，用于发布或订阅事件
@@ -61,6 +65,8 @@ namespace Mix.Windows.WPF
         public ViewModelBase(IContainerExtension container)
         {
             Container = container;
+            var fac = container.Resolve<IStringLocalizerFactory>();
+            _Localizer = fac.Create("", "");
             _DialogService = container.Resolve<IDialogService>();
             _RegionManager = container.Resolve<IRegionManager>();
             EventAggregator = container.Resolve<IEventAggregator>();

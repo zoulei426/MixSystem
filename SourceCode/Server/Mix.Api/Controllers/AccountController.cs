@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.Localization;
 using StackExchange.Redis;
 
 namespace Mix.Api.Controllers
@@ -11,17 +12,19 @@ namespace Mix.Api.Controllers
     [Route("api/[controller]")]
     public class AccountController : ControllerBase
     {
-        private readonly IConnectionMultiplexer redis;
+        //private readonly IConnectionMultiplexer redis;
+        private readonly IStringLocalizer localizer;
 
-        private readonly IDatabase db;
+        //private readonly IDatabase db;
 
         /// <summary>
         /// 构造
-        /// </summary>
-        public AccountController(IConnectionMultiplexer redis)
+        /// </summary>2
+        public AccountController(IStringLocalizer localizer)
         {
-            this.redis = redis;
-            this.db = redis.GetDatabase();
+            //this.redis = redis;
+            this.localizer = localizer;
+            //this.db = redis.GetDatabase();
         }
 
         /// <summary>
@@ -33,10 +36,10 @@ namespace Mix.Api.Controllers
         {
             var str = "123";
 
-            db.StringSet("name", "Alice");
-            str = db.StringGet("name");
+            //db.StringSet("name", "Alice");
+            //str = db.StringGet("name");
 
-            return Ok(str);
+            return Ok(localizer["Hello"].Value);
         }
     }
 }

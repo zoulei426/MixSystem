@@ -1,14 +1,20 @@
 ﻿using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Localization;
 using Microsoft.OpenApi.Models;
 using Mix.Core;
+using Mix.Service.Core;
 using StackExchange.Redis;
 using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
+using System.Text;
 
 namespace Mix.Api
 {
@@ -40,8 +46,12 @@ namespace Mix.Api
         {
             services.AddControllers();
 
+            services.AddJsonLocalization(options => options.ResourcesPath = "Resources");
+
+            //services.AddSingleton<IStringLocalizerFactory, JsonStringLocalizerFactory>();
+
             // 注册redis
-            services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect("localhost"));
+            //services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect("localhost"));
 
             // 配置验证器FluentValidtion
             services.AddMvc()
@@ -105,6 +115,23 @@ namespace Mix.Api
         /// <param name="env"></param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+            var supportedCultures = new List<CultureInfo>
+            {
+                new CultureInfo("en-US"),
+                new CultureInfo("zh-CN"),
+                new CultureInfo("fr-FR")
+            };
+            var options = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture("en-US"),
+                SupportedCultures = supportedCultures,
+                SupportedUICultures = supportedCultures
+            };
+
+            app.UseRequestLocalization(options);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

@@ -1,6 +1,6 @@
 ﻿namespace Mix.Desktop
 {
-    public class SystemConfigKeys
+    public class ConfigureKeys
     {
         public const string Email = "Email";
 

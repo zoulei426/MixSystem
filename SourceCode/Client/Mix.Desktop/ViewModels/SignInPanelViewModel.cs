@@ -1,6 +1,6 @@
 ﻿using Grpc.Core;
 using Grpc.Net.Client;
-using Mix.Library.Entity.Consts;
+using Mix.Desktop.I18nResources;
 using Mix.Library.Entity.Protos;
 using Mix.Windows.Controls;
 using Mix.Windows.Core;
@@ -94,6 +94,8 @@ namespace Mix.Desktop
 
         public void OnLoaded(SignInPanel view)
         {
+            Notify.Success(I18nManager.Instance.Get(Language.AutomaticLogin).ToString());
+
             // 1. Login info from SignUpView
             if (signUpArgs != null)
             {
@@ -138,7 +140,7 @@ namespace Mix.Desktop
 
         private async void ExecuteSignIn()
         {
-            var passwordMd5 = Password == ConfigureFile.GetValue<string>(SystemConfigKeys.Password).DecryptByDes()
+            var passwordMd5 = Password == ConfigureFile.GetValue<string>(ConfigureKeys.Password).DecryptByDes()
                             ? Password
                             : Password.ToMd5();
 
@@ -148,6 +150,7 @@ namespace Mix.Desktop
         private async Task SignInAsync(string username, string passwordMd5)
         {
             EventAggregator.GetEvent<MainWindowLoadingEvent>().Publish(true);
+
             LoginResponse response = null;
             try
             {
@@ -156,28 +159,23 @@ namespace Mix.Desktop
                     Username = Email,
                     Password = passwordMd5
                 });
+
+                Notify.Success("登录成功！");
             }
             catch (Exception ex)
             {
                 Notify.Error(ex.Message);
                 EventAggregator.GetEvent<MainWindowLoadingEvent>().Publish(false);
-                ConfigureFile.SetValue(SystemConfigKeys.AutoSignIn, false);
-                return;
-            }
-
-            if (response.Tokens.AccessToken.IsNullOrEmpty())
-            {
-                EventAggregator.GetEvent<MainWindowLoadingEvent>().Publish(false);
-                ConfigureFile.SetValue(SystemConfigKeys.AutoSignIn, false);
+                ConfigureFile.SetValue(ConfigureKeys.AutoSignIn, false);
                 return;
             }
 
             //await Container.Resolve<ModuleResolver>().LoadAsync();
 
             // Saves data.
-            ConfigureFile.SetValue(SystemConfigKeys.Username, IsRememberMe ? username : string.Empty);
-            ConfigureFile.SetValue(SystemConfigKeys.Password, IsRememberMe ? passwordMd5.EncryptByDes() : string.Empty);
-            ConfigureFile.SetValue(SystemConfigKeys.AutoSignIn, IsAutoSignIn);
+            ConfigureFile.SetValue(ConfigureKeys.Username, IsRememberMe ? username : string.Empty);
+            ConfigureFile.SetValue(ConfigureKeys.Password, IsRememberMe ? passwordMd5.EncryptByDes() : string.Empty);
+            ConfigureFile.SetValue(ConfigureKeys.AutoSignIn, IsAutoSignIn);
 
             // Launches main window and closes itself.
             ShellManager.Switch<LoginWindow, MainWindow>();

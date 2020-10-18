@@ -30,7 +30,7 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-
+            <TextBlock Text="{wpf:Localizer Hello}" />
             <md:PackIcon Kind="Account" VerticalAlignment="Bottom" Margin="6" />
             <TextBox Grid.Row="0" Grid.Column="1"
                      md:HintAssist.Hint="{wpf:I18n {x:Static i18nResources:Language.Email}}"

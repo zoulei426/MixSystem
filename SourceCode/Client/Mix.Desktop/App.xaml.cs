@@ -1,4 +1,6 @@
-﻿using Mix.Core;
+﻿using Microsoft.Extensions.Localization;
+using Mix.Core;
+using Mix.Core.Localization.Json;
 using Mix.Windows.Core;
 using Mix.Windows.WPF;
 using Prism.Ioc;
@@ -48,6 +50,10 @@ namespace Mix.Desktop
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterSingleton<IStringLocalizerFactory, JsonStringLocalizerFactory>();
+            containerRegistry.RegisterInstance(typeof(IStringLocalizer<>), typeof(StringLocalizer<>));
+            containerRegistry.RegisterInstance(typeof(IStringLocalizer), typeof(Mix.Core.Localization.Json.Internal.StringLocalizer));
+
             containerRegistry.RegisterInstance(new ConfigureFile().Load());
         }
 

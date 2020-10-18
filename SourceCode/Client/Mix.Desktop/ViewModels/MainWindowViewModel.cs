@@ -1,9 +1,50 @@
-﻿namespace Mix.Desktop
+﻿using Mix.Windows.WPF;
+using Prism.Commands;
+using Prism.Ioc;
+using System.Windows.Input;
+
+namespace Mix.Desktop
 {
-    public class MainWindowViewModel
+    public class MainWindowViewModel : ViewModelBase, IViewLoadedAndUnloadedAware
     {
-        //protected MainWindowViewModel(IContainerExtension container) : base(container)
-        //{
-        //}
+        #region Properties
+
+        #endregion Properties
+
+        #region Commands
+
+        public ICommand LogoutCommand { get; set; }
+
+        #endregion Commands
+
+        #region Ctor
+
+        public MainWindowViewModel(IContainerExtension container) : base(container)
+        {
+        }
+
+        #endregion Ctor
+
+        #region Methods
+
+        protected override void RegisterCommands()
+        {
+            LogoutCommand = new DelegateCommand(() =>
+            {
+                ShellManager.Switch<MainWindow, LoginWindow>();
+            });
+        }
+
+        public void OnLoaded()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void OnUnloaded()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion Methods
     }
 }

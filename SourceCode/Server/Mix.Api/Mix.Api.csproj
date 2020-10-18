@@ -10,8 +10,8 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>..\Build\Debug\Mix.Api.xml</DocumentationFile>
-    <OutputPath>..\Build\Debug\</OutputPath>
+    <DocumentationFile>D:\DotNetProjects\MixSystem\SourceCode\Server\Mix.Api\Mix.Api.xml</DocumentationFile>
+    <OutputPath></OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Framework\Mix.Service.Core\Mix.Service.Core.csproj" />
     <ProjectReference Include="..\..\Libraries\Mix.Library.Entity\Mix.Library.Entity.csproj" />
     <ProjectReference Include="..\..\Libraries\Mix.Library.Repository\Mix.Library.Repository.csproj" />
   </ItemGroup>

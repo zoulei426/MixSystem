@@ -15,43 +15,45 @@
         Style="{StaticResource MainWindowStyle}"
         Title="MainWindow" Height="450" Width="800">
     <md:DialogHost Identifier="RootDialog">
-        <Grid Background="{StaticResource LightGreyBackgroundBrush}" >
+        <Grid Background="{StaticResource LightGreyBackgroundBrush}">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="68"/>
+                <ColumnDefinition Width="68" />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <Rectangle Fill="{StaticResource PrimaryHueDarkBrush}"/>
+            <Rectangle Fill="{StaticResource PrimaryHueDarkBrush}" />
 
             <TabControl Grid.Column="0" Grid.ColumnSpan="2" SelectedIndex="0"
                         Style="{StaticResource MainTabControlStyle}" ItemContainerStyle="{StaticResource MainTabItemStyle}"
-                        prism:RegionManager.RegionName="{x:Static wpf:SyetemRegionNames.MainTabRegion}"/>
+                        prism:RegionManager.RegionName="{x:Static wpf:SyetemRegionNames.MainTabRegion}" />
+
+            <Button Command="{Binding LogoutCommand}" Content="退出" />
 
             <StackPanel Grid.Column="0" VerticalAlignment="Bottom">
                 <ToggleButton x:Name="AppStoreToggleButton" Height="56"
                               IsChecked="{Binding AppStoreIsDisplayed}">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="25"/>
-                            <RowDefinition Height="2"/>
-                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="25" />
+                            <RowDefinition Height="2" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <md:PackIcon Kind="Apps" Foreground="{StaticResource LightGreyBackgroundBrush}" HorizontalAlignment="Center" Height="22" Width="25"/>
+                        <md:PackIcon Kind="Apps" Foreground="{StaticResource LightGreyBackgroundBrush}" HorizontalAlignment="Center" Height="22" Width="25" />
                         <TextBlock Grid.Row="2" HorizontalAlignment="Center" Foreground="{StaticResource LightGreyBackgroundBrush}" FontSize="10"
-                                   Text="{wpf:I18n {x:Static i18nResources:Language.Login}}"/>
+                                   Text="{wpf:I18n {x:Static i18nResources:Language.Login}}" />
                     </Grid>
                 </ToggleButton>
-                <ToggleButton x:Name="SettingsToggleButton" 
-                              Height="56" >
+                <ToggleButton x:Name="SettingsToggleButton"
+                              Height="56">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="25"/>
-                            <RowDefinition Height="2"/>
-                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="25" />
+                            <RowDefinition Height="2" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <md:PackIcon Kind="Menu" Foreground="{StaticResource LightGreyBackgroundBrush}" HorizontalAlignment="Center" Height="22" Width="25"/>
+                        <md:PackIcon Kind="Menu" Foreground="{StaticResource LightGreyBackgroundBrush}" HorizontalAlignment="Center" Height="22" Width="25" />
                         <TextBlock Grid.Row="2" HorizontalAlignment="Center" Foreground="{StaticResource LightGreyBackgroundBrush}" FontSize="10"
-                                   Text="{wpf:I18n {x:Static i18nResources:Language.Login}}"/>
+                                   Text="{wpf:I18n {x:Static i18nResources:Language.Login}}" />
                     </Grid>
                 </ToggleButton>
                 <!--<views:SettingsPopup IsOpen="{Binding IsChecked, ElementName=SettingsToggleButton}"  StaysOpen="False"
@@ -63,9 +65,6 @@
                       SelectedItem="{Binding Path=CurrentUICulture, Source={x:Static wpf:I18nManager.Instance}}"
                       DisplayMemberPath="NativeName" />
             </StackPanel>
-
-            
         </Grid>
     </md:DialogHost>
- 
 </Window>

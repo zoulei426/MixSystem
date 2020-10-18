@@ -1,4 +1,6 @@
-﻿using Mix.Windows.WPF;
+﻿using Microsoft.Extensions.Localization;
+using Mix.Windows.Controls;
+using Mix.Windows.WPF;
 using Prism.Ioc;
 using System.Windows.Controls;
 
@@ -22,6 +24,8 @@ namespace Mix.Desktop
 
         private bool _IsLoading;
 
+        //private readonly IStringLocalizer localizer;
+
         #endregion Properties
 
         #region Ctor
@@ -34,11 +38,14 @@ namespace Mix.Desktop
         {
             EventAggregator.GetEvent<MainWindowLoadingEvent>().Subscribe(e => IsLoading = e);
             EventAggregator.GetEvent<SignUpSuccessEvent>().Subscribe(signUpInfo => SignInTabItem.IsSelected = true);
+            //this.localizer = localizer;
         }
 
         public void OnLoaded(LoginWindow view)
         {
             this.SignInTabItem = view.FindName("SignInTabItem") as TabItem;
+
+            Notify.Success(Localizer["Hello"].Value);
         }
 
         public void OnUnloaded(LoginWindow view)
