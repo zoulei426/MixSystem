@@ -4,8 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Mix.Desktop"
-             xmlns:wpf="clr-namespace:Mix.Windows.WPF;assembly=Mix.Windows.WPF"
-             xmlns:i18nResources="clr-namespace:Mix.Desktop.I18nResources"
+             xmlns:i18n="clr-namespace:Mix.Windows.WPF.Localizations;assembly=Mix.Windows.WPF"
              xmlns:ctrls="clr-namespace:Mix.Windows.Controls;assembly=Mix.Windows.Controls"
              xmlns:prism="http://prismlibrary.com/"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
@@ -37,21 +36,21 @@
 
             <md:PackIcon Kind="Email" VerticalAlignment="Bottom" Margin="6" />
             <TextBox Grid.Column="1" Grid.Row="0"
-                     md:HintAssist.Hint="{wpf:I18n {x:Static i18nResources:Language.Email}}"
+                     md:HintAssist.Hint="{i18n:Localizer Email}"
                      Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"
                      Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
                      IsEnabled="{Binding IsLocked, Converter={StaticResource NotConverter}}" />
 
             <md:PackIcon Grid.Column="0" Grid.Row="2" Kind="Account" VerticalAlignment="Bottom" Margin="6" />
             <TextBox Grid.Column="1" Grid.Row="2"
-                     md:HintAssist.Hint="{wpf:I18n {x:Static i18nResources:Language.UserName}}"
+                     md:HintAssist.Hint="{i18n:Localizer Username}"
                      Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}"
                      Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
 
             <md:PackIcon Grid.Column="0" Grid.Row="4" Kind="Key" VerticalAlignment="Bottom" Margin="6" />
             <PasswordBox Name="PasswordBox" Grid.Column="1" Grid.Row="4"
                          ctrls:PasswordBoxHelper.Password="{Binding Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                         md:HintAssist.Hint="{wpf:I18n {x:Static i18nResources:Language.Password}}"
+                         md:HintAssist.Hint="{i18n:Localizer Password}"
                          Style="{StaticResource MaterialDesignFloatingHintPasswordBox}">
                 <i:Interaction.Behaviors>
                     <ctrls:PasswordBoxBehavior />
@@ -60,7 +59,7 @@
 
             <md:PackIcon Grid.Column="0" Grid.Row="6" Kind="Check" VerticalAlignment="Bottom" Margin="6" />
             <TextBox Grid.Column="1" Grid.Row="6"
-                     md:HintAssist.Hint="{wpf:I18n {x:Static i18nResources:Language.VerificationCode}}"
+                     md:HintAssist.Hint="{i18n:Localizer Verification Code}"
                      Text="{Binding VerificationCode, UpdateSourceTrigger=PropertyChanged}"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
         </Grid>
@@ -75,14 +74,14 @@
             <Button Command="{Binding SendVerificationCodeCommand}">
                 <Button.Style>
                     <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
-                        <Setter Property="Content" Value="{wpf:I18n {x:Static i18nResources:Language.SendVerificationCode}}" />
+                        <Setter Property="Content" Value="{i18n:Localizer Send Code}" />
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding IsLocked}" Value="True">
                                 <Setter Property="Content">
                                     <Setter.Value>
                                         <TextBlock>
                                             <Run Text="{Binding RemainingTimeBasedSecond}" />
-                                            <Run Text="{wpf:I18n {x:Static i18nResources:Language.RetrySeconds}}" />
+                                            <Run Text="{i18n:Localizer Retry Seconds}" />
                                         </TextBlock>
                                     </Setter.Value>
                                 </Setter>
@@ -95,7 +94,7 @@
             <Button Grid.Column="2" IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}"
                     Command="{Binding SignUpCommand}"
                     CommandParameter="{Binding ElementName=PasswordBox}"
-                    Content="{wpf:I18n {x:Static i18nResources:Language.Confirm}}" Cursor="Hand" />
+                    Content="{i18n:Localizer Confirm}" Cursor="Hand" />
         </Grid>
     </Grid>
 </UserControl>

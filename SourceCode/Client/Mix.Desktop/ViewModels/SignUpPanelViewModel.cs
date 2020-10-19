@@ -148,7 +148,7 @@ namespace Mix.Desktop
             {
                 //Password = string.Empty;
 
-                Notify.Success("注册成功！");
+                Notify.Success(Localizer["Register Success"].Value);
                 EventAggregator.GetEvent<SignUpSuccessEvent>().Publish(new SignUpArgs
                 {
                     Username = Email,

@@ -14,12 +14,6 @@ namespace Mix.Windows.WPF
             {
                 viewModel.Dispatcher = view.Dispatcher;
             })
-            .IfInheritsFrom<ILocalizable>((view, viewModel) =>
-            {
-                viewModel.I18nManager = I18nManager.Instance;
-                view.Loaded += (sender, args) => I18nManager.Instance.CurrentUICultureChanged += viewModel.OnCurrentUICultureChanged;
-                view.Unloaded += (sender, args) => I18nManager.Instance.CurrentUICultureChanged -= viewModel.OnCurrentUICultureChanged;
-            })
             .IfInheritsFrom<IViewLoadedAndUnloadedAware>((view, viewModel) =>
             {
                 view.Loaded += (sender, e) => viewModel.OnLoaded();

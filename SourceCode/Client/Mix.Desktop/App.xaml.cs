@@ -3,6 +3,7 @@ using Mix.Core;
 using Mix.Core.Localization.Json;
 using Mix.Windows.Core;
 using Mix.Windows.WPF;
+using Mix.Windows.WPF.Localizations;
 using Prism.Ioc;
 using Prism.Mvvm;
 using Serilog;
@@ -81,7 +82,8 @@ namespace Mix.Desktop
         {
             var configure = Container.Resolve<IConfigureFile>();
 
-            I18nManager.Initialize(configure);
+            LocalizerManager.Initialize(configure, Container.Resolve<IStringLocalizerFactory>());
+
             var language = configure.GetValue<CultureInfo>(SystemConst.LANGUAGE);
             if (language == null)
             {
@@ -89,8 +91,11 @@ namespace Mix.Desktop
                 configure.SetValue(SystemConst.LANGUAGE, language);
             }
 
-            I18nManager.Instance.CurrentUICulture = language;
-            I18nManager.Instance.AddResourceManager(I18nResources.LangRes.ResourceManager);
+            CultureInfo.CurrentUICulture = language;
+            //System.Threading.Thread.CurrentThread.CurrentCulture = language;
+            //System.Threading.Thread.CurrentThread.CurrentUICulture = language;
+
+            LocalizerManager.Instance.CurrentUICulture = language;
         }
 
         /// <summary>

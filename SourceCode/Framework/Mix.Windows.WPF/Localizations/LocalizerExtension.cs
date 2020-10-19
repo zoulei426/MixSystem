@@ -10,18 +10,19 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace Mix.Windows.WPF
+namespace Mix.Windows.WPF.Localizations
 {
+    /// <summary>
+    /// 国际化Markup
+    /// </summary>
     [MarkupExtensionReturnType(typeof(string))]
     public class LocalizerExtension : MarkupExtension
     {
-        private readonly IStringLocalizerFactory _localizerFactory;
         public string Key { get; }
 
         public LocalizerExtension(string key)
         {
             Key = key;
-            //_localizerFactory = DependencyResolver.Current.ResolveService<IStringLocalizerFactory>();
         }
 
         public override object ProvideValue(IServiceProvider serviceProvider)
@@ -36,15 +37,11 @@ namespace Mix.Windows.WPF
                 ? dependencyObject as FrameworkElement ?? dependencyObject.TryFindParent<FrameworkElement>()
                 : null;
 
-            //return new Binding(nameof(I18nSource.Value))
-            //{
-            //    Source = new I18nSource(key, frameworkElement),
-            //    Mode = BindingMode.OneWay
-            //}.ProvideValue(serviceProvider);
-            var fac = new JsonStringLocalizerFactory();
-            var localizer = fac.Create("", "");
-
-            return localizer[Key].Value;
+            return new Binding(nameof(LocalizerSource.Value))
+            {
+                Source = new LocalizerSource(Key, frameworkElement),
+                Mode = BindingMode.OneWay
+            }.ProvideValue(serviceProvider);
         }
     }
 }

@@ -37,12 +37,12 @@ namespace Mix.Desktop
 
         public void OnLoaded()
         {
-            throw new System.NotImplementedException();
+            
         }
 
         public void OnUnloaded()
         {
-            throw new System.NotImplementedException();
+            
         }
 
         #endregion Methods

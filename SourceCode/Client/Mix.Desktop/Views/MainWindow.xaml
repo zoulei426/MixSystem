@@ -7,8 +7,8 @@
         xmlns:prism="http://prismlibrary.com/"
         xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:wpf="clr-namespace:Mix.Windows.WPF;assembly=Mix.Windows.WPF"
+        xmlns:i18n="clr-namespace:Mix.Windows.WPF.Localizations;assembly=Mix.Windows.WPF"
         xmlns:ctrls="clr-namespace:Mix.Windows.Controls;assembly=Mix.Windows.Controls"
-        xmlns:i18nResources="clr-namespace:Mix.Desktop.I18nResources"
         prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
@@ -27,7 +27,7 @@
                         Style="{StaticResource MainTabControlStyle}" ItemContainerStyle="{StaticResource MainTabItemStyle}"
                         prism:RegionManager.RegionName="{x:Static wpf:SyetemRegionNames.MainTabRegion}" />
 
-            <Button Command="{Binding LogoutCommand}" Content="退出" />
+            <Button Command="{Binding LogoutCommand}" Content="{i18n:Localizer Logout}" />
 
             <StackPanel Grid.Column="0" VerticalAlignment="Bottom">
                 <ToggleButton x:Name="AppStoreToggleButton" Height="56"
@@ -40,7 +40,7 @@
                         </Grid.RowDefinitions>
                         <md:PackIcon Kind="Apps" Foreground="{StaticResource LightGreyBackgroundBrush}" HorizontalAlignment="Center" Height="22" Width="25" />
                         <TextBlock Grid.Row="2" HorizontalAlignment="Center" Foreground="{StaticResource LightGreyBackgroundBrush}" FontSize="10"
-                                   Text="{wpf:I18n {x:Static i18nResources:Language.Login}}" />
+                                   Text="{i18n:Localizer Hello}" />
                     </Grid>
                 </ToggleButton>
                 <ToggleButton x:Name="SettingsToggleButton"
@@ -53,16 +53,17 @@
                         </Grid.RowDefinitions>
                         <md:PackIcon Kind="Menu" Foreground="{StaticResource LightGreyBackgroundBrush}" HorizontalAlignment="Center" Height="22" Width="25" />
                         <TextBlock Grid.Row="2" HorizontalAlignment="Center" Foreground="{StaticResource LightGreyBackgroundBrush}" FontSize="10"
-                                   Text="{wpf:I18n {x:Static i18nResources:Language.Login}}" />
+                                   Text="{i18n:Localizer Hello}" />
                     </Grid>
                 </ToggleButton>
                 <!--<views:SettingsPopup IsOpen="{Binding IsChecked, ElementName=SettingsToggleButton}"  StaysOpen="False"
                                      PlacementTarget="{Binding ElementName=SettingsToggleButton}" Placement="Right" VerticalOffset="-318" PopupAnimation="Fade"
                                      Width="284" Height="Auto" />-->
 
+              
                 <ComboBox Grid.Column="2" Grid.Row="2" Margin="0 16"
-                      ItemsSource="{Binding Path=AvailableCultureInfos, Source={x:Static wpf:I18nManager.Instance}}"
-                      SelectedItem="{Binding Path=CurrentUICulture, Source={x:Static wpf:I18nManager.Instance}}"
+                      ItemsSource="{Binding Path=AvailableCultureInfos, Source={x:Static i18n:LocalizerManager.Instance}}"
+                      SelectedItem="{Binding Path=CurrentUICulture, Source={x:Static i18n:LocalizerManager.Instance}}"
                       DisplayMemberPath="NativeName" />
             </StackPanel>
         </Grid>

@@ -4,8 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Mix.Desktop"
-             xmlns:wpf="clr-namespace:Mix.Windows.WPF;assembly=Mix.Windows.WPF"
-             xmlns:i18nResources="clr-namespace:Mix.Desktop.I18nResources"
+             xmlns:i18n="clr-namespace:Mix.Windows.WPF.Localizations;assembly=Mix.Windows.WPF"
              xmlns:ctrls="clr-namespace:Mix.Windows.Controls;assembly=Mix.Windows.Controls"
              xmlns:prism="http://prismlibrary.com/"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
@@ -30,16 +29,15 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <TextBlock Text="{wpf:Localizer Hello}" />
             <md:PackIcon Kind="Account" VerticalAlignment="Bottom" Margin="6" />
             <TextBox Grid.Row="0" Grid.Column="1"
-                     md:HintAssist.Hint="{wpf:I18n {x:Static i18nResources:Language.Email}}"
+                     md:HintAssist.Hint="{i18n:Localizer Email}"
                      Text="{Binding Email}"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      FontFamily="Microsoft Yahei Regular" />
             <md:PackIcon Grid.Column="0" Grid.Row="2" Kind="Key" VerticalAlignment="Bottom" Margin="6" />
             <PasswordBox Name="PasswordBox" Grid.Column="1" Grid.Row="2"
-                         md:HintAssist.Hint="{wpf:I18n {x:Static i18nResources:Language.Password}}"
+                         md:HintAssist.Hint="{i18n:Localizer Password}"
                          ctrls:PasswordBoxHelper.Password="{Binding Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                          Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
                          FontFamily="Microsoft Yahei Regular">
@@ -50,14 +48,14 @@
         </Grid>
         <StackPanel Grid.Row="2" Margin="6 0" Orientation="Horizontal">
             <CheckBox IsChecked="{Binding IsRememberMe}" Focusable="False"
-                      Content="{wpf:I18n {x:Static i18nResources:Language.RememberMe}}" />
+                      Content="{i18n:Localizer Remember Me}" />
             <CheckBox IsChecked="{Binding IsAutoSignIn}" Focusable="False" Margin="16 0 0 0"
-                      Content="{wpf:I18n {x:Static i18nResources:Language.AutomaticLogin}}" />
+                      Content="{i18n:Localizer Automatic Login}" />
         </StackPanel>
         <Button Grid.Row="4" IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}"
                 Command="{Binding SignInCommand}"
                 CommandParameter="{Binding ElementName=PasswordBox}"
                 Margin="28 0"
-                Content="{wpf:I18n {x:Static i18nResources:Language.Login}}" />
+                Content="{i18n:Localizer Login}" />
     </Grid>
 </UserControl>

@@ -1,6 +1,5 @@
 ﻿using Grpc.Core;
 using Grpc.Net.Client;
-using Mix.Desktop.I18nResources;
 using Mix.Library.Entity.Protos;
 using Mix.Windows.Controls;
 using Mix.Windows.Core;
@@ -94,7 +93,6 @@ namespace Mix.Desktop
 
         public void OnLoaded(SignInPanel view)
         {
-            Notify.Success(I18nManager.Instance.Get(Language.AutomaticLogin).ToString());
 
             // 1. Login info from SignUpView
             if (signUpArgs != null)
@@ -160,7 +158,7 @@ namespace Mix.Desktop
                     Password = passwordMd5
                 });
 
-                Notify.Success("登录成功！");
+                Notify.Success(Localizer["Login Success"]);
             }
             catch (Exception ex)
             {
