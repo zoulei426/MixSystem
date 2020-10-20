@@ -1,4 +1,5 @@
 ﻿using Grpc.Core;
+using Microsoft.AspNetCore.Authorization;
 using Mix.Library.Entity.Databases.Accounts;
 using Mix.Library.Entity.Protos;
 using Mix.Library.Repository.Accounts;
@@ -11,6 +12,7 @@ using static Mix.Library.Entity.Protos.Accounts;
 
 namespace Mix.Grpc.Api.Services
 {
+    [Authorize(AuthenticationSchemes = "Bearer")]
     public class AccountService : AccountsBase
     {
         private readonly IUserRepository userRepository;

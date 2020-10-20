@@ -1,5 +1,6 @@
 ﻿using Grpc.Core;
 using Grpc.Net.Client;
+using IdentityModel.Client;
 using Mix.Library.Entity.Protos;
 using Mix.Windows.Controls;
 using Mix.Windows.Core;
@@ -93,7 +94,6 @@ namespace Mix.Desktop
 
         public void OnLoaded(SignInPanel view)
         {
-
             // 1. Login info from SignUpView
             if (signUpArgs != null)
             {
@@ -149,6 +149,27 @@ namespace Mix.Desktop
         {
             EventAggregator.GetEvent<MainWindowLoadingEvent>().Publish(true);
 
+            var httpClient = new HttpClient();
+            var disco = await httpClient.GetDiscoveryDocumentAsync("http://localhost:5999/");
+            if (disco.IsError)
+            {
+                return;
+            }
+
+            var token = await httpClient.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest()
+            {
+                Address = disco.TokenEndpoint,
+                ClientId = "client",
+                ClientSecret = "511536EF-F270-4058-80CA-1C89C192F69A",
+                Scope = "api"
+            });
+            var tokenValue = "Bearer " + token.AccessToken;
+            var metadata = new Metadata
+    {
+        { "Authorization", tokenValue }
+    };
+            var callOptions = new CallOptions(metadata);
+
             LoginResponse response = null;
             try
             {
@@ -156,7 +177,7 @@ namespace Mix.Desktop
                 {
                     Username = Email,
                     Password = passwordMd5
-                });
+                }, callOptions);
 
                 Notify.Success(Localizer["Login Success"]);
             }

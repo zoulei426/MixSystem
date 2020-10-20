@@ -1,4 +1,5 @@
 using Autofac;
+using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -26,7 +27,18 @@ namespace Mix.Grpc.Api
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddGrpc();
+            services.AddGrpc(options => { options.EnableDetailedErrors = true; });
+
+            // ×¢²áIdentityServer4ÊÚÈ¨ÈÏÖ¤
+            services.AddAuthorization();
+            services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+                .AddIdentityServerAuthentication(options =>
+                {
+                    options.Authority = "http://localhost:5999";
+                    options.RequireHttpsMetadata = false;
+                    options.ApiName = "api";
+                    options.SaveToken = true;
+                });
 
             services.AddFreeSql(configuration);
 
@@ -54,9 +66,13 @@ namespace Mix.Grpc.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.UseHttpsRedirection();
-
             app.UseRouting();
+
+            app.UseAuthentication();
+
+            app.UseAuthorization();
+
+            //app.UseHttpsRedirection();
 
             app.UseEndpoints(endpoints =>
             {
