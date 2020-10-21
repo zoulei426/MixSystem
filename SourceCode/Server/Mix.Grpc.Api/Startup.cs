@@ -36,7 +36,7 @@ namespace Mix.Grpc.Api
                 {
                     options.Authority = "http://localhost:5999";
                     options.RequireHttpsMetadata = false;
-                    options.ApiName = "api";
+                    options.ApiName = "api1";
                     options.SaveToken = true;
                 });
 

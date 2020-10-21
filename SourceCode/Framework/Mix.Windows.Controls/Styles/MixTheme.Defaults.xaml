@@ -6,5 +6,6 @@
         <ResourceDictionary Source="pack://application:,,,/Mix.Windows.Controls;component/Styles/MixTheme.TabControl.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Mix.Windows.Controls;component/Styles/MixTheme.Window.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Mix.Windows.Controls;component/Styles/MixTheme.Brushs.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Mix.Windows.Controls;component/Styles/MixTheme.Button.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

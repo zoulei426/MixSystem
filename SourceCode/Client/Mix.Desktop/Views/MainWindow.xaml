@@ -13,7 +13,9 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Style="{StaticResource MainWindowStyle}"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" 
+        MinHeight="500" MinWidth="720"
+        Height="700" Width="1100">
     <md:DialogHost Identifier="RootDialog">
         <Grid Background="{StaticResource LightGreyBackgroundBrush}">
             <Grid.ColumnDefinitions>
@@ -30,7 +32,7 @@
             <Button Command="{Binding LogoutCommand}" Content="{i18n:Localizer Logout}" />
 
             <StackPanel Grid.Column="0" VerticalAlignment="Bottom">
-                <ToggleButton x:Name="AppStoreToggleButton" Height="56"
+                <ToggleButton x:Name="AppStoreToggleButton" Height="56"  Style="{StaticResource LeftBarAndUnderlineToggleButtonStyle}"
                               IsChecked="{Binding AppStoreIsDisplayed}">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -40,10 +42,10 @@
                         </Grid.RowDefinitions>
                         <md:PackIcon Kind="Apps" Foreground="{StaticResource LightGreyBackgroundBrush}" HorizontalAlignment="Center" Height="22" Width="25" />
                         <TextBlock Grid.Row="2" HorizontalAlignment="Center" Foreground="{StaticResource LightGreyBackgroundBrush}" FontSize="10"
-                                   Text="{i18n:Localizer Hello}" />
+                                   Text="{i18n:Localizer App Store}" />
                     </Grid>
                 </ToggleButton>
-                <ToggleButton x:Name="SettingsToggleButton"
+                <ToggleButton x:Name="SettingsToggleButton"  Style="{StaticResource LeftBarAndUnderlineToggleButtonStyle}"
                               Height="56">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -53,7 +55,7 @@
                         </Grid.RowDefinitions>
                         <md:PackIcon Kind="Menu" Foreground="{StaticResource LightGreyBackgroundBrush}" HorizontalAlignment="Center" Height="22" Width="25" />
                         <TextBlock Grid.Row="2" HorizontalAlignment="Center" Foreground="{StaticResource LightGreyBackgroundBrush}" FontSize="10"
-                                   Text="{i18n:Localizer Hello}" />
+                                   Text="{i18n:Localizer Menu}" />
                     </Grid>
                 </ToggleButton>
                 <!--<views:SettingsPopup IsOpen="{Binding IsChecked, ElementName=SettingsToggleButton}"  StaysOpen="False"
