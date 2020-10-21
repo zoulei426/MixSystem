@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Mix.Library.Entity.Dto
+namespace Mix.Library.Entities.Dto
 {
     public class LoginDto
     {

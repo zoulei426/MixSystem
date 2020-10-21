@@ -1,14 +1,14 @@
 ﻿using Grpc.Core;
 using Microsoft.AspNetCore.Authorization;
-using Mix.Library.Entity.Databases.Accounts;
-using Mix.Library.Entity.Protos;
-using Mix.Library.Repository.Accounts;
+using Mix.Library.Entities.Databases.Accounts;
+using Mix.Library.Entities.Protos;
+using Mix.Library.Repositories.Accounts;
 using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
-using static Mix.Library.Entity.Protos.Accounts;
+using static Mix.Library.Entities.Protos.Accounts;
 
 namespace Mix.Grpc.Api.Services
 {

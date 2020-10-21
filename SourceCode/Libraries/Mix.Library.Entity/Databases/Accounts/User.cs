@@ -1,6 +1,6 @@
 ﻿using Mix.Data.Entities;
 
-namespace Mix.Library.Entity.Databases.Accounts
+namespace Mix.Library.Entities.Databases.Accounts
 {
     public class User : AduitEntity
     {

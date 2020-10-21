@@ -12,7 +12,7 @@ namespace Mix.Service.Core.Modules
     {
         protected override void Load(ContainerBuilder builder)
         {
-            Assembly assemblysRepository = Assembly.Load("Mix.Library.Repository");
+            Assembly assemblysRepository = Assembly.Load("Mix.Library.Repositories");
             builder.RegisterAssemblyTypes(assemblysRepository)
                     .Where(a => a.Name.EndsWith("Repository"))
                     .AsImplementedInterfaces()
@@ -20,7 +20,6 @@ namespace Mix.Service.Core.Modules
 
             builder.RegisterGeneric(typeof(AuditBaseRepository<>)).As(typeof(IAuditBaseRepository<>)).InstancePerLifetimeScope();
             builder.RegisterGeneric(typeof(AuditBaseRepository<,>)).As(typeof(IAuditBaseRepository<,>)).InstancePerLifetimeScope();
-
         }
     }
 }

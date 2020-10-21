@@ -50,7 +50,7 @@
     <ProjectReference Include="..\..\Framework\Mix.Windows.Controls\Mix.Windows.Controls.csproj" />
     <ProjectReference Include="..\..\Framework\Mix.Windows.Core\Mix.Windows.Core.csproj" />
     <ProjectReference Include="..\..\Framework\Mix.Windows.WPF\Mix.Windows.WPF.csproj" />
-    <ProjectReference Include="..\..\Libraries\Mix.Library.Repository\Mix.Library.Repository.csproj" />
+    <ProjectReference Include="..\..\Libraries\Mix.Library.Repository\Mix.Library.Repositories.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,6 @@
-﻿using FluentValidation.AspNetCore;
+﻿using Autofac;
+using FluentValidation.AspNetCore;
+using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Localization;
@@ -8,7 +10,11 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Localization;
 using Microsoft.OpenApi.Models;
 using Mix.Core;
+using Mix.Data;
+using Mix.Data.Repositories;
+using Mix.Library.Repositories.Accounts;
 using Mix.Service.Core;
+using Mix.Service.Core.Modules;
 using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
@@ -24,6 +30,11 @@ namespace Mix.Api
     public class Startup
     {
         /// <summary>
+        /// 配置
+        /// </summary>
+        public IConfiguration Configuration { get; }
+
+        /// <summary>
         /// 构造
         /// </summary>
         /// <param name="configuration"></param>
@@ -31,11 +42,6 @@ namespace Mix.Api
         {
             Configuration = configuration;
         }
-
-        /// <summary>
-        /// 配置
-        /// </summary>
-        public IConfiguration Configuration { get; }
 
         /// <summary>
         /// 服务配置
@@ -46,9 +52,25 @@ namespace Mix.Api
         {
             services.AddControllers();
 
+            // 注册IdentityServer4授权认证
+            services.AddAuthorization();
+            services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+                .AddIdentityServerAuthentication(options =>
+                {
+                    options.Authority = "http://localhost:5999";
+                    options.RequireHttpsMetadata = false;
+                    options.ApiName = "api1";
+                    options.SaveToken = true;
+                });
+
             services.AddJsonLocalization(options => options.ResourcesPath = "Resources");
 
-            //services.AddSingleton<IStringLocalizerFactory, JsonStringLocalizerFactory>();
+            services.AddFreeSql(Configuration);
+
+            services.AddTransient<ICurrentUser, CurrentUser>();
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient(typeof(IAuditBaseRepository<>), typeof(AuditBaseRepository<>));
+            services.AddTransient(typeof(IAuditBaseRepository<,>), typeof(AuditBaseRepository<,>));
 
             // 注册redis
             //services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect("localhost"));
@@ -108,6 +130,12 @@ namespace Mix.Api
             });
         }
 
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            builder.RegisterModule(new RepositoryModule());
+            builder.RegisterModule(new DependencyModule());
+        }
+
         /// <summary>
         /// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         /// </summary>
@@ -141,7 +169,9 @@ namespace Mix.Api
 
             app.UseRouting();
 
-            //app.UseAuthorization();
+            app.UseAuthentication();
+
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

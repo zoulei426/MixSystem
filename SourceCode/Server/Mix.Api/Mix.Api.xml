@@ -20,6 +20,38 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Mix.Api.Controllers.CompaniesController">
+            <summary>
+            公司控制器
+            </summary>
+        </member>
+        <member name="M:Mix.Api.Controllers.CompaniesController.#ctor(Microsoft.Extensions.Localization.IStringLocalizer,Mix.Library.Repositories.ICompanyRepository)">
+            <summary>
+            构造
+            </summary>
+            <param name="localizer"></param>
+            <param name="companyRepository"></param>
+        </member>
+        <member name="M:Mix.Api.Controllers.CompaniesController.GetCompanies">
+            <summary>
+            获取所有
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Api.Controllers.CompaniesController.GetCompany(System.Guid)">
+            <summary>
+            根据Id获取
+            </summary>
+            <param name="companyId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Api.Controllers.CompaniesController.AddCompany(Mix.Library.Entities.Databases.Company)">
+            <summary>
+            添加
+            </summary>
+            <param name="company"></param>
+            <returns></returns>
+        </member>
         <member name="T:Mix.Api.Program">
             <summary>
             主程序
@@ -43,16 +75,16 @@
             Startup
             </summary>
         </member>
+        <member name="P:Mix.Api.Startup.Configuration">
+            <summary>
+            配置
+            </summary>
+        </member>
         <member name="M:Mix.Api.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
             构造
             </summary>
             <param name="configuration"></param>
-        </member>
-        <member name="P:Mix.Api.Startup.Configuration">
-            <summary>
-            配置
-            </summary>
         </member>
         <member name="M:Mix.Api.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>

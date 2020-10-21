@@ -8,7 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Mix.Data;
 using Mix.Data.Repositories;
 using Mix.Grpc.Api.Services;
-using Mix.Library.Repository.Accounts;
+using Mix.Library.Repositories.Accounts;
 using Mix.Service.Core;
 using Mix.Service.Core.Modules;
 

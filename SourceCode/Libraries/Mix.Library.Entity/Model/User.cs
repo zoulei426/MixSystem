@@ -2,7 +2,7 @@
 using System;
 using System.ComponentModel;
 
-namespace Mix.Library.Entity.Model
+namespace Mix.Library.Entities.Model
 {
     /// <summary>
     /// 账户

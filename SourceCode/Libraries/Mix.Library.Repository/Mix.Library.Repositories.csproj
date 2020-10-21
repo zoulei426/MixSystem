@@ -17,6 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Framework\Mix.Core\Mix.Core.csproj" />
-    <ProjectReference Include="..\Mix.Library.Entity\Mix.Library.Entity.csproj" />
+    <ProjectReference Include="..\Mix.Library.Entity\Mix.Library.Entities.csproj" />
   </ItemGroup>
 </Project>

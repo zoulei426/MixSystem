@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Mix.Library.Entity.Model.Validator
+namespace Mix.Library.Entities.Model.Validator
 {
     /// <summary>
     /// 账户验证器

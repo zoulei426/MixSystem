@@ -1,7 +1,7 @@
 ﻿using Grpc.Core;
 using Grpc.Net.Client;
 using IdentityModel.Client;
-using Mix.Library.Entity.Protos;
+using Mix.Library.Entities.Protos;
 using Mix.Windows.Controls;
 using Mix.Windows.Core;
 using Mix.Windows.WPF;
@@ -12,7 +12,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using static Mix.Library.Entity.Protos.Accounts;
+using static Mix.Library.Entities.Protos.Accounts;
 
 namespace Mix.Desktop
 {
@@ -173,7 +173,7 @@ namespace Mix.Desktop
             LoginResponse response = null;
             try
             {
-                response = await accountsClient.LoginAsync(new Library.Entity.Protos.LoginRequest
+                response = await accountsClient.LoginAsync(new Library.Entities.Protos.LoginRequest
                 {
                     Username = Email,
                     Password = passwordMd5

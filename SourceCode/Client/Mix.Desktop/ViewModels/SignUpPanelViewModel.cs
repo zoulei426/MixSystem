@@ -6,7 +6,7 @@ using Mix.Windows.WPF.Commands;
 using Prism.Ioc;
 using System.Linq;
 using System.Windows.Input;
-using static Mix.Library.Entity.Protos.Accounts;
+using static Mix.Library.Entities.Protos.Accounts;
 
 namespace Mix.Desktop
 {
@@ -137,14 +137,14 @@ namespace Mix.Desktop
         {
             EventAggregator.GetEvent<MainWindowLoadingEvent>().Publish(true);
 
-            var response = await accountsClient.RegisterAsync(new Library.Entity.Protos.RegisterRequest
+            var response = await accountsClient.RegisterAsync(new Library.Entities.Protos.RegisterRequest
             {
                 Email = Email,
                 Username = UserName,
                 Password = Password,
             });
 
-            if (response.Response.Code == Library.Entity.Protos.ErrorCode.Success)
+            if (response.Response.Code == Library.Entities.Protos.ErrorCode.Success)
             {
                 //Password = string.Empty;
 

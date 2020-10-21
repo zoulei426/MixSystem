@@ -1,12 +1,12 @@
 ﻿using FreeSql;
 using Mix.Data;
 using Mix.Data.Repositories;
-using Mix.Library.Entity.Databases.Accounts;
+using Mix.Library.Entities.Databases.Accounts;
 using System;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace Mix.Library.Repository.Accounts
+namespace Mix.Library.Repositories.Accounts
 {
     public class UserRepository : AuditBaseRepository<User>, IUserRepository
     {
@@ -23,6 +23,5 @@ namespace Mix.Library.Repository.Accounts
         {
             return Select.Where(expression).ToOneAsync();
         }
-
     }
 }

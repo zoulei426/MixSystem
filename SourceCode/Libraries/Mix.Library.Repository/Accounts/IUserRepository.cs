@@ -1,10 +1,10 @@
 ﻿using Mix.Data.Repositories;
-using Mix.Library.Entity.Databases.Accounts;
+using Mix.Library.Entities.Databases.Accounts;
 using System;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace Mix.Library.Repository.Accounts
+namespace Mix.Library.Repositories.Accounts
 {
     public interface IUserRepository : IAuditBaseRepository<User>
     {
@@ -14,6 +14,5 @@ namespace Mix.Library.Repository.Accounts
         /// <param name="expression"></param>
         /// <returns></returns>
         Task<User> GetUserAsync(Expression<Func<User, bool>> expression);
-
     }
 }

@@ -21,9 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mix.Windows.Core", "SourceC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mix.Windows.WPF", "SourceCode\Framework\Mix.Windows.WPF\Mix.Windows.WPF.csproj", "{C92A9E19-3E32-453B-BDCD-3E6BFE037765}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mix.Library.Entity", "SourceCode\Libraries\Mix.Library.Entity\Mix.Library.Entity.csproj", "{0E0E2754-892B-4E67-A5DC-D97CF48442BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mix.Library.Entities", "SourceCode\Libraries\Mix.Library.Entity\Mix.Library.Entities.csproj", "{0E0E2754-892B-4E67-A5DC-D97CF48442BB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mix.Library.Repository", "SourceCode\Libraries\Mix.Library.Repository\Mix.Library.Repository.csproj", "{7EDA9CA2-3B95-4D2B-9C54-3F9F573BDB6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mix.Library.Repositories", "SourceCode\Libraries\Mix.Library.Repository\Mix.Library.Repositories.csproj", "{7EDA9CA2-3B95-4D2B-9C54-3F9F573BDB6B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mix.Windows.Controls", "SourceCode\Framework\Mix.Windows.Controls\Mix.Windows.Controls.csproj", "{92E5DD85-F2AE-4957-B31A-3BDA4F6F3732}"
 EndProject
@@ -37,7 +37,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mix.Service.Core", "SourceC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mix.Grpc.Api", "SourceCode\Server\Mix.Grpc.Api\Mix.Grpc.Api.csproj", "{7BC24F29-6086-47E1-8B6B-9D7DC9D19DF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mix.IdentityServer4", "SourceCode\Server\Mix.IdentityServer4\Mix.IdentityServer4.csproj", "{94309B8D-50A8-4D96-97EB-FEE3BEF680EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mix.IdentityServer4", "SourceCode\Server\Mix.IdentityServer4\Mix.IdentityServer4.csproj", "{94309B8D-50A8-4D96-97EB-FEE3BEF680EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
