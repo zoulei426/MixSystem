@@ -65,8 +65,8 @@ namespace Mix.Desktop
         private bool _IsAutoSignIn;
 
         private SignUpArgs signUpArgs;
-        private ChannelBase channel;
-        private AccountsClient accountsClient;
+        private readonly ChannelBase channel;
+        private readonly AccountsClient accountsClient;
 
         #endregion Properties
 
@@ -169,11 +169,9 @@ namespace Mix.Desktop
         { "Authorization", tokenValue }
     };
             var callOptions = new CallOptions(metadata);
-
-            LoginResponse response = null;
             try
             {
-                response = await accountsClient.LoginAsync(new Library.Entities.Protos.LoginRequest
+                LoginResponse response = await accountsClient.LoginAsync(new Library.Entities.Protos.LoginRequest
                 {
                     Username = Email,
                     Password = passwordMd5

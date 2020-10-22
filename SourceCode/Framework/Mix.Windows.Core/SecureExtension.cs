@@ -128,9 +128,11 @@ namespace Mix.Windows.Core
         public static string EncryptByDes(this string text)
         {
             if (text.IsNullOrEmpty()) return string.Empty;
-            DESCryptoServiceProvider provider = new DESCryptoServiceProvider();
-            provider.Key = Encoding.ASCII.GetBytes(DesKey.Substring(0, 8));
-            provider.IV = Encoding.ASCII.GetBytes(DesKey.Substring(0, 8));
+            DESCryptoServiceProvider provider = new DESCryptoServiceProvider
+            {
+                Key = Encoding.ASCII.GetBytes(DesKey.Substring(0, 8)),
+                IV = Encoding.ASCII.GetBytes(DesKey.Substring(0, 8))
+            };
             byte[] bytes = Encoding.Default.GetBytes(text);
             MemoryStream stream = new MemoryStream();
             CryptoStream stream2 = new CryptoStream(stream, provider.CreateEncryptor(), CryptoStreamMode.Write);
@@ -148,9 +150,11 @@ namespace Mix.Windows.Core
         public static string DecryptByDes(this string ciphertext)
         {
             if (ciphertext.IsNullOrEmpty()) return string.Empty;
-            DESCryptoServiceProvider provider = new DESCryptoServiceProvider();
-            provider.Key = Encoding.ASCII.GetBytes(DesKey.Substring(0, 8));
-            provider.IV = Encoding.ASCII.GetBytes(DesKey.Substring(0, 8));
+            DESCryptoServiceProvider provider = new DESCryptoServiceProvider
+            {
+                Key = Encoding.ASCII.GetBytes(DesKey.Substring(0, 8)),
+                IV = Encoding.ASCII.GetBytes(DesKey.Substring(0, 8))
+            };
             byte[] buffer = new byte[ciphertext.Length / 2];
             for (int i = 0; i < (ciphertext.Length / 2); i++)
             {

@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Mix.Library.Entity.Protos {
+namespace Mix.Library.Entities.Protos {
 
   /// <summary>Holder for reflection information generated from account.proto</summary>
   public static partial class AccountReflection {
@@ -37,17 +37,17 @@ namespace Mix.Library.Entity.Protos {
             "a25vd25FcnJvchADEhgKFEF1dGhlbnRpY2F0aW9uRmFpbGVkEAQygwEKCEFj",
             "Y291bnRzEjYKBUxvZ2luEhQuUHJvdG9zLkxvZ2luUmVxdWVzdBoVLlByb3Rv",
             "cy5Mb2dpblJlc3BvbnNlIgASPwoIUmVnaXN0ZXISFy5Qcm90b3MuUmVnaXN0",
-            "ZXJSZXF1ZXN0GhguUHJvdG9zLlJlZ2lzdGVyUmVzcG9uc2UiAEIcqgIZTWl4",
-            "LkxpYnJhcnkuRW50aXR5LlByb3Rvc2IGcHJvdG8z"));
+            "ZXJSZXF1ZXN0GhguUHJvdG9zLlJlZ2lzdGVyUmVzcG9uc2UiAEIeqgIbTWl4",
+            "LkxpYnJhcnkuRW50aXRpZXMuUHJvdG9zYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Mix.Library.Entity.Protos.ErrorCode), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Mix.Library.Entity.Protos.LoginRequest), global::Mix.Library.Entity.Protos.LoginRequest.Parser, new[]{ "Username", "Password" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Mix.Library.Entity.Protos.LoginResponse), global::Mix.Library.Entity.Protos.LoginResponse.Parser, new[]{ "Tokens" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Mix.Library.Entity.Protos.RegisterRequest), global::Mix.Library.Entity.Protos.RegisterRequest.Parser, new[]{ "Username", "Password", "Email" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Mix.Library.Entity.Protos.RegisterResponse), global::Mix.Library.Entity.Protos.RegisterResponse.Parser, new[]{ "Response" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Mix.Library.Entity.Protos.Tokens), global::Mix.Library.Entity.Protos.Tokens.Parser, new[]{ "AccessToken", "RefreshToken" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Mix.Library.Entity.Protos.UnifyResponseDto), global::Mix.Library.Entity.Protos.UnifyResponseDto.Parser, new[]{ "Code", "Message" }, null, null, null, null)
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Mix.Library.Entities.Protos.ErrorCode), }, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::Mix.Library.Entities.Protos.LoginRequest), global::Mix.Library.Entities.Protos.LoginRequest.Parser, new[]{ "Username", "Password" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Mix.Library.Entities.Protos.LoginResponse), global::Mix.Library.Entities.Protos.LoginResponse.Parser, new[]{ "Tokens" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Mix.Library.Entities.Protos.RegisterRequest), global::Mix.Library.Entities.Protos.RegisterRequest.Parser, new[]{ "Username", "Password", "Email" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Mix.Library.Entities.Protos.RegisterResponse), global::Mix.Library.Entities.Protos.RegisterResponse.Parser, new[]{ "Response" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Mix.Library.Entities.Protos.Tokens), global::Mix.Library.Entities.Protos.Tokens.Parser, new[]{ "AccessToken", "RefreshToken" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Mix.Library.Entities.Protos.UnifyResponseDto), global::Mix.Library.Entities.Protos.UnifyResponseDto.Parser, new[]{ "Code", "Message" }, null, null, null, null)
           }));
     }
     #endregion
@@ -95,7 +95,7 @@ namespace Mix.Library.Entity.Protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mix.Library.Entity.Protos.AccountReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Mix.Library.Entities.Protos.AccountReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -309,7 +309,7 @@ namespace Mix.Library.Entity.Protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mix.Library.Entity.Protos.AccountReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Mix.Library.Entities.Protos.AccountReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -337,9 +337,9 @@ namespace Mix.Library.Entity.Protos {
 
     /// <summary>Field number for the "tokens" field.</summary>
     public const int TokensFieldNumber = 1;
-    private global::Mix.Library.Entity.Protos.Tokens tokens_;
+    private global::Mix.Library.Entities.Protos.Tokens tokens_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Mix.Library.Entity.Protos.Tokens Tokens {
+    public global::Mix.Library.Entities.Protos.Tokens Tokens {
       get { return tokens_; }
       set {
         tokens_ = value;
@@ -425,7 +425,7 @@ namespace Mix.Library.Entity.Protos {
       }
       if (other.tokens_ != null) {
         if (tokens_ == null) {
-          Tokens = new global::Mix.Library.Entity.Protos.Tokens();
+          Tokens = new global::Mix.Library.Entities.Protos.Tokens();
         }
         Tokens.MergeFrom(other.Tokens);
       }
@@ -445,7 +445,7 @@ namespace Mix.Library.Entity.Protos {
             break;
           case 10: {
             if (tokens_ == null) {
-              Tokens = new global::Mix.Library.Entity.Protos.Tokens();
+              Tokens = new global::Mix.Library.Entities.Protos.Tokens();
             }
             input.ReadMessage(Tokens);
             break;
@@ -466,7 +466,7 @@ namespace Mix.Library.Entity.Protos {
             break;
           case 10: {
             if (tokens_ == null) {
-              Tokens = new global::Mix.Library.Entity.Protos.Tokens();
+              Tokens = new global::Mix.Library.Entities.Protos.Tokens();
             }
             input.ReadMessage(Tokens);
             break;
@@ -490,7 +490,7 @@ namespace Mix.Library.Entity.Protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mix.Library.Entity.Protos.AccountReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Mix.Library.Entities.Protos.AccountReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -743,7 +743,7 @@ namespace Mix.Library.Entity.Protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mix.Library.Entity.Protos.AccountReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Mix.Library.Entities.Protos.AccountReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -771,9 +771,9 @@ namespace Mix.Library.Entity.Protos {
 
     /// <summary>Field number for the "response" field.</summary>
     public const int ResponseFieldNumber = 1;
-    private global::Mix.Library.Entity.Protos.UnifyResponseDto response_;
+    private global::Mix.Library.Entities.Protos.UnifyResponseDto response_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Mix.Library.Entity.Protos.UnifyResponseDto Response {
+    public global::Mix.Library.Entities.Protos.UnifyResponseDto Response {
       get { return response_; }
       set {
         response_ = value;
@@ -859,7 +859,7 @@ namespace Mix.Library.Entity.Protos {
       }
       if (other.response_ != null) {
         if (response_ == null) {
-          Response = new global::Mix.Library.Entity.Protos.UnifyResponseDto();
+          Response = new global::Mix.Library.Entities.Protos.UnifyResponseDto();
         }
         Response.MergeFrom(other.Response);
       }
@@ -879,7 +879,7 @@ namespace Mix.Library.Entity.Protos {
             break;
           case 10: {
             if (response_ == null) {
-              Response = new global::Mix.Library.Entity.Protos.UnifyResponseDto();
+              Response = new global::Mix.Library.Entities.Protos.UnifyResponseDto();
             }
             input.ReadMessage(Response);
             break;
@@ -900,7 +900,7 @@ namespace Mix.Library.Entity.Protos {
             break;
           case 10: {
             if (response_ == null) {
-              Response = new global::Mix.Library.Entity.Protos.UnifyResponseDto();
+              Response = new global::Mix.Library.Entities.Protos.UnifyResponseDto();
             }
             input.ReadMessage(Response);
             break;
@@ -924,7 +924,7 @@ namespace Mix.Library.Entity.Protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mix.Library.Entity.Protos.AccountReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Mix.Library.Entities.Protos.AccountReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1135,7 +1135,7 @@ namespace Mix.Library.Entity.Protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mix.Library.Entity.Protos.AccountReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Mix.Library.Entities.Protos.AccountReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1164,12 +1164,12 @@ namespace Mix.Library.Entity.Protos {
 
     /// <summary>Field number for the "code" field.</summary>
     public const int CodeFieldNumber = 1;
-    private global::Mix.Library.Entity.Protos.ErrorCode code_ = global::Mix.Library.Entity.Protos.ErrorCode.Success;
+    private global::Mix.Library.Entities.Protos.ErrorCode code_ = global::Mix.Library.Entities.Protos.ErrorCode.Success;
     /// <summary>
     /// 代码
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Mix.Library.Entity.Protos.ErrorCode Code {
+    public global::Mix.Library.Entities.Protos.ErrorCode Code {
       get { return code_; }
       set {
         code_ = value;
@@ -1211,7 +1211,7 @@ namespace Mix.Library.Entity.Protos {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Code != global::Mix.Library.Entity.Protos.ErrorCode.Success) hash ^= Code.GetHashCode();
+      if (Code != global::Mix.Library.Entities.Protos.ErrorCode.Success) hash ^= Code.GetHashCode();
       if (Message.Length != 0) hash ^= Message.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1229,7 +1229,7 @@ namespace Mix.Library.Entity.Protos {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Code != global::Mix.Library.Entity.Protos.ErrorCode.Success) {
+      if (Code != global::Mix.Library.Entities.Protos.ErrorCode.Success) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Code);
       }
@@ -1246,7 +1246,7 @@ namespace Mix.Library.Entity.Protos {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Code != global::Mix.Library.Entity.Protos.ErrorCode.Success) {
+      if (Code != global::Mix.Library.Entities.Protos.ErrorCode.Success) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Code);
       }
@@ -1263,7 +1263,7 @@ namespace Mix.Library.Entity.Protos {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Code != global::Mix.Library.Entity.Protos.ErrorCode.Success) {
+      if (Code != global::Mix.Library.Entities.Protos.ErrorCode.Success) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Code);
       }
       if (Message.Length != 0) {
@@ -1280,7 +1280,7 @@ namespace Mix.Library.Entity.Protos {
       if (other == null) {
         return;
       }
-      if (other.Code != global::Mix.Library.Entity.Protos.ErrorCode.Success) {
+      if (other.Code != global::Mix.Library.Entities.Protos.ErrorCode.Success) {
         Code = other.Code;
       }
       if (other.Message.Length != 0) {
@@ -1301,7 +1301,7 @@ namespace Mix.Library.Entity.Protos {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Code = (global::Mix.Library.Entity.Protos.ErrorCode) input.ReadEnum();
+            Code = (global::Mix.Library.Entities.Protos.ErrorCode) input.ReadEnum();
             break;
           }
           case 18: {
@@ -1323,7 +1323,7 @@ namespace Mix.Library.Entity.Protos {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            Code = (global::Mix.Library.Entity.Protos.ErrorCode) input.ReadEnum();
+            Code = (global::Mix.Library.Entities.Protos.ErrorCode) input.ReadEnum();
             break;
           }
           case 18: {

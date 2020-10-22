@@ -7,7 +7,7 @@
 
 using grpc = global::Grpc.Core;
 
-namespace Mix.Library.Entity.Protos {
+namespace Mix.Library.Entities.Protos {
   public static partial class Accounts
   {
     static readonly string __ServiceName = "Protos.Accounts";
@@ -42,19 +42,19 @@ namespace Mix.Library.Entity.Protos {
       return parser.ParseFrom(context.PayloadAsNewBuffer());
     }
 
-    static readonly grpc::Marshaller<global::Mix.Library.Entity.Protos.LoginRequest> __Marshaller_Protos_LoginRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Mix.Library.Entity.Protos.LoginRequest.Parser));
-    static readonly grpc::Marshaller<global::Mix.Library.Entity.Protos.LoginResponse> __Marshaller_Protos_LoginResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Mix.Library.Entity.Protos.LoginResponse.Parser));
-    static readonly grpc::Marshaller<global::Mix.Library.Entity.Protos.RegisterRequest> __Marshaller_Protos_RegisterRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Mix.Library.Entity.Protos.RegisterRequest.Parser));
-    static readonly grpc::Marshaller<global::Mix.Library.Entity.Protos.RegisterResponse> __Marshaller_Protos_RegisterResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Mix.Library.Entity.Protos.RegisterResponse.Parser));
+    static readonly grpc::Marshaller<global::Mix.Library.Entities.Protos.LoginRequest> __Marshaller_Protos_LoginRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Mix.Library.Entities.Protos.LoginRequest.Parser));
+    static readonly grpc::Marshaller<global::Mix.Library.Entities.Protos.LoginResponse> __Marshaller_Protos_LoginResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Mix.Library.Entities.Protos.LoginResponse.Parser));
+    static readonly grpc::Marshaller<global::Mix.Library.Entities.Protos.RegisterRequest> __Marshaller_Protos_RegisterRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Mix.Library.Entities.Protos.RegisterRequest.Parser));
+    static readonly grpc::Marshaller<global::Mix.Library.Entities.Protos.RegisterResponse> __Marshaller_Protos_RegisterResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Mix.Library.Entities.Protos.RegisterResponse.Parser));
 
-    static readonly grpc::Method<global::Mix.Library.Entity.Protos.LoginRequest, global::Mix.Library.Entity.Protos.LoginResponse> __Method_Login = new grpc::Method<global::Mix.Library.Entity.Protos.LoginRequest, global::Mix.Library.Entity.Protos.LoginResponse>(
+    static readonly grpc::Method<global::Mix.Library.Entities.Protos.LoginRequest, global::Mix.Library.Entities.Protos.LoginResponse> __Method_Login = new grpc::Method<global::Mix.Library.Entities.Protos.LoginRequest, global::Mix.Library.Entities.Protos.LoginResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Login",
         __Marshaller_Protos_LoginRequest,
         __Marshaller_Protos_LoginResponse);
 
-    static readonly grpc::Method<global::Mix.Library.Entity.Protos.RegisterRequest, global::Mix.Library.Entity.Protos.RegisterResponse> __Method_Register = new grpc::Method<global::Mix.Library.Entity.Protos.RegisterRequest, global::Mix.Library.Entity.Protos.RegisterResponse>(
+    static readonly grpc::Method<global::Mix.Library.Entities.Protos.RegisterRequest, global::Mix.Library.Entities.Protos.RegisterResponse> __Method_Register = new grpc::Method<global::Mix.Library.Entities.Protos.RegisterRequest, global::Mix.Library.Entities.Protos.RegisterResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Register",
@@ -64,19 +64,19 @@ namespace Mix.Library.Entity.Protos {
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::Mix.Library.Entity.Protos.AccountReflection.Descriptor.Services[0]; }
+      get { return global::Mix.Library.Entities.Protos.AccountReflection.Descriptor.Services[0]; }
     }
 
     /// <summary>Base class for server-side implementations of Accounts</summary>
     [grpc::BindServiceMethod(typeof(Accounts), "BindService")]
     public abstract partial class AccountsBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::Mix.Library.Entity.Protos.LoginResponse> Login(global::Mix.Library.Entity.Protos.LoginRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Mix.Library.Entities.Protos.LoginResponse> Login(global::Mix.Library.Entities.Protos.LoginRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Mix.Library.Entity.Protos.RegisterResponse> Register(global::Mix.Library.Entity.Protos.RegisterRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Mix.Library.Entities.Protos.RegisterResponse> Register(global::Mix.Library.Entities.Protos.RegisterRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -106,35 +106,35 @@ namespace Mix.Library.Entity.Protos {
       {
       }
 
-      public virtual global::Mix.Library.Entity.Protos.LoginResponse Login(global::Mix.Library.Entity.Protos.LoginRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Mix.Library.Entities.Protos.LoginResponse Login(global::Mix.Library.Entities.Protos.LoginRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Login(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Mix.Library.Entity.Protos.LoginResponse Login(global::Mix.Library.Entity.Protos.LoginRequest request, grpc::CallOptions options)
+      public virtual global::Mix.Library.Entities.Protos.LoginResponse Login(global::Mix.Library.Entities.Protos.LoginRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Login, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Mix.Library.Entity.Protos.LoginResponse> LoginAsync(global::Mix.Library.Entity.Protos.LoginRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Mix.Library.Entities.Protos.LoginResponse> LoginAsync(global::Mix.Library.Entities.Protos.LoginRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return LoginAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Mix.Library.Entity.Protos.LoginResponse> LoginAsync(global::Mix.Library.Entity.Protos.LoginRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Mix.Library.Entities.Protos.LoginResponse> LoginAsync(global::Mix.Library.Entities.Protos.LoginRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Login, null, options, request);
       }
-      public virtual global::Mix.Library.Entity.Protos.RegisterResponse Register(global::Mix.Library.Entity.Protos.RegisterRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Mix.Library.Entities.Protos.RegisterResponse Register(global::Mix.Library.Entities.Protos.RegisterRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Register(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Mix.Library.Entity.Protos.RegisterResponse Register(global::Mix.Library.Entity.Protos.RegisterRequest request, grpc::CallOptions options)
+      public virtual global::Mix.Library.Entities.Protos.RegisterResponse Register(global::Mix.Library.Entities.Protos.RegisterRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Register, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Mix.Library.Entity.Protos.RegisterResponse> RegisterAsync(global::Mix.Library.Entity.Protos.RegisterRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Mix.Library.Entities.Protos.RegisterResponse> RegisterAsync(global::Mix.Library.Entities.Protos.RegisterRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return RegisterAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Mix.Library.Entity.Protos.RegisterResponse> RegisterAsync(global::Mix.Library.Entity.Protos.RegisterRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Mix.Library.Entities.Protos.RegisterResponse> RegisterAsync(global::Mix.Library.Entities.Protos.RegisterRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Register, null, options, request);
       }
@@ -160,8 +160,8 @@ namespace Mix.Library.Entity.Protos {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, AccountsBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_Login, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Mix.Library.Entity.Protos.LoginRequest, global::Mix.Library.Entity.Protos.LoginResponse>(serviceImpl.Login));
-      serviceBinder.AddMethod(__Method_Register, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Mix.Library.Entity.Protos.RegisterRequest, global::Mix.Library.Entity.Protos.RegisterResponse>(serviceImpl.Register));
+      serviceBinder.AddMethod(__Method_Login, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Mix.Library.Entities.Protos.LoginRequest, global::Mix.Library.Entities.Protos.LoginResponse>(serviceImpl.Login));
+      serviceBinder.AddMethod(__Method_Register, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Mix.Library.Entities.Protos.RegisterRequest, global::Mix.Library.Entities.Protos.RegisterResponse>(serviceImpl.Register));
     }
 
   }
