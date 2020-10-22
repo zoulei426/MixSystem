@@ -9,6 +9,7 @@
 		<OutputPath></OutputPath>
 	</PropertyGroup>
 	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="10.1.1" />
 		<PackageReference Include="FluentValidation" Version="9.2.2" />
 		<PackageReference Include="Google.Protobuf" Version="3.13.0" />
 		<PackageReference Include="Grpc" Version="2.32.0" />

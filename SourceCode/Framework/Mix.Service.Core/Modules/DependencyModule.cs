@@ -13,7 +13,7 @@ namespace Mix.Service.Core.Modules
     {
         protected override void Load(ContainerBuilder builder)
         {
-            Assembly[] currentAssemblies = AppDomain.CurrentDomain.GetAssemblies().Where(r => r.FullName.Contains("Mix.")).ToArray();
+            Assembly[] currentAssemblies = AppDomain.CurrentDomain.GetAssemblies().Where(r => r.FullName.Contains("Mix")).ToArray();
 
             //每次调用，都会重新实例化对象；每次请求都创建一个新的对象；
             Type transientDependency = typeof(ITransientDependency);
@@ -32,7 +32,6 @@ namespace Mix.Service.Core.Modules
             builder.RegisterAssemblyTypes(currentAssemblies)
                 .Where(t => singletonDependency.GetTypeInfo().IsAssignableFrom(t) && t.IsClass && !t.IsAbstract && !t.IsGenericType)
                 .AsImplementedInterfaces().SingleInstance();
-
         }
     }
 }

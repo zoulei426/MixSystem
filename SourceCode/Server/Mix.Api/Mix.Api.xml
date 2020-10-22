@@ -25,7 +25,7 @@
             公司控制器
             </summary>
         </member>
-        <member name="M:Mix.Api.Controllers.CompaniesController.#ctor(Microsoft.Extensions.Localization.IStringLocalizer,Mix.Library.Repositories.ICompanyRepository)">
+        <member name="M:Mix.Api.Controllers.CompaniesController.#ctor(Microsoft.Extensions.Localization.IStringLocalizer,Mix.Library.Repositories.ICompanyRepository,AutoMapper.IMapper)">
             <summary>
             构造
             </summary>
@@ -50,6 +50,26 @@
             添加
             </summary>
             <param name="company"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Api.Controllers.EmployeesController">
+            <summary>
+            员工控制器
+            </summary>
+        </member>
+        <member name="M:Mix.Api.Controllers.EmployeesController.#ctor(Mix.Library.Repositories.ICompanyRepository,Mix.Library.Repositories.IEmployeeRepository,AutoMapper.IMapper)">
+            <summary>
+            构造器
+            </summary>
+            <param name="companyRepository"></param>
+            <param name="employeeRepository"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:Mix.Api.Controllers.EmployeesController.GetEmployeesForCompany(System.Guid)">
+            <summary>
+            获取公司下所有员工
+            </summary>
+            <param name="companyId"></param>
             <returns></returns>
         </member>
         <member name="T:Mix.Api.Program">
@@ -91,6 +111,12 @@
             服务配置
             </summary>
             <param name="services"></param>
+        </member>
+        <member name="M:Mix.Api.Startup.ConfigureContainer(Autofac.ContainerBuilder)">
+            <summary>
+            AutoFact注册
+            </summary>
+            <param name="builder"></param>
         </member>
         <member name="M:Mix.Api.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
             <summary>

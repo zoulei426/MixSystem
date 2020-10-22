@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
+using Mix.Core;
 using Mix.Library.Entities.Databases;
+using Mix.Library.Entities.Models;
 using Mix.Library.Repositories;
 using System;
 using System.Collections.Generic;
@@ -18,16 +21,18 @@ namespace Mix.Api.Controllers
     {
         private readonly IStringLocalizer localizer;
         private readonly ICompanyRepository companyRepository;
+        private readonly IMapper mapper;
 
         /// <summary>
         /// 构造
         /// </summary>
         /// <param name="localizer"></param>
         /// <param name="companyRepository"></param>
-        public CompaniesController(IStringLocalizer localizer, ICompanyRepository companyRepository)
+        public CompaniesController(IStringLocalizer localizer, ICompanyRepository companyRepository, IMapper mapper)
         {
             this.localizer = localizer;
             this.companyRepository = companyRepository;
+            this.mapper = mapper;
         }
 
         /// <summary>
@@ -35,10 +40,11 @@ namespace Mix.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async Task<IActionResult> GetCompanies()
+        public async Task<ActionResult<IEnumerable<CompanyDto>>> GetCompanies()
         {
             var companies = await companyRepository.Select.ToListAsync();
-            return Ok(companies);
+
+            return Ok(mapper.Map<IEnumerable<CompanyDto>>(companies));
         }
 
         /// <summary>
@@ -47,14 +53,14 @@ namespace Mix.Api.Controllers
         /// <param name="companyId"></param>
         /// <returns></returns>
         [HttpGet("{companyId}")]
-        public async Task<IActionResult> GetCompany(Guid companyId)
+        public async Task<ActionResult<CompanyDto>> GetCompany(Guid companyId)
         {
             var company = await companyRepository.GetAsync(companyId);
             if (company is null)
             {
                 return NotFound();
             }
-            return Ok(company);
+            return Ok(mapper.Map<CompanyDto>(company));
         }
 
         /// <summary>

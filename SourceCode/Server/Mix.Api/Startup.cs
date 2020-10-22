@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using AutoMapper;
 using FluentValidation.AspNetCore;
 using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Builder;
@@ -20,6 +21,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace Mix.Api
@@ -50,7 +52,13 @@ namespace Mix.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers(setup =>
+            {
+                //setup.ReturnHttpNotAcceptable = true; // 不支持的类型将返回406
+            }).AddXmlDataContractSerializerFormatters(); // 添加xml格式
+
+            // 注册AutoMapper
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies().Where(r => r.FullName.Contains("Mix")).ToArray());
 
             // 注册IdentityServer4授权认证
             services.AddAuthorization();
@@ -130,6 +138,10 @@ namespace Mix.Api
             });
         }
 
+        /// <summary>
+        /// AutoFact注册
+        /// </summary>
+        /// <param name="builder"></param>
         public void ConfigureContainer(ContainerBuilder builder)
         {
             builder.RegisterModule(new RepositoryModule());

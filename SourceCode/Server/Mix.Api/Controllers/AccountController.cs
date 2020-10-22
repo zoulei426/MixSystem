@@ -35,8 +35,6 @@ namespace Mix.Api.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var str = "123";
-
             //db.StringSet("name", "Alice");
             //str = db.StringGet("name");
 
