@@ -1,9 +1,11 @@
 ﻿using Mix.Desktop.WebApis;
 using Mix.Library.Entities.Models;
 using Mix.Windows.WPF;
+using Mix.Windows.WPF.Commands;
 using Prism.Commands;
 using Prism.Ioc;
 using Refit;
+using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
@@ -20,13 +22,35 @@ namespace Mix.Desktop
         }
         private ObservableCollection<CompanyDto> _Companies;
 
+        public CompanyDto CurrentCompany
+        {
+            get { return _CurrentCompany; }
+            set { SetProperty(ref _CurrentCompany, value); }
+        }
+        private CompanyDto _CurrentCompany;
+
+        public ObservableCollection<EmployeeDto> Employees
+        {
+            get { return _Employees; }
+            set { SetProperty(ref _Employees, value); }
+        }
+        private ObservableCollection<EmployeeDto> _Employees;
+
 
 
         #endregion Properties
 
+        #region Fileds
+
+        private readonly IMixApi mixApi;
+
+        #endregion
+
         #region Commands
 
         public ICommand LogoutCommand { get; set; }
+
+        public ICommand GetEmployeesForCompanyCommand { get; set; }
 
         #endregion Commands
 
@@ -34,7 +58,9 @@ namespace Mix.Desktop
 
         public MainWindowViewModel(IContainerExtension container) : base(container)
         {
+            mixApi = RestService.For<IMixApi>("https://localhost:5002");
             Companies = new ObservableCollection<CompanyDto>();
+            Employees = new ObservableCollection<EmployeeDto>();
         }
 
         #endregion Ctor
@@ -47,11 +73,15 @@ namespace Mix.Desktop
             {
                 ShellManager.Switch<MainWindow, LoginWindow>();
             });
+
+            GetEmployeesForCompanyCommand = new RelayCommand(ExecuteGetEmployeesForCompany, CanGetEmployeesForCompany);
         }
+
+        
 
         public async void OnLoaded()
         {
-            var mixApi = RestService.For<IMixApi>("https://localhost:5002");
+             
             var result = await mixApi.GetCompaniesAsync();
             foreach (var item in result)
             {
@@ -62,6 +92,21 @@ namespace Mix.Desktop
         public void OnUnloaded()
         {
 
+        }
+
+        private bool CanGetEmployeesForCompany()
+        {
+            return CurrentCompany is not null;
+        }
+
+        private async void ExecuteGetEmployeesForCompany()
+        {
+            Employees.Clear();
+            var result = await mixApi.GetEmployeesForCompany(CurrentCompany.Id);
+            foreach (var item in result)
+            {
+                Employees.Add(item);
+            }
         }
 
         #endregion Methods
