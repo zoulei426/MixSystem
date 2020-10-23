@@ -24,4 +24,8 @@
 		<ProjectReference Include="..\..\Libraries\Mix.Library.Entity\Mix.Library.Entities.csproj" />
 		<ProjectReference Include="..\..\Libraries\Mix.Library.Repository\Mix.Library.Repositories.csproj" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Logs\" />
+	</ItemGroup>
 </Project>

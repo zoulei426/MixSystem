@@ -68,6 +68,8 @@
                       SelectedItem="{Binding Path=CurrentUICulture, Source={x:Static i18n:LocalizerManager.Instance}}"
                       DisplayMemberPath="NativeName" />
             </StackPanel>
-        </Grid>
+
+            <DataGrid Grid.Column="1" ItemsSource="{Binding Companies}" AutoGenerateColumns="True"></DataGrid>
+            </Grid>
     </md:DialogHost>
 </Window>

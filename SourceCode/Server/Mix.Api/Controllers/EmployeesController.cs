@@ -4,7 +4,6 @@ using Mix.Library.Entities.Models;
 using Mix.Library.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Mix.Api.Controllers

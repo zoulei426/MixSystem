@@ -1,8 +1,8 @@
-﻿using System;
-using Microsoft.Extensions.DependencyInjection.Extensions;
+﻿using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Localization;
 using Mix.Core.Localization.Json;
 using Mix.Core.Localization.Json.Internal;
+using System;
 
 namespace Microsoft.Extensions.DependencyInjection
 {

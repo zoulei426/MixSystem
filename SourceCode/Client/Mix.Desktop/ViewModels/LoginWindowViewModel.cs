@@ -14,8 +14,6 @@
  *  └─────────────────────────────────────────────────────────────┘
  */
 
-using Microsoft.Extensions.Localization;
-using Mix.Windows.Controls;
 using Mix.Windows.WPF;
 using Prism.Ioc;
 using System.Windows.Controls;
@@ -50,7 +48,7 @@ namespace Mix.Desktop
         /// </summary>
         /// <param name="container"></param>
         public LoginWindowViewModel(IContainerExtension container) : base(container)
-        { 
+        {
             EventAggregator.GetEvent<MainWindowLoadingEvent>().Subscribe(e => IsLoading = e);
             EventAggregator.GetEvent<SignUpSuccessEvent>().Subscribe(signUpInfo => SignInTabItem.IsSelected = true);
         }

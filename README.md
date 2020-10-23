@@ -5,7 +5,10 @@
  * @LastEditors: zoulei
  * @LastEditTime: 2020-09-29 16:58:29
 -->
-# MixSystem 混合实验室：
-# ORM: FreeSQL
-# MVVM: Prism
-# XAML: MaterialDesign
+# MixSystem：
+ ORM: FreeSQL
+ MVVM: Prism
+ XAML: MaterialDesign, HandyControl
+ Authentication and Authorization: IdentityServer4
+ Log: Serilog
+ Others: Autofac, AutoMapper, FluentValidation, Grpc, ToolGood.Words...
