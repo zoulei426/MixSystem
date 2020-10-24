@@ -24,19 +24,19 @@ namespace Mix.Library.Services
             this.employeeRepository = employeeRepository;
         }
 
-        [Transactional]
+        //[Transactional]
         public async Task<CompanyDto> CreateCompanyAsync(CompanyAddDto company)
         {
             var entity = Mapper.Map<Company>(company);
-            entity.Employees.ForEach(t => t.CompanyId = entity.Id);
 
-            var result = await companyRepository.InsertAsync(entity);
-            result.Employees = await employeeRepository.InsertAsync(entity.Employees);
+            var result = companyRepository.Insert(entity);
+            result.Employees.ForEach(t => t.CompanyId = result.Id);
+            await employeeRepository.InsertAsync(result.Employees);
 
             return Mapper.Map<CompanyDto>(result);
         }
 
-        [Transactional]
+        //[Transactional]
         public async Task<IEnumerable<CompanyDto>> CreateCompanyCollectionAsync(IEnumerable<CompanyAddDto> companieCollection)
         {
             var entityCollection = Mapper.Map<IEnumerable<Company>>(companieCollection);

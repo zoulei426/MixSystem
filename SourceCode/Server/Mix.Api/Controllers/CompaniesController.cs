@@ -33,7 +33,9 @@ namespace Mix.Api.Controllers
         /// 构造
         /// </summary>
         /// <param name="localizer"></param>
+        /// <param name="companyService"></param>
         /// <param name="companyRepository"></param>
+        /// <param name="mapper"></param>
         public CompaniesController(IStringLocalizer localizer, ICompanyService companyService, ICompanyRepository companyRepository, IMapper mapper)
         {
             this.localizer = localizer;

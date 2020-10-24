@@ -38,6 +38,8 @@ namespace Mix.Api.Controllers
         /// 获取公司下所有员工
         /// </summary>
         /// <param name="companyId"></param>
+        /// <param name="gender"></param>
+        /// <param name="q"></param>
         /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<EmployeeDto>>> GetEmployeesForCompany(Guid companyId, [FromQuery] string gender, string q)
@@ -53,6 +55,7 @@ namespace Mix.Api.Controllers
         /// 获取公司下某员工
         /// </summary>
         /// <param name="companyId"></param>
+        /// <param name="employeeId"></param>
         /// <returns></returns>
         [HttpGet("{employeeId}", Name = nameof(GetEmployeeForCompany))]
         public async Task<ActionResult<EmployeeDto>> GetEmployeeForCompany(Guid companyId, Guid employeeId)

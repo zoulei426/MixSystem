@@ -30,7 +30,9 @@
             构造
             </summary>
             <param name="localizer"></param>
+            <param name="companyService"></param>
             <param name="companyRepository"></param>
+            <param name="mapper"></param>
         </member>
         <member name="M:Mix.Api.Controllers.CompaniesController.GetCompanies">
             <summary>
@@ -66,6 +68,12 @@
             <param name="companieCollection"></param>
             <returns></returns>
         </member>
+        <member name="M:Mix.Api.Controllers.CompaniesController.GetCompaniesOptions">
+            <summary>
+            选项
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Mix.Api.Controllers.EmployeesController">
             <summary>
             员工控制器
@@ -84,6 +92,8 @@
             获取公司下所有员工
             </summary>
             <param name="companyId"></param>
+            <param name="gender"></param>
+            <param name="q"></param>
             <returns></returns>
         </member>
         <member name="M:Mix.Api.Controllers.EmployeesController.GetEmployeeForCompany(System.Guid,System.Guid)">
@@ -91,6 +101,7 @@
             获取公司下某员工
             </summary>
             <param name="companyId"></param>
+            <param name="employeeId"></param>
             <returns></returns>
         </member>
         <member name="M:Mix.Api.Controllers.EmployeesController.CreateEmployeeForCompany(System.Guid,Mix.Library.Entities.Dtos.EmployeeAddDto)">

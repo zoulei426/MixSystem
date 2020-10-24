@@ -1,11 +1,13 @@
 ﻿using Autofac;
 using AutoMapper;
+using FluentValidation;
 using FluentValidation.AspNetCore;
 using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -14,6 +16,8 @@ using Microsoft.OpenApi.Models;
 using Mix.Core;
 using Mix.Data;
 using Mix.Data.Repositories;
+using Mix.Library.Entities.Dtos;
+using Mix.Library.Entities.Validators;
 using Mix.Library.Repositories.Accounts;
 using Mix.Service.Core;
 using Mix.Service.Core.Modules;
@@ -53,10 +57,38 @@ namespace Mix.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers(setup =>
+            services.AddMvc(options =>
             {
-                //setup.ReturnHttpNotAcceptable = true; // 不支持的类型将返回406
-            }).AddXmlDataContractSerializerFormatters(); // 添加xml格式
+                //options.ReturnHttpNotAcceptable = true; // 不支持的类型将返回406
+            }).AddXmlDataContractSerializerFormatters() // 添加xml格式
+                .SetCompatibilityVersion(CompatibilityVersion.Latest)
+                .AddFluentValidation(fv => // 配置FluentValidation
+                {
+                    fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
+                    fv.ImplicitlyValidateChildProperties = true;
+                    fv.RegisterValidatorsFromAssemblyContaining<CompanyAddDtoValidator>();
+                })
+                .ConfigureApiBehaviorOptions(options =>
+                {
+                    options.InvalidModelStateResponseFactory = context =>
+                    {
+                        var problemDetails = new ValidationProblemDetails(context.ModelState)
+                        {
+                            Type = "http://www.baidu.com",
+                            Title = "Unprocessable Entity!",
+                            Status = StatusCodes.Status422UnprocessableEntity,
+                            Detail = "验证错误",
+                            Instance = context.HttpContext.Request.Path
+                        };
+
+                        problemDetails.Extensions.Add("traceId", context.HttpContext.TraceIdentifier);
+
+                        return new UnprocessableEntityObjectResult(problemDetails)
+                        {
+                            ContentTypes = { "application/problem+json" }
+                        };
+                    };
+                });
 
             // 注册AutoMapper
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies().Where(r => r.FullName.Contains("Mix")).ToArray());
@@ -83,15 +115,6 @@ namespace Mix.Api
 
             // 注册redis
             //services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect("localhost"));
-
-            // 配置验证器FluentValidtion
-            services.AddMvc()
-                .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Latest)
-                .AddFluentValidation(fu =>
-                {
-                    fu.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
-                    fu.RegisterValidatorsFromAssemblyContaining<ValidableObject>();
-                });
 
             // 配置Swagger
             services.AddSwaggerGen(option =>
