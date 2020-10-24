@@ -2,6 +2,7 @@
 using FreeSql.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Mix.Core;
 using Mix.Data;
 using Mix.Data.Entities;
 using Serilog;
@@ -33,7 +34,11 @@ namespace Mix.Service.Core
                    }
                    )
                    .Build()
-                   .SetDbContextOptions(opt => opt.EnableAddOrUpdateNavigateList = true);//联级保存功能开启（默认为关闭）
+                   .SetDbContextOptions(opt => opt.EnableAddOrUpdateNavigateList = false);//联级保存功能开启（默认为关闭）
+
+            fsql.Aop.AuditValue += (s, e) =>
+            {
+            };
 
             fsql.Aop.CurdAfter += (s, e) =>
             {
@@ -81,9 +86,8 @@ namespace Mix.Service.Core
                 Log.Logger.Error(e + e.StackTrace + e.Message + e.InnerException);
                 return;
             }
-
         }
 
-        #endregion
+        #endregion FreeSql
     }
 }

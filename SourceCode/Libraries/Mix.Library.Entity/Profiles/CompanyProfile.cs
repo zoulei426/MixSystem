@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Mix.Library.Entities.Databases;
-using Mix.Library.Entities.Models;
+using Mix.Library.Entities.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +14,7 @@ namespace Mix.Library.Entities.Profiles
         public CompanyProfile()
         {
             CreateMap<Company, CompanyDto>();
+            CreateMap<CompanyAddDto, Company>();
         }
     }
 }

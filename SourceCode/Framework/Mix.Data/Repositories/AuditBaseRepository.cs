@@ -1,4 +1,5 @@
 ﻿using FreeSql;
+using Mix.Core;
 using Mix.Data.Entities;
 using System;
 using System.Collections.Generic;
@@ -55,14 +56,18 @@ namespace Mix.Data.Repositories
         /// <param name="entity"></param>
         private void BeforeInsert(TEntity entity)
         {
-            if (entity is not ICreateAduitEntity e) return;
+            // 创建Id
+            if (entity is IEntity en) en.Id = Guid.NewGuid();
 
-            e.CreateTime = DateTime.Now;
-            if (e.CreaterId.Equals(Guid.Empty) && CurrentUser.ID != null)
+            // 创建Creater信息
+            if (entity is not ICreateAduitEntity createAduitEntity) return;
+            createAduitEntity.CreateTime = DateTime.Now;
+            if (createAduitEntity.CreaterId.Equals(Guid.Empty) && CurrentUser.ID != null)
             {
-                e.CreaterId = CurrentUser.ID ?? Guid.Empty;
+                createAduitEntity.CreaterId = CurrentUser.ID ?? Guid.Empty;
             }
 
+            // 创建updater信息
             if (entity is not IUpdateAuditEntity updateAuditEntity) return;
             updateAuditEntity.ModityTime = DateTime.Now;
             updateAuditEntity.ModifierId = CurrentUser.ID;

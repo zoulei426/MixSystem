@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Framework\Mix.Core\Mix.Core.csproj" />
+    <ProjectReference Include="..\..\Framework\Mix.Data\Mix.Data.csproj" />
+    <ProjectReference Include="..\Mix.Library.Entity\Mix.Library.Entities.csproj" />
+    <ProjectReference Include="..\Mix.Library.Repository\Mix.Library.Repositories.csproj" />
+  </ItemGroup>
+
+</Project>

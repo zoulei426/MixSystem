@@ -30,5 +30,10 @@
     <ProjectReference Include="..\..\Framework\Mix.Service.Core\Mix.Service.Core.csproj" />
     <ProjectReference Include="..\..\Libraries\Mix.Library.Entity\Mix.Library.Entities.csproj" />
     <ProjectReference Include="..\..\Libraries\Mix.Library.Repository\Mix.Library.Repositories.csproj" />
+    <ProjectReference Include="..\..\Libraries\Mix.Library.Services\Mix.Library.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Logs\" />
   </ItemGroup>
 </Project>

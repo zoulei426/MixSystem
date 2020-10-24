@@ -10,7 +10,8 @@
 
 	<ItemGroup>
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
-		<PackageReference Include="Autofac" Version="6.0.0" />
+		<PackageReference Include="Autofac.Extras.DynamicProxy" Version="6.0.0" />
+		<PackageReference Include="Castle.Core.AsyncInterceptor" Version="1.7.0" />
 		<PackageReference Include="FreeSql" Version="1.9.0" />
 		<PackageReference Include="Serilog" Version="2.10.0" />
 		<PackageReference Include="ToolGood.Words" Version="3.0.2.4" />

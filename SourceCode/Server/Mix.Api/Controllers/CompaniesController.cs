@@ -1,10 +1,15 @@
 ﻿using AutoMapper;
+using IdentityModel.Client;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using Microsoft.Extensions.Localization;
 using Mix.Core;
 using Mix.Library.Entities.Databases;
-using Mix.Library.Entities.Models;
+using Mix.Library.Entities.DtoParameters;
+using Mix.Library.Entities.Dtos;
 using Mix.Library.Repositories;
+using Mix.Library.Services;
+using Mix.Service.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,10 +21,11 @@ namespace Mix.Api.Controllers
     /// 公司控制器
     /// </summary>
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/companies")]
     public class CompaniesController : ControllerBase
     {
         private readonly IStringLocalizer localizer;
+        private readonly ICompanyService companyService;
         private readonly ICompanyRepository companyRepository;
         private readonly IMapper mapper;
 
@@ -28,9 +34,10 @@ namespace Mix.Api.Controllers
         /// </summary>
         /// <param name="localizer"></param>
         /// <param name="companyRepository"></param>
-        public CompaniesController(IStringLocalizer localizer, ICompanyRepository companyRepository, IMapper mapper)
+        public CompaniesController(IStringLocalizer localizer, ICompanyService companyService, ICompanyRepository companyRepository, IMapper mapper)
         {
             this.localizer = localizer;
+            this.companyService = companyService;
             this.companyRepository = companyRepository;
             this.mapper = mapper;
         }
@@ -52,7 +59,7 @@ namespace Mix.Api.Controllers
         /// </summary>
         /// <param name="companyId"></param>
         /// <returns></returns>
-        [HttpGet("{companyId}")]
+        [HttpGet("{companyId}", Name = nameof(GetCompany))]
         public async Task<ActionResult<CompanyDto>> GetCompany(Guid companyId)
         {
             var company = await companyRepository.GetAsync(companyId);
@@ -64,15 +71,62 @@ namespace Mix.Api.Controllers
         }
 
         /// <summary>
+        /// 根据ids获取公司列表（xxx,xxx,xxx）
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        [HttpGet("batch/({ids})", Name = nameof(GetCompanyCollection))]
+        public async Task<ActionResult<IEnumerable<CompanyDto>>> GetCompanyCollection(
+            [FromRoute]
+            [ModelBinder(BinderType = typeof(ArrayModelBinder))]
+            IEnumerable<Guid> ids)
+        {
+            if (ids is null) return BadRequest();
+
+            var entities = await companyRepository.Select.Where(t => ids.Contains(t.Id)).ToListAsync();
+
+            if (entities.Count() != ids.Count()) return NotFound();
+
+            return Ok(mapper.Map<IEnumerable<CompanyDto>>(entities));
+        }
+
+        /// <summary>
         /// 添加
         /// </summary>
         /// <param name="company"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> AddCompany(Company model)
+        public async Task<ActionResult<CompanyDto>> CreateCompany(CompanyAddDto company)
         {
-            var company = await companyRepository.InsertAsync(model);
-            return new JsonResult(company);
+            var resultDto = await companyService.CreateCompanyAsync(company);
+            return CreatedAtRoute(nameof(GetCompany), new { companyId = resultDto.Id }, resultDto);
+        }
+
+        /// <summary>
+        /// 批量添加
+        /// </summary>
+        /// <param name="companieCollection"></param>
+        /// <returns></returns>
+        [HttpPost("batch")]
+        public async Task<ActionResult<IEnumerable<CompanyDto>>> CreateCompanyCollection(
+            IEnumerable<CompanyAddDto> companieCollection)
+        {
+            var resultDtos = await companyService.CreateCompanyCollectionAsync(companieCollection);
+
+            var idsString = string.Join(",", resultDtos.Select(t => t.Id));
+
+            return CreatedAtRoute(nameof(GetCompanyCollection), new { ids = idsString }, resultDtos);
+        }
+
+        /// <summary>
+        /// 选项
+        /// </summary>
+        /// <returns></returns>
+        [HttpOptions]
+        public IActionResult GetCompaniesOptions()
+        {
+            Response.Headers.Add("Allow", "GET,POST,OPTIONS");
+            return Ok();
         }
     }
 }

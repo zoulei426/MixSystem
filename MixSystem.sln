@@ -39,6 +39,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mix.Grpc.Api", "SourceCode\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mix.IdentityServer4", "SourceCode\Server\Mix.IdentityServer4\Mix.IdentityServer4.csproj", "{94309B8D-50A8-4D96-97EB-FEE3BEF680EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mix.Library.Services", "SourceCode\Libraries\Mix.Library.Services\Mix.Library.Services.csproj", "{C63CA4E2-9BBE-48E7-BA9A-1F56AEA2FAD6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,10 @@ Global
 		{94309B8D-50A8-4D96-97EB-FEE3BEF680EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94309B8D-50A8-4D96-97EB-FEE3BEF680EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94309B8D-50A8-4D96-97EB-FEE3BEF680EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C63CA4E2-9BBE-48E7-BA9A-1F56AEA2FAD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C63CA4E2-9BBE-48E7-BA9A-1F56AEA2FAD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C63CA4E2-9BBE-48E7-BA9A-1F56AEA2FAD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C63CA4E2-9BBE-48E7-BA9A-1F56AEA2FAD6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -119,6 +125,7 @@ Global
 		{55368C2B-86C0-4F73-9A05-61F939B65A20} = {23075B27-1907-4A2C-B2AF-8D2A47A1D91E}
 		{7BC24F29-6086-47E1-8B6B-9D7DC9D19DF3} = {9CBDC07F-BA1E-456D-99F9-28231BD15834}
 		{94309B8D-50A8-4D96-97EB-FEE3BEF680EF} = {9CBDC07F-BA1E-456D-99F9-28231BD15834}
+		{C63CA4E2-9BBE-48E7-BA9A-1F56AEA2FAD6} = {24B166AA-4BB8-496A-8A14-8C13928EF484}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8E0D389C-13D4-40EE-90FB-CA03C8E9D2D8}

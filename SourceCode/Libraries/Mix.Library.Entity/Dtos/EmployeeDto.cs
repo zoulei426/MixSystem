@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mix.Library.Entities.Models
+namespace Mix.Library.Entities.Dtos
 {
     public class EmployeeDto
     {

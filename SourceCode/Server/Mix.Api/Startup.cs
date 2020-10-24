@@ -4,6 +4,7 @@ using FluentValidation.AspNetCore;
 using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -145,6 +146,7 @@ namespace Mix.Api
         public void ConfigureContainer(ContainerBuilder builder)
         {
             builder.RegisterModule(new RepositoryModule());
+            builder.RegisterModule(new ServiceModule());
             builder.RegisterModule(new DependencyModule());
         }
 
@@ -175,6 +177,17 @@ namespace Mix.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler(appBuilder =>
+                {
+                    appBuilder.Run(async context =>
+                   {
+                       context.Response.StatusCode = 500;
+                       await context.Response.WriteAsync(":( \n Unexpected Error!");
+                   });
+                });
             }
 
             app.UseHttpsRedirection();

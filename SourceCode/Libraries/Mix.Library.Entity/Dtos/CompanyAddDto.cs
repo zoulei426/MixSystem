@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mix.Library.Entities.Models
+namespace Mix.Library.Entities.Dtos
 {
-    public class CompanyDto
+    public class CompanyAddDto
     {
-        public Guid Id { get; set; }
-
         public string Name { get; set; }
 
         public string Introduction { get; set; }
+
+        public ICollection<EmployeeAddDto> Employees { get; set; } = new List<EmployeeAddDto>();
     }
 }

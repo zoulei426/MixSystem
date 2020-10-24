@@ -25,7 +25,7 @@
             公司控制器
             </summary>
         </member>
-        <member name="M:Mix.Api.Controllers.CompaniesController.#ctor(Microsoft.Extensions.Localization.IStringLocalizer,Mix.Library.Repositories.ICompanyRepository,AutoMapper.IMapper)">
+        <member name="M:Mix.Api.Controllers.CompaniesController.#ctor(Microsoft.Extensions.Localization.IStringLocalizer,Mix.Library.Services.ICompanyService,Mix.Library.Repositories.ICompanyRepository,AutoMapper.IMapper)">
             <summary>
             构造
             </summary>
@@ -45,11 +45,25 @@
             <param name="companyId"></param>
             <returns></returns>
         </member>
-        <member name="M:Mix.Api.Controllers.CompaniesController.AddCompany(Mix.Library.Entities.Databases.Company)">
+        <member name="M:Mix.Api.Controllers.CompaniesController.GetCompanyCollection(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            根据ids获取公司列表（xxx,xxx,xxx）
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Api.Controllers.CompaniesController.CreateCompany(Mix.Library.Entities.Dtos.CompanyAddDto)">
             <summary>
             添加
             </summary>
             <param name="company"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Api.Controllers.CompaniesController.CreateCompanyCollection(System.Collections.Generic.IEnumerable{Mix.Library.Entities.Dtos.CompanyAddDto})">
+            <summary>
+            批量添加
+            </summary>
+            <param name="companieCollection"></param>
             <returns></returns>
         </member>
         <member name="T:Mix.Api.Controllers.EmployeesController">
@@ -65,11 +79,26 @@
             <param name="employeeRepository"></param>
             <param name="mapper"></param>
         </member>
-        <member name="M:Mix.Api.Controllers.EmployeesController.GetEmployeesForCompany(System.Guid)">
+        <member name="M:Mix.Api.Controllers.EmployeesController.GetEmployeesForCompany(System.Guid,System.String,System.String)">
             <summary>
             获取公司下所有员工
             </summary>
             <param name="companyId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Api.Controllers.EmployeesController.GetEmployeeForCompany(System.Guid,System.Guid)">
+            <summary>
+            获取公司下某员工
+            </summary>
+            <param name="companyId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Api.Controllers.EmployeesController.CreateEmployeeForCompany(System.Guid,Mix.Library.Entities.Dtos.EmployeeAddDto)">
+            <summary>
+            添加员工
+            </summary>
+            <param name="companyId"></param>
+            <param name="employee"></param>
             <returns></returns>
         </member>
         <member name="T:Mix.Api.Program">
