@@ -18,6 +18,13 @@
             <param name="companyRepository">The company repository.</param>
             <param name="employeeRepository">The employee repository.</param>
         </member>
+        <member name="M:Mix.Library.Services.CompanyService.GetCompaniesAsync(Mix.Library.Entities.DtoParameters.CompanyDtoParameters)">
+            <summary>
+            Gets the companies asynchronous.
+            </summary>
+            <param name="parameters">The parameters.</param>
+            <returns></returns>
+        </member>
         <member name="M:Mix.Library.Services.CompanyService.CreateCompanyAsync(Mix.Library.Entities.Dtos.CompanyAddDto)">
             <summary>
             Creates the company asynchronous.
@@ -36,6 +43,13 @@
             <summary>
             ICompanyService
             </summary>
+        </member>
+        <member name="M:Mix.Library.Services.ICompanyService.GetCompaniesAsync(Mix.Library.Entities.DtoParameters.CompanyDtoParameters)">
+            <summary>
+            Gets the companies asynchronous.
+            </summary>
+            <param name="parameters">The parameters.</param>
+            <returns></returns>
         </member>
         <member name="M:Mix.Library.Services.ICompanyService.CreateCompanyAsync(Mix.Library.Entities.Dtos.CompanyAddDto)">
             <summary>

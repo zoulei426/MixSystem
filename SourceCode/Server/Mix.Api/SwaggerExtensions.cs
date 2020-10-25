@@ -26,7 +26,7 @@ namespace Mix.Api
         public static IServiceCollection AddSwaggerGen(this IServiceCollection services)
         {
             //Swagger重写PascalCase，改成SnakeCase模式
-            services.TryAddEnumerable(ServiceDescriptor.Transient<IApiDescriptionProvider, ApiDescriptionProvider>());
+            //services.TryAddEnumerable(ServiceDescriptor.Transient<IApiDescriptionProvider, ApiDescriptionProvider>());
 
             //Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(options =>

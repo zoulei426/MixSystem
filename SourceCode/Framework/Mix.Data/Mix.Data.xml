@@ -38,6 +38,47 @@
             Sets the identifier.
             </summary>
         </member>
+        <member name="T:Mix.Data.Dtos.DtoParameters">
+            <summary>
+            Dto Parameters
+            </summary>
+        </member>
+        <member name="F:Mix.Data.Dtos.DtoParameters.MAX_PAGE_SIZE">
+            <summary>
+            The maximum page size
+            </summary>
+        </member>
+        <member name="F:Mix.Data.Dtos.DtoParameters.DEFAULT_PAGE_NUMBER">
+            <summary>
+            The default page number
+            </summary>
+        </member>
+        <member name="F:Mix.Data.Dtos.DtoParameters.DEFAULT_PAGE_SIZE">
+            <summary>
+            The default page size
+            </summary>
+        </member>
+        <member name="P:Mix.Data.Dtos.DtoParameters.PageNumber">
+            <summary>
+            Gets or sets the page number.
+            </summary>
+            <value>
+            The page number.
+            </value>
+        </member>
+        <member name="P:Mix.Data.Dtos.DtoParameters.PageSize">
+            <summary>
+            Gets or sets the size of the page.
+            </summary>
+            <value>
+            The size of the page.
+            </value>
+        </member>
+        <member name="M:Mix.Data.Dtos.DtoParameters.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Data.Dtos.DtoParameters"/> class.
+            </summary>
+        </member>
         <member name="T:Mix.Data.Entities.AduitEntity">
             <summary>
             审计实体
@@ -172,6 +213,104 @@
             <value>
             The identifier.
             </value>
+        </member>
+        <member name="T:Mix.Data.Pagable.PagedList`1">
+            <summary>
+            PagedList
+            </summary>
+            <typeparam name="T"></typeparam>
+            <seealso cref="T:System.Collections.Generic.List`1" />
+        </member>
+        <member name="P:Mix.Data.Pagable.PagedList`1.CurrentPage">
+            <summary>
+            当前页
+            </summary>
+            <value>
+            The current page.
+            </value>
+        </member>
+        <member name="P:Mix.Data.Pagable.PagedList`1.TotalPages">
+            <summary>
+            总页数
+            </summary>
+            <value>
+            The total pages.
+            </value>
+        </member>
+        <member name="P:Mix.Data.Pagable.PagedList`1.PageSize">
+            <summary>
+            每页数量
+            </summary>
+            <value>
+            The size of the page.
+            </value>
+        </member>
+        <member name="P:Mix.Data.Pagable.PagedList`1.TotalCount">
+            <summary>
+            总数量
+            </summary>
+            <value>
+            The total count.
+            </value>
+        </member>
+        <member name="P:Mix.Data.Pagable.PagedList`1.HasPrevious">
+            <summary>
+            是否有上一页
+            </summary>
+            <value>
+              <c>true</c> if this instance has previous; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Mix.Data.Pagable.PagedList`1.HasNext">
+            <summary>
+            是否有下一页
+            </summary>
+            <value>
+              <c>true</c> if this instance has next; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Mix.Data.Pagable.PagedList`1.#ctor(System.Collections.Generic.List{`0},System.Int64,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Data.Pagable.PagedList`1"/> class.
+            </summary>
+            <param name="items">The items.</param>
+            <param name="count">The count.</param>
+            <param name="pageNumber">The page number.</param>
+            <param name="pageSize">Size of the page.</param>
+        </member>
+        <member name="M:Mix.Data.Pagable.PagedList`1.Create(FreeSql.ISelect{`0},System.Int32,System.Int32)">
+            <summary>
+            Creates the specified source.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="pageNumber">The page number.</param>
+            <param name="pageSize">Size of the page.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Data.Pagable.PagedList`1.CreateAsync(FreeSql.ISelect{`0},System.Int32,System.Int32)">
+            <summary>
+            Creates the asynchronous.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <param name="pageNumber">The page number.</param>
+            <param name="pageSize">Size of the page.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Data.Pagable.ResourceUriType">
+            <summary>
+            ResourceUriType
+            </summary>
+        </member>
+        <member name="F:Mix.Data.Pagable.ResourceUriType.PreviousPage">
+            <summary>
+            The previous page
+            </summary>
+        </member>
+        <member name="F:Mix.Data.Pagable.ResourceUriType.NextPage">
+            <summary>
+            The next page
+            </summary>
         </member>
         <member name="T:Mix.Data.Repositories.AuditBaseRepository`1">
             <summary>

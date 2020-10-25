@@ -3,7 +3,7 @@
     /// <summary>
     /// CompanyDtoParameters
     /// </summary>
-    public class CompanyDtoParameters
+    public class CompanyDtoParameters : Data.Dtos.DtoParameters
     {
         /// <summary>
         /// Gets or sets the name of the company.

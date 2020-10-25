@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
+using Mix.Data.Pagable;
+using Mix.Library.Entities.DtoParameters;
 using Mix.Library.Entities.Dtos;
 using Mix.Library.Repositories;
 using Mix.Library.Services;
@@ -8,6 +10,8 @@ using Mix.Service.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Encodings.Web;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Mix.Api.Controllers
@@ -40,15 +44,41 @@ namespace Mix.Api.Controllers
         }
 
         /// <summary>
-        /// 获取所有
+        /// Gets the companies.
         /// </summary>
+        /// <param name="parameters">The parameters.</param>
         /// <returns></returns>
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<CompanyDto>>> GetCompanies()
+        [HttpGet(Name = nameof(GetCompanies))]
+        public async Task<ActionResult<IEnumerable<CompanyDto>>> GetCompanies([FromQuery] CompanyDtoParameters parameters)
         {
-            var companies = await companyRepository.Select.ToListAsync();
+            var companies = await companyService.GetCompaniesAsync(parameters);
 
-            return Ok(mapper.Map<IEnumerable<CompanyDto>>(companies));
+            var previousPageLink = companies.HasPrevious
+                ? CreateCompaniesResourceUri(parameters, ResourceUriType.PreviousPage)
+                : null;
+
+            var nextPageLink = companies.HasNext
+                ? CreateCompaniesResourceUri(parameters, ResourceUriType.NextPage)
+                : null;
+
+            var paginationMetadata = new
+            {
+                totalCount = companies.TotalCount,
+                pageSize = companies.PageSize,
+                currentPage = companies.CurrentPage,
+                totalPages = companies.TotalPages,
+                previousPageLink,
+                nextPageLink
+            };
+
+            Response.Headers.Add("X-Pagination",
+                JsonSerializer.Serialize(paginationMetadata,
+                    new JsonSerializerOptions
+                    {
+                        Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+                    }));
+
+            return Ok(companies);
         }
 
         /// <summary>
@@ -124,6 +154,37 @@ namespace Mix.Api.Controllers
         {
             Response.Headers.Add("Allow", "GET,POST,OPTIONS");
             return Ok();
+        }
+
+        /// <summary>
+        /// Creates the companies resource URI.
+        /// </summary>
+        /// <param name="parameters">The parameters.</param>
+        /// <param name="type">The type.</param>
+        /// <returns></returns>
+        private string CreateCompaniesResourceUri(CompanyDtoParameters parameters, ResourceUriType type)
+        {
+            return type switch
+            {
+                ResourceUriType.PreviousPage => Url.Link(nameof(GetCompanies), new
+                {
+                    pageNumber = parameters.PageNumber - 1,
+                    pageSize = parameters.PageSize,
+                    companyName = parameters.CompanyName
+                }),
+                ResourceUriType.NextPage => Url.Link(nameof(GetCompanies), new
+                {
+                    pageNumber = parameters.PageNumber + 1,
+                    pageSize = parameters.PageSize,
+                    companyName = parameters.CompanyName
+                }),
+                _ => Url.Link(nameof(GetCompanies), new
+                {
+                    pageNumber = parameters.PageNumber,
+                    pageSize = parameters.PageSize,
+                    companyName = parameters.CompanyName
+                }),
+            };
         }
     }
 }

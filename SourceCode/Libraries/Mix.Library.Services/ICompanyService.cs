@@ -1,4 +1,6 @@
-﻿using Mix.Library.Entities.Dtos;
+﻿using Mix.Data.Pagable;
+using Mix.Library.Entities.DtoParameters;
+using Mix.Library.Entities.Dtos;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -9,6 +11,13 @@ namespace Mix.Library.Services
     /// </summary>
     public interface ICompanyService
     {
+        /// <summary>
+        /// Gets the companies asynchronous.
+        /// </summary>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns></returns>
+        Task<PagedList<CompanyDto>> GetCompaniesAsync(CompanyDtoParameters parameters);
+
         /// <summary>
         /// Creates the company asynchronous.
         /// </summary>

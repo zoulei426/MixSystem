@@ -1,6 +1,9 @@
-﻿using Mix.Data.Repositories;
+﻿using Mix.Core;
+using Mix.Data.Pagable;
+using Mix.Data.Repositories;
 using Mix.Data.Services;
 using Mix.Library.Entities.Databases;
+using Mix.Library.Entities.DtoParameters;
 using Mix.Library.Entities.Dtos;
 using Mix.Library.Repositories;
 using System.Collections.Generic;
@@ -15,8 +18,14 @@ namespace Mix.Library.Services
     /// <seealso cref="Mix.Library.Services.ICompanyService" />
     public class CompanyService : ApplicationService, ICompanyService
     {
+        #region Fields
+
         private readonly IAuditBaseRepository<Company> companyRepository;
         private readonly IEmployeeRepository employeeRepository;
+
+        #endregion Fields
+
+        #region Ctor
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CompanyService"/> class.
@@ -27,6 +36,27 @@ namespace Mix.Library.Services
         {
             this.companyRepository = companyRepository;
             this.employeeRepository = employeeRepository;
+        }
+
+        #endregion Ctor
+
+        #region Methods
+
+        /// <summary>
+        /// Gets the companies asynchronous.
+        /// </summary>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns></returns>
+        public async Task<PagedList<CompanyDto>> GetCompaniesAsync(CompanyDtoParameters parameters)
+        {
+            Guards.ThrowIfNull(parameters);
+
+            var pagedCompanies = await PagedList<Company>.CreateAsync(
+                companyRepository.Select,
+                parameters.PageNumber,
+                parameters.PageSize);
+
+            return Mapper.Map<PagedList<CompanyDto>>(pagedCompanies);
         }
 
         /// <summary>
@@ -65,5 +95,7 @@ namespace Mix.Library.Services
 
             return Mapper.Map<IEnumerable<CompanyDto>>(resultCollection);
         }
+
+        #endregion Methods
     }
 }
