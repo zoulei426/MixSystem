@@ -48,6 +48,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\Framework\Mix.Resources\Mix.Resources.csproj" />
 		<ProjectReference Include="..\..\Framework\Mix.Windows.Controls\Mix.Windows.Controls.csproj" />
 		<ProjectReference Include="..\..\Framework\Mix.Windows.Core\Mix.Windows.Core.csproj" />
 		<ProjectReference Include="..\..\Framework\Mix.Windows.WPF\Mix.Windows.WPF.csproj" />

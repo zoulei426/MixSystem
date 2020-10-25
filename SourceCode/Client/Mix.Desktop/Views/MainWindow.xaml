@@ -13,7 +13,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Style="{StaticResource MainWindowStyle}"
-        Title="MainWindow" 
+        Title="MainWindow"
         MinHeight="500" MinWidth="720"
         Height="700" Width="1100">
     <md:DialogHost Identifier="RootDialog">
@@ -32,7 +32,7 @@
             <Button Command="{Binding LogoutCommand}" Content="{i18n:Localizer Logout}" />
 
             <StackPanel Grid.Column="0" VerticalAlignment="Bottom">
-                <ToggleButton x:Name="AppStoreToggleButton" Height="56"  
+                <ToggleButton x:Name="AppStoreToggleButton" Height="56"
                               Style="{StaticResource LeftBarAndUnderlineToggleButtonStyle}">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -62,31 +62,37 @@
                                      PlacementTarget="{Binding ElementName=SettingsToggleButton}" Placement="Right" VerticalOffset="-318" PopupAnimation="Fade"
                                      Width="284" Height="Auto" />-->
 
-              
                 <ComboBox Grid.Column="2" Grid.Row="2" Margin="0 16"
                       ItemsSource="{Binding Path=AvailableCultureInfos, Source={x:Static i18n:LocalizerManager.Instance}}"
                       SelectedItem="{Binding Path=CurrentUICulture, Source={x:Static i18n:LocalizerManager.Instance}}"
                       DisplayMemberPath="NativeName" />
             </StackPanel>
 
-            <StackPanel Grid.Column="1" Orientation="Vertical">
+            <TabControl Grid.Column="1">
+                <TabItem Header="首页">
+                    <StackPanel Grid.Column="1" Orientation="Vertical">
 
-                <TextBlock Text="{i18n:Localizer Company List}"/>
-                <DataGrid ItemsSource="{Binding Companies}" 
-                          SelectedItem="{Binding CurrentCompany}" 
+                        <TextBlock Text="{i18n:Localizer Company List}" />
+                        <DataGrid ItemsSource="{Binding Companies}"
+                          SelectedItem="{Binding CurrentCompany}"
                           CanUserAddRows="False"
                           AutoGenerateColumns="True"></DataGrid>
 
-                <StackPanel>
-                    <TextBox Text="{Binding CurrentCompany.Name}" />
-                    <Button Command="{Binding GetEmployeesForCompanyCommand}" Content="{i18n:Localizer Get Employee List}"/>
-                </StackPanel>
+                        <StackPanel>
+                            <TextBox Text="{Binding CurrentCompany.Name}" />
+                            <Button Command="{Binding GetEmployeesForCompanyCommand}" Content="{i18n:Localizer Get Employee List}" />
+                        </StackPanel>
 
-                <TextBlock Text="{i18n:Localizer Employee List}"/>
-                <DataGrid ItemsSource="{Binding Employees}"
+                        <TextBlock Text="{i18n:Localizer Employee List}" />
+                        <DataGrid ItemsSource="{Binding Employees}"
                           CanUserAddRows="False"
                           AutoGenerateColumns="True"></DataGrid>
-            </StackPanel>
-            </Grid>
+                    </StackPanel>
+                </TabItem>
+                <!--<TabItem Header="特效">
+                    <WebBrowser Source="https://www.html5tricks.com/demo/html5-canvas-3d-background/index.html"></WebBrowser>
+                </TabItem>-->
+            </TabControl>
+        </Grid>
     </md:DialogHost>
 </Window>

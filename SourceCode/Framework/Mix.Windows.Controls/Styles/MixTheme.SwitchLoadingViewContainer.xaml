@@ -7,6 +7,7 @@
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="LoadingContent">
             <Setter.Value>
+                <!--<Image Source="pack://application:,,,/Mix.Resources;component/Images/loading.gif" />-->
                 <md:Card UniformCornerRadius="14" Padding="4">
                     <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}"
                                  Value="50"

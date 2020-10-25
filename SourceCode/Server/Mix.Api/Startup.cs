@@ -106,6 +106,7 @@ namespace Mix.Api
                     options.SaveToken = true;
                 });
 
+            // 注册国际化
             services.AddJsonLocalization(options => options.ResourcesPath = "Resources");
 
             services.AddFreeSql(Configuration);
@@ -118,51 +119,8 @@ namespace Mix.Api
             // 注册redis
             //services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect("localhost"));
 
-            // 配置Swagger
+            // 注册Swagger
             services.AddSwaggerGen();
-            //services.AddSwaggerGen(option =>
-            //{
-            //    option.SwaggerDoc("v1", new OpenApiInfo
-            //    {
-            //        Version = "v1",
-            //        Title = "MixSystem API",
-            //        Description = "API for MixSystem",
-            //        Contact = new OpenApiContact()
-            //        {
-            //            Name = "zoulei",
-            //            Email = "None",
-            //            Url = new System.Uri("https://github.com/zoulei426/MixSystem")
-            //        }
-            //    });
-
-            //    include document file
-            //    option.IncludeXmlComments(
-            //        Path.Combine(AppContext.BaseDirectory,
-            //            $"{typeof(Startup).Assembly.GetName().Name}.xml")
-            //        , true);
-
-            //    为 Swagger 添加 Bearer Token 认证
-            //    option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
-            //    {
-            //        Name = "Authorization",
-            //        Description = "Please enter into field the word 'Bearer' followed by a space and the JWT value",
-            //        In = ParameterLocation.Header,
-            //        Type = SecuritySchemeType.ApiKey
-            //    });
-
-            //    option.AddSecurityRequirement(new OpenApiSecurityRequirement
-            //    {
-            //        { new OpenApiSecurityScheme
-            //            {
-            //                Reference = new OpenApiReference()
-            //                {
-            //                    Id = "Bearer",
-            //                    Type = ReferenceType.SecurityScheme
-            //                }
-            //            }, Array.Empty<string>()
-            //        }
-            //    });
-            //});
         }
 
         /// <summary>

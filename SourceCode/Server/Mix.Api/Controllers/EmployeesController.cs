@@ -1,6 +1,10 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Mix.Library.Entities.Databases;
 using Mix.Library.Entities.Dtos;
 using Mix.Library.Repositories;
@@ -89,7 +93,7 @@ namespace Mix.Api.Controllers
         }
 
         /// <summary>
-        /// 更新员工
+        /// 更新或新增员工
         /// </summary>
         /// <param name="companyId"></param>
         /// <param name="employeeId"></param>
@@ -106,6 +110,7 @@ namespace Mix.Api.Controllers
 
             var entity = await employeeRepository.Where(t => t.Id.Equals(employeeId)).ToOneAsync();
 
+            // 若不存在，则创建
             if (entity is null)
             {
                 entity = mapper.Map<Employee>(employee);
@@ -126,7 +131,7 @@ namespace Mix.Api.Controllers
         }
 
         /// <summary>
-        /// 局部更新员工
+        /// 局部更新或新增员工
         /// </summary>
         /// <param name="companyId">The company identifier.</param>
         /// <param name="employeeId">The employee identifier.</param>
@@ -143,21 +148,79 @@ namespace Mix.Api.Controllers
 
             var entity = await employeeRepository.Where(t => t.Id.Equals(employeeId)).ToOneAsync();
 
+            // 若不存在，则创建
             if (entity is null)
             {
-                return NotFound();
+                var employeeDto = new EmployeeUpdateDto();
+                patchDocument.ApplyTo(employeeDto, ModelState);
+
+                if (!TryValidateModel(employeeDto))
+                {
+                    return ValidationProblem(ModelState);
+                }
+
+                var employeeToAdd = mapper.Map<Employee>(entity);
+                employeeToAdd.Id = employeeId;
+
+                var result = await employeeRepository.AddEmployeeAsync(companyId, employeeToAdd);
+                var resultDto = mapper.Map<EmployeeDto>(result);
+
+                return CreatedAtRoute(nameof(GetEmployeeForCompany),
+                        new { companyId, employeeId = resultDto.Id },
+                        resultDto);
             }
 
             var dtoToPatch = mapper.Map<EmployeeUpdateDto>(entity);
 
-            // TODO 验证
-            patchDocument.ApplyTo(dtoToPatch);
+            patchDocument.ApplyTo(dtoToPatch, ModelState);
+
+            if (!TryValidateModel(dtoToPatch))
+            {
+                return ValidationProblem(ModelState);
+            }
 
             mapper.Map(dtoToPatch, entity);
 
             await employeeRepository.UpdateAsync(entity);
 
             return NoContent();
+        }
+
+        /// <summary>
+        /// Deletes the employee for company.
+        /// </summary>
+        /// <param name="companyId">The company identifier.</param>
+        /// <param name="employeeId">The employee identifier.</param>
+        /// <returns></returns>
+        [HttpDelete("{employeeId}")]
+        public async Task<IActionResult> DeleteEmployeeForCompany(Guid companyId, Guid employeeId)
+        {
+            if (!await companyRepository.Where(t => t.Id.Equals(companyId)).AnyAsync())
+                return NotFound();
+
+            var entity = await employeeRepository.Where(t => t.Id.Equals(employeeId)).ToOneAsync();
+
+            if (entity is null)
+                return NotFound();
+
+            await employeeRepository.DeleteAsync(employeeId);
+
+            return NoContent();
+        }
+
+        /// <summary>
+        /// Creates an <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult" /> that produces a <see cref="F:Microsoft.AspNetCore.Http.StatusCodes.Status400BadRequest" /> response
+        /// with validation errors from <paramref name="modelStateDictionary" />.
+        /// </summary>
+        /// <param name="modelStateDictionary">The <see cref="T:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary" />.</param>
+        /// <returns>
+        /// The created <see cref="T:Microsoft.AspNetCore.Mvc.BadRequestObjectResult" /> for the response.
+        /// </returns>
+        public override ActionResult ValidationProblem([ActionResultObjectValue] ModelStateDictionary modelStateDictionary)
+        {
+            var options = HttpContext.RequestServices.GetRequiredService<IOptions<ApiBehaviorOptions>>();
+
+            return (ActionResult)options.Value.InvalidModelStateResponseFactory(ControllerContext);
         }
     }
 }

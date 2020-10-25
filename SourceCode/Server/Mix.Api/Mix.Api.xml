@@ -130,6 +130,16 @@
             <param name="patchDocument">The patch document.</param>
             <returns></returns>
         </member>
+        <member name="M:Mix.Api.Controllers.EmployeesController.ValidationProblem(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary)">
+            <summary>
+            Creates an <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult" /> that produces a <see cref="F:Microsoft.AspNetCore.Http.StatusCodes.Status400BadRequest" /> response
+            with validation errors from <paramref name="modelStateDictionary" />.
+            </summary>
+            <param name="modelStateDictionary">The <see cref="T:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary" />.</param>
+            <returns>
+            The created <see cref="T:Microsoft.AspNetCore.Mvc.BadRequestObjectResult" /> for the response.
+            </returns>
+        </member>
         <member name="T:Mix.Api.Program">
             <summary>
             主程序
