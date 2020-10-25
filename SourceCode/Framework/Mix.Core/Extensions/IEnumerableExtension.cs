@@ -17,7 +17,7 @@ namespace Mix.Core
         /// ToList 的安全版本，如果发生异常并不会导致程序崩溃，而是返回null。
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="source"></param>
+        /// <param name="source">The source.</param>
         /// <returns></returns>
         public static List<T> TryToList<T>(this IEnumerable<T> source)
         {
@@ -29,10 +29,12 @@ namespace Mix.Core
         }
 
         /// <summary>
-        /// 集合是否为空
+        /// Determines whether [is null or empty].
         /// </summary>
-        /// <param name="source"></param>
-        /// <returns></returns>
+        /// <param name="source">The source.</param>
+        /// <returns>
+        ///   <c>true</c> if [is null or empty] [the specified source]; otherwise, <c>false</c>.
+        /// </returns>
         public static bool IsNullOrEmpty(this IEnumerable source)
         {
             if (source == null)
@@ -48,7 +50,7 @@ namespace Mix.Core
         /// <summary>
         /// 克隆集合
         /// </summary>
-        /// <param name="source"></param>
+        /// <param name="source">The source.</param>
         /// <returns></returns>
         public static IList Clone(this IList source)
         {

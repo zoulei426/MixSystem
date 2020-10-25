@@ -1,0 +1,437 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mix.Data</name>
+    </assembly>
+    <members>
+        <member name="T:Mix.Data.Aop.Attributes.TransactionalAttribute">
+            <summary>
+            事务
+            </summary>
+        </member>
+        <member name="P:Mix.Data.Aop.Attributes.TransactionalAttribute.Propagation">
+            <summary>
+            事务传播方式
+            </summary>
+        </member>
+        <member name="P:Mix.Data.Aop.Attributes.TransactionalAttribute.IsolationLevel">
+            <summary>
+            事务隔离级别
+            </summary>
+        </member>
+        <member name="T:Mix.Data.CurrentUser">
+            <summary>
+            当前用户
+            </summary>
+            <seealso cref="T:Mix.Data.ICurrentUser" />
+        </member>
+        <member name="P:Mix.Data.CurrentUser.ID">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="M:Mix.Data.CurrentUser.SetID">
+            <summary>
+            Sets the identifier.
+            </summary>
+        </member>
+        <member name="T:Mix.Data.Entities.AduitEntity">
+            <summary>
+            审计实体
+            </summary>
+        </member>
+        <member name="P:Mix.Data.Entities.AduitEntity.CreaterId">
+            <summary>
+            创建者ID
+            </summary>
+        </member>
+        <member name="P:Mix.Data.Entities.AduitEntity.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Mix.Data.Entities.AduitEntity.ModifierId">
+            <summary>
+            最后修改人ID
+            </summary>
+        </member>
+        <member name="P:Mix.Data.Entities.AduitEntity.ModityTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:Mix.Data.Entities.AduitEntity.IsDeleted">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:Mix.Data.Entities.AduitEntity.DeleterId">
+            <summary>
+            删除人ID
+            </summary>
+        </member>
+        <member name="P:Mix.Data.Entities.AduitEntity.DeleteTime">
+            <summary>
+            删除时间
+            </summary>
+        </member>
+        <member name="T:Mix.Data.Entities.ICreateAduitEntity">
+            <summary>
+            创建审计
+            </summary>
+        </member>
+        <member name="P:Mix.Data.Entities.ICreateAduitEntity.CreaterId">
+            <summary>
+            创建者ID
+            </summary>
+        </member>
+        <member name="P:Mix.Data.Entities.ICreateAduitEntity.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:Mix.Data.Entities.IUpdateAuditEntity">
+            <summary>
+            修改审计
+            </summary>
+        </member>
+        <member name="P:Mix.Data.Entities.IUpdateAuditEntity.ModifierId">
+            <summary>
+            最后修改人ID
+            </summary>
+        </member>
+        <member name="P:Mix.Data.Entities.IUpdateAuditEntity.ModityTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="T:Mix.Data.Entities.IDeleteAduitEntity">
+            <summary>
+            删除审计
+            </summary>
+        </member>
+        <member name="P:Mix.Data.Entities.IDeleteAduitEntity.IsDeleted">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:Mix.Data.Entities.IDeleteAduitEntity.DeleterId">
+            <summary>
+            删除人ID
+            </summary>
+        </member>
+        <member name="P:Mix.Data.Entities.IDeleteAduitEntity.DeleteTime">
+            <summary>
+            删除时间
+            </summary>
+        </member>
+        <member name="T:Mix.Data.FreeSqlExtension">
+            <summary>
+            FreeSql扩展
+            </summary>
+        </member>
+        <member name="M:Mix.Data.FreeSqlExtension.AsTable``1(FreeSql.ISelect{``0},System.String,System.Int32)">
+            <summary>
+            Ases the table.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="this">The this.</param>
+            <param name="tableName">Name of the table.</param>
+            <param name="count">The count.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Data.FreeSqlExtension.AsTable``1(FreeSql.ISelect{``0},System.String[])">
+            <summary>
+            Ases the table.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="this">The this.</param>
+            <param name="tableNames">The table names.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Data.FreeSqlExtension.UseConnectionString(FreeSql.FreeSqlBuilder,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            使用配置文件中的连接字符串
+            </summary>
+            <param name="this"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Data.ICurrentUser">
+            <summary>
+            ICurrentUser
+            </summary>
+        </member>
+        <member name="P:Mix.Data.ICurrentUser.ID">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="T:Mix.Data.Repositories.AuditBaseRepository`1">
+            <summary>
+            审计仓储
+            </summary>
+        </member>
+        <member name="M:Mix.Data.Repositories.AuditBaseRepository`1.#ctor(FreeSql.UnitOfWorkManager,Mix.Data.ICurrentUser)">
+            <summary>
+            构造
+            </summary>
+            <param name="unitOfWorkManager"></param>
+            <param name="currentUser"></param>
+        </member>
+        <member name="T:Mix.Data.Repositories.AuditBaseRepository`2">
+            <summary>
+            审计仓储：实现如果实体类
+            继承了ICreateAduitEntity  则自动增加创建时间/人信息
+            继承了IUpdateAuditEntity，更新时，修改更新时间/人
+            继承了ISoftDeleteAduitEntity，删除时，自动改成软删除。仅注入此仓储或继承此仓储的实现才能实现如上功能。
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TKey"></typeparam>
+        </member>
+        <member name="F:Mix.Data.Repositories.AuditBaseRepository`2.CurrentUser">
+            <summary>
+            当前用户
+            </summary>
+        </member>
+        <member name="M:Mix.Data.Repositories.AuditBaseRepository`2.#ctor(FreeSql.UnitOfWorkManager,Mix.Data.ICurrentUser)">
+            <summary>
+            构造
+            </summary>
+            <param name="unitOfWorkManager"></param>
+            <param name="currentUser"></param>
+        </member>
+        <member name="M:Mix.Data.Repositories.AuditBaseRepository`2.BeforeInsert(`0)">
+            <summary>
+            写入创建/修改审计
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:Mix.Data.Repositories.AuditBaseRepository`2.Insert(`0)">
+            <summary>
+            插入一条数据
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Data.Repositories.AuditBaseRepository`2.InsertAsync(`0)">
+            <summary>
+            异步插入一条数据
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Data.Repositories.AuditBaseRepository`2.Insert(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            批量插入数据
+            </summary>
+            <param name="entitys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Data.Repositories.AuditBaseRepository`2.InsertAsync(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            异步批量插入数据
+            </summary>
+            <param name="entitys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Data.Repositories.AuditBaseRepository`2.BeforeUpdate(`0)">
+            <summary>
+            写入修改审计
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:Mix.Data.Repositories.AuditBaseRepository`2.Update(`0)">
+            <summary>
+            更新一条数据
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Data.Repositories.AuditBaseRepository`2.UpdateAsync(`0)">
+            <summary>
+            异步更新一条数据
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Data.Repositories.AuditBaseRepository`2.Update(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            批量更新数据
+            </summary>
+            <param name="entitys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Data.Repositories.AuditBaseRepository`2.UpdateAsync(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            异步批量更新数据
+            </summary>
+            <param name="entitys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Data.Repositories.AuditBaseRepository`2.Delete(`0)">
+            <summary>
+            删除数据
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Data.Repositories.AuditBaseRepository`2.Delete(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            批量删除数据
+            </summary>
+            <param name="entitys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Data.Repositories.AuditBaseRepository`2.DeleteAsync(`1)">
+            <summary>
+            异步删除数据
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Data.Repositories.AuditBaseRepository`2.DeleteAsync(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            异步批量删除数据
+            </summary>
+            <param name="entitys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Data.Repositories.AuditBaseRepository`2.DeleteAsync(`0)">
+            <summary>
+            异步删除数据
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Data.Repositories.AuditBaseRepository`2.Delete(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            删除数据
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Data.Repositories.AuditBaseRepository`2.DeleteAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            异步删除数据
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Data.Repositories.AuditBaseRepository`2.InsertOrUpdateAsync(`0)">
+            <summary>
+            插入或更新数据
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Data.Repositories.IAuditBaseRepository`1">
+            <summary>
+            审计仓储
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="T:Mix.Data.Repositories.IAuditBaseRepository`2">
+            <summary>
+            审计仓储
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TKey"></typeparam>
+        </member>
+        <member name="T:Mix.Data.Services.ApplicationService">
+            <summary>
+            应用层服务
+            </summary>
+            <seealso cref="T:Mix.Data.Services.IApplicationService" />
+        </member>
+        <member name="P:Mix.Data.Services.ApplicationService.ServiceProvider">
+            <summary>
+            Gets or sets the service provider.
+            </summary>
+            <value>
+            The service provider.
+            </value>
+        </member>
+        <member name="F:Mix.Data.Services.ApplicationService.ServiceProviderLock">
+            <summary>
+            The service provider lock
+            </summary>
+        </member>
+        <member name="M:Mix.Data.Services.ApplicationService.LazyGetRequiredService``1(``0@)">
+            <summary>
+            Lazies the get required service.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <param name="reference">The reference.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Data.Services.ApplicationService.LazyGetRequiredService``1(System.Type,``0@)">
+            <summary>
+            Lazies the get required service.
+            </summary>
+            <typeparam name="TRef">The type of the reference.</typeparam>
+            <param name="serviceType">Type of the service.</param>
+            <param name="reference">The reference.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Mix.Data.Services.ApplicationService.CurrentUser">
+            <summary>
+            Gets the current user.
+            </summary>
+            <value>
+            The current user.
+            </value>
+        </member>
+        <member name="P:Mix.Data.Services.ApplicationService.Mapper">
+            <summary>
+            Gets the mapper.
+            </summary>
+            <value>
+            The mapper.
+            </value>
+        </member>
+        <member name="P:Mix.Data.Services.ApplicationService.UnitOfWorkManager">
+            <summary>
+            Gets the unit of work manager.
+            </summary>
+            <value>
+            The unit of work manager.
+            </value>
+        </member>
+        <member name="P:Mix.Data.Services.ApplicationService.LoggerFactory">
+            <summary>
+            Gets the logger factory.
+            </summary>
+            <value>
+            The logger factory.
+            </value>
+        </member>
+        <member name="P:Mix.Data.Services.ApplicationService.Logger">
+            <summary>
+            Gets the logger.
+            </summary>
+            <value>
+            The logger.
+            </value>
+        </member>
+        <member name="P:Mix.Data.Services.ApplicationService.AuthorizationService">
+            <summary>
+            Gets the authorization service.
+            </summary>
+            <value>
+            The authorization service.
+            </value>
+        </member>
+        <member name="T:Mix.Data.Services.IApplicationService">
+            <summary>
+            IApplicationService
+            </summary>
+        </member>
+    </members>
+</doc>

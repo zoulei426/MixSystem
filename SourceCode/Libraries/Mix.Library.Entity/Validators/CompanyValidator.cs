@@ -1,16 +1,19 @@
 ﻿using FluentValidation;
 using Microsoft.Extensions.Localization;
 using Mix.Library.Entities.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mix.Library.Entities.Validators
 {
+    /// <summary>
+    /// CompanyAddDtoValidator
+    /// </summary>
+    /// <seealso cref="AbstractValidator{T}" />
     public class CompanyAddDtoValidator : AbstractValidator<CompanyAddDto>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CompanyAddDtoValidator"/> class.
+        /// </summary>
+        /// <param name="localizer">The localizer.</param>
         public CompanyAddDtoValidator(IStringLocalizer localizer)
         {
             RuleFor(x => x.Name)

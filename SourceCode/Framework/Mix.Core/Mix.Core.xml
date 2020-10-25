@@ -4,6 +4,513 @@
         <name>Mix.Core</name>
     </assembly>
     <members>
+        <member name="T:Mix.Core.IEnumerableExtension">
+            <summary>
+            可枚举扩展
+            </summary>
+        </member>
+        <member name="M:Mix.Core.IEnumerableExtension.TryToList``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            ToList 的安全版本，如果发生异常并不会导致程序崩溃，而是返回null。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Core.IEnumerableExtension.IsNullOrEmpty(System.Collections.IEnumerable)">
+            <summary>
+            Determines whether [is null or empty].
+            </summary>
+            <param name="source">The source.</param>
+            <returns>
+              <c>true</c> if [is null or empty] [the specified source]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Mix.Core.IEnumerableExtension.Clone(System.Collections.IList)">
+            <summary>
+            克隆集合
+            </summary>
+            <param name="source">The source.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Core.ObjectExtension">
+            <summary>
+            ObjectExtensions
+            </summary>
+        </member>
+        <member name="F:Mix.Core.ObjectExtension.Tolerance">
+            <summary>
+            容差
+            </summary>
+        </member>
+        <member name="M:Mix.Core.ObjectExtension.CastTo``1(System.Object)">
+            <summary>
+            Casts to.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Core.ObjectExtension.ConvertTo(System.Object,System.Type)">
+            <summary>
+            Converts to.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="targetType">Type of the target.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">source</exception>
+        </member>
+        <member name="M:Mix.Core.ObjectExtension.ConvertTo(System.Object,System.Type,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Converts to.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="targetType">Type of the target.</param>
+            <param name="mapping">The mapping.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">source</exception>
+        </member>
+        <member name="M:Mix.Core.ObjectExtension.ConvertTo``1(System.Object)">
+            <summary>
+            Converts to.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">source</exception>
+        </member>
+        <member name="M:Mix.Core.ObjectExtension.ConvertTo``1(System.Object,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Converts to.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <param name="mapping">The mapping.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Core.ObjectExtension.CopyPropertiesFrom(System.Object,System.Object)">
+            <summary>
+            Copies the properties from.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="source">The source.</param>
+        </member>
+        <member name="M:Mix.Core.ObjectExtension.CopyPropertiesFrom(System.Object,System.Object,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Copies the properties from.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="source">The source.</param>
+            <param name="mapping">The mapping.</param>
+        </member>
+        <member name="M:Mix.Core.ObjectExtension.TraversalPropertiesInfo(System.Object,System.Func{System.Reflection.PropertyInfo,System.Object,System.Object,System.Boolean},System.Object)">
+            <summary>
+            Traversals the properties information.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="method">The method.</param>
+            <param name="argument">The argument.</param>
+        </member>
+        <member name="T:Mix.Core.StringExtension">
+            <summary>
+            StringExtensions
+            </summary>
+        </member>
+        <member name="M:Mix.Core.StringExtension.ToSnakeCase(System.String)">
+            <summary>
+            Converts to snakecase.
+            </summary>
+            <param name="source">The source.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">source</exception>
+        </member>
+        <member name="M:Mix.Core.StringExtension.SymbolsPipe(System.String,System.Char,System.Func{System.Char,System.Boolean,System.Char[]})">
+            <summary>
+            Symbolses the pipe.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="mainDelimeter">The main delimeter.</param>
+            <param name="newWordSymbolHandler">The new word symbol handler.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Core.Guards">
+            <summary>
+            守卫
+            </summary>
+        </member>
+        <member name="M:Mix.Core.Guards.ThrowIfNull(System.Object[])">
+            <summary>
+            Throws if null.
+            </summary>
+            <param name="parameters">The parameters.</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Mix.Core.Guards.ThrowIfNullOrEmpty(System.String[])">
+            <summary>
+            Throws if null or empty.
+            </summary>
+            <param name="strings">The strings.</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Mix.Core.Guards.ThrowIfNullOrEmpty(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Throws if null or empty.
+            </summary>
+            <param name="strings">The strings.</param>
+        </member>
+        <member name="M:Mix.Core.Guards.ThrowIfFileNotFound(System.String)">
+            <summary>
+            Throws if file not found.
+            </summary>
+            <param name="path">The path.</param>
+            <exception cref="T:System.IO.FileNotFoundException">Can not found the specified file path.</exception>
+        </member>
+        <member name="M:Mix.Core.Guards.ThrowIfFolderNotFount(System.String)">
+            <summary>
+            Throws if folder not fount.
+            </summary>
+            <param name="path">The path.</param>
+            <exception cref="T:System.IO.DirectoryNotFoundException">Can not found the specified path {path}.</exception>
+        </member>
+        <member name="M:Mix.Core.Guards.ThrowIfInvalidPath(System.String)">
+            <summary>
+            Throws if invalid path.
+            </summary>
+            <param name="path">The path.</param>
+            <exception cref="T:System.IO.DirectoryNotFoundException">The specified path is not a valid file or directory.  ({path})</exception>
+        </member>
+        <member name="M:Mix.Core.Guards.ThrowIfNot(System.Boolean)">
+            <summary>
+            Throws if not.
+            </summary>
+            <param name="condition">if set to <c>true</c> [condition].</param>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Mix.Core.Guards.ThrowIfNot(System.Func{System.Boolean})">
+            <summary>
+            Throws if not.
+            </summary>
+            <param name="condition">The condition.</param>
+        </member>
+        <member name="T:Mix.Core.IScopedDependency">
+            <summary>
+            实现该接口将自动注册到Ioc容器，生命周期为每次请求创建一个实例
+            </summary>
+        </member>
+        <member name="T:Mix.Core.ISingletonDependency">
+            <summary>
+            ISingletonDependency
+            </summary>
+        </member>
+        <member name="T:Mix.Core.ITransientDependency">
+            <summary>
+            ITransientDependency
+            </summary>
+        </member>
+        <member name="T:Mix.Core.Localization.Json.Internal.JsonStringLocalizerLoggerExtensions">
+            <summary>
+            JsonStringLocalizerLoggerExtensions
+            </summary>
+        </member>
+        <member name="F:Mix.Core.Localization.Json.Internal.JsonStringLocalizerLoggerExtensions._searchedLocation">
+            <summary>
+            The searched location
+            </summary>
+        </member>
+        <member name="M:Mix.Core.Localization.Json.Internal.JsonStringLocalizerLoggerExtensions.#cctor">
+            <summary>
+            Initializes the <see cref="T:Mix.Core.Localization.Json.Internal.JsonStringLocalizerLoggerExtensions"/> class.
+            </summary>
+        </member>
+        <member name="M:Mix.Core.Localization.Json.Internal.JsonStringLocalizerLoggerExtensions.SearchedLocation(Microsoft.Extensions.Logging.ILogger,System.String,System.String,System.Globalization.CultureInfo)">
+            <summary>
+            Searcheds the location.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="key">The key.</param>
+            <param name="searchedLocation">The searched location.</param>
+            <param name="culture">The culture.</param>
+        </member>
+        <member name="T:Mix.Core.Localization.Json.Internal.PathHelpers">
+            <summary>
+            PathHelpers
+            </summary>
+        </member>
+        <member name="M:Mix.Core.Localization.Json.Internal.PathHelpers.GetApplicationRoot">
+            <summary>
+            Gets the application root.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Core.Localization.Json.Internal.StringLocalizer">
+            <summary>
+            StringLocalizer
+            </summary>
+            <seealso cref="T:Microsoft.Extensions.Localization.IStringLocalizer" />
+        </member>
+        <member name="F:Mix.Core.Localization.Json.Internal.StringLocalizer._localizer">
+            <summary>
+            The localizer
+            </summary>
+        </member>
+        <member name="M:Mix.Core.Localization.Json.Internal.StringLocalizer.#ctor(Microsoft.Extensions.Localization.IStringLocalizerFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Core.Localization.Json.Internal.StringLocalizer"/> class.
+            </summary>
+            <param name="factory">The factory.</param>
+        </member>
+        <member name="P:Mix.Core.Localization.Json.Internal.StringLocalizer.Item(System.String)">
+            <summary>
+            Gets the <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/> with the specified name.
+            </summary>
+            <value>
+            The <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/>.
+            </value>
+            <param name="name">The name.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Mix.Core.Localization.Json.Internal.StringLocalizer.Item(System.String,System.Object[])">
+            <summary>
+            Gets the <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/> with the specified name.
+            </summary>
+            <value>
+            The <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/>.
+            </value>
+            <param name="name">The name.</param>
+            <param name="arguments">The arguments.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Core.Localization.Json.Internal.StringLocalizer.GetAllStrings(System.Boolean)">
+            <summary>
+            Gets all string resources.
+            </summary>
+            <param name="includeParentCultures">A <see cref="T:System.Boolean" /> indicating whether to include strings from parent cultures.</param>
+            <returns>
+            The strings.
+            </returns>
+        </member>
+        <member name="M:Mix.Core.Localization.Json.Internal.StringLocalizer.WithCulture(System.Globalization.CultureInfo)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer" /> for a specific <see cref="T:System.Globalization.CultureInfo" />.
+            </summary>
+            <param name="culture">The <see cref="T:System.Globalization.CultureInfo" /> to use.</param>
+            <returns>
+            A culture-specific <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer" />.
+            </returns>
+        </member>
+        <member name="T:Mix.Core.Localization.Json.JsonLocalizationOptions">
+            <summary>
+            JsonLocalizationOptions
+            </summary>
+            <seealso cref="T:Microsoft.Extensions.Localization.LocalizationOptions" />
+        </member>
+        <member name="P:Mix.Core.Localization.Json.JsonLocalizationOptions.ResourcesType">
+            <summary>
+            Gets or sets the type of the resources.
+            </summary>
+            <value>
+            The type of the resources.
+            </value>
+        </member>
+        <member name="T:Mix.Core.Localization.Json.JsonStringLocalizer">
+            <summary>
+            JsonStringLocalizer
+            </summary>
+            <seealso cref="T:Microsoft.Extensions.Localization.IStringLocalizer" />
+        </member>
+        <member name="F:Mix.Core.Localization.Json.JsonStringLocalizer._searchedLocation">
+            <summary>
+            The searched location
+            </summary>
+        </member>
+        <member name="M:Mix.Core.Localization.Json.JsonStringLocalizer.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Core.Localization.Json.JsonStringLocalizer"/> class.
+            </summary>
+            <param name="resourcesPath">The resources path.</param>
+            <param name="resourceName">Name of the resource.</param>
+            <exception cref="T:System.ArgumentNullException">resourcesPath</exception>
+        </member>
+        <member name="P:Mix.Core.Localization.Json.JsonStringLocalizer.Item(System.String)">
+            <summary>
+            Gets the <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/> with the specified name.
+            </summary>
+            <value>
+            The <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/>.
+            </value>
+            <param name="name">The name.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">name</exception>
+        </member>
+        <member name="P:Mix.Core.Localization.Json.JsonStringLocalizer.Item(System.String,System.Object[])">
+            <summary>
+            Gets the <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/> with the specified name.
+            </summary>
+            <value>
+            The <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/>.
+            </value>
+            <param name="name">The name.</param>
+            <param name="arguments">The arguments.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">name</exception>
+        </member>
+        <member name="M:Mix.Core.Localization.Json.JsonStringLocalizer.GetAllStrings(System.Boolean)">
+            <summary>
+            Gets all string resources.
+            </summary>
+            <param name="includeParentCultures">A <see cref="T:System.Boolean" /> indicating whether to include strings from parent cultures.</param>
+            <returns>
+            The strings.
+            </returns>
+        </member>
+        <member name="M:Mix.Core.Localization.Json.JsonStringLocalizer.WithCulture(System.Globalization.CultureInfo)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer" /> for a specific <see cref="T:System.Globalization.CultureInfo" />.
+            </summary>
+            <param name="culture">The <see cref="T:System.Globalization.CultureInfo" /> to use.</param>
+            <returns>
+            A culture-specific <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer" />.
+            </returns>
+        </member>
+        <member name="M:Mix.Core.Localization.Json.JsonStringLocalizer.GetAllStrings(System.Boolean,System.Globalization.CultureInfo)">
+            <summary>
+            Gets all strings.
+            </summary>
+            <param name="includeParentCultures">if set to <c>true</c> [include parent cultures].</param>
+            <param name="culture">The culture.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">culture</exception>
+        </member>
+        <member name="M:Mix.Core.Localization.Json.JsonStringLocalizer.GetStringSafely(System.String)">
+            <summary>
+            Gets the string safely.
+            </summary>
+            <param name="name">The name.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">name</exception>
+        </member>
+        <member name="M:Mix.Core.Localization.Json.JsonStringLocalizer.GetAllStringsFromCultureHierarchy(System.Globalization.CultureInfo)">
+            <summary>
+            Gets all strings from culture hierarchy.
+            </summary>
+            <param name="startingCulture">The starting culture.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Core.Localization.Json.JsonStringLocalizer.GetAllResourceStrings(System.Globalization.CultureInfo)">
+            <summary>
+            Gets all resource strings.
+            </summary>
+            <param name="culture">The culture.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Core.Localization.Json.JsonStringLocalizerFactory">
+            <summary>
+            JsonStringLocalizerFactory
+            </summary>
+            <seealso cref="T:Microsoft.Extensions.Localization.IStringLocalizerFactory" />
+        </member>
+        <member name="M:Mix.Core.Localization.Json.JsonStringLocalizerFactory.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Core.Localization.Json.JsonStringLocalizerFactory"/> class.
+            </summary>
+        </member>
+        <member name="M:Mix.Core.Localization.Json.JsonStringLocalizerFactory.#ctor(Microsoft.Extensions.Options.IOptions{Mix.Core.Localization.Json.JsonLocalizationOptions},Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Core.Localization.Json.JsonStringLocalizerFactory"/> class.
+            </summary>
+            <param name="localizationOptions">The localization options.</param>
+            <param name="loggerFactory">The logger factory.</param>
+            <exception cref="T:System.ArgumentNullException">
+            localizationOptions
+            or
+            loggerFactory
+            </exception>
+        </member>
+        <member name="M:Mix.Core.Localization.Json.JsonStringLocalizerFactory.Create(System.Type)">
+            <summary>
+            Creates an <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer" /> using the <see cref="T:System.Reflection.Assembly" /> and
+            <see cref="P:System.Type.FullName" /> of the specified <see cref="T:System.Type" />.
+            </summary>
+            <param name="resourceSource">The <see cref="T:System.Type" />.</param>
+            <returns>
+            The <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer" />.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">resourceSource</exception>
+        </member>
+        <member name="M:Mix.Core.Localization.Json.JsonStringLocalizerFactory.Create(System.String,System.String)">
+            <summary>
+            Creates an <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer" />.
+            </summary>
+            <param name="baseName">The base name of the resource to load strings from.</param>
+            <param name="location">The location to load resources from.</param>
+            <returns>
+            The <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer" />.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            baseName
+            or
+            location
+            </exception>
+        </member>
+        <member name="M:Mix.Core.Localization.Json.JsonStringLocalizerFactory.CreateJsonStringLocalizer(System.String,System.String)">
+            <summary>
+            Creates the json string localizer.
+            </summary>
+            <param name="resourcesPath">The resources path.</param>
+            <param name="resourcename">The resourcename.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Core.Localization.Json.JsonStringLocalizerFactory.GetResourcePath(System.Reflection.Assembly)">
+            <summary>
+            Gets the resource path.
+            </summary>
+            <param name="assembly">The assembly.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Core.Localization.Json.JsonStringLocalizerFactory.TrimPrefix(System.String,System.String)">
+            <summary>
+            Trims the prefix.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="prefix">The prefix.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Core.Localization.Json.JsonStringLocalizerFactory.TryFixInnerClassPath(System.String)">
+            <summary>
+            Tries the fix inner class path.
+            </summary>
+            <param name="path">The path.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Core.Localization.Json.ResourcesType">
+            <summary>
+            资源类型
+            </summary>
+        </member>
+        <member name="F:Mix.Core.Localization.Json.ResourcesType.CultureBased">
+            <summary>
+            The culture based
+            </summary>
+        </member>
+        <member name="F:Mix.Core.Localization.Json.ResourcesType.TypeBased">
+            <summary>
+            The type based
+            </summary>
+        </member>
+        <member name="T:Mix.Core.Localization.Json.StringLocalizerExtensions">
+            <summary>
+            StringLocalizerExtensions
+            </summary>
+        </member>
+        <member name="M:Mix.Core.Localization.Json.StringLocalizerExtensions.GetString``1(Microsoft.Extensions.Localization.IStringLocalizer,System.Linq.Expressions.Expression{System.Func{``0,System.String}})">
+            <summary>
+            Gets the string.
+            </summary>
+            <typeparam name="TResource">The type of the resource.</typeparam>
+            <param name="stringLocalizer">The string localizer.</param>
+            <param name="propertyExpression">The property expression.</param>
+            <returns></returns>
+        </member>
         <member name="T:Mix.Core.BindableObject">
             <summary>
             INotifyPropertyChanged实现类
@@ -27,32 +534,25 @@
             回收
             </summary>
         </member>
-        <member name="T:Mix.Core.IEnumerableExtension">
+        <member name="T:Mix.Core.Entity">
             <summary>
-            可枚举扩展
+            数据库实体
             </summary>
         </member>
-        <member name="M:Mix.Core.IEnumerableExtension.TryToList``1(System.Collections.Generic.IEnumerable{``0})">
+        <member name="P:Mix.Core.Entity.Id">
             <summary>
-            ToList 的安全版本，如果发生异常并不会导致程序崩溃，而是返回null。
+            主键Id
             </summary>
-            <typeparam name="T"></typeparam>
-            <param name="source"></param>
-            <returns></returns>
         </member>
-        <member name="M:Mix.Core.IEnumerableExtension.IsNullOrEmpty(System.Collections.IEnumerable)">
+        <member name="T:Mix.Core.IEntity">
             <summary>
-            集合是否为空
+            IEntity
             </summary>
-            <param name="source"></param>
-            <returns></returns>
         </member>
-        <member name="M:Mix.Core.IEnumerableExtension.Clone(System.Collections.IList)">
+        <member name="P:Mix.Core.IEntity.Id">
             <summary>
-            克隆集合
+            主键ID
             </summary>
-            <param name="source"></param>
-            <returns></returns>
         </member>
         <member name="T:Mix.Core.ObjectBase">
             <summary>
@@ -129,6 +629,94 @@
             </summary>
             <param name="dics"></param>
             <param name="dicKey"></param>
+        </member>
+        <member name="T:Mix.Core.SystemConst">
+            <summary>
+            系统常量
+            </summary>
+        </member>
+        <member name="F:Mix.Core.SystemConst.LANGUAGE">
+            <summary>
+            The language
+            </summary>
+        </member>
+        <member name="T:Mix.Core.TimeConverter">
+            <summary>
+            时间戳 后台只返回 1562904163734
+            </summary>
+        </member>
+        <member name="M:Mix.Core.TimeConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Writes the JSON representation of the object.
+            </summary>
+            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter" /> to write to.</param>
+            <param name="value">The value.</param>
+            <param name="serializer">The calling serializer.</param>
+            <exception cref="T:Newtonsoft.Json.JsonSerializationException">Expected date object value.</exception>
+        </member>
+        <member name="M:Mix.Core.TimeConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Reads the JSON representation of the object.
+            </summary>
+            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader" /> to read from.</param>
+            <param name="objectType">Type of the object.</param>
+            <param name="existingValue">The existing value of object being read.</param>
+            <param name="serializer">The calling serializer.</param>
+            <returns>
+            The object value.
+            </returns>
+        </member>
+        <member name="M:Mix.Core.TimeConverter.ConvertIntDateTime(System.Double)">
+            <summary>
+            Converts the int date time.
+            </summary>
+            <param name="milliseconds">The milliseconds.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Core.TimeConverter.ConvertDateTimeInt(System.DateTime)">
+            <summary>
+            日期转换为时间戳（时间戳单位毫秒）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.JsonLocalizationServiceCollectionExtensions">
+            <summary>
+            JsonLocalizationServiceCollectionExtensions
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.JsonLocalizationServiceCollectionExtensions.AddJsonLocalization(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds the json localization.
+            </summary>
+            <param name="services">The services.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">services</exception>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.JsonLocalizationServiceCollectionExtensions.AddJsonLocalization(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Mix.Core.Localization.Json.JsonLocalizationOptions})">
+            <summary>
+            Adds the json localization.
+            </summary>
+            <param name="services">The services.</param>
+            <param name="setupAction">The setup action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">
+            services
+            or
+            setupAction
+            </exception>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.JsonLocalizationServiceCollectionExtensions.AddJsonLocalizationServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds the json localization services.
+            </summary>
+            <param name="services">The services.</param>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.JsonLocalizationServiceCollectionExtensions.AddJsonLocalizationServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Mix.Core.Localization.Json.JsonLocalizationOptions})">
+            <summary>
+            Adds the json localization services.
+            </summary>
+            <param name="services">The services.</param>
+            <param name="setupAction">The setup action.</param>
         </member>
     </members>
 </doc>

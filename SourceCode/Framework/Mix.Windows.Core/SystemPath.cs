@@ -3,6 +3,9 @@ using System.IO;
 
 namespace Mix.Windows.Core
 {
+    /// <summary>
+    /// 系统路径
+    /// </summary>
     public static class SystemPath
     {
         /// <summary>
@@ -40,6 +43,9 @@ namespace Mix.Windows.Core
         /// </summary>
         public static readonly string Users = Path.Combine(AppData, nameof(Users));
 
+        /// <summary>
+        /// Initializes the <see cref="SystemPath"/> class.
+        /// </summary>
         static SystemPath()
         {
             Directory.CreateDirectory(Data);

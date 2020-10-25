@@ -9,6 +9,9 @@ using System.Windows.Media;
 
 namespace Mix.Windows.WPF
 {
+    /// <summary>
+    /// ProcessController
+    /// </summary>
     public static class ProcessController
     {
         private const int SW_SHOW_NORMAL = 1;
@@ -39,12 +42,20 @@ namespace Mix.Windows.WPF
 
         #endregion Win32 API functions
 
+        /// <summary>
+        /// Called when [window loaded].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         public static void OnWindowLoaded(object sender, RoutedEventArgs e)
         {
             IntPtr hwnd = ((HwndSource)PresentationSource.FromVisual((Visual)sender)).Handle;
             //Settings.Default.WindowHandle = (long)hwnd;
         }
 
+        /// <summary>
+        /// Restarts this instance.
+        /// </summary>
         public static void Restart()
         {
             //Settings.Default.IsRestarting = true;
@@ -52,6 +63,9 @@ namespace Mix.Windows.WPF
             Application.Current.Shutdown();
         }
 
+        /// <summary>
+        /// Checks the singleton.
+        /// </summary>
         public static void CheckSingleton()
         {
             _mutex = new Mutex(true, PROCESS_NAME, out bool isNew);
@@ -65,6 +79,9 @@ namespace Mix.Windows.WPF
             Application.Current.Shutdown();
         }
 
+        /// <summary>
+        /// Activates the existed window.
+        /// </summary>
         private static void ActivateExistedWindow()
         {
             //IntPtr windowHandle = (IntPtr)Settings.Default.WindowHandle;

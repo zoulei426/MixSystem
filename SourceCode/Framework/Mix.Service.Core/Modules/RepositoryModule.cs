@@ -10,6 +10,14 @@ namespace Mix.Service.Core.Modules
     /// </summary>
     public class RepositoryModule : Autofac.Module
     {
+        /// <summary>
+        /// Override to add registrations to the container.
+        /// </summary>
+        /// <param name="builder">The builder through which components can be
+        /// registered.</param>
+        /// <remarks>
+        /// Note that the ContainerBuilder parameter is unique to this module.
+        /// </remarks>
         protected override void Load(ContainerBuilder builder)
         {
             Assembly assemblysRepository = Assembly.Load("Mix.Library.Repositories");

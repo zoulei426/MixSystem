@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Mix.Windows.WPF
+﻿namespace Mix.Windows.WPF
 {
+    /// <summary>
+    /// 系统区域名称
+    /// </summary>
     public class SyetemRegionNames
     {
         /// <summary>

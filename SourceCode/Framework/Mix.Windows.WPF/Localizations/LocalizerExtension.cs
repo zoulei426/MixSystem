@@ -1,11 +1,4 @@
-﻿using Microsoft.Extensions.Localization;
-using Mix.Core.Localization.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
@@ -18,13 +11,29 @@ namespace Mix.Windows.WPF.Localizations
     [MarkupExtensionReturnType(typeof(string))]
     public class LocalizerExtension : MarkupExtension
     {
+        /// <summary>
+        /// Gets the key.
+        /// </summary>
+        /// <value>
+        /// The key.
+        /// </value>
         public string Key { get; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LocalizerExtension"/> class.
+        /// </summary>
+        /// <param name="key">The key.</param>
         public LocalizerExtension(string key)
         {
             Key = key;
         }
 
+        /// <summary>
+        /// Provides the value.
+        /// </summary>
+        /// <param name="serviceProvider">The service provider.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException">$"The {nameof(serviceProvider)} must implement {nameof(IProvideValueTarget)} interface.</exception>
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
             if (serviceProvider.GetService(typeof(IProvideValueTarget)) is not IProvideValueTarget provideValueTarget)

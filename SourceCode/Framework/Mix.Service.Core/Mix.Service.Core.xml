@@ -1,0 +1,229 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mix.Service.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Mix.Service.Core.ApiDescriptionProvider">
+            <summary>
+            ApiDescriptionProvider
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionProvider" />
+        </member>
+        <member name="P:Mix.Service.Core.ApiDescriptionProvider.Order">
+            <summary>
+            Gets the order value for determining the order of execution of providers. Providers execute in
+            ascending numeric value of the <see cref="P:Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionProvider.Order" /> property.
+            </summary>
+            <remarks>
+            <para>
+            Providers are executed in an ordering determined by an ascending sort of the <see cref="P:Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionProvider.Order" /> property.
+            A provider with a lower numeric value of <see cref="P:Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionProvider.Order" /> will have its
+            <see cref="M:Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionProvider.OnProvidersExecuting(Microsoft.AspNetCore.Mvc.ApiExplorer.ApiDescriptionProviderContext)" /> called before that of a provider with a higher numeric value of
+            <see cref="P:Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionProvider.Order" />. The <see cref="M:Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionProvider.OnProvidersExecuted(Microsoft.AspNetCore.Mvc.ApiExplorer.ApiDescriptionProviderContext)" /> method is called in the reverse ordering after
+            all calls to <see cref="M:Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionProvider.OnProvidersExecuting(Microsoft.AspNetCore.Mvc.ApiExplorer.ApiDescriptionProviderContext)" />. A provider with a lower numeric value of
+            <see cref="P:Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionProvider.Order" /> will have its <see cref="M:Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionProvider.OnProvidersExecuted(Microsoft.AspNetCore.Mvc.ApiExplorer.ApiDescriptionProviderContext)" /> method called after that of a provider
+            with a higher numeric value of <see cref="P:Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionProvider.Order" />.
+            </para>
+            <para>
+            If two providers have the same numeric value of <see cref="P:Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionProvider.Order" />, then their relative execution order
+            is undefined.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Mix.Service.Core.ApiDescriptionProvider.OnProvidersExecuted(Microsoft.AspNetCore.Mvc.ApiExplorer.ApiDescriptionProviderContext)">
+            <summary>
+            Called after <see cref="T:Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionProvider" /> implementations with higher <see cref="P:Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionProvider.Order" /> values have been called.
+            </summary>
+            <param name="context">The <see cref="T:Microsoft.AspNetCore.Mvc.ApiExplorer.ApiDescriptionProviderContext" />.</param>
+        </member>
+        <member name="M:Mix.Service.Core.ApiDescriptionProvider.OnProvidersExecuting(Microsoft.AspNetCore.Mvc.ApiExplorer.ApiDescriptionProviderContext)">
+            <summary>
+            Creates or modifies <see cref="T:Microsoft.AspNetCore.Mvc.ApiExplorer.ApiDescription" />s.
+            </summary>
+            <param name="context">The <see cref="T:Microsoft.AspNetCore.Mvc.ApiExplorer.ApiDescriptionProviderContext" />.</param>
+        </member>
+        <member name="T:Mix.Service.Core.ArrayModelBinder">
+            <summary>
+            字符串数组（xxx,xxx,xxx）-> GUID数组({xxx},{xxx},{xxx})
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ModelBinding.IModelBinder" />
+        </member>
+        <member name="M:Mix.Service.Core.ArrayModelBinder.BindModelAsync(Microsoft.AspNetCore.Mvc.ModelBinding.ModelBindingContext)">
+            <summary>
+            Attempts to bind a model.
+            </summary>
+            <param name="bindingContext">The <see cref="T:Microsoft.AspNetCore.Mvc.ModelBinding.ModelBindingContext" />.</param>
+            <returns>
+            <para>
+            A <see cref="T:System.Threading.Tasks.Task" /> which will complete when the model binding process completes.
+            </para>
+            <para>
+            If model binding was successful, the <see cref="P:Microsoft.AspNetCore.Mvc.ModelBinding.ModelBindingContext.Result" /> should have
+            <see cref="P:Microsoft.AspNetCore.Mvc.ModelBinding.ModelBindingResult.IsModelSet" /> set to <c>true</c>.
+            </para>
+            <para>
+            A model binder that completes successfully should set <see cref="P:Microsoft.AspNetCore.Mvc.ModelBinding.ModelBindingContext.Result" /> to
+            a value returned from <see cref="M:Microsoft.AspNetCore.Mvc.ModelBinding.ModelBindingResult.Success(System.Object)" />.
+            </para>
+            </returns>
+        </member>
+        <member name="T:Mix.Service.Core.Extensions.FreeSqlExtensions">
+            <summary>
+            FreeSql扩展
+            </summary>
+        </member>
+        <member name="M:Mix.Service.Core.Extensions.FreeSqlExtensions.AddFreeSql(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Adds the free SQL.
+            </summary>
+            <param name="services">The services.</param>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="T:Mix.Service.Core.Extensions.HttpExtensions">
+            <summary>
+            HttpExtensions
+            </summary>
+        </member>
+        <member name="M:Mix.Service.Core.Extensions.HttpExtensions.GetRequest(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Gets the request.
+            </summary>
+            <param name="httpContext">The HTTP context.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Service.Core.Middleware.UnitOfWorkAsyncInterceptor">
+            <summary>
+            UnitOfWorkAsyncInterceptor
+            </summary>
+            <seealso cref="T:Castle.DynamicProxy.IAsyncInterceptor" />
+        </member>
+        <member name="M:Mix.Service.Core.Middleware.UnitOfWorkAsyncInterceptor.#ctor(FreeSql.UnitOfWorkManager,Microsoft.Extensions.Logging.ILogger{Mix.Service.Core.Middleware.UnitOfWorkAsyncInterceptor})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Service.Core.Middleware.UnitOfWorkAsyncInterceptor"/> class.
+            </summary>
+            <param name="unitOfWorkManager">The unit of work manager.</param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:Mix.Service.Core.Middleware.UnitOfWorkAsyncInterceptor.TryBegin(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            Tries the begin.
+            </summary>
+            <param name="invocation">The invocation.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Service.Core.Middleware.UnitOfWorkAsyncInterceptor.InterceptSynchronous(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            拦截同步执行的方法
+            </summary>
+            <param name="invocation"></param>
+        </member>
+        <member name="M:Mix.Service.Core.Middleware.UnitOfWorkAsyncInterceptor.InterceptAsynchronous(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            拦截返回结果为Task的方法
+            </summary>
+            <param name="invocation"></param>
+        </member>
+        <member name="M:Mix.Service.Core.Middleware.UnitOfWorkAsyncInterceptor.InternalInterceptAsynchronous(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            Internals the intercept asynchronous.
+            </summary>
+            <param name="invocation">The invocation.</param>
+        </member>
+        <member name="M:Mix.Service.Core.Middleware.UnitOfWorkAsyncInterceptor.InterceptAsynchronous``1(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            Intercepts an asynchronous method <paramref name="invocation" /> with return type of <see cref="T:System.Threading.Tasks.Task`1" />.
+            </summary>
+            <typeparam name="TResult">The type of the <see cref="T:System.Threading.Tasks.Task`1" /><see cref="P:System.Threading.Tasks.Task`1.Result" />.</typeparam>
+            <param name="invocation">The method invocation.</param>
+        </member>
+        <member name="M:Mix.Service.Core.Middleware.UnitOfWorkAsyncInterceptor.InternalInterceptAsynchronous``1(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            Internals the intercept asynchronous.
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <param name="invocation">The invocation.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Service.Core.Middleware.UnitOfWorkInterceptor">
+            <summary>
+            UnitOfWorkInterceptor
+            </summary>
+            <seealso cref="T:Castle.DynamicProxy.IInterceptor" />
+        </member>
+        <member name="M:Mix.Service.Core.Middleware.UnitOfWorkInterceptor.#ctor(Mix.Service.Core.Middleware.UnitOfWorkAsyncInterceptor)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Service.Core.Middleware.UnitOfWorkInterceptor"/> class.
+            </summary>
+            <param name="interceptor">The interceptor.</param>
+        </member>
+        <member name="M:Mix.Service.Core.Middleware.UnitOfWorkInterceptor.Intercept(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            Intercepts the specified invocation.
+            </summary>
+            <param name="invocation">The invocation.</param>
+        </member>
+        <member name="T:Mix.Service.Core.Modules.DependencyModule">
+            <summary>
+            接口注入
+            </summary>
+        </member>
+        <member name="M:Mix.Service.Core.Modules.DependencyModule.Load(Autofac.ContainerBuilder)">
+            <summary>
+            Override to add registrations to the container.
+            </summary>
+            <param name="builder">The builder through which components can be
+            registered.</param>
+            <remarks>
+            Note that the ContainerBuilder parameter is unique to this module.
+            </remarks>
+        </member>
+        <member name="T:Mix.Service.Core.Modules.RepositoryModule">
+            <summary>
+            注入仓储接口
+            </summary>
+        </member>
+        <member name="M:Mix.Service.Core.Modules.RepositoryModule.Load(Autofac.ContainerBuilder)">
+            <summary>
+            Override to add registrations to the container.
+            </summary>
+            <param name="builder">The builder through which components can be
+            registered.</param>
+            <remarks>
+            Note that the ContainerBuilder parameter is unique to this module.
+            </remarks>
+        </member>
+        <member name="T:Mix.Service.Core.Modules.ServiceModule">
+            <summary>
+            注入Application层中的Service
+            </summary>
+        </member>
+        <member name="M:Mix.Service.Core.Modules.ServiceModule.Load(Autofac.ContainerBuilder)">
+            <summary>
+            Override to add registrations to the container.
+            </summary>
+            <param name="builder">The builder through which components can be
+            registered.</param>
+            <remarks>
+            Note that the ContainerBuilder parameter is unique to this module.
+            </remarks>
+        </member>
+        <member name="T:Mix.Service.Core.ToolGoodUtils">
+            <summary>
+            ToolGood.Words类库配合敏感库
+            </summary>
+        </member>
+        <member name="M:Mix.Service.Core.ToolGoodUtils.GetIllegalWordsSearch">
+            <summary>
+            本地敏感库,文件修改后，重新创建缓存Bit
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Service.Core.ToolGoodUtils.CreateIllegalWordsSearch">
+            <summary>
+            Creates the illegal words search.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,612 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mix.Library.Entities</name>
+    </assembly>
+    <members>
+        <member name="T:Mix.Library.Entities.Databases.Accounts.User">
+            <summary>
+            用户
+            </summary>
+            <seealso cref="T:Mix.Data.Entities.AduitEntity" />
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.Accounts.User.Username">
+            <summary>
+            Gets or sets the username.
+            </summary>
+            <value>
+            The username.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.Accounts.User.Password">
+            <summary>
+            Gets or sets the password.
+            </summary>
+            <value>
+            The password.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.Accounts.User.Email">
+            <summary>
+            Gets or sets the email.
+            </summary>
+            <value>
+            The email.
+            </value>
+        </member>
+        <member name="T:Mix.Library.Entities.Databases.Company">
+            <summary>
+            公司
+            </summary>
+            <seealso cref="T:Mix.Data.Entities.AduitEntity" />
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.Company.Name">
+            <summary>Gets or sets the name.</summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.Company.Introduction">
+            <summary>
+            Gets or sets the introduction.
+            </summary>
+            <value>
+            The introduction.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.Company.Employees">
+            <summary>
+            Gets or sets the employees.
+            </summary>
+            <value>
+            The employees.
+            </value>
+        </member>
+        <member name="T:Mix.Library.Entities.Databases.Employee">
+            <summary>
+            员工
+            </summary>
+            <seealso cref="T:Mix.Data.Entities.AduitEntity" />
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.Employee.CompanyId">
+            <summary>
+            Gets or sets the company identifier.
+            </summary>
+            <value>
+            The company identifier.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.Employee.EmployeeNo">
+            <summary>
+            Gets or sets the employee no.
+            </summary>
+            <value>
+            The employee no.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.Employee.FirstName">
+            <summary>
+            Gets or sets the first name.
+            </summary>
+            <value>
+            The first name.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.Employee.LastName">
+            <summary>
+            Gets or sets the last name.
+            </summary>
+            <value>
+            The last name.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.Employee.Gender">
+            <summary>
+            Gets or sets the gender.
+            </summary>
+            <value>
+            The gender.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.Employee.DateOfBirth">
+            <summary>
+            Gets or sets the date of birth.
+            </summary>
+            <value>
+            The date of birth.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.Employee.Company">
+            <summary>
+            Gets or sets the company.
+            </summary>
+            <value>
+            The company.
+            </value>
+        </member>
+        <member name="T:Mix.Library.Entities.Databases.Gender">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="F:Mix.Library.Entities.Databases.Gender.Male">
+            <summary>
+            The male
+            </summary>
+        </member>
+        <member name="F:Mix.Library.Entities.Databases.Gender.Female">
+            <summary>
+            The female
+            </summary>
+        </member>
+        <member name="T:Mix.Library.Entities.DtoParameters.CompanyDtoParameters">
+            <summary>
+            CompanyDtoParameters
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.DtoParameters.CompanyDtoParameters.CompanyName">
+            <summary>
+            Gets or sets the name of the company.
+            </summary>
+            <value>
+            The name of the company.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.DtoParameters.CompanyDtoParameters.SearchTerm">
+            <summary>
+            Gets or sets the search term.
+            </summary>
+            <value>
+            The search term.
+            </value>
+        </member>
+        <member name="T:Mix.Library.Entities.Dtos.CompanyAddDto">
+            <summary>
+            CompanyAddDto
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.CompanyAddDto.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.CompanyAddDto.Introduction">
+            <summary>
+            Gets or sets the introduction.
+            </summary>
+            <value>
+            The introduction.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.CompanyAddDto.Employees">
+            <summary>
+            Gets or sets the employees.
+            </summary>
+            <value>
+            The employees.
+            </value>
+        </member>
+        <member name="T:Mix.Library.Entities.Dtos.CompanyDto">
+            <summary>
+            CompanyDto
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.CompanyDto.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.CompanyDto.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.CompanyDto.Introduction">
+            <summary>
+            Gets or sets the introduction.
+            </summary>
+            <value>
+            The introduction.
+            </value>
+        </member>
+        <member name="T:Mix.Library.Entities.Dtos.EmployeeAddDto">
+            <summary>
+            EmployeeAddDto
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.EmployeeAddDto.EmployeeNo">
+            <summary>
+            Gets or sets the employee no.
+            </summary>
+            <value>
+            The employee no.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.EmployeeAddDto.FirstName">
+            <summary>
+            Gets or sets the first name.
+            </summary>
+            <value>
+            The first name.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.EmployeeAddDto.LastName">
+            <summary>
+            Gets or sets the last name.
+            </summary>
+            <value>
+            The last name.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.EmployeeAddDto.Gender">
+            <summary>
+            Gets or sets the gender.
+            </summary>
+            <value>
+            The gender.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.EmployeeAddDto.DateOfBirth">
+            <summary>
+            Gets or sets the date of birth.
+            </summary>
+            <value>
+            The date of birth.
+            </value>
+        </member>
+        <member name="T:Mix.Library.Entities.Dtos.EmployeeDto">
+            <summary>
+            EmployeeDto
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.EmployeeDto.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.EmployeeDto.CompanyId">
+            <summary>
+            Gets or sets the company identifier.
+            </summary>
+            <value>
+            The company identifier.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.EmployeeDto.EmployeeNo">
+            <summary>
+            Gets or sets the employee no.
+            </summary>
+            <value>
+            The employee no.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.EmployeeDto.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.EmployeeDto.GenderDisplay">
+            <summary>
+            Gets or sets the gender display.
+            </summary>
+            <value>
+            The gender display.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.EmployeeDto.Age">
+            <summary>
+            Gets or sets the age.
+            </summary>
+            <value>
+            The age.
+            </value>
+        </member>
+        <member name="T:Mix.Library.Entities.Dtos.EmployeeUpdateDto">
+            <summary>
+            EmployeeUpdateDto
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.EmployeeUpdateDto.EmployeeNo">
+            <summary>
+            Gets or sets the employee no.
+            </summary>
+            <value>
+            The employee no.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.EmployeeUpdateDto.FirstName">
+            <summary>
+            Gets or sets the first name.
+            </summary>
+            <value>
+            The first name.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.EmployeeUpdateDto.LastName">
+            <summary>
+            Gets or sets the last name.
+            </summary>
+            <value>
+            The last name.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.EmployeeUpdateDto.Gender">
+            <summary>
+            Gets or sets the gender.
+            </summary>
+            <value>
+            The gender.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.EmployeeUpdateDto.DateOfBirth">
+            <summary>
+            Gets or sets the date of birth.
+            </summary>
+            <value>
+            The date of birth.
+            </value>
+        </member>
+        <member name="T:Mix.Library.Entities.Dtos.LoginDto">
+            <summary>
+            LoginDto
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.LoginDto.Username">
+            <summary>
+            登录名：admin
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.LoginDto.Password">
+            <summary>
+            密码：123456
+            </summary>
+        </member>
+        <member name="T:Mix.Library.Entities.Model.User">
+            <summary>
+            账户
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Model.User.ID">
+            <summary>
+            标识
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Model.User.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Model.User.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="T:Mix.Library.Entities.Model.Validator.UserValidator">
+            <summary>
+            账户验证器
+            </summary>
+        </member>
+        <member name="M:Mix.Library.Entities.Model.Validator.UserValidator.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="T:Mix.Library.Entities.Profiles.CompanyProfile">
+            <summary>
+            CompanyProfile
+            </summary>
+            <seealso cref="T:AutoMapper.Profile" />
+        </member>
+        <member name="M:Mix.Library.Entities.Profiles.CompanyProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Library.Entities.Profiles.CompanyProfile"/> class.
+            </summary>
+        </member>
+        <member name="T:Mix.Library.Entities.Profiles.EmployeeProfile">
+            <summary>
+            EmployeeProfile
+            </summary>
+            <seealso cref="T:AutoMapper.Profile" />
+        </member>
+        <member name="M:Mix.Library.Entities.Profiles.EmployeeProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Library.Entities.Profiles.EmployeeProfile"/> class.
+            </summary>
+        </member>
+        <member name="T:Mix.Library.Entities.Protos.AccountReflection">
+            <summary>Holder for reflection information generated from account.proto</summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Protos.AccountReflection.Descriptor">
+            <summary>File descriptor for account.proto</summary>
+        </member>
+        <member name="T:Mix.Library.Entities.Protos.ErrorCode">
+            <summary>
+            错误码
+            </summary>
+        </member>
+        <member name="F:Mix.Library.Entities.Protos.ErrorCode.Success">
+            <summary>
+            操作成功
+            </summary>
+        </member>
+        <member name="F:Mix.Library.Entities.Protos.ErrorCode.Error">
+            <summary>
+            失败
+            </summary>
+        </member>
+        <member name="F:Mix.Library.Entities.Protos.ErrorCode.UnknownError">
+            <summary>
+            未知错误
+            </summary>
+        </member>
+        <member name="F:Mix.Library.Entities.Protos.ErrorCode.ServerUnknownError">
+            <summary>
+            服务器未知错误
+            </summary>
+        </member>
+        <member name="F:Mix.Library.Entities.Protos.ErrorCode.AuthenticationFailed">
+            <summary>
+            认证失败
+            </summary>
+        </member>
+        <member name="F:Mix.Library.Entities.Protos.LoginRequest.UsernameFieldNumber">
+            <summary>Field number for the "username" field.</summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Protos.LoginRequest.Username">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="F:Mix.Library.Entities.Protos.LoginRequest.PasswordFieldNumber">
+            <summary>Field number for the "password" field.</summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Protos.LoginRequest.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="F:Mix.Library.Entities.Protos.LoginResponse.TokensFieldNumber">
+            <summary>Field number for the "tokens" field.</summary>
+        </member>
+        <member name="F:Mix.Library.Entities.Protos.RegisterRequest.UsernameFieldNumber">
+            <summary>Field number for the "username" field.</summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Protos.RegisterRequest.Username">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="F:Mix.Library.Entities.Protos.RegisterRequest.PasswordFieldNumber">
+            <summary>Field number for the "password" field.</summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Protos.RegisterRequest.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="F:Mix.Library.Entities.Protos.RegisterRequest.EmailFieldNumber">
+            <summary>Field number for the "email" field.</summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Protos.RegisterRequest.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="F:Mix.Library.Entities.Protos.RegisterResponse.ResponseFieldNumber">
+            <summary>Field number for the "response" field.</summary>
+        </member>
+        <member name="F:Mix.Library.Entities.Protos.Tokens.AccessTokenFieldNumber">
+            <summary>Field number for the "access_token" field.</summary>
+        </member>
+        <member name="F:Mix.Library.Entities.Protos.Tokens.RefreshTokenFieldNumber">
+            <summary>Field number for the "refresh_token" field.</summary>
+        </member>
+        <member name="T:Mix.Library.Entities.Protos.UnifyResponseDto">
+            <summary>
+            响应DTO
+            </summary>
+        </member>
+        <member name="F:Mix.Library.Entities.Protos.UnifyResponseDto.CodeFieldNumber">
+            <summary>Field number for the "code" field.</summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Protos.UnifyResponseDto.Code">
+            <summary>
+            代码
+            </summary>
+        </member>
+        <member name="F:Mix.Library.Entities.Protos.UnifyResponseDto.MessageFieldNumber">
+            <summary>Field number for the "message" field.</summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Protos.UnifyResponseDto.Message">
+            <summary>
+            信息
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Protos.Accounts.Descriptor">
+            <summary>Service descriptor</summary>
+        </member>
+        <member name="T:Mix.Library.Entities.Protos.Accounts.AccountsBase">
+            <summary>Base class for server-side implementations of Accounts</summary>
+        </member>
+        <member name="T:Mix.Library.Entities.Protos.Accounts.AccountsClient">
+            <summary>Client for Accounts</summary>
+        </member>
+        <member name="M:Mix.Library.Entities.Protos.Accounts.AccountsClient.#ctor(Grpc.Core.ChannelBase)">
+            <summary>Creates a new client for Accounts</summary>
+            <param name="channel">The channel to use to make remote calls.</param>
+        </member>
+        <member name="M:Mix.Library.Entities.Protos.Accounts.AccountsClient.#ctor(Grpc.Core.CallInvoker)">
+            <summary>Creates a new client for Accounts that uses a custom <c>CallInvoker</c>.</summary>
+            <param name="callInvoker">The callInvoker to use to make remote calls.</param>
+        </member>
+        <member name="M:Mix.Library.Entities.Protos.Accounts.AccountsClient.#ctor">
+            <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
+        </member>
+        <member name="M:Mix.Library.Entities.Protos.Accounts.AccountsClient.#ctor(Grpc.Core.ClientBase.ClientBaseConfiguration)">
+            <summary>Protected constructor to allow creation of configured clients.</summary>
+            <param name="configuration">The client configuration.</param>
+        </member>
+        <member name="M:Mix.Library.Entities.Protos.Accounts.AccountsClient.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)">
+            <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
+        </member>
+        <member name="M:Mix.Library.Entities.Protos.Accounts.BindService(Mix.Library.Entities.Protos.Accounts.AccountsBase)">
+            <summary>Creates service definition that can be registered with a server</summary>
+            <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+        </member>
+        <member name="M:Mix.Library.Entities.Protos.Accounts.BindService(Grpc.Core.ServiceBinderBase,Mix.Library.Entities.Protos.Accounts.AccountsBase)">
+            <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
+            Note: this method is part of an experimental API that can change or be removed without any prior notice.</summary>
+            <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
+            <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+        </member>
+        <member name="T:Mix.Library.Entities.Validators.CompanyAddDtoValidator">
+            <summary>
+            CompanyAddDtoValidator
+            </summary>
+            <seealso cref="T:FluentValidation.AbstractValidator`1" />
+        </member>
+        <member name="M:Mix.Library.Entities.Validators.CompanyAddDtoValidator.#ctor(Microsoft.Extensions.Localization.IStringLocalizer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Library.Entities.Validators.CompanyAddDtoValidator"/> class.
+            </summary>
+            <param name="localizer">The localizer.</param>
+        </member>
+        <member name="T:Mix.Library.Entities.Validators.EmployeeAddDtoValidator">
+            <summary>
+            EmployeeAddDtoValidator
+            </summary>
+            <seealso cref="T:FluentValidation.AbstractValidator`1" />
+        </member>
+        <member name="M:Mix.Library.Entities.Validators.EmployeeAddDtoValidator.#ctor(Microsoft.Extensions.Localization.IStringLocalizer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Library.Entities.Validators.EmployeeAddDtoValidator"/> class.
+            </summary>
+            <param name="localizer">The localizer.</param>
+        </member>
+        <member name="T:Mix.Library.Entities.Validators.EmployeeUpdateDtoValidator">
+            <summary>
+            EmployeeUpdateDtoValidator
+            </summary>
+            <seealso cref="T:FluentValidation.AbstractValidator`1" />
+        </member>
+        <member name="M:Mix.Library.Entities.Validators.EmployeeUpdateDtoValidator.#ctor(Microsoft.Extensions.Localization.IStringLocalizer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Library.Entities.Validators.EmployeeUpdateDtoValidator"/> class.
+            </summary>
+            <param name="localizer">The localizer.</param>
+        </member>
+    </members>
+</doc>

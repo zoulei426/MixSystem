@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mix.Library.Services</name>
+    </assembly>
+    <members>
+        <member name="T:Mix.Library.Services.CompanyService">
+            <summary>
+            CompanyService
+            </summary>
+            <seealso cref="T:Mix.Data.Services.ApplicationService" />
+            <seealso cref="T:Mix.Library.Services.ICompanyService" />
+        </member>
+        <member name="M:Mix.Library.Services.CompanyService.#ctor(Mix.Data.Repositories.IAuditBaseRepository{Mix.Library.Entities.Databases.Company},Mix.Library.Repositories.IEmployeeRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Library.Services.CompanyService"/> class.
+            </summary>
+            <param name="companyRepository">The company repository.</param>
+            <param name="employeeRepository">The employee repository.</param>
+        </member>
+        <member name="M:Mix.Library.Services.CompanyService.CreateCompanyAsync(Mix.Library.Entities.Dtos.CompanyAddDto)">
+            <summary>
+            Creates the company asynchronous.
+            </summary>
+            <param name="company">The company.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Library.Services.CompanyService.CreateCompanyCollectionAsync(System.Collections.Generic.IEnumerable{Mix.Library.Entities.Dtos.CompanyAddDto})">
+            <summary>
+            Creates the company collection asynchronous.
+            </summary>
+            <param name="companieCollection">The companie collection.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Library.Services.ICompanyService">
+            <summary>
+            ICompanyService
+            </summary>
+        </member>
+        <member name="M:Mix.Library.Services.ICompanyService.CreateCompanyAsync(Mix.Library.Entities.Dtos.CompanyAddDto)">
+            <summary>
+            Creates the company asynchronous.
+            </summary>
+            <param name="company">The company.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Library.Services.ICompanyService.CreateCompanyCollectionAsync(System.Collections.Generic.IEnumerable{Mix.Library.Entities.Dtos.CompanyAddDto})">
+            <summary>
+            Creates the company collection asynchronous.
+            </summary>
+            <param name="companieCollection">The companie collection.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

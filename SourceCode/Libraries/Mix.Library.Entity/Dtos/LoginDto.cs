@@ -2,6 +2,9 @@
 
 namespace Mix.Library.Entities.Dtos
 {
+    /// <summary>
+    /// LoginDto
+    /// </summary>
     public class LoginDto
     {
         /// <summary>

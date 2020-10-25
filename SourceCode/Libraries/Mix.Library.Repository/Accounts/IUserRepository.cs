@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Mix.Library.Repositories.Accounts
 {
+    /// <summary>
+    /// IUserRepository
+    /// </summary>
+    /// <seealso cref="Mix.Data.Repositories.IAuditBaseRepository{T}" />
     public interface IUserRepository : IAuditBaseRepository<User>
     {
         /// <summary>

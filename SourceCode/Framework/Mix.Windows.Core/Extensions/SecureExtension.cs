@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Mix.Windows.Core
 {
+    /// <summary>
+    /// SecureExtension
+    /// </summary>
     public static class SecureExtension
     {
         #region Private members
@@ -48,11 +51,21 @@ namespace Mix.Windows.Core
 
         #endregion Private members
 
+        /// <summary>
+        /// Converts to md5.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        /// <returns></returns>
         public static string ToMd5(this string text)
         {
             return BitConverter.ToString(Md5Algorithm.ComputeHash(Encoding.UTF8.GetBytes(text))).Replace("-", string.Empty).ToLower();
         }
 
+        /// <summary>
+        /// Converts to baseutf8bytes.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        /// <returns></returns>
         public static byte[] ToBaseUTF8Bytes(this string text) => Encoding.UTF8.GetBytes(text);
 
         //public static string EncryptByRijndael(this string text, byte[] key = null, byte[] iv = null)
@@ -109,6 +122,12 @@ namespace Mix.Windows.Core
         //    return plainText;
         //}
 
+        /// <summary>
+        /// Encrypts the by RSA.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        /// <param name="publicKeyXml">The public key XML.</param>
+        /// <returns></returns>
         public static string EncryptByRsa(this string text, string publicKeyXml = null)
         {
             if (RsaPublicKey == null) return text;
@@ -116,6 +135,12 @@ namespace Mix.Windows.Core
             return Convert.ToBase64String(Rsa.Encrypt(Encoding.UTF8.GetBytes(text), false));
         }
 
+        /// <summary>
+        /// Decrypts the by RSA.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        /// <param name="privateKeyXml">The private key XML.</param>
+        /// <returns></returns>
         public static string DecryptByRsa(this string text, string privateKeyXml = null)
         {
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
@@ -125,6 +150,11 @@ namespace Mix.Windows.Core
             return Encoding.UTF8.GetString(cipherbytes);
         }
 
+        /// <summary>
+        /// Encrypts the by DES.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        /// <returns></returns>
         public static string EncryptByDes(this string text)
         {
             if (text.IsNullOrEmpty()) return string.Empty;
@@ -147,6 +177,11 @@ namespace Mix.Windows.Core
             return builder.ToString();
         }
 
+        /// <summary>
+        /// Decrypts the by DES.
+        /// </summary>
+        /// <param name="ciphertext">The ciphertext.</param>
+        /// <returns></returns>
         public static string DecryptByDes(this string ciphertext)
         {
             if (ciphertext.IsNullOrEmpty()) return string.Empty;

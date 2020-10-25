@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Mix.Library.Entities.Databases;
 using Mix.Library.Entities.Dtos;
 using Mix.Library.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Mix.Api.Controllers
@@ -86,6 +86,78 @@ namespace Mix.Api.Controllers
             return CreatedAtRoute(nameof(GetEmployeeForCompany),
                     new { companyId, employeeId = resultDto.Id },
                     resultDto);
+        }
+
+        /// <summary>
+        /// 更新员工
+        /// </summary>
+        /// <param name="companyId"></param>
+        /// <param name="employeeId"></param>
+        /// <param name="employee"></param>
+        /// <returns></returns>
+        [HttpPut("{employeeId}")]
+        public async Task<ActionResult<EmployeeDto>> UpdateEmployeeForCompany(
+            Guid companyId,
+            Guid employeeId,
+            EmployeeUpdateDto employee)
+        {
+            if (!await companyRepository.Where(t => t.Id.Equals(companyId)).AnyAsync())
+                return NotFound();
+
+            var entity = await employeeRepository.Where(t => t.Id.Equals(employeeId)).ToOneAsync();
+
+            if (entity is null)
+            {
+                entity = mapper.Map<Employee>(employee);
+                entity.Id = employeeId;
+                var result = await employeeRepository.AddEmployeeAsync(companyId, entity);
+                var resultDto = mapper.Map<EmployeeDto>(result);
+
+                return CreatedAtRoute(nameof(GetEmployeeForCompany),
+                        new { companyId, employeeId = resultDto.Id },
+                        resultDto);
+            }
+
+            mapper.Map(employee, entity);
+
+            await employeeRepository.UpdateAsync(entity);
+
+            return NoContent();
+        }
+
+        /// <summary>
+        /// 局部更新员工
+        /// </summary>
+        /// <param name="companyId">The company identifier.</param>
+        /// <param name="employeeId">The employee identifier.</param>
+        /// <param name="patchDocument">The patch document.</param>
+        /// <returns></returns>
+        [HttpPatch("{employeeId}")]
+        public async Task<IActionResult> PartiallyUpdateEmployeeForCompany(
+            Guid companyId,
+            Guid employeeId,
+            JsonPatchDocument<EmployeeUpdateDto> patchDocument)
+        {
+            if (!await companyRepository.Where(t => t.Id.Equals(companyId)).AnyAsync())
+                return NotFound();
+
+            var entity = await employeeRepository.Where(t => t.Id.Equals(employeeId)).ToOneAsync();
+
+            if (entity is null)
+            {
+                return NotFound();
+            }
+
+            var dtoToPatch = mapper.Map<EmployeeUpdateDto>(entity);
+
+            // TODO 验证
+            patchDocument.ApplyTo(dtoToPatch);
+
+            mapper.Map(dtoToPatch, entity);
+
+            await employeeRepository.UpdateAsync(entity);
+
+            return NoContent();
         }
     }
 }

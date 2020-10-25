@@ -1,0 +1,878 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mix.Windows.WPF</name>
+    </assembly>
+    <members>
+        <member name="T:Mix.Windows.WPF.Commands.RelayCommand">
+            <summary>
+            RelayCommand
+            </summary>
+            <seealso cref="T:Mix.Windows.WPF.Commands.RelayCommandBase" />
+        </member>
+        <member name="M:Mix.Windows.WPF.Commands.RelayCommand.#ctor(System.Action,System.Func{System.Boolean})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.Commands.RelayCommand"/> class.
+            </summary>
+            <param name="execute">The execute.</param>
+            <param name="canExecute">The can execute.</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.Commands.RelayCommand.CanExecute(System.Object)">
+            <summary>
+            Determines whether this instance can execute the specified parameter.
+            </summary>
+            <param name="parameter">The parameter.</param>
+            <returns>
+              <c>true</c> if this instance can execute the specified parameter; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Mix.Windows.WPF.Commands.RelayCommand.Execute(System.Object)">
+            <summary>
+            Executes the specified parameter.
+            </summary>
+            <param name="parameter">The parameter.</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.Commands.RelayCommand.CanExecute">
+            <summary>
+            Determines whether this instance can execute.
+            </summary>
+            <returns>
+              <c>true</c> if this instance can execute; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Mix.Windows.WPF.Commands.RelayCommand.Execute">
+            <summary>
+            Executes this instance.
+            </summary>
+        </member>
+        <member name="T:Mix.Windows.WPF.Commands.RelayCommandAsync">
+            <summary>
+            RelayCommandAsync
+            </summary>
+            <seealso cref="T:Mix.Windows.WPF.Commands.RelayCommandBase" />
+            <seealso cref="T:System.ComponentModel.INotifyPropertyChanged" />
+        </member>
+        <member name="E:Mix.Windows.WPF.Commands.RelayCommandAsync.PropertyChanged">
+            <summary>
+            Occurs when a property value changes.
+            </summary>
+        </member>
+        <member name="P:Mix.Windows.WPF.Commands.RelayCommandAsync.IsExecuting">
+            <summary>
+            Gets a value indicating whether this instance is executing.
+            </summary>
+            <value>
+              <c>true</c> if this instance is executing; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Mix.Windows.WPF.Commands.RelayCommandAsync.#ctor(System.Func{System.Threading.Tasks.Task},System.Func{System.Boolean})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.Commands.RelayCommandAsync"/> class.
+            </summary>
+            <param name="execute">The execute.</param>
+            <param name="canExecute">The can execute.</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.Commands.RelayCommandAsync.CanExecute(System.Object)">
+            <summary>
+            Determines whether this instance can execute the specified parameter.
+            </summary>
+            <param name="parameter">The parameter.</param>
+            <returns>
+              <c>true</c> if this instance can execute the specified parameter; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Mix.Windows.WPF.Commands.RelayCommandAsync.Execute(System.Object)">
+            <summary>
+            Executes the specified parameter.
+            </summary>
+            <param name="parameter">The parameter.</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.Commands.RelayCommandAsync.CanExecute">
+            <summary>
+            Determines whether this instance can execute.
+            </summary>
+            <returns>
+              <c>true</c> if this instance can execute; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Mix.Windows.WPF.Commands.RelayCommandAsync.Execute">
+            <summary>
+            Executes this instance.
+            </summary>
+        </member>
+        <member name="T:Mix.Windows.WPF.Commands.RelayCommandAsync`1">
+            <summary>
+            RelayCommandAsync
+            </summary>
+            <typeparam name="T"></typeparam>
+            <seealso cref="T:Mix.Windows.WPF.Commands.RelayCommandBase" />
+            <seealso cref="T:System.ComponentModel.INotifyPropertyChanged" />
+        </member>
+        <member name="E:Mix.Windows.WPF.Commands.RelayCommandAsync`1.PropertyChanged">
+            <summary>
+            Occurs when a property value changes.
+            </summary>
+        </member>
+        <member name="P:Mix.Windows.WPF.Commands.RelayCommandAsync`1.IsExecuting">
+            <summary>
+            Gets a value indicating whether this instance is executing.
+            </summary>
+            <value>
+              <c>true</c> if this instance is executing; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Mix.Windows.WPF.Commands.RelayCommandAsync`1.#ctor(System.Func{`0,System.Threading.Tasks.Task},System.Func{`0,System.Boolean})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.Commands.RelayCommandAsync`1"/> class.
+            </summary>
+            <param name="execute">The execute.</param>
+            <param name="canExecute">The can execute.</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.Commands.RelayCommandAsync`1.CanExecute(System.Object)">
+            <summary>
+            Determines whether this instance can execute the specified parameter.
+            </summary>
+            <param name="parameter">The parameter.</param>
+            <returns>
+              <c>true</c> if this instance can execute the specified parameter; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Mix.Windows.WPF.Commands.RelayCommandAsync`1.Execute(System.Object)">
+            <summary>
+            Executes the specified parameter.
+            </summary>
+            <param name="parameter">The parameter.</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.Commands.RelayCommandAsync`1.CanExecute(`0)">
+            <summary>
+            Determines whether this instance can execute the specified parameter.
+            </summary>
+            <param name="parameter">The parameter.</param>
+            <returns>
+              <c>true</c> if this instance can execute the specified parameter; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Mix.Windows.WPF.Commands.RelayCommandAsync`1.Execute(`0)">
+            <summary>
+            Executes the specified parameter.
+            </summary>
+            <param name="parameter">The parameter.</param>
+        </member>
+        <member name="T:Mix.Windows.WPF.Commands.RelayCommandBase">
+            <summary>
+            RelayCommandBase
+            </summary>
+            <seealso cref="T:System.Windows.Input.ICommand" />
+        </member>
+        <member name="E:Mix.Windows.WPF.Commands.RelayCommandBase.CanExecuteChanged">
+            <summary>
+            Occurs when changes occur that affect whether or not the command should execute.
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.WPF.Commands.RelayCommandBase.System#Windows#Input#ICommand#Execute(System.Object)">
+            <summary>
+            Defines the method to be called when the command is invoked.
+            </summary>
+            <param name="parameter">Data used by the command.  If the command does not require data to be passed, this object can be set to <see langword="null" />.</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.Commands.RelayCommandBase.System#Windows#Input#ICommand#CanExecute(System.Object)">
+            <summary>
+            Defines the method that determines whether the command can execute in its current state.
+            </summary>
+            <param name="parameter">Data used by the command.  If the command does not require data to be passed, this object can be set to <see langword="null" />.</param>
+            <returns>
+              <see langword="true" /> if this command can be executed; otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:Mix.Windows.WPF.Commands.RelayCommandBase.Execute(System.Object)">
+            <summary>
+            Defines the method to be called when the command is invoked.
+            </summary>
+            <param name="parameter">Data used by the command.  If the command does not require data to be passed, this object can be set to <see langword="null" />.</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.Commands.RelayCommandBase.CanExecute(System.Object)">
+            <summary>
+            Defines the method that determines whether the command can execute in its current state.
+            </summary>
+            <param name="parameter">Data used by the command.  If the command does not require data to be passed, this object can be set to <see langword="null" />.</param>
+            <returns>
+              <see langword="true" /> if this command can be executed; otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="T:Mix.Windows.WPF.Commands.RelayCommand`1">
+            <summary>
+            RelayCommand
+            </summary>
+            <typeparam name="T"></typeparam>
+            <seealso cref="T:Mix.Windows.WPF.Commands.RelayCommandBase" />
+        </member>
+        <member name="M:Mix.Windows.WPF.Commands.RelayCommand`1.#ctor(System.Action{`0},System.Predicate{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.Commands.RelayCommand`1"/> class.
+            </summary>
+            <param name="execute">The execute.</param>
+            <param name="canExecute">The can execute.</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.Commands.RelayCommand`1.CanExecute(System.Object)">
+            <summary>
+            Determines whether this instance can execute the specified parameter.
+            </summary>
+            <param name="parameter">The parameter.</param>
+            <returns>
+              <c>true</c> if this instance can execute the specified parameter; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Mix.Windows.WPF.Commands.RelayCommand`1.Execute(System.Object)">
+            <summary>
+            Executes the specified parameter.
+            </summary>
+            <param name="parameter">The parameter.</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.Commands.RelayCommand`1.CanExecute(`0)">
+            <summary>
+            Determines whether this instance can execute the specified parameter.
+            </summary>
+            <param name="parameter">The parameter.</param>
+            <returns>
+              <c>true</c> if this instance can execute the specified parameter; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Mix.Windows.WPF.Commands.RelayCommand`1.Execute(`0)">
+            <summary>
+            Executes the specified parameter.
+            </summary>
+            <param name="parameter">The parameter.</param>
+        </member>
+        <member name="T:Mix.Windows.WPF.Convertors.NotConverter">
+            <summary>
+            非转换器
+            </summary>
+            <seealso cref="T:Mix.Windows.WPF.Convertors.ValueConverterBase`2" />
+        </member>
+        <member name="M:Mix.Windows.WPF.Convertors.NotConverter.Convert(System.Boolean)">
+            <summary>
+            Converts the specified value.
+            </summary>
+            <param name="value">if set to <c>true</c> [value].</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.WPF.Convertors.NotConverter.ConvertBack(System.Boolean)">
+            <summary>
+            Converts the back.
+            </summary>
+            <param name="value">if set to <c>true</c> [value].</param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Windows.WPF.Convertors.ValueConverterBase`3">
+            <summary>
+            转换器基类
+            </summary>
+            <typeparam name="TSource">The type of the source.</typeparam>
+            <typeparam name="TTarget">The type of the target.</typeparam>
+            <typeparam name="TParameter">The type of the parameter.</typeparam>
+            <seealso cref="T:System.Windows.Data.IValueConverter" />
+        </member>
+        <member name="M:Mix.Windows.WPF.Convertors.ValueConverterBase`3.System#Windows#Data#IValueConverter#Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a value.
+            </summary>
+            <param name="value">The value produced by the binding source.</param>
+            <param name="targetType">The type of the binding target property.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>
+            A converted value. If the method returns <see langword="null" />, the valid null value is used.
+            </returns>
+        </member>
+        <member name="M:Mix.Windows.WPF.Convertors.ValueConverterBase`3.System#Windows#Data#IValueConverter#ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a value.
+            </summary>
+            <param name="value">The value that is produced by the binding target.</param>
+            <param name="targetType">The type to convert to.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>
+            A converted value. If the method returns <see langword="null" />, the valid null value is used.
+            </returns>
+        </member>
+        <member name="M:Mix.Windows.WPF.Convertors.ValueConverterBase`3.ConvertNonNullValue(`0,`2)">
+            <summary>
+            Converts the non null value.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="parameter">The parameter.</param>
+            <returns></returns>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="M:Mix.Windows.WPF.Convertors.ValueConverterBase`3.Convert(`0,`2)">
+            <summary>
+            Converts the specified value.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="parameter">The parameter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.WPF.Convertors.ValueConverterBase`3.ConvertBack(`1,`2)">
+            <summary>
+            Converts the back.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="parameter">The parameter.</param>
+            <returns></returns>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="T:Mix.Windows.WPF.Convertors.ValueConverterBase`2">
+            <summary>
+            ValueConverterBase
+            </summary>
+            <typeparam name="TSource">The type of the source.</typeparam>
+            <typeparam name="TTarget">The type of the target.</typeparam>
+            <seealso cref="T:System.Windows.Data.IValueConverter" />
+        </member>
+        <member name="M:Mix.Windows.WPF.Convertors.ValueConverterBase`2.Convert(`0,System.Object)">
+            <summary>
+            Converts the specified value.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="parameter">The parameter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.WPF.Convertors.ValueConverterBase`2.ConvertNonNullValue(`0,System.Object)">
+            <summary>
+            Converts the non null value.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="parameter">The parameter.</param>
+            <returns></returns>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="M:Mix.Windows.WPF.Convertors.ValueConverterBase`2.ConvertBack(`1,System.Object)">
+            <summary>
+            Converts the back.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="parameter">The parameter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.WPF.Convertors.ValueConverterBase`2.ConvertNonNullValue(`0)">
+            <summary>
+            Converts the non null value.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="M:Mix.Windows.WPF.Convertors.ValueConverterBase`2.Convert(`0)">
+            <summary>
+            Converts the specified value.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.WPF.Convertors.ValueConverterBase`2.ConvertBack(`1)">
+            <summary>
+            Converts the back.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="T:Mix.Windows.WPF.DependencyObjectExtensions">
+            <summary>
+            DependencyObjectExtensions
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.WPF.DependencyObjectExtensions.TryFindParent``1(System.Windows.DependencyObject)">
+            <summary>
+            Finds a parent of a given item on the visual tree.
+            </summary>
+            <typeparam name="T">The type of the queried item.</typeparam>
+            <param name="child">A direct or indirect child of the
+            queried item.</param>
+            <returns>The first parent item that matches the submitted
+            type parameter. If not matching item can be found, a null
+            reference is being returned.</returns>
+        </member>
+        <member name="M:Mix.Windows.WPF.DependencyObjectExtensions.GetParentObject(System.Windows.DependencyObject)">
+            <summary>
+            This method is an alternative to WPF's
+            <see cref="M:System.Windows.Media.VisualTreeHelper.GetParent(System.Windows.DependencyObject)"/> method, which also
+            supports content elements. Keep in mind that for content element,
+            this method falls back to the logical tree of the element!
+            </summary>
+            <param name="child">The item to be processed.</param>
+            <returns>The submitted item's parent, if available. Otherwise
+            null.</returns>
+        </member>
+        <member name="T:Mix.Windows.WPF.INotificable">
+            <summary>
+            INotificable
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.WPF.INotificable.Info(System.String)">
+            <summary>
+            Informations the specified message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.INotificable.Error">
+            <summary>
+            Errors this instance.
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.WPF.INotificable.Ask">
+            <summary>
+            Asks this instance.
+            </summary>
+        </member>
+        <member name="T:Mix.Windows.WPF.ITabItemSelectionChangedAware">
+            <summary>
+            ITabItemSelectionChangedAware
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.WPF.ITabItemSelectionChangedAware.OnSelected">
+            <summary>
+            Called when [selected].
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.WPF.ITabItemSelectionChangedAware.OnUnselected">
+            <summary>
+            Called when [unselected].
+            </summary>
+        </member>
+        <member name="T:Mix.Windows.WPF.IViewLoadedAndUnloadedAware">
+            <summary>
+            IViewLoadedAndUnloadedAware
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.WPF.IViewLoadedAndUnloadedAware.OnLoaded">
+            <summary>
+            Called when [loaded].
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.WPF.IViewLoadedAndUnloadedAware.OnUnloaded">
+            <summary>
+            Called when [unloaded].
+            </summary>
+        </member>
+        <member name="T:Mix.Windows.WPF.IViewLoadedAndUnloadedAware`1">
+            <summary>
+            IViewLoadedAndUnloadedAware
+            </summary>
+            <typeparam name="TView">The type of the view.</typeparam>
+        </member>
+        <member name="M:Mix.Windows.WPF.IViewLoadedAndUnloadedAware`1.OnLoaded(`0)">
+            <summary>
+            Called when [loaded].
+            </summary>
+            <param name="view">The view.</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.IViewLoadedAndUnloadedAware`1.OnUnloaded(`0)">
+            <summary>
+            Called when [unloaded].
+            </summary>
+            <param name="view">The view.</param>
+        </member>
+        <member name="T:Mix.Windows.WPF.IViewModelResolver">
+            <summary>
+            IViewModelResolver
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.WPF.IViewModelResolver.ResolveViewModelForView(System.Object,System.Type)">
+            <summary>
+            Resolves the view model for view.
+            </summary>
+            <param name="view">The view.</param>
+            <param name="viewModelType">Type of the view model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.WPF.IViewModelResolver.IfInheritsFrom``2(System.Action{``0,``1,Prism.Ioc.IContainerProvider})">
+            <summary>
+            Ifs the inherits from.
+            </summary>
+            <typeparam name="TView">The type of the view.</typeparam>
+            <typeparam name="TViewModel">The type of the view model.</typeparam>
+            <param name="configuration">The configuration.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.WPF.IViewModelResolver.IfInheritsFrom``1(System.Type,System.Action{``0,System.Object,Mix.Windows.Core.IGenericInterface,Prism.Ioc.IContainerProvider})">
+            <summary>
+            Ifs the inherits from.
+            </summary>
+            <typeparam name="TView">The type of the view.</typeparam>
+            <param name="genericInterfaceType">Type of the generic interface.</param>
+            <param name="configuration">The configuration.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Windows.WPF.Localizations.LocalizerExtension">
+            <summary>
+            国际化Markup
+            </summary>
+        </member>
+        <member name="P:Mix.Windows.WPF.Localizations.LocalizerExtension.Key">
+            <summary>
+            Gets the key.
+            </summary>
+            <value>
+            The key.
+            </value>
+        </member>
+        <member name="M:Mix.Windows.WPF.Localizations.LocalizerExtension.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.Localizations.LocalizerExtension"/> class.
+            </summary>
+            <param name="key">The key.</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.Localizations.LocalizerExtension.ProvideValue(System.IServiceProvider)">
+            <summary>
+            Provides the value.
+            </summary>
+            <param name="serviceProvider">The service provider.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">$"The {nameof(serviceProvider)} must implement {nameof(IProvideValueTarget)} interface.</exception>
+        </member>
+        <member name="T:Mix.Windows.WPF.Localizations.LocalizerManager">
+            <summary>
+            LocalizerManager
+            </summary>
+        </member>
+        <member name="E:Mix.Windows.WPF.Localizations.LocalizerManager.CurrentUICultureChanged">
+            <summary>
+            Occurs when [current UI culture changed].
+            </summary>
+        </member>
+        <member name="P:Mix.Windows.WPF.Localizations.LocalizerManager.Instance">
+            <summary>
+            Gets the instance.
+            </summary>
+            <value>
+            The instance.
+            </value>
+        </member>
+        <member name="M:Mix.Windows.WPF.Localizations.LocalizerManager.Initialize(Mix.Windows.Core.IConfigureFile,Microsoft.Extensions.Localization.IStringLocalizerFactory)">
+            <summary>
+            Initializes the specified configure.
+            </summary>
+            <param name="configure">The configure.</param>
+            <param name="localizerFactory">The localizer factory.</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.Localizations.LocalizerManager.#ctor(Mix.Windows.Core.IConfigureFile,Microsoft.Extensions.Localization.IStringLocalizerFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.Localizations.LocalizerManager"/> class.
+            </summary>
+            <param name="configure">The configure.</param>
+            <param name="localizerFactory">The localizer factory.</param>
+        </member>
+        <member name="P:Mix.Windows.WPF.Localizations.LocalizerManager.AvailableCultureInfos">
+            <summary>
+            Gets the available culture infos.
+            </summary>
+            <value>
+            The available culture infos.
+            </value>
+        </member>
+        <member name="P:Mix.Windows.WPF.Localizations.LocalizerManager.CurrentUICulture">
+            <summary>
+            Gets or sets the current UI culture.
+            </summary>
+            <value>
+            The current UI culture.
+            </value>
+        </member>
+        <member name="M:Mix.Windows.WPF.Localizations.LocalizerManager.OnCurrentUICultureChanged">
+            <summary>
+            Called when [current UI culture changed].
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.WPF.Localizations.LocalizerManager.Get(System.String)">
+            <summary>
+            Gets the specified key.
+            </summary>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Windows.WPF.Localizations.LocalizerSource">
+            <summary>
+            国际化数据源，用于绑定XAML界面，实现动态切换语言
+            </summary>
+        </member>
+        <member name="E:Mix.Windows.WPF.Localizations.LocalizerSource.PropertyChanged">
+            <summary>
+            Occurs when a property value changes.
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.WPF.Localizations.LocalizerSource.#ctor(System.String,System.Windows.FrameworkElement)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.Localizations.LocalizerSource"/> class.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="element">The element.</param>
+        </member>
+        <member name="P:Mix.Windows.WPF.Localizations.LocalizerSource.Value">
+            <summary>
+            Gets the value.
+            </summary>
+            <value>
+            The value.
+            </value>
+        </member>
+        <member name="M:Mix.Windows.WPF.Localizations.LocalizerSource.RaiseValue">
+            <summary>
+            Raises the value.
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.WPF.Localizations.LocalizerSource.OnLoaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Called when [loaded].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.Localizations.LocalizerSource.OnUnloaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Called when [unloaded].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.Localizations.LocalizerSource.op_Implicit(System.String)~Mix.Windows.WPF.Localizations.LocalizerSource">
+            <summary>
+            Performs an implicit conversion from <see cref="T:System.String"/> to <see cref="T:Mix.Windows.WPF.Localizations.LocalizerSource"/>.
+            </summary>
+            <param name="resourceKey">The resource key.</param>
+            <returns>
+            The result of the conversion.
+            </returns>
+        </member>
+        <member name="T:Mix.Windows.WPF.ProcessController">
+            <summary>
+            ProcessController
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.WPF.ProcessController.OnWindowLoaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Called when [window loaded].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.ProcessController.Restart">
+            <summary>
+            Restarts this instance.
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.WPF.ProcessController.CheckSingleton">
+            <summary>
+            Checks the singleton.
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.WPF.ProcessController.ActivateExistedWindow">
+            <summary>
+            Activates the existed window.
+            </summary>
+        </member>
+        <member name="T:Mix.Windows.WPF.ShellManager">
+            <summary>
+            Shell管理器
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.WPF.ShellManager.Show``1(``0)">
+            <summary>
+            Shows the specified window.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="window">The window.</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.ShellManager.Close``1">
+            <summary>
+            Closes this instance.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Mix.Windows.WPF.ShellManager.Switch``2">
+            <summary>
+            Switches this instance.
+            </summary>
+            <typeparam name="TClose">The type of the close.</typeparam>
+            <typeparam name="TShow">The type of the show.</typeparam>
+        </member>
+        <member name="T:Mix.Windows.WPF.SyetemRegionNames">
+            <summary>
+            系统区域名称
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.WPF.SyetemRegionNames.MainTabRegion">
+            <summary>
+            The region of the main user interface.
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.WPF.SyetemRegionNames.SettingsTabRegion">
+            <summary>
+            The region of the user setting interface.
+            </summary>
+        </member>
+        <member name="T:Mix.Windows.WPF.ViewModelBase">
+            <summary>
+            界面ViewModel基类
+            </summary>
+        </member>
+        <member name="P:Mix.Windows.WPF.ViewModelBase.Dispatcher">
+            <summary>
+            Gets or sets the dispatcher.
+            </summary>
+            <value>
+            The dispatcher.
+            </value>
+        </member>
+        <member name="P:Mix.Windows.WPF.ViewModelBase.Localizer">
+            <summary>
+            日志对象
+            </summary>
+        </member>
+        <member name="P:Mix.Windows.WPF.ViewModelBase.EventAggregator">
+            <summary>
+            事件汇总器，用于发布或订阅事件
+            </summary>
+        </member>
+        <member name="P:Mix.Windows.WPF.ViewModelBase.RegionManager">
+            <summary>
+            区域管理器
+            </summary>
+        </member>
+        <member name="P:Mix.Windows.WPF.ViewModelBase.Container">
+            <summary>
+            依赖注入容器
+            </summary>
+        </member>
+        <member name="P:Mix.Windows.WPF.ViewModelBase.ConfigureFile">
+            <summary>
+            配置文件
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.WPF.ViewModelBase.#ctor(Prism.Ioc.IContainerExtension)">
+            <summary>
+            基类ViewModel构造函数
+            </summary>
+            <param name="container">注入容器</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.ViewModelBase.Invoke(System.Action)">
+            <summary>
+            Invokes the specified action.
+            </summary>
+            <param name="action">The action.</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.ViewModelBase.RegisterCommands">
+            <summary>
+            注册命令
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.WPF.ViewModelBase.Navigate(System.String,System.String,System.Action{Prism.Regions.NavigationResult})">
+            <summary>
+            导航到指定Page
+            </summary>
+            <param name="regionName">区域名称</param>
+            <param name="target">目标Page名称</param>
+            <param name="navigationCallback">导航回调函数</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.ViewModelBase.Alert(System.String,System.Action{Prism.Services.Dialogs.IDialogResult})">
+            <summary>
+            弹框提示
+            </summary>
+            <param name="message">消息内容</param>
+            <param name="callback">回调函数</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.ViewModelBase.Confirm(System.String,System.Action{Prism.Services.Dialogs.IDialogResult})">
+            <summary>
+            确认框提示
+            </summary>
+            <param name="message">确认框消息</param>
+            <param name="callback">回调函数</param>
+        </member>
+        <member name="T:Mix.Windows.WPF.ViewModelResolver">
+            <summary>
+            ViewModelResolver
+            </summary>
+            <seealso cref="T:Mix.Windows.WPF.IViewModelResolver" />
+        </member>
+        <member name="P:Mix.Windows.WPF.ViewModelResolver.Container">
+            <summary>
+            Gets the container.
+            </summary>
+            <value>
+            The container.
+            </value>
+        </member>
+        <member name="M:Mix.Windows.WPF.ViewModelResolver.#ctor(System.Func{Prism.Ioc.IContainerProvider})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.ViewModelResolver"/> class.
+            </summary>
+            <param name="containerFactory">The container factory.</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.ViewModelResolver.ResolveViewModelForView(System.Object,System.Type)">
+            <summary>
+            Resolves the view model for view.
+            </summary>
+            <param name="view">The view.</param>
+            <param name="viewModelType">Type of the view model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.WPF.ViewModelResolver.IfInheritsFrom``2(System.Action{``0,``1,Prism.Ioc.IContainerProvider})">
+            <summary>
+            Ifs the inherits from.
+            </summary>
+            <typeparam name="TView">The type of the view.</typeparam>
+            <typeparam name="TViewModel">The type of the view model.</typeparam>
+            <param name="configuration">The configuration.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.WPF.ViewModelResolver.IfInheritsFrom``1(System.Type,System.Action{``0,System.Object,Mix.Windows.Core.IGenericInterface,Prism.Ioc.IContainerProvider})">
+            <summary>
+            Ifs the inherits from.
+            </summary>
+            <typeparam name="TView">The type of the view.</typeparam>
+            <param name="genericInterfaceType">Type of the generic interface.</param>
+            <param name="configuration">The configuration.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Windows.WPF.ViewModelResolverExtension">
+            <summary>
+            ViewModelResolverExtension
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.WPF.ViewModelResolverExtension.UseDefaultConfigure(Mix.Windows.WPF.IViewModelResolver)">
+            <summary>
+            Uses the default configure.
+            </summary>
+            <param name="this">The this.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.WPF.ViewModelResolverExtension.IfInheritsFrom``1(Mix.Windows.WPF.IViewModelResolver,System.Action{System.Windows.FrameworkElement,``0})">
+            <summary>
+            Ifs the inherits from.
+            </summary>
+            <typeparam name="TViewModel">The type of the view model.</typeparam>
+            <param name="this">The this.</param>
+            <param name="configuration">The configuration.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.WPF.ViewModelResolverExtension.IfInheritsFrom``1(Mix.Windows.WPF.IViewModelResolver,System.Action{System.Windows.FrameworkElement,``0,Prism.Ioc.IContainerProvider})">
+            <summary>
+            Ifs the inherits from.
+            </summary>
+            <typeparam name="TViewModel">The type of the view model.</typeparam>
+            <param name="this">The this.</param>
+            <param name="configuration">The configuration.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.WPF.ViewModelResolverExtension.IfInheritsFrom(Mix.Windows.WPF.IViewModelResolver,System.Type,System.Action{System.Windows.FrameworkElement,System.Object,Mix.Windows.Core.IGenericInterface})">
+            <summary>
+            Ifs the inherits from.
+            </summary>
+            <param name="this">The this.</param>
+            <param name="genericInterfaceType">Type of the generic interface.</param>
+            <param name="configuration">The configuration.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

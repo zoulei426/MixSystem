@@ -9,7 +9,7 @@ using Mix.Data;
 using Mix.Data.Repositories;
 using Mix.Grpc.Api.Services;
 using Mix.Library.Repositories.Accounts;
-using Mix.Service.Core;
+using Mix.Service.Core.Extensions;
 using Mix.Service.Core.Modules;
 
 namespace Mix.Grpc.Api

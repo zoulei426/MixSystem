@@ -1,0 +1,602 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mix.Windows.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Mix.Windows.Core.ConfigureFile">
+            <summary>
+            配置文件
+            </summary>
+            <seealso cref="T:Mix.Windows.Core.IConfigureFile" />
+        </member>
+        <member name="E:Mix.Windows.Core.ConfigureFile.ValueChanged">
+            <summary>
+            Occurs when [value changed].
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.Core.ConfigureFile.Contains(System.String)">
+            <summary>
+            Determines whether this instance contains the object.
+            </summary>
+            <param name="key">The key.</param>
+            <returns>
+              <c>true</c> if [contains] [the specified key]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Mix.Windows.Core.ConfigureFile.GetValue``1(System.String)">
+            <summary>
+            Gets the value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.Core.ConfigureFile.SetValue``1(System.String,``0)">
+            <summary>
+            Sets the value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.Core.ConfigureFile.Load(System.String)">
+            <summary>
+            Loads the specified file path.
+            </summary>
+            <param name="filePath">The file path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.Core.ConfigureFile.Clear">
+            <summary>
+            Clears this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.Core.ConfigureFile.Delete">
+            <summary>
+            Deletes this instance.
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.Core.ConfigureFile.WriteToLocal(System.String,System.String)">
+            <summary>
+            Writes to local.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="text">The text.</param>
+        </member>
+        <member name="T:Mix.Windows.Core.JsonExtension">
+            <summary>
+            JsonExtension
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Core.JsonExtension.JsonSerializerSettings">
+            <summary>
+            The json serializer settings
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Core.JsonExtension.JsonDeserializerSettings">
+            <summary>
+            The json deserializer settings
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Core.JsonExtension.FileLocatorConverter">
+            <summary>
+            The file locator converter
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.Core.JsonExtension.#cctor">
+            <summary>
+            Initializes the <see cref="T:Mix.Windows.Core.JsonExtension"/> class.
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.Core.JsonExtension.ToJson``1(``0,Newtonsoft.Json.Formatting)">
+            <summary>
+            Converts to json.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="object">The object.</param>
+            <param name="formatting">The formatting.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.Core.JsonExtension.ToObject``1(System.String)">
+            <summary>
+            Converts to object.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="json">The json.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Windows.Core.FileLocatorConverter">
+            <summary>
+            FileLocatorConverter
+            </summary>
+            <seealso cref="T:Newtonsoft.Json.JsonConverter" />
+        </member>
+        <member name="M:Mix.Windows.Core.FileLocatorConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Writes the JSON representation of the object.
+            </summary>
+            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter" /> to write to.</param>
+            <param name="value">The value.</param>
+            <param name="serializer">The calling serializer.</param>
+        </member>
+        <member name="M:Mix.Windows.Core.FileLocatorConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Reads the JSON representation of the object.
+            </summary>
+            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader" /> to read from.</param>
+            <param name="objectType">Type of the object.</param>
+            <param name="existingValue">The existing value of object being read.</param>
+            <param name="serializer">The calling serializer.</param>
+            <returns>
+            The object value.
+            </returns>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="M:Mix.Windows.Core.FileLocatorConverter.CanConvert(System.Type)">
+            <summary>
+            Determines whether this instance can convert the specified object type.
+            </summary>
+            <param name="objectType">Type of the object.</param>
+            <returns>
+            <c>true</c> if this instance can convert the specified object type; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:Mix.Windows.Core.SecureExtension">
+            <summary>
+            SecureExtension
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.Core.SecureExtension.ToMd5(System.String)">
+            <summary>
+            Converts to md5.
+            </summary>
+            <param name="text">The text.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.Core.SecureExtension.ToBaseUTF8Bytes(System.String)">
+            <summary>
+            Converts to baseutf8bytes.
+            </summary>
+            <param name="text">The text.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.Core.SecureExtension.EncryptByRsa(System.String,System.String)">
+            <summary>
+            Encrypts the by RSA.
+            </summary>
+            <param name="text">The text.</param>
+            <param name="publicKeyXml">The public key XML.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.Core.SecureExtension.DecryptByRsa(System.String,System.String)">
+            <summary>
+            Decrypts the by RSA.
+            </summary>
+            <param name="text">The text.</param>
+            <param name="privateKeyXml">The private key XML.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.Core.SecureExtension.EncryptByDes(System.String)">
+            <summary>
+            Encrypts the by DES.
+            </summary>
+            <param name="text">The text.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.Core.SecureExtension.DecryptByDes(System.String)">
+            <summary>
+            Decrypts the by DES.
+            </summary>
+            <param name="ciphertext">The ciphertext.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Windows.Core.FileLocator">
+            <summary>
+            FileLocator
+            </summary>
+            <seealso cref="T:System.IEquatable`1" />
+        </member>
+        <member name="F:Mix.Windows.Core.FileLocator.RegexFileLocation">
+            <summary>
+            Gets a regular expression for splitting the file full path string.
+            In the right case, the group will have four elements:
+            [0]: FullPath
+            [1]: FolderName
+            [2]: FileName
+            [3]: FileExtension
+            </summary>
+        </member>
+        <member name="P:Mix.Windows.Core.FileLocator.FullPath">
+            <summary>
+            Gets a string representing the full path of the file.
+            </summary>
+        </member>
+        <member name="P:Mix.Windows.Core.FileLocator.FolderPath">
+            <summary>
+            Gets a string representing the folder where the file is located.
+            </summary>
+        </member>
+        <member name="P:Mix.Windows.Core.FileLocator.FileName">
+            <summary>
+            Gets a string representing the file name.
+            </summary>
+        </member>
+        <member name="P:Mix.Windows.Core.FileLocator.FileExtension">
+            <summary>
+            Gets a string representing the file extension.
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.Core.FileLocator.#ctor(System.String)">
+            <summary>
+            Initializes a instance of <see cref="T:Mix.Windows.Core.FileLocator"/> with specified file full path.
+            </summary>
+            <param name="fileFullPath">A string representing the full path of the file. </param>
+        </member>
+        <member name="M:Mix.Windows.Core.FileLocator.ToString">
+            <summary>
+            Converts to string.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="M:Mix.Windows.Core.FileLocator.Equals(Mix.Windows.Core.FileLocator)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>
+              <see langword="true" /> if the current object is equal to the <paramref name="other" /> parameter; otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:Mix.Windows.Core.FileLocator.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object" />, is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object" /> to compare with this instance.</param>
+            <returns>
+              <c>true</c> if the specified <see cref="T:System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Mix.Windows.Core.FileLocator.op_Equality(Mix.Windows.Core.FileLocator,Mix.Windows.Core.FileLocator)">
+            <summary>
+            Implements the operator ==.
+            </summary>
+            <param name="left">The left.</param>
+            <param name="right">The right.</param>
+            <returns>
+            The result of the operator.
+            </returns>
+        </member>
+        <member name="M:Mix.Windows.Core.FileLocator.op_Inequality(Mix.Windows.Core.FileLocator,Mix.Windows.Core.FileLocator)">
+            <summary>
+            Implements the operator !=.
+            </summary>
+            <param name="left">The left.</param>
+            <param name="right">The right.</param>
+            <returns>
+            The result of the operator.
+            </returns>
+        </member>
+        <member name="M:Mix.Windows.Core.FileLocator.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.
+            </returns>
+        </member>
+        <member name="M:Mix.Windows.Core.FileLocator.op_Implicit(System.String)~Mix.Windows.Core.FileLocator">
+            <summary>
+            Performs an implicit conversion from <see cref="T:System.String"/> to <see cref="T:Mix.Windows.Core.FileLocator"/>.
+            </summary>
+            <param name="filePath">The file path.</param>
+            <returns>
+            The result of the conversion.
+            </returns>
+        </member>
+        <member name="M:Mix.Windows.Core.FileLocator.op_Implicit(Mix.Windows.Core.FileLocator)~System.String">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Mix.Windows.Core.FileLocator"/> to <see cref="T:System.String"/>.
+            </summary>
+            <param name="fileLocation">The file location.</param>
+            <returns>
+            The result of the conversion.
+            </returns>
+        </member>
+        <member name="T:Mix.Windows.Core.GenericInterfaceExtension">
+            <summary>
+            GenericInterfaceExtension
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.Core.GenericInterfaceExtension.AsGenericInterface(System.Object,System.Type)">
+            <summary>
+            Ases the generic interface.
+            </summary>
+            <param name="this">The this.</param>
+            <param name="type">The type.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Windows.Core.GenericInterfaceExtension.GenericInterfaceImpl">
+            <summary>
+            GenericInterfaceImpl
+            </summary>
+            <seealso cref="T:Mix.Windows.Core.IGenericInterface" />
+        </member>
+        <member name="P:Mix.Windows.Core.GenericInterfaceExtension.GenericInterfaceImpl.Type">
+            <summary>
+            Gets the type.
+            </summary>
+            <value>
+            The type.
+            </value>
+        </member>
+        <member name="P:Mix.Windows.Core.GenericInterfaceExtension.GenericInterfaceImpl.GenericArguments">
+            <summary>
+            Gets the generic arguments.
+            </summary>
+            <value>
+            The generic arguments.
+            </value>
+        </member>
+        <member name="M:Mix.Windows.Core.GenericInterfaceExtension.GenericInterfaceImpl.#ctor(System.Object,System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Windows.Core.GenericInterfaceExtension.GenericInterfaceImpl"/> class.
+            </summary>
+            <param name="instance">The instance.</param>
+            <param name="interfaceType">Type of the interface.</param>
+        </member>
+        <member name="M:Mix.Windows.Core.GenericInterfaceExtension.GenericInterfaceImpl.GetMethod``1(System.String,System.Type[])">
+            <summary>
+            Gets the method.
+            </summary>
+            <typeparam name="TDelegate">The type of the delegate.</typeparam>
+            <param name="methodName">Name of the method.</param>
+            <param name="argTypes">The argument types.</param>
+            <returns></returns>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="M:Mix.Windows.Core.GenericInterfaceExtension.GenericInterfaceImpl.GetActionWithParams``1(System.String,System.Type[])">
+            <summary>
+            Gets the action with parameters.
+            </summary>
+            <typeparam name="TDelegate">The type of the delegate.</typeparam>
+            <param name="methodName">Name of the method.</param>
+            <param name="argTypes">The argument types.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">methodName</exception>
+        </member>
+        <member name="M:Mix.Windows.Core.GenericInterfaceExtension.GenericInterfaceImpl.GetAction``1(System.String)">
+            <summary>
+            Gets the action.
+            </summary>
+            <typeparam name="TDelegate">The type of the delegate.</typeparam>
+            <param name="methodName">Name of the method.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">methodName</exception>
+        </member>
+        <member name="M:Mix.Windows.Core.GenericInterfaceExtension.GenericInterfaceImpl.GetDelegateType``1">
+            <summary>
+            Gets the type of the delegate.
+            </summary>
+            <typeparam name="TDelegate">The type of the delegate.</typeparam>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException">
+            </exception>
+        </member>
+        <member name="T:Mix.Windows.Core.GenericInterfaceExtension.GenericInterfaceImpl.DelegateType">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:Mix.Windows.Core.GenericInterfaceExtension.GenericInterfaceImpl.DelegateType.NotSupported">
+            <summary>
+            The not supported
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Core.GenericInterfaceExtension.GenericInterfaceImpl.DelegateType.Action">
+            <summary>
+            The action
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Core.GenericInterfaceExtension.GenericInterfaceImpl.DelegateType.Func">
+            <summary>
+            The function
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Core.GenericInterfaceExtension.GenericInterfaceImpl.DelegateType.ActionWithParams">
+            <summary>
+            The action with parameters
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Core.GenericInterfaceExtension.GenericInterfaceImpl.DelegateType.FuncWithParams">
+            <summary>
+            The function with parameters
+            </summary>
+        </member>
+        <member name="T:Mix.Windows.Core.IConfigureFile">
+            <summary>
+            IConfigureFile
+            </summary>
+        </member>
+        <member name="E:Mix.Windows.Core.IConfigureFile.ValueChanged">
+            <summary>
+            Occurs when [value changed].
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.Core.IConfigureFile.Contains(System.String)">
+            <summary>
+            Determines whether this instance contains the object.
+            </summary>
+            <param name="key">The key.</param>
+            <returns>
+              <c>true</c> if [contains] [the specified key]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Mix.Windows.Core.IConfigureFile.GetValue``1(System.String)">
+            <summary>
+            Gets the value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.Core.IConfigureFile.SetValue``1(System.String,``0)">
+            <summary>
+            Sets the value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.Core.IConfigureFile.Load(System.String)">
+            <summary>
+            Loads the specified file path.
+            </summary>
+            <param name="filePath">The file path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.Core.IConfigureFile.Clear">
+            <summary>
+            Clears this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.Core.IConfigureFile.Delete">
+            <summary>
+            Deletes this instance.
+            </summary>
+        </member>
+        <member name="T:Mix.Windows.Core.IGenericInterface">
+            <summary>
+            IGenericInterface
+            </summary>
+        </member>
+        <member name="P:Mix.Windows.Core.IGenericInterface.Type">
+            <summary>
+            Gets the type.
+            </summary>
+            <value>
+            The type.
+            </value>
+        </member>
+        <member name="P:Mix.Windows.Core.IGenericInterface.GenericArguments">
+            <summary>
+            Gets the generic arguments.
+            </summary>
+            <value>
+            The generic arguments.
+            </value>
+        </member>
+        <member name="M:Mix.Windows.Core.IGenericInterface.GetMethod``1(System.String,System.Type[])">
+            <summary>
+            Gets the method.
+            </summary>
+            <typeparam name="TDelegate">The type of the delegate.</typeparam>
+            <param name="methodName">Name of the method.</param>
+            <param name="argTypes">The argument types.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Windows.Core.SystemInfo">
+            <summary>
+            系统信息
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Core.SystemInfo.OSPlatform">
+            <summary>
+            操作系统
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Core.SystemInfo.OSArchitecture">
+            <summary>
+            系统架构
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Core.SystemInfo.OSDescription">
+            <summary>
+            系统名称
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Core.SystemInfo.Version">
+            <summary>
+            版本
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.Core.SystemInfo.GetActiveMacAddress(System.String)">
+            <summary>
+            获取当前有活跃IP的网卡
+            </summary>
+            <param name="separator">-</param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Windows.Core.SystemPath">
+            <summary>
+            系统路径
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Core.SystemPath.Application">
+            <summary>
+            It represents the path where the "Mix.Desktop" is located.
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Core.SystemPath.Data">
+            <summary>
+            Data
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Core.SystemPath.Logs">
+            <summary>
+            Logs
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Core.SystemPath.Configs">
+            <summary>
+            Configs
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Core.SystemPath.AppData">
+            <summary>
+            %AppData%\MixSystem
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Core.SystemPath.Apps">
+            <summary>
+            %AppData%\MixSystem\Apps
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Core.SystemPath.Users">
+            <summary>
+            %AppData%\MixSystem\Users
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.Core.SystemPath.#cctor">
+            <summary>
+            Initializes the <see cref="T:Mix.Windows.Core.SystemPath"/> class.
+            </summary>
+        </member>
+        <member name="T:Mix.Windows.Core.ValueChangedEventArgs">
+            <summary>
+            ValueChangedEventArgs
+            </summary>
+            <seealso cref="T:System.EventArgs" />
+        </member>
+        <member name="P:Mix.Windows.Core.ValueChangedEventArgs.KeyName">
+            <summary>
+            Gets the name of the key.
+            </summary>
+            <value>
+            The name of the key.
+            </value>
+        </member>
+        <member name="M:Mix.Windows.Core.ValueChangedEventArgs.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Windows.Core.ValueChangedEventArgs"/> class.
+            </summary>
+            <param name="keyName">Name of the key.</param>
+        </member>
+    </members>
+</doc>

@@ -5,7 +5,8 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<OutputPath></OutputPath>
+		<OutputPath>bin\Debug\</OutputPath>
+		<DocumentationFile>Mix.Service.Core.xml</DocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -13,7 +14,10 @@
 		<PackageReference Include="Autofac.Extras.DynamicProxy" Version="6.0.0" />
 		<PackageReference Include="Castle.Core.AsyncInterceptor" Version="1.7.0" />
 		<PackageReference Include="FreeSql" Version="1.9.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.9" />
 		<PackageReference Include="Serilog" Version="2.10.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="5.6.3" />
 		<PackageReference Include="ToolGood.Words" Version="3.0.2.4" />
 		<ProjectReference Include="..\Mix.Core\Mix.Core.csproj" />
 		<ProjectReference Include="..\Mix.Data\Mix.Data.csproj" />

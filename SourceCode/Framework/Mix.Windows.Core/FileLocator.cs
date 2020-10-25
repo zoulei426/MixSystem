@@ -4,6 +4,10 @@ using System.Text.RegularExpressions;
 
 namespace Mix.Windows.Core
 {
+    /// <summary>
+    /// FileLocator
+    /// </summary>
+    /// <seealso cref="System.IEquatable{T}" />
     [DebuggerDisplay("{" + nameof(FullPath) + "}")]
     public class FileLocator : IEquatable<FileLocator>
     {
@@ -55,14 +59,42 @@ namespace Mix.Windows.Core
             FileExtension = matchResult.Groups[3].Value.ToLower();
         }
 
+        /// <summary>
+        /// Converts to string.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String" /> that represents this instance.
+        /// </returns>
         public override string ToString() => FullPath;
 
         #region Implements Equals
 
+        /// <summary>
+        /// Indicates whether the current object is equal to another object of the same type.
+        /// </summary>
+        /// <param name="other">An object to compare with this object.</param>
+        /// <returns>
+        ///   <see langword="true" /> if the current object is equal to the <paramref name="other" /> parameter; otherwise, <see langword="false" />.
+        /// </returns>
         public bool Equals(FileLocator other) => !Equals(other, null) && string.Equals(FullPath, other.FullPath);
 
+        /// <summary>
+        /// Determines whether the specified <see cref="System.Object" />, is equal to this instance.
+        /// </summary>
+        /// <param name="obj">The <see cref="System.Object" /> to compare with this instance.</param>
+        /// <returns>
+        ///   <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+        /// </returns>
         public override bool Equals(object obj) => ReferenceEquals(this, obj) || Equals(obj as FileLocator);
 
+        /// <summary>
+        /// Implements the operator ==.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>
+        /// The result of the operator.
+        /// </returns>
         public static bool operator ==(FileLocator left, FileLocator right)
         {
             if (left is null || right is null)
@@ -71,14 +103,42 @@ namespace Mix.Windows.Core
             return left.Equals(right);
         }
 
+        /// <summary>
+        /// Implements the operator !=.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>
+        /// The result of the operator.
+        /// </returns>
         public static bool operator !=(FileLocator left, FileLocator right) => !(left == right);
 
+        /// <summary>
+        /// Returns a hash code for this instance.
+        /// </summary>
+        /// <returns>
+        /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.
+        /// </returns>
         public override int GetHashCode() => FullPath != null ? FullPath.GetHashCode() : 0;
 
         #endregion Implements Equals
 
+        /// <summary>
+        /// Performs an implicit conversion from <see cref="System.String"/> to <see cref="FileLocator"/>.
+        /// </summary>
+        /// <param name="filePath">The file path.</param>
+        /// <returns>
+        /// The result of the conversion.
+        /// </returns>
         public static implicit operator FileLocator(string filePath) => string.IsNullOrEmpty(filePath) ? null : new FileLocator(filePath);
 
+        /// <summary>
+        /// Performs an implicit conversion from <see cref="FileLocator"/> to <see cref="System.String"/>.
+        /// </summary>
+        /// <param name="fileLocation">The file location.</param>
+        /// <returns>
+        /// The result of the conversion.
+        /// </returns>
         public static implicit operator string(FileLocator fileLocation) => fileLocation?.FullPath;
     }
 }

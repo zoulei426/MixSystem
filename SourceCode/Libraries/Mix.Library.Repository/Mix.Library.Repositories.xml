@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mix.Library.Repositories</name>
+    </assembly>
+    <members>
+        <member name="T:Mix.Library.Repositories.Accounts.IUserRepository">
+            <summary>
+            IUserRepository
+            </summary>
+            <seealso cref="T:Mix.Data.Repositories.IAuditBaseRepository`1" />
+        </member>
+        <member name="M:Mix.Library.Repositories.Accounts.IUserRepository.GetUserAsync(System.Linq.Expressions.Expression{System.Func{Mix.Library.Entities.Databases.Accounts.User,System.Boolean}})">
+            <summary>
+            根据条件得到用户信息
+            </summary>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Library.Repositories.Accounts.UserRepository">
+            <summary>
+            UserRepository
+            </summary>
+            <seealso cref="T:Mix.Data.Repositories.AuditBaseRepository`1" />
+            <seealso cref="T:Mix.Library.Repositories.Accounts.IUserRepository" />
+        </member>
+        <member name="M:Mix.Library.Repositories.Accounts.UserRepository.#ctor(FreeSql.UnitOfWorkManager,Mix.Data.ICurrentUser)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Library.Repositories.Accounts.UserRepository"/> class.
+            </summary>
+            <param name="unitOfWorkManager"></param>
+            <param name="currentUser"></param>
+        </member>
+        <member name="M:Mix.Library.Repositories.Accounts.UserRepository.GetUserAsync(System.Linq.Expressions.Expression{System.Func{Mix.Library.Entities.Databases.Accounts.User,System.Boolean}})">
+            <summary>
+            根据条件得到用户信息
+            </summary>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Library.Repositories.CompanyRepository">
+            <summary>
+            CompanyRepository
+            </summary>
+            <seealso cref="T:Mix.Data.Repositories.AuditBaseRepository`1" />
+            <seealso cref="T:Mix.Library.Repositories.ICompanyRepository" />
+        </member>
+        <member name="M:Mix.Library.Repositories.CompanyRepository.#ctor(FreeSql.UnitOfWorkManager,Mix.Data.ICurrentUser)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Library.Repositories.CompanyRepository"/> class.
+            </summary>
+            <param name="unitOfWorkManager"></param>
+            <param name="currentUser"></param>
+        </member>
+        <member name="T:Mix.Library.Repositories.EmployeeRepository">
+            <summary>
+            EmployeeRepository
+            </summary>
+            <seealso cref="T:Mix.Data.Repositories.AuditBaseRepository`1" />
+            <seealso cref="T:Mix.Library.Repositories.IEmployeeRepository" />
+        </member>
+        <member name="M:Mix.Library.Repositories.EmployeeRepository.#ctor(FreeSql.UnitOfWorkManager,Mix.Data.ICurrentUser)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Library.Repositories.EmployeeRepository"/> class.
+            </summary>
+            <param name="unitOfWorkManager"></param>
+            <param name="currentUser"></param>
+        </member>
+        <member name="M:Mix.Library.Repositories.EmployeeRepository.GetEmployeesAsync(System.Guid,System.String,System.String)">
+            <summary>
+            Gets the employees asynchronous.
+            </summary>
+            <param name="companyId">The company identifier.</param>
+            <param name="genderDisplay">The gender display.</param>
+            <param name="q">The q.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Library.Repositories.EmployeeRepository.AddEmployeeAsync(System.Guid,Mix.Library.Entities.Databases.Employee)">
+            <summary>
+            Adds the employee asynchronous.
+            </summary>
+            <param name="companyId">The company identifier.</param>
+            <param name="employee">The employee.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Library.Repositories.ICompanyRepository">
+            <summary>
+            ICompanyRepository
+            </summary>
+            <seealso cref="T:Mix.Data.Repositories.IAuditBaseRepository`1" />
+        </member>
+        <member name="T:Mix.Library.Repositories.IEmployeeRepository">
+            <summary>
+            IEmployeeRepository
+            </summary>
+            <seealso cref="T:Mix.Data.Repositories.IAuditBaseRepository`1" />
+        </member>
+        <member name="M:Mix.Library.Repositories.IEmployeeRepository.GetEmployeesAsync(System.Guid,System.String,System.String)">
+            <summary>
+            Gets the employees asynchronous.
+            </summary>
+            <param name="companyId">The company identifier.</param>
+            <param name="genderDisplay">The gender display.</param>
+            <param name="q">The q.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Library.Repositories.IEmployeeRepository.AddEmployeeAsync(System.Guid,Mix.Library.Entities.Databases.Employee)">
+            <summary>
+            Adds the employee asynchronous.
+            </summary>
+            <param name="companyId">The company identifier.</param>
+            <param name="employee">The employee.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,16 +1,18 @@
 ﻿using AutoMapper;
 using Mix.Library.Entities.Databases;
 using Mix.Library.Entities.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mix.Library.Entities.Profiles
 {
+    /// <summary>
+    /// EmployeeProfile
+    /// </summary>
+    /// <seealso cref="AutoMapper.Profile" />
     public class EmployeeProfile : Profile
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EmployeeProfile"/> class.
+        /// </summary>
         public EmployeeProfile()
         {
             CreateMap<Employee, EmployeeDto>()
@@ -19,6 +21,10 @@ namespace Mix.Library.Entities.Profiles
                 .ForMember(dest => dest.Age, opt => opt.MapFrom(src => src.DateOfBirth.Age()));
 
             CreateMap<EmployeeAddDto, Employee>();
+
+            CreateMap<EmployeeUpdateDto, Employee>();
+
+            CreateMap<Employee, EmployeeUpdateDto>();
         }
     }
 }

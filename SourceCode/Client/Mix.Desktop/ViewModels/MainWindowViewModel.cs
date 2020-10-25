@@ -37,12 +37,12 @@ namespace Mix.Desktop
 
         public void OnLoaded()
         {
-            
+
         }
 
         public void OnUnloaded()
         {
-            
+
         }
 
         #endregion Methods

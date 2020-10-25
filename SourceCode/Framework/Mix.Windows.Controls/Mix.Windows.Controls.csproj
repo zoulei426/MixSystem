@@ -1,23 +1,24 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0-windows</TargetFramework>
-    <UseWPF>true</UseWPF>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net5.0-windows</TargetFramework>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath></OutputPath>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<OutputPath>bin\Debug\</OutputPath>
+		<DocumentationFile>Mix.Windows.Controls.xml</DocumentationFile>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="HandyControl" Version="2.5.0.2" />
-    <PackageReference Include="MaterialDesignThemes" Version="3.2.0" />
-    <PackageReference Include="System.Windows.Interactivity.WPF" Version="2.0.20525" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="HandyControl" Version="2.5.0.2" />
+		<PackageReference Include="MaterialDesignThemes" Version="3.2.0" />
+		<PackageReference Include="System.Windows.Interactivity.WPF" Version="2.0.20525" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Mix.Resources\Mix.Resources.csproj" />
-    <ProjectReference Include="..\Mix.Windows.Core\Mix.Windows.Core.csproj" />
-    <ProjectReference Include="..\Mix.Windows.WPF\Mix.Windows.WPF.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Mix.Resources\Mix.Resources.csproj" />
+		<ProjectReference Include="..\Mix.Windows.Core\Mix.Windows.Core.csproj" />
+		<ProjectReference Include="..\Mix.Windows.WPF\Mix.Windows.WPF.csproj" />
+	</ItemGroup>
 </Project>

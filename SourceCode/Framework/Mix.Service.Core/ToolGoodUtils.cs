@@ -14,6 +14,7 @@ namespace Mix.Service.Core
         //本地敏感库缓存- https://github.com/toolgood/ToolGood.Words/tree/master/csharp/ToolGood.Words.Test/_Illegal
         //因为需要上传至github并同步gitee,安全起见，解压压缩包wwwroot目录下的_Illegal.zip
         private const string KeywordsPath = "wwwroot/_Illegal/IllegalKeywords.txt";
+
         private const string UrlsPath = "wwwroot/_Illegal/IllegalUrls.txt";
 
         //更多敏感词汇   https://github.com/fighting41love/funNLP/tree/master/data/%E6%95%8F%E6%84%9F%E8%AF%8D%E5%BA%93
@@ -21,11 +22,14 @@ namespace Mix.Service.Core
         private const string InfoPath = "wwwroot/_Illegal/IllegalInfo.txt";
         private const string BitPath = "wwwroot/_Illegal/IllegalBit.iws";
 
+        [System.Obsolete]
         private static IllegalWordsSearch _search;
+
         /// <summary>
         /// 本地敏感库,文件修改后，重新创建缓存Bit
         /// </summary>
         /// <returns></returns>
+        [System.Obsolete]
         public static IllegalWordsSearch GetIllegalWordsSearch()
         {
             if (!File.Exists(UrlsPath) || !File.Exists(KeywordsPath))
@@ -62,6 +66,11 @@ namespace Mix.Service.Core
             return _search;
         }
 
+        /// <summary>
+        /// Creates the illegal words search.
+        /// </summary>
+        /// <returns></returns>
+        [System.Obsolete]
         private static IllegalWordsSearch CreateIllegalWordsSearch()
         {
             string[] words1 = File.ReadAllLines(Path.GetFullPath(KeywordsPath), Encoding.UTF8);
@@ -87,6 +96,5 @@ namespace Mix.Service.Core
 
             return search;
         }
-
     }
 }

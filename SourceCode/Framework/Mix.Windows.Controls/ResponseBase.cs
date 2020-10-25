@@ -26,12 +26,22 @@
 
         #region Ctor
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ResponseBase"/> class.
+        /// </summary>
+        /// <param name="code">The code.</param>
+        /// <param name="message">The message.</param>
         public ResponseBase(int code, string message = "")
         {
             StatusCode = code;
             Message = message;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ResponseBase"/> class.
+        /// </summary>
+        /// <param name="code">The code.</param>
+        /// <param name="result">The result.</param>
         public ResponseBase(int code, object result = null)
         {
             StatusCode = code;

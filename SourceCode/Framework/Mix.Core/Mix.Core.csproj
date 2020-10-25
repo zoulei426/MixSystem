@@ -5,8 +5,8 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DocumentationFile></DocumentationFile>
-		<OutputPath></OutputPath>
+		<DocumentationFile>Mix.Core.xml</DocumentationFile>
+		<OutputPath>bin\Debug\</OutputPath>
 	</PropertyGroup>
 
 	<ItemGroup>

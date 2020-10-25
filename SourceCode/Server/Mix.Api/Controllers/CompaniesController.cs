@@ -1,11 +1,6 @@
 ﻿using AutoMapper;
-using IdentityModel.Client;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using Microsoft.Extensions.Localization;
-using Mix.Core;
-using Mix.Library.Entities.Databases;
-using Mix.Library.Entities.DtoParameters;
 using Mix.Library.Entities.Dtos;
 using Mix.Library.Repositories;
 using Mix.Library.Services;

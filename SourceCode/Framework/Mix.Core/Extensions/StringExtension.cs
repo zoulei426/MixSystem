@@ -4,10 +4,19 @@ using System.Text;
 
 namespace Mix.Core
 {
+    /// <summary>
+    /// StringExtensions
+    /// </summary>
     public static class StringExtension
     {
         private static readonly char[] Delimeters = { ' ', '-', '_' };
 
+        /// <summary>
+        /// Converts to snakecase.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException">source</exception>
         public static string ToSnakeCase(this string source)
         {
             if (source == null)
@@ -29,6 +38,13 @@ namespace Mix.Core
                 });
         }
 
+        /// <summary>
+        /// Symbolses the pipe.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="mainDelimeter">The main delimeter.</param>
+        /// <param name="newWordSymbolHandler">The new word symbol handler.</param>
+        /// <returns></returns>
         private static string SymbolsPipe(
             string source,
             char mainDelimeter,

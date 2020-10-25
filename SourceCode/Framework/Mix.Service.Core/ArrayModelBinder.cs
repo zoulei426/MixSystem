@@ -1,17 +1,35 @@
-﻿using AutoMapper.Execution;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Mix.Service.Core
 {
+    /// <summary>
+    /// 字符串数组（xxx,xxx,xxx）-> GUID数组({xxx},{xxx},{xxx})
+    /// </summary>
+    /// <seealso cref="Microsoft.AspNetCore.Mvc.ModelBinding.IModelBinder" />
     public class ArrayModelBinder : IModelBinder
     {
+        /// <summary>
+        /// Attempts to bind a model.
+        /// </summary>
+        /// <param name="bindingContext">The <see cref="T:Microsoft.AspNetCore.Mvc.ModelBinding.ModelBindingContext" />.</param>
+        /// <returns>
+        /// <para>
+        /// A <see cref="T:System.Threading.Tasks.Task" /> which will complete when the model binding process completes.
+        /// </para>
+        /// <para>
+        /// If model binding was successful, the <see cref="P:Microsoft.AspNetCore.Mvc.ModelBinding.ModelBindingContext.Result" /> should have
+        /// <see cref="P:Microsoft.AspNetCore.Mvc.ModelBinding.ModelBindingResult.IsModelSet" /> set to <c>true</c>.
+        /// </para>
+        /// <para>
+        /// A model binder that completes successfully should set <see cref="P:Microsoft.AspNetCore.Mvc.ModelBinding.ModelBindingContext.Result" /> to
+        /// a value returned from <see cref="M:Microsoft.AspNetCore.Mvc.ModelBinding.ModelBindingResult.Success(System.Object)" />.
+        /// </para>
+        /// </returns>
         public Task BindModelAsync(ModelBindingContext bindingContext)
         {
             if (!bindingContext.ModelMetadata.IsEnumerableType)

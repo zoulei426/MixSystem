@@ -9,7 +9,6 @@ using Mix.Windows.WPF.Commands;
 using Prism.Ioc;
 using System;
 using System.Net.Http;
-using System.Net.Http.Json;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using static Mix.Library.Entities.Protos.Accounts;

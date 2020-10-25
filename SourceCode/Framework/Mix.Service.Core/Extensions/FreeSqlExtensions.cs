@@ -2,7 +2,6 @@
 using FreeSql.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Mix.Core;
 using Mix.Data;
 using Mix.Data.Entities;
 using Serilog;
@@ -11,16 +10,19 @@ using System.Diagnostics;
 using System.Threading;
 using ToolGood.Words;
 
-namespace Mix.Service.Core
+namespace Mix.Service.Core.Extensions
 {
-    public static class DependencyInjectionExtension
+    /// <summary>
+    /// FreeSql扩展
+    /// </summary>
+    public static class FreeSqlExtensions
     {
-        #region FreeSql
-
         /// <summary>
-        /// FreeSql
+        /// Adds the free SQL.
         /// </summary>
-        /// <param name="services"></param>
+        /// <param name="services">The services.</param>
+        /// <param name="configuration">The configuration.</param>
+        [Obsolete]
         public static void AddFreeSql(this IServiceCollection services, IConfiguration configuration)
         {
             IFreeSql fsql = new FreeSqlBuilder()
@@ -87,7 +89,5 @@ namespace Mix.Service.Core
                 return;
             }
         }
-
-        #endregion FreeSql
     }
 }

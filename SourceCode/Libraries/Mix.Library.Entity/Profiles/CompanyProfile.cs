@@ -1,16 +1,18 @@
 ﻿using AutoMapper;
 using Mix.Library.Entities.Databases;
 using Mix.Library.Entities.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mix.Library.Entities.Profiles
 {
+    /// <summary>
+    /// CompanyProfile
+    /// </summary>
+    /// <seealso cref="AutoMapper.Profile" />
     public class CompanyProfile : Profile
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CompanyProfile"/> class.
+        /// </summary>
         public CompanyProfile()
         {
             CreateMap<Company, CompanyDto>();

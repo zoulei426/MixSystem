@@ -2,6 +2,9 @@
 
 namespace Mix.Core
 {
+    /// <summary>
+    /// IEntity
+    /// </summary>
     public interface IEntity
     {
         /// <summary>

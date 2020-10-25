@@ -1,16 +1,18 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Localization;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Localization;
-using Microsoft.Extensions.Logging;
-using Mix.Core.Localization.Json.Internal;
 
 namespace Mix.Core.Localization.Json
 {
+    /// <summary>
+    /// JsonStringLocalizer
+    /// </summary>
+    /// <seealso cref="Microsoft.Extensions.Localization.IStringLocalizer" />
     public class JsonStringLocalizer : IStringLocalizer
     {
         private readonly ConcurrentDictionary<string, IEnumerable<KeyValuePair<string, string>>> _resourcesCache = new ConcurrentDictionary<string, IEnumerable<KeyValuePair<string, string>>>();
@@ -18,8 +20,17 @@ namespace Mix.Core.Localization.Json
         private readonly string _resourceName;
         //private readonly ILogger _logger;
 
+        /// <summary>
+        /// The searched location
+        /// </summary>
         private string _searchedLocation;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="JsonStringLocalizer"/> class.
+        /// </summary>
+        /// <param name="resourcesPath">The resources path.</param>
+        /// <param name="resourceName">Name of the resource.</param>
+        /// <exception cref="ArgumentNullException">resourcesPath</exception>
         public JsonStringLocalizer(
             string resourcesPath,
             string resourceName)
@@ -29,14 +40,20 @@ namespace Mix.Core.Localization.Json
             //_logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
+        /// <summary>
+        /// Gets the <see cref="LocalizedString"/> with the specified name.
+        /// </summary>
+        /// <value>
+        /// The <see cref="LocalizedString"/>.
+        /// </value>
+        /// <param name="name">The name.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException">name</exception>
         public LocalizedString this[string name]
         {
             get
             {
-                if (name == null)
-                {
-                    throw new ArgumentNullException(nameof(name));
-                }
+                Guards.ThrowIfNull(name);
 
                 var value = GetStringSafely(name);
 
@@ -44,14 +61,21 @@ namespace Mix.Core.Localization.Json
             }
         }
 
+        /// <summary>
+        /// Gets the <see cref="LocalizedString"/> with the specified name.
+        /// </summary>
+        /// <value>
+        /// The <see cref="LocalizedString"/>.
+        /// </value>
+        /// <param name="name">The name.</param>
+        /// <param name="arguments">The arguments.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException">name</exception>
         public LocalizedString this[string name, params object[] arguments]
         {
             get
             {
-                if (name == null)
-                {
-                    throw new ArgumentNullException(nameof(name));
-                }
+                Guards.ThrowIfNull(name);
 
                 var format = GetStringSafely(name);
                 var value = string.Format(format ?? name, arguments);
@@ -60,11 +84,32 @@ namespace Mix.Core.Localization.Json
             }
         }
 
+        /// <summary>
+        /// Gets all string resources.
+        /// </summary>
+        /// <param name="includeParentCultures">A <see cref="T:System.Boolean" /> indicating whether to include strings from parent cultures.</param>
+        /// <returns>
+        /// The strings.
+        /// </returns>
         public virtual IEnumerable<LocalizedString> GetAllStrings(bool includeParentCultures) =>
             GetAllStrings(includeParentCultures, CultureInfo.CurrentUICulture);
 
+        /// <summary>
+        /// Creates a new <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer" /> for a specific <see cref="T:System.Globalization.CultureInfo" />.
+        /// </summary>
+        /// <param name="culture">The <see cref="T:System.Globalization.CultureInfo" /> to use.</param>
+        /// <returns>
+        /// A culture-specific <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer" />.
+        /// </returns>
         public IStringLocalizer WithCulture(CultureInfo culture) => this;
 
+        /// <summary>
+        /// Gets all strings.
+        /// </summary>
+        /// <param name="includeParentCultures">if set to <c>true</c> [include parent cultures].</param>
+        /// <param name="culture">The culture.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException">culture</exception>
         protected virtual IEnumerable<LocalizedString> GetAllStrings(bool includeParentCultures, CultureInfo culture)
         {
             if (culture == null)
@@ -83,8 +128,13 @@ namespace Mix.Core.Localization.Json
             }
         }
 
-        // TODO: Remove virtual on the upcoming major release
-        protected virtual string GetStringSafely(string name)
+        /// <summary>
+        /// Gets the string safely.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException">name</exception>
+        protected string GetStringSafely(string name)
         {
             if (name == null)
             {
@@ -117,6 +167,11 @@ namespace Mix.Core.Localization.Json
             return value;
         }
 
+        /// <summary>
+        /// Gets all strings from culture hierarchy.
+        /// </summary>
+        /// <param name="startingCulture">The starting culture.</param>
+        /// <returns></returns>
         private IEnumerable<string> GetAllStringsFromCultureHierarchy(CultureInfo startingCulture)
         {
             var currentCulture = startingCulture;
@@ -140,6 +195,11 @@ namespace Mix.Core.Localization.Json
             return resourceNames;
         }
 
+        /// <summary>
+        /// Gets all resource strings.
+        /// </summary>
+        /// <param name="culture">The culture.</param>
+        /// <returns></returns>
         private IEnumerable<string> GetAllResourceStrings(CultureInfo culture)
         {
             BuildResourcesCache(culture.Name);

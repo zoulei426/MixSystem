@@ -2,26 +2,37 @@
 using FreeSql;
 using Microsoft.Extensions.Logging;
 using Mix.Data.Aop.Attributes;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Mix.Service.Core.Middleware
 {
+    /// <summary>
+    /// UnitOfWorkAsyncInterceptor
+    /// </summary>
+    /// <seealso cref="Castle.DynamicProxy.IAsyncInterceptor" />
     public class UnitOfWorkAsyncInterceptor : IAsyncInterceptor
     {
         private readonly UnitOfWorkManager _unitOfWorkManager;
         private readonly ILogger<UnitOfWorkAsyncInterceptor> _logger;
         private IUnitOfWork _unitOfWork;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UnitOfWorkAsyncInterceptor"/> class.
+        /// </summary>
+        /// <param name="unitOfWorkManager">The unit of work manager.</param>
+        /// <param name="logger">The logger.</param>
         public UnitOfWorkAsyncInterceptor(UnitOfWorkManager unitOfWorkManager, ILogger<UnitOfWorkAsyncInterceptor> logger)
         {
             _unitOfWorkManager = unitOfWorkManager;
             _logger = logger;
         }
 
+        /// <summary>
+        /// Tries the begin.
+        /// </summary>
+        /// <param name="invocation">The invocation.</param>
+        /// <returns></returns>
         private bool TryBegin(IInvocation invocation)
         {
             //_unitOfWork = _unitOfWorkManager.Begin(Propagation.Requierd);
@@ -86,6 +97,10 @@ namespace Mix.Service.Core.Middleware
             }
         }
 
+        /// <summary>
+        /// Internals the intercept asynchronous.
+        /// </summary>
+        /// <param name="invocation">The invocation.</param>
         private async Task InternalInterceptAsynchronous(IInvocation invocation)
         {
             string methodName =
@@ -118,15 +133,21 @@ namespace Mix.Service.Core.Middleware
         }
 
         /// <summary>
-        /// 拦截返回结果为Task<TResult>的方法
+        /// Intercepts an asynchronous method <paramref name="invocation" /> with return type of <see cref="T:System.Threading.Tasks.Task`1" />.
         /// </summary>
-        /// <param name="invocation"></param>
-        /// <typeparam name="TResult"></typeparam>
+        /// <typeparam name="TResult">The type of the <see cref="T:System.Threading.Tasks.Task`1" /><see cref="P:System.Threading.Tasks.Task`1.Result" />.</typeparam>
+        /// <param name="invocation">The method invocation.</param>
         public void InterceptAsynchronous<TResult>(IInvocation invocation)
         {
             invocation.ReturnValue = InternalInterceptAsynchronous<TResult>(invocation);
         }
 
+        /// <summary>
+        /// Internals the intercept asynchronous.
+        /// </summary>
+        /// <typeparam name="TResult">The type of the result.</typeparam>
+        /// <param name="invocation">The invocation.</param>
+        /// <returns></returns>
         private async Task<TResult> InternalInterceptAsynchronous<TResult>(IInvocation invocation)
         {
             TResult result;

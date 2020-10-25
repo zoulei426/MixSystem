@@ -3,7 +3,10 @@ using System.Windows.Media;
 
 namespace Mix.Windows.WPF
 {
-    public static class DependencyObjectExtension
+    /// <summary>
+    /// DependencyObjectExtensions
+    /// </summary>
+    public static class DependencyObjectExtensions
     {
         /// <summary>
         /// Finds a parent of a given item on the visual tree.

@@ -1,5 +1,8 @@
 ﻿namespace Mix.Desktop
 {
+    /// <summary>
+    /// RegionNames
+    /// </summary>
     public static class RegionNames
     {
         /// <summary>

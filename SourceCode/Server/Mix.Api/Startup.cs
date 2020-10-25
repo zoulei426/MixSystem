@@ -11,17 +11,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Localization;
 using Microsoft.OpenApi.Models;
-using Mix.Core;
 using Mix.Data;
 using Mix.Data.Repositories;
-using Mix.Library.Entities.Dtos;
 using Mix.Library.Entities.Validators;
 using Mix.Library.Repositories.Accounts;
-using Mix.Service.Core;
+using Mix.Service.Core.Extensions;
 using Mix.Service.Core.Modules;
-using StackExchange.Redis;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -60,7 +57,12 @@ namespace Mix.Api
             services.AddMvc(options =>
             {
                 //options.ReturnHttpNotAcceptable = true; // 不支持的类型将返回406
-            }).AddXmlDataContractSerializerFormatters() // 添加xml格式
+            })
+            .AddNewtonsoftJson(options =>
+            {
+                options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            })
+            .AddXmlDataContractSerializerFormatters() // 添加xml格式
                 .SetCompatibilityVersion(CompatibilityVersion.Latest)
                 .AddFluentValidation(fv => // 配置FluentValidation
                 {
@@ -119,7 +121,7 @@ namespace Mix.Api
             // 配置Swagger
             services.AddSwaggerGen(option =>
             {
-                option.SwaggerDoc("mixsystem", new OpenApiInfo
+                option.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
                     Title = "MixSystem API",

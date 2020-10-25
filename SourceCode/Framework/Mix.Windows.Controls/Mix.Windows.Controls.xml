@@ -1,0 +1,397 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mix.Windows.Controls</name>
+    </assembly>
+    <members>
+        <member name="T:Mix.Windows.Controls.ControlHelper">
+            <summary>
+            ControlHelper
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Controls.ControlHelper.MouseOverBackgroundProperty">
+            <summary>
+            The mouse over background property
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.Controls.ControlHelper.GetMouseOverBackground(System.Windows.DependencyObject)">
+            <summary>
+            Gets the mouse over background.
+            </summary>
+            <param name="obj">The object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.Controls.ControlHelper.SetMouseOverBackground(System.Windows.DependencyObject,System.Windows.Media.Brush)">
+            <summary>
+            Sets the mouse over background.
+            </summary>
+            <param name="obj">The object.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="F:Mix.Windows.Controls.ControlHelper.MouseOverForegroundProperty">
+            <summary>
+            The mouse over foreground property
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.Controls.ControlHelper.GetMouseOverForeground(System.Windows.DependencyObject)">
+            <summary>
+            Gets the mouse over foreground.
+            </summary>
+            <param name="obj">The object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.Controls.ControlHelper.SetMouseOverForeground(System.Windows.DependencyObject,System.Windows.Media.Brush)">
+            <summary>
+            Sets the mouse over foreground.
+            </summary>
+            <param name="obj">The object.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="F:Mix.Windows.Controls.ControlHelper.FollowTargetProperty">
+            <summary>
+            The follow target property
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.Controls.ControlHelper.GetFollowTarget(System.Windows.DependencyObject)">
+            <summary>
+            Gets the follow target.
+            </summary>
+            <param name="obj">The object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.Controls.ControlHelper.SetFollowTarget(System.Windows.DependencyObject,System.Windows.DependencyObject)">
+            <summary>
+            Sets the follow target.
+            </summary>
+            <param name="obj">The object.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Mix.Windows.Controls.ControlHelper.FollowTargetChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Follows the target changed.
+            </summary>
+            <param name="d">The d.</param>
+            <param name="e">The <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="T:Mix.Windows.Controls.SwitchLoadingViewContainer">
+            <summary>
+            SwitchLoadingViewContainer
+            </summary>
+            <seealso cref="T:System.Windows.Controls.UserControl" />
+        </member>
+        <member name="F:Mix.Windows.Controls.SwitchLoadingViewContainer.IsLoadingProperty">
+            <summary>
+            The is loading property
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Controls.SwitchLoadingViewContainer.LoadingContentProperty">
+            <summary>
+            The loading content property
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Controls.SwitchLoadingViewContainer.LoadedContentProperty">
+            <summary>
+            The loaded content property
+            </summary>
+        </member>
+        <member name="P:Mix.Windows.Controls.SwitchLoadingViewContainer.IsLoading">
+            <summary>
+            Gets or sets a value indicating whether this instance is loading.
+            </summary>
+            <value>
+              <c>true</c> if this instance is loading; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Mix.Windows.Controls.SwitchLoadingViewContainer.LoadingContent">
+            <summary>
+            Gets or sets the content of the loading.
+            </summary>
+            <value>
+            The content of the loading.
+            </value>
+        </member>
+        <member name="P:Mix.Windows.Controls.SwitchLoadingViewContainer.LoadedContent">
+            <summary>
+            Gets or sets the content of the loaded.
+            </summary>
+            <value>
+            The content of the loaded.
+            </value>
+        </member>
+        <member name="T:Mix.Windows.Controls.Notify">
+            <summary>
+            通知类
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.Controls.Notify.Info(System.String)">
+            <summary>
+            Informations the specified message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Mix.Windows.Controls.Notify.Success(System.String)">
+            <summary>
+            Successes the specified message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Mix.Windows.Controls.Notify.Warning(System.String)">
+            <summary>
+            Warnings the specified message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Mix.Windows.Controls.Notify.Error(System.String)">
+            <summary>
+            Errors the specified message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="T:Mix.Windows.Controls.PasswordBoxHelper">
+            <summary>
+            PasswordBoxHelper
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Controls.PasswordBoxHelper.PasswordProperty">
+            <summary>
+            The password property
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.Controls.PasswordBoxHelper.OnPasswordPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Called when [password property changed].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Mix.Windows.Controls.PasswordBoxHelper.GetPassword(System.Windows.DependencyObject)">
+            <summary>
+            Gets the password.
+            </summary>
+            <param name="dp">The dp.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.Controls.PasswordBoxHelper.SetPassword(System.Windows.DependencyObject,System.String)">
+            <summary>
+            Sets the password.
+            </summary>
+            <param name="dp">The dp.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="T:Mix.Windows.Controls.PasswordBoxBehavior">
+            <summary>
+            PasswordBoxBehavior
+            </summary>
+            <seealso cref="T:System.Windows.Interactivity.Behavior`1" />
+        </member>
+        <member name="M:Mix.Windows.Controls.PasswordBoxBehavior.OnAttached">
+            <summary>
+            Called when [attached].
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.Controls.PasswordBoxBehavior.OnPasswordChanged(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Called when [password changed].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Mix.Windows.Controls.PasswordBoxBehavior.OnDetaching">
+            <summary>
+            Called when [detaching].
+            </summary>
+        </member>
+        <member name="T:Mix.Windows.Controls.TabControlHelper">
+            <summary>
+            TabControlHelper
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Controls.TabControlHelper.AwareSelectionChangedProperty">
+            <summary>
+            The aware selection changed property
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.Controls.TabControlHelper.SetAwareSelectionChanged(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            Sets the aware selection changed.
+            </summary>
+            <param name="element">The element.</param>
+            <param name="value">if set to <c>true</c> [value].</param>
+        </member>
+        <member name="M:Mix.Windows.Controls.TabControlHelper.GetAwareSelectionChanged(System.Windows.DependencyObject)">
+            <summary>
+            Gets the aware selection changed.
+            </summary>
+            <param name="element">The element.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.Controls.TabControlHelper.OnAwareSelectionChangedChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Called when [aware selection changed changed].
+            </summary>
+            <param name="d">The d.</param>
+            <param name="e">The <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Mix.Windows.Controls.TabControlHelper.OnLoaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Called when [loaded].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Mix.Windows.Controls.TabControlHelper.OnSelectionChanged(System.Object,System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>
+            Called when [selection changed].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Windows.Controls.SelectionChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="F:Mix.Windows.Controls.TabControlHelper.LeftToRightAnimationProperty">
+            <summary>
+            The left to right animation property
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.Controls.TabControlHelper.GetLeftToRightAnimation(System.Windows.DependencyObject)">
+            <summary>
+            Gets the left to right animation.
+            </summary>
+            <param name="obj">The object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.Controls.TabControlHelper.SetLeftToRightAnimation(System.Windows.DependencyObject,System.Windows.Media.Animation.Storyboard)">
+            <summary>
+            Sets the left to right animation.
+            </summary>
+            <param name="obj">The object.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="F:Mix.Windows.Controls.TabControlHelper.RightToLeftAnimationProperty">
+            <summary>
+            The right to left animation property
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.Controls.TabControlHelper.GetRightToLeftAnimation(System.Windows.DependencyObject)">
+            <summary>
+            Gets the right to left animation.
+            </summary>
+            <param name="obj">The object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.Controls.TabControlHelper.SetRightToLeftAnimation(System.Windows.DependencyObject,System.Windows.Media.Animation.Storyboard)">
+            <summary>
+            Sets the right to left animation.
+            </summary>
+            <param name="obj">The object.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="F:Mix.Windows.Controls.TabControlHelper.LeftToRightMovedEvent">
+            <summary>
+            The left to right moved event
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.Controls.TabControlHelper.AddLeftToRightMovedHandler(System.Windows.DependencyObject,System.Windows.RoutedEventHandler)">
+            <summary>
+            Adds the left to right moved handler.
+            </summary>
+            <param name="obj">The object.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Mix.Windows.Controls.TabControlHelper.RemoveLeftToRightMovedHandler(System.Windows.DependencyObject,System.Windows.RoutedEventHandler)">
+            <summary>
+            Removes the left to right moved handler.
+            </summary>
+            <param name="obj">The object.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="F:Mix.Windows.Controls.TabControlHelper.RightToLeftMovedEvent">
+            <summary>
+            The right to left moved event
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.Controls.TabControlHelper.AddRightToLeftMovedHandler(System.Windows.DependencyObject,System.Windows.RoutedEventHandler)">
+            <summary>
+            Adds the right to left moved handler.
+            </summary>
+            <param name="obj">The object.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Mix.Windows.Controls.TabControlHelper.RemoveRightToLeftMovedHandler(System.Windows.DependencyObject,System.Windows.RoutedEventHandler)">
+            <summary>
+            Removes the right to left moved handler.
+            </summary>
+            <param name="obj">The object.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Mix.Windows.Controls.TabControlHelper.OnLeftToRightAnimationChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Called when [left to right animation changed].
+            </summary>
+            <param name="d">The d.</param>
+            <param name="e">The <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Mix.Windows.Controls.TabControlHelper.OnRightToLeftAnimationChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Called when [right to left animation changed].
+            </summary>
+            <param name="d">The d.</param>
+            <param name="e">The <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Mix.Windows.Controls.TabControlHelper.ModifyTabControl(System.Windows.Controls.Primitives.Selector)">
+            <summary>
+            Modifies the tab control.
+            </summary>
+            <param name="tabControl">The tab control.</param>
+        </member>
+        <member name="M:Mix.Windows.Controls.TabControlHelper.OnLoadedForSwitchAnimation(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Called when [loaded for switch animation].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+            <returns></returns>
+            <exception cref="T:System.Windows.Media.TranslateTransform"></exception>
+        </member>
+        <member name="M:Mix.Windows.Controls.TabControlHelper.OnSelectionChangedForSwitchAnimation(System.Object,System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>
+            Called when [selection changed for switch animation].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Windows.Controls.SelectionChangedEventArgs"/> instance containing the event data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Service.Core.ResponseBase">
+            <summary>
+            响应基类
+            </summary>
+        </member>
+        <member name="P:Mix.Service.Core.ResponseBase.StatusCode">
+            <summary>
+            状态码
+            </summary>
+        </member>
+        <member name="P:Mix.Service.Core.ResponseBase.Message">
+            <summary>
+            返回消息
+            </summary>
+        </member>
+        <member name="P:Mix.Service.Core.ResponseBase.Result">
+            <summary>
+            返回结果
+            </summary>
+        </member>
+        <member name="M:Mix.Service.Core.ResponseBase.#ctor(System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Service.Core.ResponseBase"/> class.
+            </summary>
+            <param name="code">The code.</param>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Mix.Service.Core.ResponseBase.#ctor(System.Int32,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Service.Core.ResponseBase"/> class.
+            </summary>
+            <param name="code">The code.</param>
+            <param name="result">The result.</param>
+        </member>
+    </members>
+</doc>

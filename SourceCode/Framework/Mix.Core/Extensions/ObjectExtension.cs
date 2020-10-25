@@ -4,6 +4,9 @@ using System.Reflection;
 
 namespace Mix.Core
 {
+    /// <summary>
+    /// ObjectExtensions
+    /// </summary>
     public static class ObjectExtension
     {
         /// <summary>
@@ -11,6 +14,12 @@ namespace Mix.Core
         /// </summary>
         private const double Tolerance = 1e-6;
 
+        /// <summary>
+        /// Casts to.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
         public static T CastTo<T>(this object value)
         {
             return typeof(T).IsValueType && value != null
@@ -18,47 +27,15 @@ namespace Mix.Core
                 : value is T typeValue ? typeValue : default;
         }
 
-        public static bool EqualsWithinTolerance(this double @this, double other)
-        {
-            return Math.Abs(@this - other) < Tolerance;
-        }
-
-        public static bool GreaterOrEqual(this double @this, double other)
-        {
-            return @this > other || @this.EqualsWithinTolerance(other);
-        }
-
-        public static bool LessOrEqual(this double @this, double other)
-        {
-            return @this < other || @this.EqualsWithinTolerance(other);
-        }
-
-        public static bool IsNullOrEmpty(this string @this)
-        {
-            if (@this is null) return true;
-            return string.IsNullOrEmpty(@this);
-        }
-
-        public static bool IsNullOrWhiteSpace(this string @this)
-        {
-            if (@this is null) return true;
-            return string.IsNullOrWhiteSpace(@this);
-        }
-
-        public static bool IsNullOrEmpty(this object @this)
-        {
-            if (@this is null) return true;
-            return string.IsNullOrEmpty(@this.ToString());
-        }
-
-        public static bool IsNullOrWhiteSpace(this object @this)
-        {
-            if (@this is null) return true;
-            return string.IsNullOrWhiteSpace(@this.ToString());
-        }
-
         #region Copy
 
+        /// <summary>
+        /// Converts to.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="targetType">Type of the target.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException">source</exception>
         public static object ConvertTo(this object source, Type targetType)
         {
             if (source == null)
@@ -85,6 +62,14 @@ namespace Mix.Core
             return target;
         }
 
+        /// <summary>
+        /// Converts to.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="targetType">Type of the target.</param>
+        /// <param name="mapping">The mapping.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException">source</exception>
         public static object ConvertTo(this object source, Type targetType, Dictionary<string, string> mapping)
         {
             if (source == null)
@@ -115,6 +100,13 @@ namespace Mix.Core
             return target;
         }
 
+        /// <summary>
+        /// Converts to.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source">The source.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException">source</exception>
         public static T ConvertTo<T>(this object source) where T : new()
         {
             if (source == null)
@@ -141,11 +133,23 @@ namespace Mix.Core
             return target;
         }
 
+        /// <summary>
+        /// Converts to.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source">The source.</param>
+        /// <param name="mapping">The mapping.</param>
+        /// <returns></returns>
         public static T ConvertTo<T>(this object source, Dictionary<string, string> mapping) where T : new()
         {
             return (T)ConvertTo(source, typeof(T), mapping);
         }
 
+        /// <summary>
+        /// Copies the properties from.
+        /// </summary>
+        /// <param name="target">The target.</param>
+        /// <param name="source">The source.</param>
         public static void CopyPropertiesFrom(this object target, object source)
         {
             if (source == null || target == null)
@@ -178,6 +182,12 @@ namespace Mix.Core
             }
         }
 
+        /// <summary>
+        /// Copies the properties from.
+        /// </summary>
+        /// <param name="target">The target.</param>
+        /// <param name="source">The source.</param>
+        /// <param name="mapping">The mapping.</param>
         public static void CopyPropertiesFrom(this object target, object source, Dictionary<string, string> mapping)
         {
             if (source == null || target == null)
@@ -217,6 +227,12 @@ namespace Mix.Core
 
         #region Traversal
 
+        /// <summary>
+        /// Traversals the properties information.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="method">The method.</param>
+        /// <param name="argument">The argument.</param>
         public static void TraversalPropertiesInfo(this object source, Func<PropertyInfo, object, object, bool> method, object argument)
         {
             if (method == null || source == null)

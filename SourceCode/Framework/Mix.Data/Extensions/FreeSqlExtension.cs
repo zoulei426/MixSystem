@@ -11,6 +11,14 @@ namespace Mix.Data
     /// </summary>
     public static class FreeSqlExtension
     {
+        /// <summary>
+        /// Ases the table.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="this">The this.</param>
+        /// <param name="tableName">Name of the table.</param>
+        /// <param name="count">The count.</param>
+        /// <returns></returns>
         public static ISelect<T> AsTable<T>(this ISelect<T> @this, string tableName, int count) where T : class
         {
             string[] tableNames = new string[] { };
@@ -22,6 +30,13 @@ namespace Mix.Data
             return @this;
         }
 
+        /// <summary>
+        /// Ases the table.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="this">The this.</param>
+        /// <param name="tableNames">The table names.</param>
+        /// <returns></returns>
         public static ISelect<T> AsTable<T>(this ISelect<T> @this, params string[] tableNames) where T : class
         {
             tableNames?.ToList().ForEach(tableName =>

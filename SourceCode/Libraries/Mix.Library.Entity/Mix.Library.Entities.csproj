@@ -5,8 +5,8 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DocumentationFile></DocumentationFile>
-		<OutputPath></OutputPath>
+		<DocumentationFile>Mix.Library.Entities.xml</DocumentationFile>
+		<OutputPath>bin\Debug\</OutputPath>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="AutoMapper" Version="10.1.1" />

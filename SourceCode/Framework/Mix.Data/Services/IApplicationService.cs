@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Mix.Data.Services
+﻿namespace Mix.Data.Services
 {
+    /// <summary>
+    /// IApplicationService
+    /// </summary>
     public interface IApplicationService
     {
     }

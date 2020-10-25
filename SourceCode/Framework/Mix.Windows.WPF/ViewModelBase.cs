@@ -25,6 +25,12 @@ namespace Mix.Windows.WPF
 
         #region Properties
 
+        /// <summary>
+        /// Gets or sets the dispatcher.
+        /// </summary>
+        /// <value>
+        /// The dispatcher.
+        /// </value>
         public Dispatcher Dispatcher { get; set; }
 
         /// <summary>
@@ -80,6 +86,10 @@ namespace Mix.Windows.WPF
 
         #region Methods
 
+        /// <summary>
+        /// Invokes the specified action.
+        /// </summary>
+        /// <param name="action">The action.</param>
         protected virtual void Invoke(Action action) => Dispatcher.Invoke(action);
 
         /// <summary>
