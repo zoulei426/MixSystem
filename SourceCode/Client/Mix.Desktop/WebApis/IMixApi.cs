@@ -1,4 +1,4 @@
-﻿using Mix.Library.Entities.Models;
+﻿using Mix.Library.Entities.Dtos;
 using Refit;
 using System;
 using System.Collections.Generic;

@@ -1,5 +1,5 @@
 ﻿using Mix.Desktop.WebApis;
-using Mix.Library.Entities.Models;
+using Mix.Library.Entities.Dtos;
 using Mix.Windows.WPF;
 using Mix.Windows.WPF.Commands;
 using Prism.Commands;
@@ -20,6 +20,7 @@ namespace Mix.Desktop
             get { return _Companies; }
             set { SetProperty(ref _Companies, value); }
         }
+
         private ObservableCollection<CompanyDto> _Companies;
 
         public CompanyDto CurrentCompany
@@ -27,6 +28,7 @@ namespace Mix.Desktop
             get { return _CurrentCompany; }
             set { SetProperty(ref _CurrentCompany, value); }
         }
+
         private CompanyDto _CurrentCompany;
 
         public ObservableCollection<EmployeeDto> Employees
@@ -34,6 +36,7 @@ namespace Mix.Desktop
             get { return _Employees; }
             set { SetProperty(ref _Employees, value); }
         }
+
         private ObservableCollection<EmployeeDto> _Employees;
 
         #endregion Properties
@@ -87,6 +90,7 @@ namespace Mix.Desktop
         public void OnUnloaded()
         {
         }
+
         private bool CanGetEmployeesForCompany()
         {
             return CurrentCompany is not null;

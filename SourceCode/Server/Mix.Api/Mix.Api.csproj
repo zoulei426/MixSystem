@@ -10,8 +10,8 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>D:\DotNetProjects\MixSystem\SourceCode\Server\Mix.Api\Mix.Api.xml</DocumentationFile>
-    <OutputPath></OutputPath>
+    <DocumentationFile>Mix.Api.xml</DocumentationFile>
+    <OutputPath>bin\Debug\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
