@@ -7,7 +7,6 @@ using Mix.Library.Services;
 using Mix.Service.Core;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Mix.Api.Controllers

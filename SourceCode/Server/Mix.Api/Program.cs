@@ -66,7 +66,7 @@ namespace Mix.Api
                 {
                     //webBuilder.UseStartup<Startup>();
                     webBuilder.UseStartup(Assembly.GetExecutingAssembly().GetName().FullName)
-                    .UseUrls("https://localhost:5001");
+                    .UseUrls("https://localhost:5002");
                 });
     }
 }

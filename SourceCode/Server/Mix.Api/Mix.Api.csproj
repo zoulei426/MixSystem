@@ -38,4 +38,8 @@
   <ItemGroup>
     <Folder Include="Logs\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Logs\" />
+  </ItemGroup>
 </Project>

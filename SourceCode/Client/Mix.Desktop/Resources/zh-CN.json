@@ -16,5 +16,9 @@
 	"Send Code": "发送验证码",
 	"RetrySeconds": "秒后重试",
 	"Login Success": "登录成功",
-	"Register Success": "注册成功"
+	"Register Success": "注册成功",
+
+	"Company List": "公司列表",
+	"Employee List": "员工列表",
+	"Get Employee List": "获取员工列表"
 }
