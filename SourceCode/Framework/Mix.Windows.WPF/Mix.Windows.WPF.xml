@@ -624,10 +624,42 @@
             <param name="configuration">The configuration.</param>
             <returns></returns>
         </member>
+        <member name="T:Mix.Windows.WPF.Mvvm.ModuleBase">
+            <summary>
+            模块基类
+            </summary>
+            <seealso cref="T:Prism.Modularity.IModule" />
+        </member>
+        <member name="P:Mix.Windows.WPF.Mvvm.ModuleBase.Container">
+            <summary>
+            Gets the container.
+            </summary>
+            <value>
+            The container.
+            </value>
+        </member>
         <member name="P:Mix.Windows.WPF.Mvvm.ModuleBase.RegionManager">
             <summary>
             区域管理器
             </summary>
+        </member>
+        <member name="M:Mix.Windows.WPF.Mvvm.ModuleBase.#ctor(Unity.IUnityContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.Mvvm.ModuleBase"/> class.
+            </summary>
+            <param name="container">The container.</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.Mvvm.ModuleBase.RegisterTypes(Prism.Ioc.IContainerRegistry)">
+            <summary>
+            Used to register types with the container that will be used by your application.
+            </summary>
+            <param name="containerRegistry"></param>
+        </member>
+        <member name="M:Mix.Windows.WPF.Mvvm.ModuleBase.OnInitialized(Prism.Ioc.IContainerProvider)">
+            <summary>
+            Notifies the module that it has been initialized.
+            </summary>
+            <param name="containerProvider"></param>
         </member>
         <member name="T:Mix.Windows.WPF.ViewModelBase">
             <summary>
@@ -666,6 +698,22 @@
             <summary>
             配置文件
             </summary>
+        </member>
+        <member name="P:Mix.Windows.WPF.ViewModelBase.Logger">
+            <summary>
+            Gets the logger.
+            </summary>
+            <value>
+            The logger.
+            </value>
+        </member>
+        <member name="P:Mix.Windows.WPF.ViewModelBase.Notifier">
+            <summary>
+            Gets the notifier.
+            </summary>
+            <value>
+            The notifier.
+            </value>
         </member>
         <member name="M:Mix.Windows.WPF.ViewModelBase.#ctor(Prism.Ioc.IContainerExtension)">
             <summary>

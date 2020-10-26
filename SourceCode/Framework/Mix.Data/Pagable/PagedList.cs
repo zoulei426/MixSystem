@@ -67,7 +67,6 @@ namespace Mix.Data.Pagable
 
         #region Ctor
 
-
         /// <summary>
         /// Initializes a new instance of the <see cref="PagedList{T}"/> class.
         /// </summary>
@@ -105,7 +104,6 @@ namespace Mix.Data.Pagable
         /// <summary>
         /// Creates the asynchronous.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
         /// <param name="source">The source.</param>
         /// <param name="pageNumber">The page number.</param>
         /// <param name="pageSize">Size of the page.</param>
@@ -117,6 +115,15 @@ namespace Mix.Data.Pagable
             return new PagedList<T>(items, count, pageNumber, pageSize);
         }
 
+        /// <summary>
+        /// Creates the asynchronous.
+        /// </summary>
+        /// <typeparam name="TInput">The type of the input.</typeparam>
+        /// <param name="source">The source.</param>
+        /// <param name="pageNumber">The page number.</param>
+        /// <param name="pageSize">Size of the page.</param>
+        /// <param name="mapper">The mapper.</param>
+        /// <returns></returns>
         public static async Task<PagedList<T>> CreateAsync<TInput>(ISelect<TInput> source, int pageNumber, int pageSize, IMapper mapper) where TInput : class
         {
             var count = await source.CountAsync();

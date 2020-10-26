@@ -158,6 +158,19 @@
             The search term.
             </value>
         </member>
+        <member name="T:Mix.Library.Entities.DtoParameters.EmployeeDtoParameters">
+            <summary>
+            EmployeeDtoParameters
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.DtoParameters.EmployeeDtoParameters.Gender">
+            <summary>
+            Gets or sets the gender.
+            </summary>
+            <value>
+            The gender.
+            </value>
+        </member>
         <member name="T:Mix.Library.Entities.Dtos.CompanyAddDto">
             <summary>
             CompanyAddDto

@@ -1,16 +1,16 @@
 ﻿using Mix.Desktop.Modules.Enterprise.Views;
+using Mix.Windows.Core.Attributes;
 using Mix.Windows.WPF;
 using Mix.Windows.WPF.Mvvm;
 using Prism.Ioc;
+using Prism.Modularity;
 using Refit;
 using Unity;
 
 namespace Mix.Desktop.Modules.Enterprise
 {
-    //[Module(ModuleName = "EnterpriseModule", OnDemand = true)]
     public class EnterpriseModule : ModuleBase
     {
-
         public EnterpriseModule(IUnityContainer container) : base(container)
         {
         }

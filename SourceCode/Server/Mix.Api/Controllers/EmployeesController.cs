@@ -6,8 +6,10 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Mix.Library.Entities.Databases;
+using Mix.Library.Entities.DtoParameters;
 using Mix.Library.Entities.Dtos;
 using Mix.Library.Repositories;
+using Mix.Library.Services;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -21,6 +23,7 @@ namespace Mix.Api.Controllers
     [Route("api/companies/{companyId}/employees")]
     public class EmployeesController : ControllerBase
     {
+        private readonly IEmployeeService employeeService;
         private readonly ICompanyRepository companyRepository;
         private readonly IEmployeeRepository employeeRepository;
         private readonly IMapper mapper;
@@ -28,31 +31,34 @@ namespace Mix.Api.Controllers
         /// <summary>
         /// 构造器
         /// </summary>
+        /// <param name="employeeService"></param>
         /// <param name="companyRepository"></param>
         /// <param name="employeeRepository"></param>
         /// <param name="mapper"></param>
-        public EmployeesController(ICompanyRepository companyRepository, IEmployeeRepository employeeRepository, IMapper mapper)
+        public EmployeesController(IEmployeeService employeeService, ICompanyRepository companyRepository, IEmployeeRepository employeeRepository, IMapper mapper)
         {
+            this.employeeService = employeeService;
             this.companyRepository = companyRepository;
             this.employeeRepository = employeeRepository;
             this.mapper = mapper;
         }
 
         /// <summary>
-        /// 获取公司下所有员工
+        /// Gets the employees for company.
         /// </summary>
-        /// <param name="companyId"></param>
-        /// <param name="gender"></param>
-        /// <param name="q"></param>
+        /// <param name="companyId">The company identifier.</param>
+        /// <param name="parameters">The parameters.</param>
         /// <returns></returns>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<EmployeeDto>>> GetEmployeesForCompany(Guid companyId, [FromQuery] string gender, string q)
+        public async Task<ActionResult<IEnumerable<EmployeeDto>>> GetEmployeesForCompany(
+            Guid companyId,
+            [FromQuery] EmployeeDtoParameters parameters)
         {
             if (!await companyRepository.Where(t => t.Id.Equals(companyId)).AnyAsync())
                 return NotFound();
 
-            var employees = await employeeRepository.GetEmployeesAsync(companyId, gender, q);
-            return Ok(mapper.Map<IEnumerable<EmployeeDto>>(employees));
+            var employees = await employeeService.GetEmployeesForCompany(companyId, parameters);
+            return Ok(employees);
         }
 
         /// <summary>

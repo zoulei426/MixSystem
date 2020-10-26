@@ -11,7 +11,7 @@
             <seealso cref="T:Mix.Data.Services.ApplicationService" />
             <seealso cref="T:Mix.Library.Services.ICompanyService" />
         </member>
-        <member name="M:Mix.Library.Services.CompanyService.#ctor(Mix.Data.Repositories.IAuditBaseRepository{Mix.Library.Entities.Databases.Company},Mix.Library.Repositories.IEmployeeRepository)">
+        <member name="M:Mix.Library.Services.CompanyService.#ctor(Mix.Library.Repositories.ICompanyRepository,Mix.Library.Repositories.IEmployeeRepository)">
             <summary>
             Initializes a new instance of the <see cref="T:Mix.Library.Services.CompanyService"/> class.
             </summary>
@@ -39,6 +39,29 @@
             <param name="companieCollection">The companie collection.</param>
             <returns></returns>
         </member>
+        <member name="T:Mix.Library.Services.EmployeeService">
+            <summary>
+            EmployeeService
+            </summary>
+            <seealso cref="T:Mix.Library.Services.IEmployeeService" />
+        </member>
+        <member name="M:Mix.Library.Services.EmployeeService.#ctor(Mix.Library.Repositories.ICompanyRepository,Mix.Library.Repositories.IEmployeeRepository,Mix.Core.Mapping.IPropertyMappingService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Library.Services.EmployeeService"/> class.
+            </summary>
+            <param name="companyRepository">The company repository.</param>
+            <param name="employeeRepository">The employee repository.</param>
+            <param name="propertyMappingService"></param>
+        </member>
+        <member name="M:Mix.Library.Services.EmployeeService.GetEmployeesForCompany(System.Guid,Mix.Library.Entities.DtoParameters.EmployeeDtoParameters)">
+            <summary>
+            Gets the employees for company.
+            </summary>
+            <param name="companyId">The company identifier.</param>
+            <param name="parameters">The parameters.</param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
         <member name="T:Mix.Library.Services.ICompanyService">
             <summary>
             ICompanyService
@@ -64,6 +87,38 @@
             </summary>
             <param name="companieCollection">The companie collection.</param>
             <returns></returns>
+        </member>
+        <member name="T:Mix.Library.Services.IEmployeeService">
+            <summary>
+            IEmployeeService
+            </summary>
+        </member>
+        <member name="M:Mix.Library.Services.IEmployeeService.GetEmployeesForCompany(System.Guid,Mix.Library.Entities.DtoParameters.EmployeeDtoParameters)">
+            <summary>
+            Gets the employees for company.
+            </summary>
+            <param name="companyId">The company identifier.</param>
+            <param name="parameters">The parameters.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Library.Services.PropertyMappingService">
+            <summary>
+            属性映射服务
+            </summary>
+        </member>
+        <member name="M:Mix.Library.Services.PropertyMappingService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Library.Services.PropertyMappingService"/> class.
+            </summary>
+        </member>
+        <member name="M:Mix.Library.Services.PropertyMappingService.GetPropertyMapping``2">
+            <summary>
+            Gets the property mapping.
+            </summary>
+            <typeparam name="TSouce">The type of the souce.</typeparam>
+            <typeparam name="TDestination">The type of the destination.</typeparam>
+            <returns></returns>
+            <exception cref="T:System.Exception">无法找到唯一的映射关系：{typeof(TSouce)}，{typeof(TDestination)}</exception>
         </member>
     </members>
 </doc>

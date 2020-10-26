@@ -58,6 +58,11 @@
             The default page size
             </summary>
         </member>
+        <member name="F:Mix.Data.Dtos.DtoParameters.DEFAULT_ORDER_BY">
+            <summary>
+            The default order by
+            </summary>
+        </member>
         <member name="P:Mix.Data.Dtos.DtoParameters.PageNumber">
             <summary>
             Gets or sets the page number.
@@ -72,6 +77,14 @@
             </summary>
             <value>
             The size of the page.
+            </value>
+        </member>
+        <member name="P:Mix.Data.Dtos.DtoParameters.OrderBy">
+            <summary>
+            Gets or sets the order by.
+            </summary>
+            <value>
+            The order by.
             </value>
         </member>
         <member name="M:Mix.Data.Dtos.DtoParameters.#ctor">
@@ -169,12 +182,12 @@
             删除时间
             </summary>
         </member>
-        <member name="T:Mix.Data.FreeSqlExtension">
+        <member name="T:Mix.Data.FreeSqlExtensions">
             <summary>
             FreeSql扩展
             </summary>
         </member>
-        <member name="M:Mix.Data.FreeSqlExtension.AsTable``1(FreeSql.ISelect{``0},System.String,System.Int32)">
+        <member name="M:Mix.Data.FreeSqlExtensions.AsTable``1(FreeSql.ISelect{``0},System.String,System.Int32)">
             <summary>
             Ases the table.
             </summary>
@@ -184,7 +197,7 @@
             <param name="count">The count.</param>
             <returns></returns>
         </member>
-        <member name="M:Mix.Data.FreeSqlExtension.AsTable``1(FreeSql.ISelect{``0},System.String[])">
+        <member name="M:Mix.Data.FreeSqlExtensions.AsTable``1(FreeSql.ISelect{``0},System.String[])">
             <summary>
             Ases the table.
             </summary>
@@ -193,13 +206,22 @@
             <param name="tableNames">The table names.</param>
             <returns></returns>
         </member>
-        <member name="M:Mix.Data.FreeSqlExtension.UseConnectionString(FreeSql.FreeSqlBuilder,Microsoft.Extensions.Configuration.IConfiguration)">
+        <member name="M:Mix.Data.FreeSqlExtensions.UseConnectionString(FreeSql.FreeSqlBuilder,Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
             使用配置文件中的连接字符串
             </summary>
             <param name="this"></param>
             <param name="configuration"></param>
             <returns></returns>
+        </member>
+        <member name="M:Mix.Data.FreeSqlExtensions.ApplySort``1(FreeSql.ISelect{``0},System.String,System.Collections.Generic.Dictionary{System.String,Mix.Core.Mapping.PropertyMappingValue})">
+            <summary>
+            应用排序
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="this">The this.</param>
+            <param name="orderBy">The order by.</param>
+            <param name="mappingDictionary">The mapping dictionary.</param>
         </member>
         <member name="T:Mix.Data.ICurrentUser">
             <summary>
@@ -291,10 +313,20 @@
             <summary>
             Creates the asynchronous.
             </summary>
-            <typeparam name="T"></typeparam>
             <param name="source">The source.</param>
             <param name="pageNumber">The page number.</param>
             <param name="pageSize">Size of the page.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Data.Pagable.PagedList`1.CreateAsync``1(FreeSql.ISelect{``0},System.Int32,System.Int32,AutoMapper.IMapper)">
+            <summary>
+            Creates the asynchronous.
+            </summary>
+            <typeparam name="TInput">The type of the input.</typeparam>
+            <param name="source">The source.</param>
+            <param name="pageNumber">The page number.</param>
+            <param name="pageSize">Size of the page.</param>
+            <param name="mapper">The mapper.</param>
             <returns></returns>
         </member>
         <member name="T:Mix.Data.Pagable.ResourceUriType">

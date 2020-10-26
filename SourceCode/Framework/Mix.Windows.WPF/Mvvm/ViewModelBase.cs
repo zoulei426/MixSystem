@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Localization;
 using Mix.Core;
+using Mix.Core.Log;
 using Mix.Core.Notify;
 using Mix.Windows.Core;
 using Prism.Events;
@@ -61,10 +62,21 @@ namespace Mix.Windows.WPF
         /// </summary>
         protected IConfigureFile ConfigureFile { get; }
 
-        protected Mix.Core.Log.ILogger Logger { get; }
+        /// <summary>
+        /// Gets the logger.
+        /// </summary>
+        /// <value>
+        /// The logger.
+        /// </value>
+        protected ILogger Logger { get; }
 
+        /// <summary>
+        /// Gets the notifier.
+        /// </summary>
+        /// <value>
+        /// The notifier.
+        /// </value>
         protected INotifier Notifier { get; }
-
 
         #endregion Properties
 
@@ -83,7 +95,7 @@ namespace Mix.Windows.WPF
             _RegionManager = container.Resolve<IRegionManager>();
             EventAggregator = container.Resolve<IEventAggregator>();
             ConfigureFile = container.Resolve<IConfigureFile>();
-            Logger = container.Resolve<Mix.Core.Log.ILogger>();
+            Logger = container.Resolve<ILogger>();
             Notifier = container.Resolve<INotifier>();
 
             RegisterCommands();

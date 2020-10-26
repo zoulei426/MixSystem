@@ -4,6 +4,24 @@
         <name>Mix.Windows.Core</name>
     </assembly>
     <members>
+        <member name="T:Mix.Windows.Core.Attributes.PriorityAttribute">
+            <summary>
+            Allows the order of module loading to be controlled.  Where dependencies
+            allow, module loading order will be controlled by relative values of priority
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.Core.Attributes.PriorityAttribute.#ctor(System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="priority">the priority to assign</param>
+        </member>
+        <member name="P:Mix.Windows.Core.Attributes.PriorityAttribute.Priority">
+            <summary>
+            Gets or sets the priority of the module.
+            </summary>
+            <value>The priority of the module.</value>
+        </member>
         <member name="T:Mix.Windows.Core.ConfigureFile">
             <summary>
             配置文件

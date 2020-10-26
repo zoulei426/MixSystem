@@ -20,7 +20,7 @@ namespace Mix.Library.Services
     {
         #region Fields
 
-        private readonly IAuditBaseRepository<Company> companyRepository;
+        private readonly ICompanyRepository companyRepository;
         private readonly IEmployeeRepository employeeRepository;
 
         #endregion Fields
@@ -32,7 +32,7 @@ namespace Mix.Library.Services
         /// </summary>
         /// <param name="companyRepository">The company repository.</param>
         /// <param name="employeeRepository">The employee repository.</param>
-        public CompanyService(IAuditBaseRepository<Company> companyRepository, IEmployeeRepository employeeRepository)
+        public CompanyService(ICompanyRepository companyRepository, IEmployeeRepository employeeRepository)
         {
             this.companyRepository = companyRepository;
             this.employeeRepository = employeeRepository;
@@ -56,7 +56,6 @@ namespace Mix.Library.Services
                 parameters.PageNumber,
                 parameters.PageSize,
                 Mapper);
-
 
             return pagedCompanies;
         }

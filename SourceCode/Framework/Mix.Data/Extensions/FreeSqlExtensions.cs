@@ -1,5 +1,6 @@
 ﻿using FreeSql;
 using Microsoft.Extensions.Configuration;
+using Mix.Core;
 using System;
 using System.Diagnostics;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace Mix.Data
     /// <summary>
     /// FreeSql扩展
     /// </summary>
-    public static class FreeSqlExtension
+    public static class FreeSqlExtensions
     {
         /// <summary>
         /// Ases the table.
@@ -74,6 +75,62 @@ namespace Mix.Data
                 Trace.WriteLine($"数据库配置ConnectionStrings:DefaultDB:{dbTypeCode.Value}无效");
                 //Log.Error($"数据库配置ConnectionStrings:DefaultDB:{dbTypeCode.Value}无效");
             }
+            return @this;
+        }
+
+        /// <summary>
+        /// 应用排序
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="this">The this.</param>
+        /// <param name="orderBy">The order by.</param>
+        /// <param name="mappingDictionary">The mapping dictionary.</param>
+        public static ISelect<T> ApplySort<T>(this ISelect<T> @this, string orderBy, System.Collections.Generic.Dictionary<string, Core.Mapping.PropertyMappingValue> mappingDictionary) where T : class
+        {
+            Guards.ThrowIfNull(@this);
+            Guards.ThrowIfNull(mappingDictionary);
+
+            if (orderBy.IsNullOrWhiteSpace())
+            {
+                return @this;
+            }
+
+            var orderBySplited = orderBy.Split(",");
+            orderBySplited.Reverse();
+            foreach (var orderByClause in orderBySplited)
+            {
+                var orderByClauseTrimmed = orderByClause.Trim();
+                var orderDescending = orderByClauseTrimmed.EndsWith(" desc"); // 是否倒序
+                var indexOfFirstSpace = orderByClauseTrimmed.IndexOf(" ");
+
+                var propertyName = indexOfFirstSpace == -1
+                    ? orderByClauseTrimmed
+                    : orderByClauseTrimmed.Remove(indexOfFirstSpace);
+
+                if (!mappingDictionary.ContainsKey(propertyName))
+                {
+                    //throw new Exception($"未找到Key为{propertyName}的映射");
+                    @this = @this.OrderBy(propertyName.ToSnakeCase() + (orderDescending
+                        ? " desc" : ""));
+                    continue;
+                }
+
+                var propertyMappingValue = mappingDictionary[propertyName];
+
+                Guards.ThrowIfNull(propertyMappingValue);
+
+                foreach (var destinationProperty in propertyMappingValue.DestinationProperties.Reverse())
+                {
+                    if (propertyMappingValue.Revert)
+                    {
+                        orderDescending = !orderDescending;
+                    }
+
+                    @this = @this.OrderBy(destinationProperty.ToSnakeCase() + (orderDescending
+                        ? " desc" : ""));
+                }
+            }
+
             return @this;
         }
     }

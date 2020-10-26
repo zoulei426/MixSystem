@@ -1,10 +1,14 @@
-﻿namespace Mix.Data.Dtos
+﻿using System.Collections;
+
+namespace Mix.Data.Dtos
 {
     /// <summary>
     /// Dto Parameters
     /// </summary>
     public class DtoParameters
     {
+        #region Consts
+
         /// <summary>
         /// The maximum page size
         /// </summary>
@@ -20,11 +24,20 @@
         /// </summary>
         protected const int DEFAULT_PAGE_SIZE = 10;
 
+        /// <summary>
+        /// The default order by
+        /// </summary>
+        protected const string DEFAULT_ORDER_BY = "Name";
+
+        #endregion Consts
+
         #region Fields
 
         private int _pageSize;
 
         #endregion Fields
+
+        #region Properties
 
         /// <summary>
         /// Gets or sets the page number.
@@ -47,12 +60,27 @@
         }
 
         /// <summary>
+        /// Gets or sets the order by.
+        /// </summary>
+        /// <value>
+        /// The order by.
+        /// </value>
+        public string OrderBy { get; set; }
+
+        #endregion Properties
+
+        #region Ctor
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="DtoParameters"/> class.
         /// </summary>
         public DtoParameters()
         {
             PageNumber = DEFAULT_PAGE_NUMBER;
             PageSize = DEFAULT_PAGE_SIZE;
+            OrderBy = DEFAULT_ORDER_BY;
         }
+
+        #endregion Ctor
     }
 }
