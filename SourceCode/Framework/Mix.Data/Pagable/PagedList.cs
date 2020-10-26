@@ -1,4 +1,5 @@
-﻿using FreeSql;
+﻿using AutoMapper;
+using FreeSql;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,6 +69,7 @@ namespace Mix.Data.Pagable
 
         #region Ctor
 
+      
         /// <summary>
         /// Initializes a new instance of the <see cref="PagedList{T}"/> class.
         /// </summary>
@@ -115,6 +117,13 @@ namespace Mix.Data.Pagable
             var count = await source.CountAsync();
             var items = await source.Page(pageNumber, pageSize).ToListAsync();
             return new PagedList<T>(items, count, pageNumber, pageSize);
+        }
+
+        public static async Task<PagedList<T>> CreateAsync<TInput>(ISelect<TInput> source, int pageNumber, int pageSize, IMapper mapper) where TInput : class
+        {
+            var count = await source.CountAsync();
+            var items = await source.Page(pageNumber, pageSize).ToListAsync();
+            return new PagedList<T>(mapper.Map<List<T>>(items), count, pageNumber, pageSize);
         }
 
         #endregion Methods

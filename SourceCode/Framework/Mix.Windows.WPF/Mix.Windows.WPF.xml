@@ -441,70 +441,6 @@
             Called when [unselected].
             </summary>
         </member>
-        <member name="T:Mix.Windows.WPF.IViewLoadedAndUnloadedAware">
-            <summary>
-            IViewLoadedAndUnloadedAware
-            </summary>
-        </member>
-        <member name="M:Mix.Windows.WPF.IViewLoadedAndUnloadedAware.OnLoaded">
-            <summary>
-            Called when [loaded].
-            </summary>
-        </member>
-        <member name="M:Mix.Windows.WPF.IViewLoadedAndUnloadedAware.OnUnloaded">
-            <summary>
-            Called when [unloaded].
-            </summary>
-        </member>
-        <member name="T:Mix.Windows.WPF.IViewLoadedAndUnloadedAware`1">
-            <summary>
-            IViewLoadedAndUnloadedAware
-            </summary>
-            <typeparam name="TView">The type of the view.</typeparam>
-        </member>
-        <member name="M:Mix.Windows.WPF.IViewLoadedAndUnloadedAware`1.OnLoaded(`0)">
-            <summary>
-            Called when [loaded].
-            </summary>
-            <param name="view">The view.</param>
-        </member>
-        <member name="M:Mix.Windows.WPF.IViewLoadedAndUnloadedAware`1.OnUnloaded(`0)">
-            <summary>
-            Called when [unloaded].
-            </summary>
-            <param name="view">The view.</param>
-        </member>
-        <member name="T:Mix.Windows.WPF.IViewModelResolver">
-            <summary>
-            IViewModelResolver
-            </summary>
-        </member>
-        <member name="M:Mix.Windows.WPF.IViewModelResolver.ResolveViewModelForView(System.Object,System.Type)">
-            <summary>
-            Resolves the view model for view.
-            </summary>
-            <param name="view">The view.</param>
-            <param name="viewModelType">Type of the view model.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Mix.Windows.WPF.IViewModelResolver.IfInheritsFrom``2(System.Action{``0,``1,Prism.Ioc.IContainerProvider})">
-            <summary>
-            Ifs the inherits from.
-            </summary>
-            <typeparam name="TView">The type of the view.</typeparam>
-            <typeparam name="TViewModel">The type of the view model.</typeparam>
-            <param name="configuration">The configuration.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Mix.Windows.WPF.IViewModelResolver.IfInheritsFrom``1(System.Type,System.Action{``0,System.Object,Mix.Windows.Core.IGenericInterface,Prism.Ioc.IContainerProvider})">
-            <summary>
-            Ifs the inherits from.
-            </summary>
-            <typeparam name="TView">The type of the view.</typeparam>
-            <param name="genericInterfaceType">Type of the generic interface.</param>
-            <param name="configuration">The configuration.</param>
-            <returns></returns>
-        </member>
         <member name="T:Mix.Windows.WPF.Localizations.LocalizerExtension">
             <summary>
             国际化Markup
@@ -645,72 +581,69 @@
             The result of the conversion.
             </returns>
         </member>
-        <member name="T:Mix.Windows.WPF.ProcessController">
+        <member name="T:Mix.Windows.WPF.IViewLoadedAndUnloadedAware">
             <summary>
-            ProcessController
+            IViewLoadedAndUnloadedAware
             </summary>
         </member>
-        <member name="M:Mix.Windows.WPF.ProcessController.OnWindowLoaded(System.Object,System.Windows.RoutedEventArgs)">
+        <member name="M:Mix.Windows.WPF.IViewLoadedAndUnloadedAware.OnLoaded">
             <summary>
-            Called when [window loaded].
-            </summary>
-            <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:Mix.Windows.WPF.ProcessController.Restart">
-            <summary>
-            Restarts this instance.
+            Called when [loaded].
             </summary>
         </member>
-        <member name="M:Mix.Windows.WPF.ProcessController.CheckSingleton">
+        <member name="M:Mix.Windows.WPF.IViewLoadedAndUnloadedAware.OnUnloaded">
             <summary>
-            Checks the singleton.
+            Called when [unloaded].
             </summary>
         </member>
-        <member name="M:Mix.Windows.WPF.ProcessController.ActivateExistedWindow">
+        <member name="T:Mix.Windows.WPF.IViewLoadedAndUnloadedAware`1">
             <summary>
-            Activates the existed window.
+            IViewLoadedAndUnloadedAware
+            </summary>
+            <typeparam name="TView">The type of the view.</typeparam>
+        </member>
+        <member name="M:Mix.Windows.WPF.IViewLoadedAndUnloadedAware`1.OnLoaded(`0)">
+            <summary>
+            Called when [loaded].
+            </summary>
+            <param name="view">The view.</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.IViewLoadedAndUnloadedAware`1.OnUnloaded(`0)">
+            <summary>
+            Called when [unloaded].
+            </summary>
+            <param name="view">The view.</param>
+        </member>
+        <member name="T:Mix.Windows.WPF.IViewModelResolver">
+            <summary>
+            IViewModelResolver
             </summary>
         </member>
-        <member name="T:Mix.Windows.WPF.ShellManager">
+        <member name="M:Mix.Windows.WPF.IViewModelResolver.ResolveViewModelForView(System.Object,System.Type)">
             <summary>
-            Shell管理器
+            Resolves the view model for view.
             </summary>
+            <param name="view">The view.</param>
+            <param name="viewModelType">Type of the view model.</param>
+            <returns></returns>
         </member>
-        <member name="M:Mix.Windows.WPF.ShellManager.Show``1(``0)">
+        <member name="M:Mix.Windows.WPF.IViewModelResolver.IfInheritsFrom``2(System.Action{``0,``1,Prism.Ioc.IContainerProvider})">
             <summary>
-            Shows the specified window.
+            Ifs the inherits from.
             </summary>
-            <typeparam name="T"></typeparam>
-            <param name="window">The window.</param>
+            <typeparam name="TView">The type of the view.</typeparam>
+            <typeparam name="TViewModel">The type of the view model.</typeparam>
+            <param name="configuration">The configuration.</param>
+            <returns></returns>
         </member>
-        <member name="M:Mix.Windows.WPF.ShellManager.Close``1">
+        <member name="M:Mix.Windows.WPF.IViewModelResolver.IfInheritsFrom``1(System.Type,System.Action{``0,System.Object,Mix.Windows.Core.IGenericInterface,Prism.Ioc.IContainerProvider})">
             <summary>
-            Closes this instance.
+            Ifs the inherits from.
             </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="M:Mix.Windows.WPF.ShellManager.Switch``2">
-            <summary>
-            Switches this instance.
-            </summary>
-            <typeparam name="TClose">The type of the close.</typeparam>
-            <typeparam name="TShow">The type of the show.</typeparam>
-        </member>
-        <member name="T:Mix.Windows.WPF.SyetemRegionNames">
-            <summary>
-            系统区域名称
-            </summary>
-        </member>
-        <member name="F:Mix.Windows.WPF.SyetemRegionNames.MainTabRegion">
-            <summary>
-            The region of the main user interface.
-            </summary>
-        </member>
-        <member name="F:Mix.Windows.WPF.SyetemRegionNames.SettingsTabRegion">
-            <summary>
-            The region of the user setting interface.
-            </summary>
+            <typeparam name="TView">The type of the view.</typeparam>
+            <param name="genericInterfaceType">Type of the generic interface.</param>
+            <param name="configuration">The configuration.</param>
+            <returns></returns>
         </member>
         <member name="T:Mix.Windows.WPF.ViewModelBase">
             <summary>
@@ -873,6 +806,73 @@
             <param name="genericInterfaceType">Type of the generic interface.</param>
             <param name="configuration">The configuration.</param>
             <returns></returns>
+        </member>
+        <member name="T:Mix.Windows.WPF.ProcessController">
+            <summary>
+            ProcessController
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.WPF.ProcessController.OnWindowLoaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Called when [window loaded].
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.ProcessController.Restart">
+            <summary>
+            Restarts this instance.
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.WPF.ProcessController.CheckSingleton">
+            <summary>
+            Checks the singleton.
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.WPF.ProcessController.ActivateExistedWindow">
+            <summary>
+            Activates the existed window.
+            </summary>
+        </member>
+        <member name="T:Mix.Windows.WPF.ShellManager">
+            <summary>
+            Shell管理器
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.WPF.ShellManager.Show``1(``0)">
+            <summary>
+            Shows the specified window.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="window">The window.</param>
+        </member>
+        <member name="M:Mix.Windows.WPF.ShellManager.Close``1">
+            <summary>
+            Closes this instance.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Mix.Windows.WPF.ShellManager.Switch``2">
+            <summary>
+            Switches this instance.
+            </summary>
+            <typeparam name="TClose">The type of the close.</typeparam>
+            <typeparam name="TShow">The type of the show.</typeparam>
+        </member>
+        <member name="T:Mix.Windows.WPF.SystemRegionNames">
+            <summary>
+            系统区域名称
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.WPF.SystemRegionNames.MainTabRegion">
+            <summary>
+            The region of the main user interface.
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.WPF.SystemRegionNames.SettingsTabRegion">
+            <summary>
+            The region of the user setting interface.
+            </summary>
         </member>
     </members>
 </doc>

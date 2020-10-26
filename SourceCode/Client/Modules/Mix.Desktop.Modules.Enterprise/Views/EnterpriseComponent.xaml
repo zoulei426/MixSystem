@@ -1,0 +1,44 @@
+﻿<TabItem x:Class="Mix.Desktop.Modules.Enterprise.Views.EnterpriseComponent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Mix.Desktop.Modules.Enterprise.Views"
+             xmlns:wpf="clr-namespace:Mix.Windows.WPF;assembly=Mix.Windows.WPF"
+             xmlns:i18n="clr-namespace:Mix.Windows.WPF.Localizations;assembly=Mix.Windows.WPF"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:vm="clr-namespace:Mix.Desktop.Modules.Enterprise.ViewModels"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d" >
+    <TabItem.Header>
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="2"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <md:PackIcon Kind="FolderMultiple" HorizontalAlignment="Center" Height="18" Width="18"/>
+            <TextBlock Grid.Row="2" Text="Enterprise" HorizontalAlignment="Center" FontSize="10"/>
+        </Grid>
+    </TabItem.Header>
+
+    <StackPanel Grid.Column="1" Orientation="Vertical">
+ 
+        <TextBlock Text="{i18n:Localizer Company List}" />
+        <DataGrid ItemsSource="{Binding Companies}"
+                          SelectedItem="{Binding CurrentCompany}"
+                          CanUserAddRows="False"
+                          AutoGenerateColumns="True"></DataGrid>
+
+        <StackPanel>
+            <TextBox Text="{Binding CurrentCompany.Name}" />
+            <Button Command="{Binding GetEmployeesForCompanyCommand}" Content="{i18n:Localizer Get Employee List}" />
+        </StackPanel>
+
+        <TextBlock Text="{i18n:Localizer Employee List}" />
+        <DataGrid ItemsSource="{Binding Employees}"
+                          CanUserAddRows="False"
+                          AutoGenerateColumns="True"></DataGrid>
+    </StackPanel>
+</TabItem>

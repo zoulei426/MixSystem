@@ -5,6 +5,7 @@ using Mix.Windows.Core;
 using Mix.Windows.WPF;
 using Mix.Windows.WPF.Localizations;
 using Prism.Ioc;
+using Prism.Modularity;
 using Prism.Mvvm;
 using Serilog;
 using Serilog.Events;
@@ -47,7 +48,11 @@ namespace Mix.Desktop
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
             //Task线程内未捕获异常处理事件
             TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
+
+            Exit += App_Exit;
         }
+
+       
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
@@ -72,6 +77,11 @@ namespace Mix.Desktop
         {
             InitializeCultureInfo();
             return Container.Resolve<LoginWindow>();
+        }
+
+        protected override IModuleCatalog CreateModuleCatalog()
+        {
+            return new DirectoryModuleCatalog { ModulePath = @".\Modules" };
         }
 
         #endregion Methods - Override
@@ -108,7 +118,7 @@ namespace Mix.Desktop
             Exception ex = e.Exception;
             MessageBox.Show($"程序运行出错，原因：{ex.Message}-{ex.InnerException?.Message}",
                 "系统提示", MessageBoxButton.OK, MessageBoxImage.Error);
-            Container.Resolve<ILogger>().Error(ex.Message, ex);
+            Log.Error(ex.Message, ex);
             e.Handled = true;
         }
 
@@ -123,7 +133,7 @@ namespace Mix.Desktop
             {
                 MessageBox.Show($"程序组件出错，原因：{ex.Message}",
                     "系统提示", MessageBoxButton.OK, MessageBoxImage.Error);
-                Container.Resolve<ILogger>().Error(ex.Message, ex);
+                Log.Error(ex.Message, ex);
             }
         }
 
@@ -137,9 +147,14 @@ namespace Mix.Desktop
             Exception ex = e.Exception;
             MessageBox.Show($"执行任务出错，原因：{ex.Message}",
                 "系统提示", MessageBoxButton.OK, MessageBoxImage.Error);
-            Container.Resolve<ILogger>().Error(ex.Message, ex);
+            Log.Error(ex.Message, ex);
             //设置该异常已察觉
             e.SetObserved();
+        }
+
+        private void App_Exit(object sender, ExitEventArgs e)
+        {
+            Log.CloseAndFlush();
         }
 
         #endregion Methods - Private

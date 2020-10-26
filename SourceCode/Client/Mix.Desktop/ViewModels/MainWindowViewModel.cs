@@ -1,12 +1,12 @@
-﻿using Mix.Desktop.WebApis;
-using Mix.Library.Entities.Dtos;
-using Mix.Windows.WPF;
+﻿using Mix.Windows.WPF;
 using Mix.Windows.WPF.Commands;
 using Prism.Commands;
 using Prism.Ioc;
 using Refit;
 using System;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.Linq;
 using System.Windows.Input;
 
 namespace Mix.Desktop
@@ -15,35 +15,30 @@ namespace Mix.Desktop
     {
         #region Properties
 
-        public ObservableCollection<CompanyDto> Companies
+        public bool AppStoreIsDisplayed
         {
-            get { return _Companies; }
-            set { SetProperty(ref _Companies, value); }
+            get { return _AppStoreIsDisplayed; }
+            set
+            {
+                if (_AppStoreIsDisplayed) return;
+                if (!SetProperty(ref _AppStoreIsDisplayed, value)) return;
+
+                var region = RegionManager.Regions[SystemRegionNames.MainTabRegion];
+                foreach (var activeView in region.ActiveViews)
+                {
+                    region.Deactivate(activeView);
+                }
+            }
         }
+        private bool _AppStoreIsDisplayed;
 
-        private ObservableCollection<CompanyDto> _Companies;
 
-        public CompanyDto CurrentCompany
-        {
-            get { return _CurrentCompany; }
-            set { SetProperty(ref _CurrentCompany, value); }
-        }
-
-        private CompanyDto _CurrentCompany;
-
-        public ObservableCollection<EmployeeDto> Employees
-        {
-            get { return _Employees; }
-            set { SetProperty(ref _Employees, value); }
-        }
-
-        private ObservableCollection<EmployeeDto> _Employees;
 
         #endregion Properties
 
         #region Fileds
 
-        private readonly IMixApi mixApi;
+        
 
         #endregion Fileds
 
@@ -51,7 +46,6 @@ namespace Mix.Desktop
 
         public ICommand LogoutCommand { get; set; }
 
-        public ICommand GetEmployeesForCompanyCommand { get; set; }
 
         #endregion Commands
 
@@ -59,9 +53,7 @@ namespace Mix.Desktop
 
         public MainWindowViewModel(IContainerExtension container) : base(container)
         {
-            mixApi = RestService.For<IMixApi>("https://localhost:5002");
-            Companies = new ObservableCollection<CompanyDto>();
-            Employees = new ObservableCollection<EmployeeDto>();
+           
         }
 
         #endregion Ctor
@@ -75,36 +67,31 @@ namespace Mix.Desktop
                 ShellManager.Switch<MainWindow, LoginWindow>();
             });
 
-            GetEmployeesForCompanyCommand = new RelayCommand(ExecuteGetEmployeesForCompany, CanGetEmployeesForCompany);
         }
 
-        public async void OnLoaded()
+        public void OnLoaded()
         {
-            var result = await mixApi.GetCompaniesAsync();
-            foreach (var item in result)
-            {
-                Companies.Add(item);
-            }
+            if (RegionManager.Regions.Count() == 0) return;
+            var region = RegionManager.Regions[SystemRegionNames.MainTabRegion];
+            region.ActiveViews.CollectionChanged += OnActiveViewsChanged;
+            if (!region.Views.Any()) AppStoreIsDisplayed = true;
+
+
         }
 
         public void OnUnloaded()
         {
         }
 
-        private bool CanGetEmployeesForCompany()
+        private void OnActiveViewsChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            return CurrentCompany is not null;
-        }
+            if (e.Action != NotifyCollectionChangedAction.Add) return;
 
-        private async void ExecuteGetEmployeesForCompany()
-        {
-            Employees.Clear();
-            var result = await mixApi.GetEmployeesForCompany(CurrentCompany.Id);
-            foreach (var item in result)
-            {
-                Employees.Add(item);
-            }
+            _AppStoreIsDisplayed = false;
+            RaisePropertyChanged(nameof(AppStoreIsDisplayed));
         }
+        
+
 
         #endregion Methods
     }

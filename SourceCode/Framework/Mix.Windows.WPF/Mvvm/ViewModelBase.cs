@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Logging;
 using Mix.Core;
 using Mix.Windows.Core;
 using Prism.Events;
@@ -60,6 +61,7 @@ namespace Mix.Windows.WPF
         /// </summary>
         protected IConfigureFile ConfigureFile { get; }
 
+
         #endregion Properties
 
         #region Ctor
@@ -76,7 +78,6 @@ namespace Mix.Windows.WPF
             _DialogService = container.Resolve<IDialogService>();
             _RegionManager = container.Resolve<IRegionManager>();
             EventAggregator = container.Resolve<IEventAggregator>();
-            //Logger = container.Resolve<ILogger>();
             ConfigureFile = Container.Resolve<IConfigureFile>();
 
             RegisterCommands();

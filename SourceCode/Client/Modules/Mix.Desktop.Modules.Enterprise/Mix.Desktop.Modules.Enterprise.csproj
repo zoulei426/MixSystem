@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>Mix.Desktop.Modules.Enterprise</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignColors" Version="1.2.7" />
+    <PackageReference Include="MaterialDesignThemes" Version="3.2.0" />
+    <PackageReference Include="Prism.Unity" Version="8.0.0.1909" />
+    <PackageReference Include="Refit" Version="5.2.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Framework\Mix.Core\Mix.Core.csproj" />
+    <ProjectReference Include="..\..\..\Framework\Mix.Data\Mix.Data.csproj" />
+    <ProjectReference Include="..\..\..\Framework\Mix.Resources\Mix.Resources.csproj" />
+    <ProjectReference Include="..\..\..\Framework\Mix.Windows.Controls\Mix.Windows.Controls.csproj" />
+    <ProjectReference Include="..\..\..\Framework\Mix.Windows.Core\Mix.Windows.Core.csproj" />
+    <ProjectReference Include="..\..\..\Framework\Mix.Windows.WPF\Mix.Windows.WPF.csproj" />
+    <ProjectReference Include="..\..\..\Libraries\Mix.Library.Entity\Mix.Library.Entities.csproj" />
+    <ProjectReference Include="..\..\..\Libraries\Mix.Library.Repository\Mix.Library.Repositories.csproj" />
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy  &quot;$(TargetPath)&quot; &quot;$(SolutionDir)SourceCode\Client\Build\$(OutDir)Modules\&quot; /s /e /y" />
+  </Target>
+</Project>

@@ -27,13 +27,14 @@
 
             <TabControl Grid.Column="0" Grid.ColumnSpan="2" SelectedIndex="0"
                         Style="{StaticResource MainTabControlStyle}" ItemContainerStyle="{StaticResource MainTabItemStyle}"
-                        prism:RegionManager.RegionName="{x:Static wpf:SyetemRegionNames.MainTabRegion}" />
+                        prism:RegionManager.RegionName="{x:Static wpf:SystemRegionNames.MainTabRegion}" />
 
             <Button Command="{Binding LogoutCommand}" Content="{i18n:Localizer Logout}" />
 
             <StackPanel Grid.Column="0" VerticalAlignment="Bottom">
                 <ToggleButton x:Name="AppStoreToggleButton" Height="56"
-                              Style="{StaticResource LeftBarAndUnderlineToggleButtonStyle}">
+                              Style="{StaticResource LeftBarAndUnderlineToggleButtonStyle}"
+                              IsChecked="{Binding AppStoreIsDisplayed}">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="25" />
@@ -68,7 +69,7 @@
                       DisplayMemberPath="NativeName" />
             </StackPanel>
 
-            <TabControl Grid.Column="1">
+            <!--<TabControl Grid.Column="1">
                 <TabItem Header="首页">
                     <StackPanel Grid.Column="1" Orientation="Vertical">
 
@@ -89,10 +90,7 @@
                           AutoGenerateColumns="True"></DataGrid>
                     </StackPanel>
                 </TabItem>
-                <!--<TabItem Header="特效">
-                    <WebBrowser Source="https://www.html5tricks.com/demo/html5-canvas-3d-background/index.html"></WebBrowser>
-                </TabItem>-->
-            </TabControl>
+            </TabControl>-->
         </Grid>
     </md:DialogHost>
 </Window>

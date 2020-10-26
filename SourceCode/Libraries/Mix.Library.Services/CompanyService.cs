@@ -51,12 +51,14 @@ namespace Mix.Library.Services
         {
             Guards.ThrowIfNull(parameters);
 
-            var pagedCompanies = await PagedList<Company>.CreateAsync(
+            var pagedCompanies = await PagedList<CompanyDto>.CreateAsync(
                 companyRepository.Select,
                 parameters.PageNumber,
-                parameters.PageSize);
+                parameters.PageSize,
+                Mapper);
 
-            return Mapper.Map<PagedList<CompanyDto>>(pagedCompanies);
+
+            return pagedCompanies;
         }
 
         /// <summary>
