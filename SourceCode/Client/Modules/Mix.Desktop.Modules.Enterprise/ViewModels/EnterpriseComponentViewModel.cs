@@ -3,13 +3,7 @@ using Mix.Library.Entities.Dtos;
 using Mix.Windows.WPF;
 using Mix.Windows.WPF.Commands;
 using Prism.Ioc;
-using Refit;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Mix.Desktop.Modules.Enterprise.ViewModels
@@ -56,11 +50,10 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
 
         public EnterpriseComponentViewModel(IContainerExtension container) : base(container)
         {
-            //mixApi = RestService.For<IMixApi>("https://localhost:5002");
             mixApi = Container.Resolve<IMixApi>();
             Companies = new ObservableCollection<CompanyDto>();
             Employees = new ObservableCollection<EmployeeDto>();
-            
+
         }
         #endregion
 
@@ -68,7 +61,7 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
 
         protected override void RegisterCommands()
         {
-           
+
 
             GetEmployeesForCompanyCommand = new RelayCommand(ExecuteGetEmployeesForCompany, CanGetEmployeesForCompany);
         }

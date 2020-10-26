@@ -405,27 +405,6 @@
             <returns>The submitted item's parent, if available. Otherwise
             null.</returns>
         </member>
-        <member name="T:Mix.Windows.WPF.INotificable">
-            <summary>
-            INotificable
-            </summary>
-        </member>
-        <member name="M:Mix.Windows.WPF.INotificable.Info(System.String)">
-            <summary>
-            Informations the specified message.
-            </summary>
-            <param name="message">The message.</param>
-        </member>
-        <member name="M:Mix.Windows.WPF.INotificable.Error">
-            <summary>
-            Errors this instance.
-            </summary>
-        </member>
-        <member name="M:Mix.Windows.WPF.INotificable.Ask">
-            <summary>
-            Asks this instance.
-            </summary>
-        </member>
         <member name="T:Mix.Windows.WPF.ITabItemSelectionChangedAware">
             <summary>
             ITabItemSelectionChangedAware
@@ -644,6 +623,11 @@
             <param name="genericInterfaceType">Type of the generic interface.</param>
             <param name="configuration">The configuration.</param>
             <returns></returns>
+        </member>
+        <member name="P:Mix.Windows.WPF.Mvvm.ModuleBase.RegionManager">
+            <summary>
+            区域管理器
+            </summary>
         </member>
         <member name="T:Mix.Windows.WPF.ViewModelBase">
             <summary>

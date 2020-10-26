@@ -1,6 +1,5 @@
 ﻿using Grpc.Core;
 using Grpc.Net.Client;
-using Mix.Windows.Controls;
 using Mix.Windows.WPF;
 using Mix.Windows.WPF.Commands;
 using Prism.Ioc;
@@ -148,7 +147,7 @@ namespace Mix.Desktop
             {
                 //Password = string.Empty;
 
-                Notify.Success(Localizer["Register Success"].Value);
+                Notifier.Success(Localizer["Register Success"].Value);
                 EventAggregator.GetEvent<SignUpSuccessEvent>().Publish(new SignUpArgs
                 {
                     Username = Email,

@@ -40,16 +40,8 @@ namespace Mix.Windows.WPF
 
                 view.Loaded += (sender, args) => onLoadedMethod(sender);
                 view.Unloaded += (sender, args) => onUnloadedMethod(sender);
-            })
-            .IfInheritsFrom<INotificable>((view, viewModel, container) =>
-            {
-                //viewModel.GlobalMessageQueue = container.Resolve<ISnackbarMessageQueue>();
             });
 
-        //.IfInheritsFrom<IAwareTabItemSelectionChanged>((view, viewModel) =>
-        //{
-        //    TabControlHelper.SetAwareSelectionChanged(view, true);
-        //});
 
         /// <summary>
         /// Ifs the inherits from.

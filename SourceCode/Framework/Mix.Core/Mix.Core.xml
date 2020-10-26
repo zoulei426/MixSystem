@@ -511,6 +511,22 @@
             <param name="propertyExpression">The property expression.</param>
             <returns></returns>
         </member>
+        <member name="T:Mix.Core.Notify.INotifier">
+            <summary>
+            通知器
+            </summary>
+        </member>
+        <member name="M:Mix.Core.Notify.INotifier.Info(System.String)">
+            <summary>
+            Informations the specified message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Mix.Core.Notify.INotifier.Error(System.String)">
+            <summary>
+            Errors this instance.
+            </summary>
+        </member>
         <member name="T:Mix.Core.BindableObject">
             <summary>
             INotifyPropertyChanged实现类

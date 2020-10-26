@@ -1,6 +1,25 @@
-﻿using Microsoft.Extensions.Localization;
+﻿/*
+ *  ┌─────────────────────────────────────────────────────────────┐
+ *  │┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐│
+ *  ││Esc│!1 │@2 │#3 │$4 │%5 │^6 │&7 │*8 │(9 │)0 │_- │+= │|\ │`~ ││
+ *  │├───┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴───┤│
+ *  ││ Tab │ Q │ W │ E │ R │ T │ Y │ U │ I │ O │ P │{[ │}] │ BS  ││
+ *  │├─────┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴─────┤│
+ *  ││ Ctrl │ A │ S │ D │ F │ G │ H │ J │ K │ L │: ;│" '│ Enter  ││
+ *  │├──────┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴────┬───┤│
+ *  ││ Shift  │ Z │ X │ C │ V │ B │ N │ M │< ,│> .│? /│Shift │Fn ││
+ *  │└─────┬──┴┬──┴──┬┴───┴───┴───┴───┴───┴──┬┴───┴┬──┴┬─────┴───┘│
+ *  │      │Fn │ Alt │         Space         │ Alt │Win│   HHKB   │
+ *  │      └───┴─────┴───────────────────────┴─────┴───┘          │
+ *  └─────────────────────────────────────────────────────────────┘
+ */
+
+using Microsoft.Extensions.Localization;
 using Mix.Core;
 using Mix.Core.Localization.Json;
+using Mix.Core.Log;
+using Mix.Core.Notify;
+using Mix.Windows.Controls;
 using Mix.Windows.Core;
 using Mix.Windows.WPF;
 using Mix.Windows.WPF.Localizations;
@@ -42,6 +61,7 @@ namespace Mix.Desktop
                       rollingInterval: RollingInterval.Day)
              .CreateLogger();
 
+
             //UI线程未捕获异常处理事件
             DispatcherUnhandledException += App_DispatcherUnhandledException;
             //非UI线程未捕获异常处理事件
@@ -52,7 +72,7 @@ namespace Mix.Desktop
             Exit += App_Exit;
         }
 
-       
+
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
@@ -61,6 +81,8 @@ namespace Mix.Desktop
             containerRegistry.RegisterInstance(typeof(IStringLocalizer), typeof(Mix.Core.Localization.Json.Internal.StringLocalizer));
 
             containerRegistry.RegisterInstance(new ConfigureFile().Load());
+            containerRegistry.RegisterSingleton<Core.Log.ILogger, Logger>();
+            containerRegistry.RegisterSingleton<INotifier, Notifier>();
         }
 
         protected override void ConfigureViewModelLocator()
@@ -118,7 +140,8 @@ namespace Mix.Desktop
             Exception ex = e.Exception;
             MessageBox.Show($"程序运行出错，原因：{ex.Message}-{ex.InnerException?.Message}",
                 "系统提示", MessageBoxButton.OK, MessageBoxImage.Error);
-            Log.Error(ex.Message, ex);
+            //Log.Error(ex.Message, ex);
+            Container.Resolve<Core.Log.ILogger>().Error(ex.Message, ex);
             e.Handled = true;
         }
 
@@ -133,7 +156,8 @@ namespace Mix.Desktop
             {
                 MessageBox.Show($"程序组件出错，原因：{ex.Message}",
                     "系统提示", MessageBoxButton.OK, MessageBoxImage.Error);
-                Log.Error(ex.Message, ex);
+                //Log.Error(ex.Message, ex);
+                Container.Resolve<Core.Log.ILogger>().Error(ex.Message, ex);
             }
         }
 
@@ -147,7 +171,8 @@ namespace Mix.Desktop
             Exception ex = e.Exception;
             MessageBox.Show($"执行任务出错，原因：{ex.Message}",
                 "系统提示", MessageBoxButton.OK, MessageBoxImage.Error);
-            Log.Error(ex.Message, ex);
+            //Log.Error(ex.Message, ex);
+            Container.Resolve<Core.Log.ILogger>().Error(ex.Message, ex);
             //设置该异常已察觉
             e.SetObserved();
         }

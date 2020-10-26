@@ -1,9 +1,9 @@
-﻿namespace Mix.Windows.WPF
+﻿namespace Mix.Core.Notify
 {
     /// <summary>
-    /// INotificable
+    /// 通知器
     /// </summary>
-    public interface INotificable
+    public interface INotifier
     {
         /// <summary>
         /// Informations the specified message.
@@ -11,14 +11,18 @@
         /// <param name="message">The message.</param>
         void Info(string message);
 
+        void Success(string message);
+
+        void Warning(string message);
+
         /// <summary>
         /// Errors this instance.
         /// </summary>
-        void Error();
+        void Error(string message);
 
         /// <summary>
         /// Asks this instance.
         /// </summary>
-        void Ask();
+        //void Ask();
     }
 }

@@ -1,10 +1,6 @@
 ﻿using Mix.Windows.WPF;
-using Mix.Windows.WPF.Commands;
 using Prism.Commands;
 using Prism.Ioc;
-using Refit;
-using System;
-using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Windows.Input;
@@ -23,6 +19,8 @@ namespace Mix.Desktop
                 if (_AppStoreIsDisplayed) return;
                 if (!SetProperty(ref _AppStoreIsDisplayed, value)) return;
 
+                if (!RegionManager.Regions.ContainsRegionWithName(SystemRegionNames.MainTabRegion)) return;
+
                 var region = RegionManager.Regions[SystemRegionNames.MainTabRegion];
                 foreach (var activeView in region.ActiveViews)
                 {
@@ -38,7 +36,7 @@ namespace Mix.Desktop
 
         #region Fileds
 
-        
+
 
         #endregion Fileds
 
@@ -53,7 +51,7 @@ namespace Mix.Desktop
 
         public MainWindowViewModel(IContainerExtension container) : base(container)
         {
-           
+
         }
 
         #endregion Ctor
@@ -71,12 +69,11 @@ namespace Mix.Desktop
 
         public void OnLoaded()
         {
-            if (RegionManager.Regions.Count() == 0) return;
+            if (!RegionManager.Regions.ContainsRegionWithName(SystemRegionNames.MainTabRegion)) return;
+
             var region = RegionManager.Regions[SystemRegionNames.MainTabRegion];
             region.ActiveViews.CollectionChanged += OnActiveViewsChanged;
             if (!region.Views.Any()) AppStoreIsDisplayed = true;
-
-
         }
 
         public void OnUnloaded()
@@ -90,7 +87,7 @@ namespace Mix.Desktop
             _AppStoreIsDisplayed = false;
             RaisePropertyChanged(nameof(AppStoreIsDisplayed));
         }
-        
+
 
 
         #endregion Methods

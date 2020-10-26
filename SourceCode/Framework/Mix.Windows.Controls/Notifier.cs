@@ -1,17 +1,18 @@
 ﻿using HandyControl.Controls;
+using Mix.Core.Notify;
 
 namespace Mix.Windows.Controls
 {
     /// <summary>
-    /// 通知类
+    /// 通知器
     /// </summary>
-    public static class Notify
+    public class Notifier : INotifier
     {
         /// <summary>
         /// Informations the specified message.
         /// </summary>
         /// <param name="message">The message.</param>
-        public static void Info(string message)
+        public void Info(string message)
         {
             Growl.InfoGlobal(message);
         }
@@ -20,7 +21,7 @@ namespace Mix.Windows.Controls
         /// Successes the specified message.
         /// </summary>
         /// <param name="message">The message.</param>
-        public static void Success(string message)
+        public void Success(string message)
         {
             Growl.SuccessGlobal(message);
         }
@@ -29,7 +30,7 @@ namespace Mix.Windows.Controls
         /// Warnings the specified message.
         /// </summary>
         /// <param name="message">The message.</param>
-        public static void Warning(string message)
+        public void Warning(string message)
         {
             Growl.WarningGlobal(message);
         }
@@ -38,7 +39,7 @@ namespace Mix.Windows.Controls
         /// Errors the specified message.
         /// </summary>
         /// <param name="message">The message.</param>
-        public static void Error(string message)
+        public void Error(string message)
         {
             Growl.ErrorGlobal(message);
         }

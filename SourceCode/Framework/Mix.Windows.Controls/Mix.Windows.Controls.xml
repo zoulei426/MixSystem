@@ -118,30 +118,30 @@
             The content of the loaded.
             </value>
         </member>
-        <member name="T:Mix.Windows.Controls.Notify">
+        <member name="T:Mix.Windows.Controls.Notifier">
             <summary>
-            通知类
+            通知器
             </summary>
         </member>
-        <member name="M:Mix.Windows.Controls.Notify.Info(System.String)">
+        <member name="M:Mix.Windows.Controls.Notifier.Info(System.String)">
             <summary>
             Informations the specified message.
             </summary>
             <param name="message">The message.</param>
         </member>
-        <member name="M:Mix.Windows.Controls.Notify.Success(System.String)">
+        <member name="M:Mix.Windows.Controls.Notifier.Success(System.String)">
             <summary>
             Successes the specified message.
             </summary>
             <param name="message">The message.</param>
         </member>
-        <member name="M:Mix.Windows.Controls.Notify.Warning(System.String)">
+        <member name="M:Mix.Windows.Controls.Notifier.Warning(System.String)">
             <summary>
             Warnings the specified message.
             </summary>
             <param name="message">The message.</param>
         </member>
-        <member name="M:Mix.Windows.Controls.Notify.Error(System.String)">
+        <member name="M:Mix.Windows.Controls.Notifier.Error(System.String)">
             <summary>
             Errors the specified message.
             </summary>

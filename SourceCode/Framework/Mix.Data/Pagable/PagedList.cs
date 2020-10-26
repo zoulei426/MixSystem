@@ -2,8 +2,6 @@
 using FreeSql;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Mix.Data.Pagable
@@ -69,7 +67,7 @@ namespace Mix.Data.Pagable
 
         #region Ctor
 
-      
+
         /// <summary>
         /// Initializes a new instance of the <see cref="PagedList{T}"/> class.
         /// </summary>

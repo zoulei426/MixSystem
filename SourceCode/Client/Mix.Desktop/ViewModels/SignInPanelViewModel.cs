@@ -1,14 +1,11 @@
 ﻿using Grpc.Core;
 using Grpc.Net.Client;
 using IdentityModel.Client;
-using Microsoft.Extensions.Logging;
 using Mix.Library.Entities.Protos;
-using Mix.Windows.Controls;
 using Mix.Windows.Core;
 using Mix.Windows.WPF;
 using Mix.Windows.WPF.Commands;
 using Prism.Ioc;
-using Serilog;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -95,7 +92,6 @@ namespace Mix.Desktop
 
         public void OnLoaded(SignInPanel view)
         {
-            Log.Information("Hello");
             // 1. Login info from SignUpView
             if (signUpArgs != null)
             {
@@ -179,11 +175,11 @@ namespace Mix.Desktop
                     Password = passwordMd5
                 }, callOptions);
 
-                Notify.Success(Localizer["Login Success"]);
+                Notifier.Success(Localizer["Login Success"]);
             }
             catch (Exception ex)
             {
-                Notify.Error(ex.Message);
+                Notifier.Error(ex.Message);
                 EventAggregator.GetEvent<MainWindowLoadingEvent>().Publish(false);
                 ConfigureFile.SetValue(ConfigureKeys.AutoSignIn, false);
                 return;

@@ -69,28 +69,6 @@
                       DisplayMemberPath="NativeName" />
             </StackPanel>
 
-            <!--<TabControl Grid.Column="1">
-                <TabItem Header="首页">
-                    <StackPanel Grid.Column="1" Orientation="Vertical">
-
-                        <TextBlock Text="{i18n:Localizer Company List}" />
-                        <DataGrid ItemsSource="{Binding Companies}"
-                          SelectedItem="{Binding CurrentCompany}"
-                          CanUserAddRows="False"
-                          AutoGenerateColumns="True"></DataGrid>
-
-                        <StackPanel>
-                            <TextBox Text="{Binding CurrentCompany.Name}" />
-                            <Button Command="{Binding GetEmployeesForCompanyCommand}" Content="{i18n:Localizer Get Employee List}" />
-                        </StackPanel>
-
-                        <TextBlock Text="{i18n:Localizer Employee List}" />
-                        <DataGrid ItemsSource="{Binding Employees}"
-                          CanUserAddRows="False"
-                          AutoGenerateColumns="True"></DataGrid>
-                    </StackPanel>
-                </TabItem>
-            </TabControl>-->
         </Grid>
     </md:DialogHost>
 </Window>
