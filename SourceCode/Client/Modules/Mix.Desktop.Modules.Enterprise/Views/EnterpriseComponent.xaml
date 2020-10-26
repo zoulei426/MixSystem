@@ -23,18 +23,28 @@
         </Grid>
     </TabItem.Header>
 
-    <StackPanel Grid.Column="1" Orientation="Vertical">
- 
-        <TextBlock Text="{i18n:Localizer Company List}" />
+    <StackPanel Grid.Column="1">
         <DataGrid ItemsSource="{Binding Companies}"
-                          SelectedItem="{Binding CurrentCompany}"
-                          CanUserAddRows="False"
-                          AutoGenerateColumns="True"></DataGrid>
-
-        <StackPanel>
-            <TextBox Text="{Binding CurrentCompany.Name}" />
-            <Button Command="{Binding GetEmployeesForCompanyCommand}" Content="{i18n:Localizer Get Employee List}" />
-        </StackPanel>
+                  SelectedItem="{Binding CurrentCompany}"
+                  CanUserAddRows="False"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="公司名称">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="介绍">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Introduction}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
 
         <TextBlock Text="{i18n:Localizer Employee List}" />
         <DataGrid ItemsSource="{Binding Employees}"

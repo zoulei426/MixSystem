@@ -22,7 +22,13 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
         public CompanyDto CurrentCompany
         {
             get { return _CurrentCompany; }
-            set { SetProperty(ref _CurrentCompany, value); }
+            set 
+            {
+                if (value is null) return;
+                if(!SetProperty(ref _CurrentCompany, value)) return;
+
+                GetEmployeesForCompany();
+            }
         }
 
         private CompanyDto _CurrentCompany;
@@ -43,8 +49,6 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
         #region Commands
 
 
-        public ICommand GetEmployeesForCompanyCommand { get; set; }
-
         #endregion Commands
         #region Ctor
 
@@ -58,13 +62,6 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
         #endregion
 
         #region Methods
-
-        protected override void RegisterCommands()
-        {
-
-
-            GetEmployeesForCompanyCommand = new RelayCommand(ExecuteGetEmployeesForCompany, CanGetEmployeesForCompany);
-        }
 
         public async void OnLoaded()
         {
@@ -81,12 +78,7 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
         }
 
 
-        private bool CanGetEmployeesForCompany()
-        {
-            return CurrentCompany is not null;
-        }
-
-        private async void ExecuteGetEmployeesForCompany()
+        private async void GetEmployeesForCompany()
         {
             Employees.Clear();
             var result = await mixApi.GetEmployeesForCompany(CurrentCompany.Id);
