@@ -57,7 +57,7 @@ namespace Mix.Library.Services
         {
             Guards.ThrowIfNull(parameters);
 
-            var query = employeeRepository.Select;
+            var query = employeeRepository.Select.Where(t=>t.CompanyId.Equals(companyId));
 
             var mappingDictionary = propertyMappingService.GetPropertyMapping<EmployeeDto, Employee>();
 

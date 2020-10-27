@@ -65,8 +65,7 @@ namespace Mix.Api
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     //webBuilder.UseStartup<Startup>();
-                    webBuilder.UseStartup(Assembly.GetExecutingAssembly().GetName().FullName)
-                    .UseUrls("https://localhost:5002");
+                    webBuilder.UseStartup(Assembly.GetExecutingAssembly().GetName().FullName);
                 });
     }
 }

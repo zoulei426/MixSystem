@@ -61,17 +61,17 @@ namespace Mix.Api.Controllers
                 ? CreateCompaniesResourceUri(parameters, ResourceUriType.NextPage)
                 : null;
 
-            var paginationMetadata = new
+            var paginationMetadata = new PaginationMetadata
             {
-                totalCount = companies.TotalCount,
-                pageSize = companies.PageSize,
-                currentPage = companies.CurrentPage,
-                totalPages = companies.TotalPages,
-                previousPageLink,
-                nextPageLink
+                TotalCount = companies.TotalCount,
+                PageSize = companies.PageSize,
+                CurrentPage = companies.CurrentPage,
+                TotalPages = companies.TotalPages,
+                PreviousPageLink = previousPageLink,
+                NextPageLink = nextPageLink
             };
 
-            Response.Headers.Add("X-Pagination",
+            Response.Headers.Add(PaginationMetadata.KEY,
                 JsonSerializer.Serialize(paginationMetadata,
                     new JsonSerializerOptions
                     {

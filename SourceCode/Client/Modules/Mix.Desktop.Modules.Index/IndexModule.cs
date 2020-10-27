@@ -9,6 +9,7 @@ using Unity;
 
 namespace Mix.Desktop.Modules.Index
 {
+    // TODO 增加加载顺序
     public class IndexModule : ModuleBase
     {
         public IndexModule(IUnityContainer container) : base(container)
