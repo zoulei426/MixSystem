@@ -22,7 +22,7 @@ namespace Mix.Core.Mapping
         public Dictionary<string, PropertyMappingValue> MappingDictionary { get; private set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PropertyMapping" /> class.
+        /// Initializes a new instance of the <see cref="PropertyMapping{TSource, TDestination}"/> class.
         /// </summary>
         /// <param name="mappingDictionary">The mapping dictionary.</param>
         public PropertyMapping(Dictionary<string, PropertyMappingValue> mappingDictionary)

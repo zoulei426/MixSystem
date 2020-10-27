@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Reflection;
 
@@ -68,6 +69,68 @@ namespace Mix.Core
                 addMethod.Invoke(list, new object[] { ObjectBase.TryClone(item) });
 
             return list;
+        }
+
+        /// <summary>
+        /// 数据塑形
+        /// </summary>
+        /// <typeparam name="TSource">The type of the source.</typeparam>
+        /// <param name="source">The source.</param>
+        /// <param name="fields">The fields.</param>
+        /// <returns></returns>
+        /// <exception cref="Exception">Not found property {propertyName} in {typeof(TSource)}</exception>
+        public static IEnumerable<ExpandoObject> ShapeData<TSource>(
+            this IEnumerable<TSource> source,
+            string fields)
+        {
+            Guards.ThrowIfNull(source);
+
+            var expandoObjectList = new List<ExpandoObject>(source.Count());
+
+            var propertyInfoList = new List<PropertyInfo>();
+
+            if (fields.IsNullOrWhiteSpace())
+            {
+                var propertyInfos = typeof(TSource).GetProperties(
+                    BindingFlags.IgnoreCase |
+                    BindingFlags.Public |
+                    BindingFlags.Instance);
+
+                propertyInfoList.AddRange(propertyInfos);
+            }
+            else
+            {
+                var splitedFields = fields.Split(",");
+                foreach (var field in splitedFields)
+                {
+                    var propertyName = field.Trim();
+                    var propertyInfo = typeof(TSource).GetProperty(propertyName,
+                        BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
+
+                    if (propertyInfo is null)
+                    {
+                        throw new Exception($"Not found property {propertyName} in {typeof(TSource)}");
+                    }
+
+                    propertyInfoList.Add(propertyInfo);
+                }
+            }
+
+            foreach (TSource obj in source)
+            {
+                var shapeObj = new ExpandoObject();
+
+                foreach (var propertyInfo in propertyInfoList)
+                {
+                    var propertyValue = propertyInfo.GetValue(obj);
+
+                    ((IDictionary<string, object>)shapeObj).Add(propertyInfo.Name, propertyValue);
+                }
+
+                expandoObjectList.Add(shapeObj);
+            }
+
+            return expandoObjectList;
         }
 
         #endregion Methods

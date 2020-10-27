@@ -87,6 +87,14 @@
             The order by.
             </value>
         </member>
+        <member name="P:Mix.Data.Dtos.DtoParameters.Fields">
+            <summary>
+            需要获取的字段
+            </summary>
+            <value>
+            The fields.
+            </value>
+        </member>
         <member name="M:Mix.Data.Dtos.DtoParameters.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Mix.Data.Dtos.DtoParameters"/> class.
@@ -328,6 +336,64 @@
             <param name="pageSize">Size of the page.</param>
             <param name="mapper">The mapper.</param>
             <returns></returns>
+        </member>
+        <member name="T:Mix.Data.Pagable.PaginationMetadata">
+            <summary>
+            PaginationMetadata
+            </summary>
+        </member>
+        <member name="F:Mix.Data.Pagable.PaginationMetadata.KEY">
+            <summary>
+            The key
+            </summary>
+        </member>
+        <member name="P:Mix.Data.Pagable.PaginationMetadata.TotalCount">
+            <summary>
+            Gets or sets the total count.
+            </summary>
+            <value>
+            The total count.
+            </value>
+        </member>
+        <member name="P:Mix.Data.Pagable.PaginationMetadata.PageSize">
+            <summary>
+            Gets or sets the size of the page.
+            </summary>
+            <value>
+            The size of the page.
+            </value>
+        </member>
+        <member name="P:Mix.Data.Pagable.PaginationMetadata.CurrentPage">
+            <summary>
+            Gets or sets the current page.
+            </summary>
+            <value>
+            The current page.
+            </value>
+        </member>
+        <member name="P:Mix.Data.Pagable.PaginationMetadata.TotalPages">
+            <summary>
+            Gets or sets the total pages.
+            </summary>
+            <value>
+            The total pages.
+            </value>
+        </member>
+        <member name="P:Mix.Data.Pagable.PaginationMetadata.PreviousPageLink">
+            <summary>
+            Gets or sets the previous page link.
+            </summary>
+            <value>
+            The previous page link.
+            </value>
+        </member>
+        <member name="P:Mix.Data.Pagable.PaginationMetadata.NextPageLink">
+            <summary>
+            Gets or sets the next page link.
+            </summary>
+            <value>
+            The next page link.
+            </value>
         </member>
         <member name="T:Mix.Data.Pagable.ResourceUriType">
             <summary>

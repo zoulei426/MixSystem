@@ -50,5 +50,27 @@ namespace Mix.Library.Services
 
             return propertyMappings.First().MappingDictionary;
         }
+
+        //public bool ValidMappingExistsFor<TSource, TDestination>(string fields)
+        //{
+        //    if (fields.IsNullOrWhiteSpace())
+        //        return true;
+
+        //    var propertyMapping = GetPropertyMapping<TSource, TDestination>();
+
+        //    var splitedFields = fields.Split(",");
+        //    foreach (var field in splitedFields)
+        //    {
+        //        var trimmedField = field.Trim();
+        //        var indexOfFirstSpace = trimmedField.IndexOf(" ");
+        //        var propertyName = indexOfFirstSpace == -1
+        //            ? trimmedField : trimmedField.Remove(indexOfFirstSpace);
+
+        //        if (!propertyMapping.ContainsKey(propertyName))
+        //            return false;
+        //    }
+
+        //    return true;
+        //}
     }
 }

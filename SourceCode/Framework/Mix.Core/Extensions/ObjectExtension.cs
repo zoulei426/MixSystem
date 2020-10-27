@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Reflection;
 
 namespace Mix.Core
@@ -25,6 +26,55 @@ namespace Mix.Core
             return typeof(T).IsValueType && value != null
                 ? (T)Convert.ChangeType(value, typeof(T))
                 : value is T typeValue ? typeValue : default;
+        }
+
+        /// <summary>
+        /// 数据塑形
+        /// </summary>
+        /// <typeparam name="TSource">The type of the source.</typeparam>
+        /// <param name="source">The source.</param>
+        /// <param name="fields">The fields.</param>
+        /// <returns></returns>
+        /// <exception cref="Exception">Not found property {propertyName} in {typeof(TSource)}</exception>
+        public static ExpandoObject ShapeData<TSource>(this TSource source, string fields)
+        {
+            Guards.ThrowIfNull(source);
+
+            var expandoObject = new ExpandoObject();
+
+            if (fields.IsNullOrWhiteSpace())
+            {
+                var propertyInfos = typeof(TSource).GetProperties(
+                    BindingFlags.IgnoreCase |
+                    BindingFlags.Public |
+                    BindingFlags.Instance);
+
+                foreach (var propertyInfo in propertyInfos)
+                {
+                    var propertyValue = propertyInfo.GetValue(source);
+                    ((IDictionary<string, object>)expandoObject).Add(propertyInfo.Name, propertyValue);
+                }
+            }
+            else
+            {
+                var splitedFields = fields.Split(",");
+                foreach (var field in splitedFields)
+                {
+                    var propertyName = field.Trim();
+                    var propertyInfo = typeof(TSource).GetProperty(propertyName,
+                        BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
+
+                    if (propertyInfo is null)
+                    {
+                        throw new Exception($"Not found property {propertyName} in {typeof(TSource)}");
+                    }
+
+                    var propertyValue = propertyInfo.GetValue(source);
+                    ((IDictionary<string, object>)expandoObject).Add(propertyInfo.Name, propertyValue);
+                }
+            }
+
+            return expandoObject;
         }
 
         #region Copy

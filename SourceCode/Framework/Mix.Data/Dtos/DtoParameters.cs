@@ -67,6 +67,14 @@ namespace Mix.Data.Dtos
         /// </value>
         public string OrderBy { get; set; }
 
+        /// <summary>
+        /// 需要获取的字段
+        /// </summary>
+        /// <value>
+        /// The fields.
+        /// </value>
+        public string Fields { get; set; }
+
         #endregion Properties
 
         #region Ctor

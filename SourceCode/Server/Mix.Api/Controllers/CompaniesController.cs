@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
+using Mix.Core;
 using Mix.Data.Pagable;
 using Mix.Library.Entities.DtoParameters;
 using Mix.Library.Entities.Dtos;
@@ -49,7 +50,7 @@ namespace Mix.Api.Controllers
         /// <param name="parameters">The parameters.</param>
         /// <returns></returns>
         [HttpGet(Name = nameof(GetCompanies))]
-        public async Task<ActionResult<IEnumerable<CompanyDto>>> GetCompanies([FromQuery] CompanyDtoParameters parameters)
+        public async Task<IActionResult> GetCompanies([FromQuery] CompanyDtoParameters parameters)
         {
             var companies = await companyService.GetCompaniesAsync(parameters);
 
@@ -78,7 +79,7 @@ namespace Mix.Api.Controllers
                         Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
                     }));
 
-            return Ok(companies);
+            return Ok(companies.ShapeData(parameters.Fields));
         }
 
         /// <summary>
