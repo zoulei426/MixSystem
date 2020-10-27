@@ -41,11 +41,12 @@
             <param name="parameters">The parameters.</param>
             <returns></returns>
         </member>
-        <member name="M:Mix.Api.Controllers.CompaniesController.GetCompany(System.Guid)">
+        <member name="M:Mix.Api.Controllers.CompaniesController.GetCompany(System.Guid,System.String)">
             <summary>
             根据Id获取
             </summary>
             <param name="companyId"></param>
+            <param name="fields"></param>
             <returns></returns>
         </member>
         <member name="M:Mix.Api.Controllers.CompaniesController.GetCompanyCollection(System.Collections.Generic.IEnumerable{System.Guid})">
@@ -67,6 +68,13 @@
             批量添加
             </summary>
             <param name="companieCollection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Api.Controllers.CompaniesController.DeleteCompany(System.Guid)">
+            <summary>
+            Deletes the company.
+            </summary>
+            <param name="companyId">The company identifier.</param>
             <returns></returns>
         </member>
         <member name="M:Mix.Api.Controllers.CompaniesController.GetCompaniesOptions">
@@ -156,6 +164,18 @@
             <returns>
             The created <see cref="T:Microsoft.AspNetCore.Mvc.BadRequestObjectResult" /> for the response.
             </returns>
+        </member>
+        <member name="T:Mix.Api.Controllers.RootController">
+            <summary>
+            根文档
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="M:Mix.Api.Controllers.RootController.GetRoot">
+            <summary>
+            Gets the root.
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:Mix.Api.Program">
             <summary>

@@ -79,7 +79,7 @@ namespace Mix.Core
         /// <param name="fields">The fields.</param>
         /// <returns></returns>
         /// <exception cref="Exception">Not found property {propertyName} in {typeof(TSource)}</exception>
-        public static IEnumerable<ExpandoObject> ShapeData<TSource>(
+        public static IEnumerable<ExpandoObject> ShapeDatas<TSource>(
             this IEnumerable<TSource> source,
             string fields)
         {

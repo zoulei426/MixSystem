@@ -47,21 +47,5 @@ namespace Mix.Data.Pagable
         /// The total pages.
         /// </value>
         public long TotalPages { get; set; }
-
-        /// <summary>
-        /// Gets or sets the previous page link.
-        /// </summary>
-        /// <value>
-        /// The previous page link.
-        /// </value>
-        public string PreviousPageLink { get; set; }
-
-        /// <summary>
-        /// Gets or sets the next page link.
-        /// </summary>
-        /// <value>
-        /// The next page link.
-        /// </value>
-        public string NextPageLink { get; set; }
     }
 }

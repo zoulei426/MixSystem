@@ -49,7 +49,7 @@ namespace Mix.Api.Controllers
         /// <param name="companyId">The company identifier.</param>
         /// <param name="parameters">The parameters.</param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpGet(Name = nameof(GetEmployeesForCompany))]
         public async Task<ActionResult<IEnumerable<EmployeeDto>>> GetEmployeesForCompany(
             Guid companyId,
             [FromQuery] EmployeeDtoParameters parameters)
@@ -83,7 +83,7 @@ namespace Mix.Api.Controllers
         /// <param name="companyId"></param>
         /// <param name="employee"></param>
         /// <returns></returns>
-        [HttpPost]
+        [HttpPost(Name = nameof(CreateEmployeeForCompany))]
         public async Task<ActionResult<EmployeeDto>> CreateEmployeeForCompany(Guid companyId, EmployeeAddDto employee)
         {
             if (!await companyRepository.Where(t => t.Id.Equals(companyId)).AnyAsync())

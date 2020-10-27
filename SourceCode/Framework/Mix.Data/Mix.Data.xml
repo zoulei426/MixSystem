@@ -100,6 +100,43 @@
             Initializes a new instance of the <see cref="T:Mix.Data.Dtos.DtoParameters"/> class.
             </summary>
         </member>
+        <member name="T:Mix.Data.Dtos.LinkDto">
+            <summary>
+            实现HETAOAS的LinkDto
+            </summary>
+        </member>
+        <member name="P:Mix.Data.Dtos.LinkDto.Href">
+            <summary>
+            Gets or sets the href.
+            </summary>
+            <value>
+            The href.
+            </value>
+        </member>
+        <member name="P:Mix.Data.Dtos.LinkDto.Rel">
+            <summary>
+            Gets or sets the relative.
+            </summary>
+            <value>
+            The relative.
+            </value>
+        </member>
+        <member name="P:Mix.Data.Dtos.LinkDto.Method">
+            <summary>
+            Gets or sets the method.
+            </summary>
+            <value>
+            The method.
+            </value>
+        </member>
+        <member name="M:Mix.Data.Dtos.LinkDto.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Data.Dtos.LinkDto"/> class.
+            </summary>
+            <param name="href">The href.</param>
+            <param name="rel">The relative.</param>
+            <param name="method">The method.</param>
+        </member>
         <member name="T:Mix.Data.Entities.AduitEntity">
             <summary>
             审计实体
@@ -379,25 +416,14 @@
             The total pages.
             </value>
         </member>
-        <member name="P:Mix.Data.Pagable.PaginationMetadata.PreviousPageLink">
-            <summary>
-            Gets or sets the previous page link.
-            </summary>
-            <value>
-            The previous page link.
-            </value>
-        </member>
-        <member name="P:Mix.Data.Pagable.PaginationMetadata.NextPageLink">
-            <summary>
-            Gets or sets the next page link.
-            </summary>
-            <value>
-            The next page link.
-            </value>
-        </member>
         <member name="T:Mix.Data.Pagable.ResourceUriType">
             <summary>
             ResourceUriType
+            </summary>
+        </member>
+        <member name="F:Mix.Data.Pagable.ResourceUriType.CurrentPage">
+            <summary>
+            The current page
             </summary>
         </member>
         <member name="F:Mix.Data.Pagable.ResourceUriType.PreviousPage">

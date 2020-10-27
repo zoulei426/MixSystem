@@ -6,6 +6,7 @@ using Mix.Library.Entities.Databases;
 using Mix.Library.Entities.DtoParameters;
 using Mix.Library.Entities.Dtos;
 using Mix.Library.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -95,6 +96,19 @@ namespace Mix.Library.Services
             var resultCollection = await companyRepository.InsertAsync(entityCollection);
 
             return Mapper.Map<IEnumerable<CompanyDto>>(resultCollection);
+        }
+
+        /// <summary>
+        /// Deletes the company.
+        /// </summary>
+        /// <param name="companyId">The company identifier.</param>
+        public async Task DeleteCompany(Guid companyId)
+        {
+            await employeeRepository.Select
+                .Where(t => t.CompanyId.Equals(companyId))
+                .ToDelete().ExecuteAffrowsAsync();
+
+            await companyRepository.DeleteAsync(companyId);
         }
 
         #endregion Methods

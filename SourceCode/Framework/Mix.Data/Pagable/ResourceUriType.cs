@@ -6,6 +6,11 @@
     public enum ResourceUriType
     {
         /// <summary>
+        /// The current page
+        /// </summary>
+        CurrentPage,
+
+        /// <summary>
         /// The previous page
         /// </summary>
         PreviousPage,

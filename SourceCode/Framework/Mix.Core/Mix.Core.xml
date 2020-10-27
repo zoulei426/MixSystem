@@ -33,9 +33,9 @@
             <param name="source">The source.</param>
             <returns></returns>
         </member>
-        <member name="M:Mix.Core.IEnumerableExtension.ShapeData``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+        <member name="M:Mix.Core.IEnumerableExtension.ShapeDatas``1(System.Collections.Generic.IEnumerable{``0},System.String)">
             <summary>
-            数据塑型
+            数据塑形
             </summary>
             <typeparam name="TSource">The type of the source.</typeparam>
             <param name="source">The source.</param>
@@ -60,6 +60,16 @@
             <typeparam name="T"></typeparam>
             <param name="value">The value.</param>
             <returns></returns>
+        </member>
+        <member name="M:Mix.Core.ObjectExtension.ShapeData``1(``0,System.String)">
+            <summary>
+            数据塑形
+            </summary>
+            <typeparam name="TSource">The type of the source.</typeparam>
+            <param name="source">The source.</param>
+            <param name="fields">The fields.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception">Not found property {propertyName} in {typeof(TSource)}</exception>
         </member>
         <member name="M:Mix.Core.ObjectExtension.ConvertTo(System.Object,System.Type)">
             <summary>

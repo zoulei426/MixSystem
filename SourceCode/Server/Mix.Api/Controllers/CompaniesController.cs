@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using Mix.Core;
+using Mix.Data.Dtos;
 using Mix.Data.Pagable;
 using Mix.Library.Entities.DtoParameters;
 using Mix.Library.Entities.Dtos;
@@ -54,22 +55,12 @@ namespace Mix.Api.Controllers
         {
             var companies = await companyService.GetCompaniesAsync(parameters);
 
-            var previousPageLink = companies.HasPrevious
-                ? CreateCompaniesResourceUri(parameters, ResourceUriType.PreviousPage)
-                : null;
-
-            var nextPageLink = companies.HasNext
-                ? CreateCompaniesResourceUri(parameters, ResourceUriType.NextPage)
-                : null;
-
             var paginationMetadata = new PaginationMetadata
             {
                 TotalCount = companies.TotalCount,
                 PageSize = companies.PageSize,
                 CurrentPage = companies.CurrentPage,
-                TotalPages = companies.TotalPages,
-                PreviousPageLink = previousPageLink,
-                NextPageLink = nextPageLink
+                TotalPages = companies.TotalPages
             };
 
             Response.Headers.Add(PaginationMetadata.KEY,
@@ -79,23 +70,49 @@ namespace Mix.Api.Controllers
                         Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
                     }));
 
-            return Ok(companies.ShapeData(parameters.Fields));
+            var shapedData = companies.ShapeDatas(parameters.Fields);
+            var links = CreateLinksForCompany(parameters, companies.HasPrevious, companies.HasNext);
+
+            var shapedCompaniesWithLinks = shapedData.Select(t =>
+            {
+                var companyDict = t as IDictionary<string, object>;
+                var companyLinks = CreateLinksForCompany((Guid)companyDict[nameof(CompanyDto.Id)], null);
+                companyDict.Add("Links", companyLinks);
+                return companyDict;
+            });
+
+            var linkedCompanies = new
+            {
+                value = shapedCompaniesWithLinks,
+                links
+            };
+
+            return Ok(linkedCompanies);
         }
 
         /// <summary>
         /// 根据Id获取
         /// </summary>
         /// <param name="companyId"></param>
+        /// <param name="fields"></param>
         /// <returns></returns>
         [HttpGet("{companyId}", Name = nameof(GetCompany))]
-        public async Task<ActionResult<CompanyDto>> GetCompany(Guid companyId)
+        public async Task<IActionResult> GetCompany(Guid companyId, string fields)
         {
             var company = await companyRepository.GetAsync(companyId);
             if (company is null)
             {
                 return NotFound();
             }
-            return Ok(mapper.Map<CompanyDto>(company));
+
+            var links = CreateLinksForCompany(companyId, fields);
+
+            var linkedDict = mapper.Map<CompanyDto>(company).ShapeData(fields)
+                as IDictionary<string, object>;
+
+            linkedDict.Add("links", links);
+
+            return Ok(linkedDict);
         }
 
         /// <summary>
@@ -123,7 +140,7 @@ namespace Mix.Api.Controllers
         /// </summary>
         /// <param name="company"></param>
         /// <returns></returns>
-        [HttpPost]
+        [HttpPost(Name = nameof(CreateCompany))]
         public async Task<ActionResult<CompanyDto>> CreateCompany(CompanyAddDto company)
         {
             var resultDto = await companyService.CreateCompanyAsync(company);
@@ -147,6 +164,24 @@ namespace Mix.Api.Controllers
         }
 
         /// <summary>
+        /// Deletes the company.
+        /// </summary>
+        /// <param name="companyId">The company identifier.</param>
+        /// <returns></returns>
+        [HttpDelete("{companyId}", Name = nameof(DeleteCompany))]
+        public async Task<IActionResult> DeleteCompany(Guid companyId)
+        {
+            var entityExists = await companyRepository.Select.AnyAsync(t => t.Id.Equals(companyId));
+
+            if (!entityExists)
+                return NotFound();
+
+            await companyService.DeleteCompany(companyId);
+
+            return NoContent();
+        }
+
+        /// <summary>
         /// 选项
         /// </summary>
         /// <returns></returns>
@@ -165,27 +200,101 @@ namespace Mix.Api.Controllers
         /// <returns></returns>
         private string CreateCompaniesResourceUri(CompanyDtoParameters parameters, ResourceUriType type)
         {
-            return type switch
+            switch (type)
             {
-                ResourceUriType.PreviousPage => Url.Link(nameof(GetCompanies), new
-                {
-                    pageNumber = parameters.PageNumber - 1,
-                    pageSize = parameters.PageSize,
-                    companyName = parameters.CompanyName
-                }),
-                ResourceUriType.NextPage => Url.Link(nameof(GetCompanies), new
-                {
-                    pageNumber = parameters.PageNumber + 1,
-                    pageSize = parameters.PageSize,
-                    companyName = parameters.CompanyName
-                }),
-                _ => Url.Link(nameof(GetCompanies), new
-                {
-                    pageNumber = parameters.PageNumber,
-                    pageSize = parameters.PageSize,
-                    companyName = parameters.CompanyName
-                }),
-            };
+                case ResourceUriType.PreviousPage:
+                    return Url.Link(nameof(GetCompanies), new
+                    {
+                        pageNumber = parameters.PageNumber - 1,
+                        pageSize = parameters.PageSize,
+                        orderBy = parameters.OrderBy,
+                        fields = parameters.Fields,
+                        companyName = parameters.CompanyName
+                    });
+
+                case ResourceUriType.NextPage:
+                    return Url.Link(nameof(GetCompanies), new
+                    {
+                        pageNumber = parameters.PageNumber + 1,
+                        pageSize = parameters.PageSize,
+                        orderBy = parameters.OrderBy,
+                        fields = parameters.Fields,
+                        companyName = parameters.CompanyName
+                    });
+
+                case ResourceUriType.CurrentPage:
+                default:
+                    return Url.Link(nameof(GetCompanies), new
+                    {
+                        pageNumber = parameters.PageNumber,
+                        pageSize = parameters.PageSize,
+                        orderBy = parameters.OrderBy,
+                        fields = parameters.Fields,
+                        companyName = parameters.CompanyName
+                    });
+            }
+        }
+
+        private IEnumerable<LinkDto> CreateLinksForCompany(Guid companyId, string fields)
+        {
+            var links = new List<LinkDto>();
+
+            if (fields.IsNullOrWhiteSpace())
+            {
+                links.Add(new LinkDto(
+                        Url.Link(nameof(GetCompany), new { companyId }),
+                        "self",
+                        "GET"));
+            }
+            else
+            {
+                links.Add(new LinkDto(
+                        Url.Link(nameof(GetCompany), new { companyId, fields }),
+                        "self",
+                        "GET"));
+            }
+
+            links.Add(new LinkDto(
+                 Url.Link(nameof(DeleteCompany), new { companyId }),
+                 "delete_company",
+                 "DELETE"));
+
+            links.Add(new LinkDto(
+               Url.Link(nameof(EmployeesController.CreateEmployeeForCompany), new { companyId }),
+               "create_employee_for_company",
+               "POST"));
+
+            links.Add(new LinkDto(
+              Url.Link(nameof(EmployeesController.GetEmployeesForCompany), new { companyId }),
+              "employees",
+              "GET"));
+
+            return links;
+        }
+
+        private IEnumerable<LinkDto> CreateLinksForCompany(CompanyDtoParameters parameters, bool hasPrevious, bool hasNext)
+        {
+            var links = new List<LinkDto>();
+
+            links.Add(new LinkDto(
+                CreateCompaniesResourceUri(parameters, ResourceUriType.CurrentPage),
+                "self", "GET"));
+
+            if (hasPrevious)
+            {
+                links.Add(new LinkDto(
+                CreateCompaniesResourceUri(parameters, ResourceUriType.PreviousPage),
+                "previous_page", "GET"));
+            }
+
+            if (hasNext)
+            {
+                links.Add(new LinkDto(
+                CreateCompaniesResourceUri(parameters, ResourceUriType.NextPage),
+                "next_page", "GET"));
+            }
+
+            return links;
         }
     }
 }
