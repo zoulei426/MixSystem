@@ -17,6 +17,7 @@ namespace Mix.Library.Entities.Profiles
         {
             CreateMap<Company, CompanyDto>();
             CreateMap<CompanyAddDto, Company>();
+            CreateMap<Company, CompanyFullDto>();
         }
     }
 }

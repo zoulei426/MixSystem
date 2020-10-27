@@ -1,14 +1,24 @@
-﻿using Mix.Data.Entities;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Mix.Library.Entities.Databases
+namespace Mix.Library.Entities.Dtos
 {
     /// <summary>
-    /// 公司
+    /// CompanyFullDto
     /// </summary>
-    /// <seealso cref="Mix.Data.Entities.AduitEntity" />
-    public class Company : AduitEntity
+    public class CompanyFullDto
     {
+        /// <summary>
+        /// Gets or sets the identifier.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
+        public Guid Id { get; set; }
+
         /// <summary>Gets or sets the name.</summary>
         /// <value>The name.</value>
         public string Name { get; set; }
@@ -44,13 +54,5 @@ namespace Mix.Library.Entities.Databases
         /// The product.
         /// </value>
         public string Product { get; set; }
-
-        /// <summary>
-        /// Gets or sets the employees.
-        /// </summary>
-        /// <value>
-        /// The employees.
-        /// </value>
-        public ICollection<Employee> Employees { get; set; }
     }
 }

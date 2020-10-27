@@ -41,12 +41,13 @@
             <param name="parameters">The parameters.</param>
             <returns></returns>
         </member>
-        <member name="M:Mix.Api.Controllers.CompaniesController.GetCompany(System.Guid,System.String)">
+        <member name="M:Mix.Api.Controllers.CompaniesController.GetCompany(System.Guid,System.String,System.String)">
             <summary>
             根据Id获取
             </summary>
             <param name="companyId"></param>
             <param name="fields"></param>
+            <param name="mediaType"></param>
             <returns></returns>
         </member>
         <member name="M:Mix.Api.Controllers.CompaniesController.GetCompanyCollection(System.Collections.Generic.IEnumerable{System.Guid})">

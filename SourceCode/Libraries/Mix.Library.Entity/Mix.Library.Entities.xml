@@ -52,6 +52,30 @@
             The introduction.
             </value>
         </member>
+        <member name="P:Mix.Library.Entities.Databases.Company.Country">
+            <summary>
+            Gets or sets the country.
+            </summary>
+            <value>
+            The country.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.Company.Industry">
+            <summary>
+            Gets or sets the industry.
+            </summary>
+            <value>
+            The industry.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.Company.Product">
+            <summary>
+            Gets or sets the product.
+            </summary>
+            <value>
+            The product.
+            </value>
+        </member>
         <member name="P:Mix.Library.Entities.Databases.Company.Employees">
             <summary>
             Gets or sets the employees.
@@ -227,6 +251,55 @@
             </summary>
             <value>
             The introduction.
+            </value>
+        </member>
+        <member name="T:Mix.Library.Entities.Dtos.CompanyFullDto">
+            <summary>
+            CompanyFullDto
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.CompanyFullDto.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.CompanyFullDto.Name">
+            <summary>Gets or sets the name.</summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.CompanyFullDto.Introduction">
+            <summary>
+            Gets or sets the introduction.
+            </summary>
+            <value>
+            The introduction.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.CompanyFullDto.Country">
+            <summary>
+            Gets or sets the country.
+            </summary>
+            <value>
+            The country.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.CompanyFullDto.Industry">
+            <summary>
+            Gets or sets the industry.
+            </summary>
+            <value>
+            The industry.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Dtos.CompanyFullDto.Product">
+            <summary>
+            Gets or sets the product.
+            </summary>
+            <value>
+            The product.
             </value>
         </member>
         <member name="T:Mix.Library.Entities.Dtos.EmployeeAddDto">

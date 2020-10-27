@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -55,7 +56,7 @@ namespace Mix.Api
         {
             services.AddMvc(options =>
             {
-                //options.ReturnHttpNotAcceptable = true; // 不支持的类型将返回406
+                options.ReturnHttpNotAcceptable = true; // 不支持的类型将返回406
             })
             .AddNewtonsoftJson(options =>
             {
@@ -90,6 +91,14 @@ namespace Mix.Api
                         };
                     };
                 });
+
+            // 添加自定义MediaType
+            //services.Configure<MvcOptions>(config =>
+            //{
+            //    var newtonsoftJsonOutputFormatter = config.OutputFormatters.OfType<NewtonsoftJsonOutputFormatter>()?.FirstOrDefault();
+            //    newtonsoftJsonOutputFormatter?.SupportedMediaTypes.Add(
+            //        "application/vnd.mix.hateoas+json");
+            //});
 
             // 注册AutoMapper
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies().Where(r => r.FullName.Contains("Mix")).ToArray());

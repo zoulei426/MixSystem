@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
+using Microsoft.Net.Http.Headers;
 using Mix.Core;
 using Mix.Data.Dtos;
 using Mix.Data.Pagable;
@@ -95,24 +96,64 @@ namespace Mix.Api.Controllers
         /// </summary>
         /// <param name="companyId"></param>
         /// <param name="fields"></param>
+        /// <param name="mediaType"></param>
         /// <returns></returns>
+        [Produces("application/json",
+            "application/vnd.mix.hateoas+json",
+            "application/vnd.mix.company.friendly+json",
+            "application/vnd.mix.company.friendly.hateoas+json",
+            "application/vnd.mix.company.full+json",
+            "application/vnd.mix.company.full.hateoas+json")]
         [HttpGet("{companyId}", Name = nameof(GetCompany))]
-        public async Task<IActionResult> GetCompany(Guid companyId, string fields)
+        public async Task<IActionResult> GetCompany(Guid companyId, string fields,
+            [FromHeader(Name = "Accept")] string mediaType)
         {
+            if (!MediaTypeHeaderValue.TryParse(mediaType, out MediaTypeHeaderValue mediaTypeHeaderValue))
+                return BadRequest();
+
             var company = await companyRepository.GetAsync(companyId);
             if (company is null)
             {
                 return NotFound();
             }
 
-            var links = CreateLinksForCompany(companyId, fields);
+            // 是否包含链接
+            var isIncludeLinks = mediaTypeHeaderValue.SubTypeWithoutSuffix.EndsWith("hateoas", StringComparison.InvariantCultureIgnoreCase);
 
-            var linkedDict = mapper.Map<CompanyDto>(company).ShapeData(fields)
-                as IDictionary<string, object>;
+            IEnumerable<LinkDto> includedLinks = new List<LinkDto>();
 
-            linkedDict.Add("links", links);
+            if (isIncludeLinks)
+            {
+                includedLinks = CreateLinksForCompany(companyId, fields);
+            }
 
-            return Ok(linkedDict);
+            var primaryMediaType = isIncludeLinks
+                ? mediaTypeHeaderValue.SubTypeWithoutSuffix.Substring(0, mediaTypeHeaderValue.SubTypeWithoutSuffix.Length - "hateoas".Length - 1)
+                : mediaTypeHeaderValue.SubTypeWithoutSuffix;
+
+            if (primaryMediaType.Equals("vnd.mix.company.full"))
+            {
+                var full = mapper.Map<CompanyFullDto>(company)
+                    .ShapeData(fields) as IDictionary<string, object>;
+                if (isIncludeLinks)
+                {
+                    full.Add("links", includedLinks);
+                }
+
+                return Ok(full);
+            }
+
+            var friendly = mapper.Map<CompanyDto>(company)
+                .ShapeData(fields) as IDictionary<string, object>;
+
+            if (isIncludeLinks)
+            {
+                friendly.Add("links", includedLinks);
+            }
+
+            return Ok(friendly);
+
+            //return Ok(mapper.Map<CompanyDto>(company).ShapeData(fields));
         }
 
         /// <summary>
