@@ -43,7 +43,6 @@ namespace Mix.Desktop
 
         private bool _IsLoading;
 
-
         #endregion Properties
 
         #region Ctor
@@ -61,7 +60,6 @@ namespace Mix.Desktop
         public void OnLoaded(LoginWindow view)
         {
             this.SignInTabItem = view.FindName("SignInTabItem") as TabItem;
-
         }
 
         public void OnUnloaded(LoginWindow view)

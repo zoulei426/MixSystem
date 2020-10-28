@@ -26,12 +26,12 @@
     <hc:TransitioningContentControl>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="6*"/>
-                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="6*" />
+                <ColumnDefinition Width="4*" />
             </Grid.ColumnDefinitions>
 
-            <local:CompaniesPanel/>
-            <local:EmployeesPanel Grid.Column="1"/>
+            <local:CompaniesPanel />
+            <local:EmployeesPanel Grid.Column="1" />
         </Grid>
     </hc:TransitioningContentControl>
 </TabItem>

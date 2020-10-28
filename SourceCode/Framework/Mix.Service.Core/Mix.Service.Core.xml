@@ -68,6 +68,39 @@
             </para>
             </returns>
         </member>
+        <member name="T:Mix.Service.Core.Attributes.RequestHeaderMatchesMediaTypeAttribute">
+            <summary>
+            RequestHeaderMatchesMediaTypeAttribute
+            </summary>
+            <seealso cref="T:System.Attribute" />
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ActionConstraints.IActionConstraint" />
+        </member>
+        <member name="M:Mix.Service.Core.Attributes.RequestHeaderMatchesMediaTypeAttribute.#ctor(System.String,System.String,System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Service.Core.Attributes.RequestHeaderMatchesMediaTypeAttribute" /> class.
+            </summary>
+            <param name="requestHeaderToMatch">The request header to match.</param>
+            <param name="mediaType">Type of the media.</param>
+            <param name="otherMediaTypes">The other media types.</param>
+        </member>
+        <member name="M:Mix.Service.Core.Attributes.RequestHeaderMatchesMediaTypeAttribute.Accept(Microsoft.AspNetCore.Mvc.ActionConstraints.ActionConstraintContext)">
+            <summary>
+            Determines whether an action is a valid candidate for selection.
+            </summary>
+            <param name="context">The <see cref="T:Microsoft.AspNetCore.Mvc.ActionConstraints.ActionConstraintContext" />.</param>
+            <returns>
+            True if the action is valid for selection, otherwise false.
+            </returns>
+        </member>
+        <member name="P:Mix.Service.Core.Attributes.RequestHeaderMatchesMediaTypeAttribute.Order">
+            <summary>
+            The constraint order.
+            </summary>
+            <remarks>
+            Constraints are grouped into stages by the value of <see cref="P:Microsoft.AspNetCore.Mvc.ActionConstraints.IActionConstraint.Order" />. See remarks on
+            <see cref="T:Microsoft.AspNetCore.Mvc.ActionConstraints.IActionConstraint" />.
+            </remarks>
+        </member>
         <member name="T:Mix.Service.Core.Extensions.FreeSqlExtensions">
             <summary>
             FreeSql扩展
@@ -100,7 +133,7 @@
         </member>
         <member name="M:Mix.Service.Core.Middleware.UnitOfWorkAsyncInterceptor.#ctor(FreeSql.UnitOfWorkManager,Microsoft.Extensions.Logging.ILogger{Mix.Service.Core.Middleware.UnitOfWorkAsyncInterceptor})">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Service.Core.Middleware.UnitOfWorkAsyncInterceptor"/> class.
+            Initializes a new instance of the <see cref="T:Mix.Service.Core.Middleware.UnitOfWorkAsyncInterceptor" /> class.
             </summary>
             <param name="unitOfWorkManager">The unit of work manager.</param>
             <param name="logger">The logger.</param>
@@ -153,7 +186,7 @@
         </member>
         <member name="M:Mix.Service.Core.Middleware.UnitOfWorkInterceptor.#ctor(Mix.Service.Core.Middleware.UnitOfWorkAsyncInterceptor)">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Service.Core.Middleware.UnitOfWorkInterceptor"/> class.
+            Initializes a new instance of the <see cref="T:Mix.Service.Core.Middleware.UnitOfWorkInterceptor" /> class.
             </summary>
             <param name="interceptor">The interceptor.</param>
         </member>

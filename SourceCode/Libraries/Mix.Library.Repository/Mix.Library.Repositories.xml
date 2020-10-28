@@ -26,7 +26,7 @@
         </member>
         <member name="M:Mix.Library.Repositories.Accounts.UserRepository.#ctor(FreeSql.UnitOfWorkManager,Mix.Data.ICurrentUser)">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Library.Repositories.Accounts.UserRepository"/> class.
+            Initializes a new instance of the <see cref="T:Mix.Library.Repositories.Accounts.UserRepository" /> class.
             </summary>
             <param name="unitOfWorkManager"></param>
             <param name="currentUser"></param>
@@ -47,7 +47,7 @@
         </member>
         <member name="M:Mix.Library.Repositories.CompanyRepository.#ctor(FreeSql.UnitOfWorkManager,Mix.Data.ICurrentUser)">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Library.Repositories.CompanyRepository"/> class.
+            Initializes a new instance of the <see cref="T:Mix.Library.Repositories.CompanyRepository" /> class.
             </summary>
             <param name="unitOfWorkManager"></param>
             <param name="currentUser"></param>
@@ -61,7 +61,7 @@
         </member>
         <member name="M:Mix.Library.Repositories.EmployeeRepository.#ctor(FreeSql.UnitOfWorkManager,Mix.Data.ICurrentUser)">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Library.Repositories.EmployeeRepository"/> class.
+            Initializes a new instance of the <see cref="T:Mix.Library.Repositories.EmployeeRepository" /> class.
             </summary>
             <param name="unitOfWorkManager"></param>
             <param name="currentUser"></param>

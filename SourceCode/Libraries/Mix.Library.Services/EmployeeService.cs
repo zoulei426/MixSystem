@@ -8,9 +8,6 @@ using Mix.Library.Entities.DtoParameters;
 using Mix.Library.Entities.Dtos;
 using Mix.Library.Repositories;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Mix.Library.Services
@@ -57,7 +54,7 @@ namespace Mix.Library.Services
         {
             Guards.ThrowIfNull(parameters);
 
-            var query = employeeRepository.Select.Where(t=>t.CompanyId.Equals(companyId));
+            var query = employeeRepository.Select.Where(t => t.CompanyId.Equals(companyId));
 
             var mappingDictionary = propertyMappingService.GetPropertyMapping<EmployeeDto, Employee>();
 

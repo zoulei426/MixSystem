@@ -39,7 +39,7 @@ namespace Mix.Api
 
             try
             {
-                Log.Information("init main");
+                //Log.Information("init main");
                 IHost webHost = CreateHostBuilder(args).Build();
 
                 await webHost.RunAsync();

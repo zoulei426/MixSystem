@@ -1,6 +1,4 @@
-﻿using System.Collections;
-
-namespace Mix.Data.Dtos
+﻿namespace Mix.Data.Dtos
 {
     /// <summary>
     /// Dto Parameters

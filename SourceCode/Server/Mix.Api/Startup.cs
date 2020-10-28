@@ -3,12 +3,12 @@ using AutoMapper;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using IdentityServer4.AccessTokenValidation;
+using Marvin.Cache.Headers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -54,9 +54,26 @@ namespace Mix.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // 注册缓存中间件
+            services.AddHttpCacheHeaders(expires =>
+            {
+                expires.MaxAge = 60;
+                expires.CacheLocation = CacheLocation.Private;
+            }, validation =>
+            {
+                validation.MustRevalidate = true;
+            });
+
+            // 注册响应缓存
+            services.AddResponseCaching();
+
             services.AddMvc(options =>
             {
                 options.ReturnHttpNotAcceptable = true; // 不支持的类型将返回406
+                options.CacheProfiles.Add("120sCacheProfile", new CacheProfile
+                {
+                    Duration = 120
+                });
             })
             .AddNewtonsoftJson(options =>
             {
@@ -183,6 +200,10 @@ namespace Mix.Api
             }
 
             app.UseHttpsRedirection();
+
+            //app.UseResponseCaching();
+
+            app.UseHttpCacheHeaders();
 
             app.UseRouting();
 

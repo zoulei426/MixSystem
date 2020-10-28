@@ -3,7 +3,6 @@ using Mix.Data.Pagable;
 using Mix.Library.Entities.DtoParameters;
 using Mix.Library.Entities.Dtos;
 using Mix.Windows.WPF;
-using Mix.Windows.WPF.Commands;
 using Newtonsoft.Json;
 using Prism.Commands;
 using Prism.Ioc;
@@ -28,22 +27,25 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
             get { return _CompanyCards; }
             set { SetProperty(ref _CompanyCards, value); }
         }
+
         private ObservableCollection<Card> _CompanyCards;
 
-        #endregion
+        #endregion Properties
 
         #region Fields
+
         private ResourceDictionary ButtonResource = new ResourceDictionary { Source = new Uri("pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml") };
 
         private PaginationMetadata pagination;
         private CompanyDtoParameters companyParameters;
-        #endregion
+
+        #endregion Fields
+
         #region Commands
 
         public ICommand GetCompaniesCommand { get; set; }
 
         public ICommand GetEmployeesForCompanyCommand { get; set; }
-
 
         #endregion Commands
 
@@ -51,9 +53,9 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
 
         public CompaniesPanelViewModel(IContainerExtension container) : base(container)
         {
-
         }
-        #endregion
+
+        #endregion Ctor
 
         #region Methods
 
@@ -63,11 +65,8 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
             GetEmployeesForCompanyCommand = new DelegateCommand<CompanyDto>(GetEmployeesForCompany);
         }
 
-
-
         public async void OnLoaded()
         {
-
             CompanyCards = new ObservableCollection<Card>();
             companyParameters = new CompanyDtoParameters();
 
@@ -110,8 +109,6 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
             EventAggregator.GetEvent<GetEmployeesForCompanyEvent>().Publish(obj);
         }
 
-
-
         private void AddCompanyCard(CompanyDto company)
         {
             var card = new Card();
@@ -146,6 +143,7 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
 
             return btn;
         }
-        #endregion
+
+        #endregion Methods
     }
 }

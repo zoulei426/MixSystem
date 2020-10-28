@@ -1,9 +1,7 @@
 ﻿using Mix.Desktop.Modules.Index.Views;
-using Mix.Windows.Core.Attributes;
 using Mix.Windows.WPF;
 using Mix.Windows.WPF.Mvvm;
 using Prism.Ioc;
-using Prism.Modularity;
 using Refit;
 using Unity;
 

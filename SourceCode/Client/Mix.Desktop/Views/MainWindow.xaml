@@ -68,7 +68,6 @@
                       SelectedItem="{Binding Path=CurrentUICulture, Source={x:Static i18n:LocalizerManager.Instance}}"
                       DisplayMemberPath="NativeName" />
             </StackPanel>
-
         </Grid>
     </md:DialogHost>
 </Window>

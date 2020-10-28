@@ -71,7 +71,7 @@
             Follows the target changed.
             </summary>
             <param name="d">The d.</param>
-            <param name="e">The <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="T:Mix.Windows.Controls.SwitchLoadingViewContainer">
             <summary>
@@ -162,7 +162,7 @@
             Called when [password property changed].
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Mix.Windows.Controls.PasswordBoxHelper.GetPassword(System.Windows.DependencyObject)">
             <summary>
@@ -194,7 +194,7 @@
             Called when [password changed].
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Mix.Windows.Controls.PasswordBoxBehavior.OnDetaching">
             <summary>
@@ -230,21 +230,21 @@
             Called when [aware selection changed changed].
             </summary>
             <param name="d">The d.</param>
-            <param name="e">The <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Mix.Windows.Controls.TabControlHelper.OnLoaded(System.Object,System.Windows.RoutedEventArgs)">
             <summary>
             Called when [loaded].
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Mix.Windows.Controls.TabControlHelper.OnSelectionChanged(System.Object,System.Windows.Controls.SelectionChangedEventArgs)">
             <summary>
             Called when [selection changed].
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.Windows.Controls.SelectionChangedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.Controls.SelectionChangedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="F:Mix.Windows.Controls.TabControlHelper.LeftToRightAnimationProperty">
             <summary>
@@ -327,14 +327,14 @@
             Called when [left to right animation changed].
             </summary>
             <param name="d">The d.</param>
-            <param name="e">The <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Mix.Windows.Controls.TabControlHelper.OnRightToLeftAnimationChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
             <summary>
             Called when [right to left animation changed].
             </summary>
             <param name="d">The d.</param>
-            <param name="e">The <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
         </member>
         <member name="M:Mix.Windows.Controls.TabControlHelper.ModifyTabControl(System.Windows.Controls.Primitives.Selector)">
             <summary>
@@ -347,7 +347,7 @@
             Called when [loaded for switch animation].
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
             <returns></returns>
             <exception cref="T:System.Windows.Media.TranslateTransform"></exception>
         </member>
@@ -356,7 +356,7 @@
             Called when [selection changed for switch animation].
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.Windows.Controls.SelectionChangedEventArgs"/> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.Controls.SelectionChangedEventArgs" /> instance containing the event data.</param>
             <returns></returns>
         </member>
         <member name="T:Mix.Service.Core.ResponseBase">
@@ -381,14 +381,14 @@
         </member>
         <member name="M:Mix.Service.Core.ResponseBase.#ctor(System.Int32,System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Service.Core.ResponseBase"/> class.
+            Initializes a new instance of the <see cref="T:Mix.Service.Core.ResponseBase" /> class.
             </summary>
             <param name="code">The code.</param>
             <param name="message">The message.</param>
         </member>
         <member name="M:Mix.Service.Core.ResponseBase.#ctor(System.Int32,System.Object)">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Service.Core.ResponseBase"/> class.
+            Initializes a new instance of the <see cref="T:Mix.Service.Core.ResponseBase" /> class.
             </summary>
             <param name="code">The code.</param>
             <param name="result">The result.</param>

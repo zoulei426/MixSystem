@@ -36,7 +36,6 @@ namespace Mix.IdentityServer4
 
             //builder.AddSecretParser<JwtBearerClientAssertionSecretParser>();
             //builder.AddSecretValidator<PrivateKeyJwtSecretValidator>();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

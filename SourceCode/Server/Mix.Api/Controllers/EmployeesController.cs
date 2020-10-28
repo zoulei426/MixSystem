@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Marvin.Cache.Headers;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
@@ -50,6 +51,8 @@ namespace Mix.Api.Controllers
         /// <param name="parameters">The parameters.</param>
         /// <returns></returns>
         [HttpGet(Name = nameof(GetEmployeesForCompany))]
+        [HttpCacheExpiration(MaxAge = 1800, CacheLocation = CacheLocation.Public)]
+        [HttpCacheValidation(MustRevalidate = true)]
         public async Task<ActionResult<IEnumerable<EmployeeDto>>> GetEmployeesForCompany(
             Guid companyId,
             [FromQuery] EmployeeDtoParameters parameters)

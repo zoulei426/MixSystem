@@ -9,7 +9,6 @@ namespace Mix.Grpc.Api
     {
         protected override void Load(ContainerBuilder builder)
         {
-
             string[] notIncludes = new string[] { };
 
             //Assembly servicesDllFile = Assembly.Load("LinCms.Application");
@@ -19,9 +18,7 @@ namespace Mix.Grpc.Api
             //    .InstancePerLifetimeScope()
             //    .PropertiesAutowired();// 属性注入
 
-
             //一个接口多个实现，使用Named，区分
-
         }
     }
 }

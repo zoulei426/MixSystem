@@ -42,7 +42,6 @@ namespace Mix.Windows.WPF
                 view.Unloaded += (sender, args) => onUnloadedMethod(sender);
             });
 
-
         /// <summary>
         /// Ifs the inherits from.
         /// </summary>

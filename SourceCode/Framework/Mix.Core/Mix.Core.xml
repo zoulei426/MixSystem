@@ -239,7 +239,7 @@
         </member>
         <member name="M:Mix.Core.Localization.Json.Internal.JsonStringLocalizerLoggerExtensions.#cctor">
             <summary>
-            Initializes the <see cref="T:Mix.Core.Localization.Json.Internal.JsonStringLocalizerLoggerExtensions"/> class.
+            Initializes the <see cref="T:Mix.Core.Localization.Json.Internal.JsonStringLocalizerLoggerExtensions" /> class.
             </summary>
         </member>
         <member name="M:Mix.Core.Localization.Json.Internal.JsonStringLocalizerLoggerExtensions.SearchedLocation(Microsoft.Extensions.Logging.ILogger,System.String,System.String,System.Globalization.CultureInfo)">
@@ -275,26 +275,26 @@
         </member>
         <member name="M:Mix.Core.Localization.Json.Internal.StringLocalizer.#ctor(Microsoft.Extensions.Localization.IStringLocalizerFactory)">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Core.Localization.Json.Internal.StringLocalizer"/> class.
+            Initializes a new instance of the <see cref="T:Mix.Core.Localization.Json.Internal.StringLocalizer" /> class.
             </summary>
             <param name="factory">The factory.</param>
         </member>
         <member name="P:Mix.Core.Localization.Json.Internal.StringLocalizer.Item(System.String)">
             <summary>
-            Gets the <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/> with the specified name.
+            Gets the <see cref="T:Microsoft.Extensions.Localization.LocalizedString" /> with the specified name.
             </summary>
             <value>
-            The <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/>.
+            The <see cref="T:Microsoft.Extensions.Localization.LocalizedString" />.
             </value>
             <param name="name">The name.</param>
             <returns></returns>
         </member>
         <member name="P:Mix.Core.Localization.Json.Internal.StringLocalizer.Item(System.String,System.Object[])">
             <summary>
-            Gets the <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/> with the specified name.
+            Gets the <see cref="T:Microsoft.Extensions.Localization.LocalizedString" /> with the specified name.
             </summary>
             <value>
-            The <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/>.
+            The <see cref="T:Microsoft.Extensions.Localization.LocalizedString" />.
             </value>
             <param name="name">The name.</param>
             <param name="arguments">The arguments.</param>
@@ -345,7 +345,7 @@
         </member>
         <member name="M:Mix.Core.Localization.Json.JsonStringLocalizer.#ctor(System.String,System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Core.Localization.Json.JsonStringLocalizer"/> class.
+            Initializes a new instance of the <see cref="T:Mix.Core.Localization.Json.JsonStringLocalizer" /> class.
             </summary>
             <param name="resourcesPath">The resources path.</param>
             <param name="resourceName">Name of the resource.</param>
@@ -353,10 +353,10 @@
         </member>
         <member name="P:Mix.Core.Localization.Json.JsonStringLocalizer.Item(System.String)">
             <summary>
-            Gets the <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/> with the specified name.
+            Gets the <see cref="T:Microsoft.Extensions.Localization.LocalizedString" /> with the specified name.
             </summary>
             <value>
-            The <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/>.
+            The <see cref="T:Microsoft.Extensions.Localization.LocalizedString" />.
             </value>
             <param name="name">The name.</param>
             <returns></returns>
@@ -364,10 +364,10 @@
         </member>
         <member name="P:Mix.Core.Localization.Json.JsonStringLocalizer.Item(System.String,System.Object[])">
             <summary>
-            Gets the <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/> with the specified name.
+            Gets the <see cref="T:Microsoft.Extensions.Localization.LocalizedString" /> with the specified name.
             </summary>
             <value>
-            The <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/>.
+            The <see cref="T:Microsoft.Extensions.Localization.LocalizedString" />.
             </value>
             <param name="name">The name.</param>
             <param name="arguments">The arguments.</param>
@@ -431,12 +431,12 @@
         </member>
         <member name="M:Mix.Core.Localization.Json.JsonStringLocalizerFactory.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Core.Localization.Json.JsonStringLocalizerFactory"/> class.
+            Initializes a new instance of the <see cref="T:Mix.Core.Localization.Json.JsonStringLocalizerFactory" /> class.
             </summary>
         </member>
         <member name="M:Mix.Core.Localization.Json.JsonStringLocalizerFactory.#ctor(Microsoft.Extensions.Options.IOptions{Mix.Core.Localization.Json.JsonLocalizationOptions},Microsoft.Extensions.Logging.ILoggerFactory)">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Core.Localization.Json.JsonStringLocalizerFactory"/> class.
+            Initializes a new instance of the <see cref="T:Mix.Core.Localization.Json.JsonStringLocalizerFactory" /> class.
             </summary>
             <param name="localizationOptions">The localization options.</param>
             <param name="loggerFactory">The logger factory.</param>
@@ -531,6 +531,69 @@
             <param name="propertyExpression">The property expression.</param>
             <returns></returns>
         </member>
+        <member name="T:Mix.Core.Log.ILogger">
+            <summary>
+            日志
+            </summary>
+        </member>
+        <member name="M:Mix.Core.Log.ILogger.Information(System.String)">
+            <summary>
+            Informations the specified message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Mix.Core.Log.ILogger.Warning(System.String)">
+            <summary>
+            Warnings the specified message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Mix.Core.Log.ILogger.Error(System.String)">
+            <summary>
+            Errors the specified message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Mix.Core.Log.ILogger.Error``1(System.String,``0)">
+            <summary>
+            Errors the specified message.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="message">The message.</param>
+            <param name="propertyValue">The property value.</param>
+        </member>
+        <member name="T:Mix.Core.Log.Logger">
+            <summary>
+            日志器
+            </summary>
+            <seealso cref="T:Mix.Core.Log.ILogger" />
+        </member>
+        <member name="M:Mix.Core.Log.Logger.Error(System.String)">
+            <summary>
+            Errors the specified message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Mix.Core.Log.Logger.Error``1(System.String,``0)">
+            <summary>
+            Errors the specified message.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="message">The message.</param>
+            <param name="propertyValue">The property value.</param>
+        </member>
+        <member name="M:Mix.Core.Log.Logger.Information(System.String)">
+            <summary>
+            Informations the specified message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Mix.Core.Log.Logger.Warning(System.String)">
+            <summary>
+            Warnings the specified message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
         <member name="T:Mix.Core.Mapping.IPropertyMapping">
             <summary>
             IPropertyMapping
@@ -566,7 +629,7 @@
         </member>
         <member name="M:Mix.Core.Mapping.PropertyMapping`2.#ctor(System.Collections.Generic.Dictionary{System.String,Mix.Core.Mapping.PropertyMappingValue})">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Core.Mapping.PropertyMapping`2"/> class.
+            Initializes a new instance of the <see cref="T:Mix.Core.Mapping.PropertyMapping`2" /> class.
             </summary>
             <param name="mappingDictionary">The mapping dictionary.</param>
         </member>
@@ -585,7 +648,7 @@
         </member>
         <member name="P:Mix.Core.Mapping.PropertyMappingValue.Revert">
             <summary>
-            是否反转 <see cref="T:Mix.Core.Mapping.PropertyMappingValue"/> is revert.
+            是否反转 <see cref="T:Mix.Core.Mapping.PropertyMappingValue" /> is revert.
             </summary>
             <value>
               <c>true</c> if revert; otherwise, <c>false</c>.
@@ -593,7 +656,7 @@
         </member>
         <member name="M:Mix.Core.Mapping.PropertyMappingValue.#ctor(System.Collections.Generic.IEnumerable{System.String},System.Boolean)">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Core.Mapping.PropertyMappingValue"/> class.
+            Initializes a new instance of the <see cref="T:Mix.Core.Mapping.PropertyMappingValue" /> class.
             </summary>
             <param name="destinationProperties">The destination properties.</param>
             <param name="revert">if set to <c>true</c> [revert].</param>

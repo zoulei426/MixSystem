@@ -498,7 +498,7 @@
         </member>
         <member name="M:Mix.Library.Entities.Profiles.CompanyProfile.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Library.Entities.Profiles.CompanyProfile"/> class.
+            Initializes a new instance of the <see cref="T:Mix.Library.Entities.Profiles.CompanyProfile" /> class.
             </summary>
         </member>
         <member name="T:Mix.Library.Entities.Profiles.EmployeeProfile">
@@ -509,7 +509,7 @@
         </member>
         <member name="M:Mix.Library.Entities.Profiles.EmployeeProfile.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Library.Entities.Profiles.EmployeeProfile"/> class.
+            Initializes a new instance of the <see cref="T:Mix.Library.Entities.Profiles.EmployeeProfile" /> class.
             </summary>
         </member>
         <member name="T:Mix.Library.Entities.Protos.AccountReflection">
@@ -666,7 +666,7 @@
         </member>
         <member name="M:Mix.Library.Entities.Validators.CompanyAddDtoValidator.#ctor(Microsoft.Extensions.Localization.IStringLocalizer)">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Library.Entities.Validators.CompanyAddDtoValidator"/> class.
+            Initializes a new instance of the <see cref="T:Mix.Library.Entities.Validators.CompanyAddDtoValidator" /> class.
             </summary>
             <param name="localizer">The localizer.</param>
         </member>
@@ -678,7 +678,7 @@
         </member>
         <member name="M:Mix.Library.Entities.Validators.EmployeeAddDtoValidator.#ctor(Microsoft.Extensions.Localization.IStringLocalizer)">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Library.Entities.Validators.EmployeeAddDtoValidator"/> class.
+            Initializes a new instance of the <see cref="T:Mix.Library.Entities.Validators.EmployeeAddDtoValidator" /> class.
             </summary>
             <param name="localizer">The localizer.</param>
         </member>
@@ -690,7 +690,7 @@
         </member>
         <member name="M:Mix.Library.Entities.Validators.EmployeeUpdateDtoValidator.#ctor(Microsoft.Extensions.Localization.IStringLocalizer)">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Library.Entities.Validators.EmployeeUpdateDtoValidator"/> class.
+            Initializes a new instance of the <see cref="T:Mix.Library.Entities.Validators.EmployeeUpdateDtoValidator" /> class.
             </summary>
             <param name="localizer">The localizer.</param>
         </member>

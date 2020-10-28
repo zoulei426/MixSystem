@@ -102,7 +102,6 @@ namespace Mix.Api.Controllers
                 var full = mapper.Map<IEnumerable<CompanyFullDto>>(companies)
                     .ShapeDatas(parameters.Fields);
 
-               
                 if (isIncludeLinks)
                 {
                     var fullWithLinks = full.Select(t =>
@@ -125,7 +124,7 @@ namespace Mix.Api.Controllers
             }
 
             var friendly = mapper.Map<IEnumerable<CompanyDto>>(companies)
-                .ShapeDatas(parameters.Fields) ;
+                .ShapeDatas(parameters.Fields);
 
             if (isIncludeLinks)
             {
@@ -146,13 +145,8 @@ namespace Mix.Api.Controllers
                 return Ok(linkedFriendly);
             }
 
-
             return Ok(friendly);
-
-           
         }
-
-        
 
         /// <summary>
         /// 根据Id获取

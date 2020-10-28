@@ -61,7 +61,6 @@ namespace Mix.Desktop
                       rollingInterval: RollingInterval.Day)
              .CreateLogger();
 
-
             //UI线程未捕获异常处理事件
             DispatcherUnhandledException += App_DispatcherUnhandledException;
             //非UI线程未捕获异常处理事件
@@ -71,8 +70,6 @@ namespace Mix.Desktop
 
             Exit += App_Exit;
         }
-
-
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {

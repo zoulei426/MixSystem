@@ -26,7 +26,7 @@ namespace Mix.Grpc.Api
 
             try
             {
-                Log.Information("init main");
+                //Log.Information("init main");
                 IHost webHost = CreateHostBuilder(args).Build();
                 //try
                 //{

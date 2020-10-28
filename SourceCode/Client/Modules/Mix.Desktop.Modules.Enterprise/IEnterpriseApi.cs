@@ -12,7 +12,7 @@ namespace Mix.Desktop.Modules.Enterprise
     {
         [Get("/api/companies")]
         //[Headers("Accept: application/vnd.mix.company.friendly+json")]
-        Task<HttpResponseMessage> GetCompaniesAsync(CompanyDtoParameters parameters, 
+        Task<HttpResponseMessage> GetCompaniesAsync(CompanyDtoParameters parameters,
             [Header("Accept")] string accept = "application/vnd.mix.company.friendly+json");
 
         [Get("/api/companies/{companyId}/employees")]

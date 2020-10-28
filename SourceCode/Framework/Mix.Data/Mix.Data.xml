@@ -97,7 +97,7 @@
         </member>
         <member name="M:Mix.Data.Dtos.DtoParameters.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Data.Dtos.DtoParameters"/> class.
+            Initializes a new instance of the <see cref="T:Mix.Data.Dtos.DtoParameters" /> class.
             </summary>
         </member>
         <member name="T:Mix.Data.Dtos.LinkDto">
@@ -131,7 +131,7 @@
         </member>
         <member name="M:Mix.Data.Dtos.LinkDto.#ctor(System.String,System.String,System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Data.Dtos.LinkDto"/> class.
+            Initializes a new instance of the <see cref="T:Mix.Data.Dtos.LinkDto" /> class.
             </summary>
             <param name="href">The href.</param>
             <param name="rel">The relative.</param>
@@ -338,7 +338,7 @@
         </member>
         <member name="M:Mix.Data.Pagable.PagedList`1.#ctor(System.Collections.Generic.List{`0},System.Int64,System.Int32,System.Int32)">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Data.Pagable.PagedList`1"/> class.
+            Initializes a new instance of the <see cref="T:Mix.Data.Pagable.PagedList`1" /> class.
             </summary>
             <param name="items">The items.</param>
             <param name="count">The count.</param>

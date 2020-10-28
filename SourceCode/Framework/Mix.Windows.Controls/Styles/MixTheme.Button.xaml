@@ -4,7 +4,7 @@
                     xmlns:converters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf">
     <!-- ToggleButton style -->
     <Style x:Key="LeftBarAndUnderlineToggleButtonStyle" TargetType="ToggleButton">
-        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
@@ -14,30 +14,30 @@
                                 <VisualStateGroup.Transitions>
                                     <VisualTransition From="{x:Null}" GeneratedDuration="0:0:0.4" Storyboard="{x:Null}" To="Normal">
                                         <VisualTransition.GeneratedEasingFunction>
-                                            <CircleEase EasingMode="EaseOut"/>
+                                            <CircleEase EasingMode="EaseOut" />
                                         </VisualTransition.GeneratedEasingFunction>
                                     </VisualTransition>
                                 </VisualStateGroup.Transitions>
-                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="Normal" />
                                 <VisualState x:Name="MouseOver">
                                     <Storyboard>
-                                        <DoubleAnimation Duration="0" To="0.4" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="MouseOverBorder"/>
-                                        <DoubleAnimation Duration="0" To="0.2" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_MouseOverRectangle"/>
+                                        <DoubleAnimation Duration="0" To="0.4" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="MouseOverBorder" />
+                                        <DoubleAnimation Duration="0" To="0.2" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_MouseOverRectangle" />
                                     </Storyboard>
                                 </VisualState>
-                                <VisualState x:Name="Disabled"/>
+                                <VisualState x:Name="Disabled" />
                             </VisualStateGroup>
                             <VisualStateGroup x:Name="CheckStates">
                                 <VisualStateGroup.Transitions>
-                                    <VisualTransition From="{x:Null}" GeneratedDuration="0:0:0.2" GeneratedEasingFunction="{x:Null}" Storyboard="{x:Null}" To="{x:Null}"/>
+                                    <VisualTransition From="{x:Null}" GeneratedDuration="0:0:0.2" GeneratedEasingFunction="{x:Null}" Storyboard="{x:Null}" To="{x:Null}" />
                                 </VisualStateGroup.Transitions>
                                 <VisualState x:Name="Checked">
                                     <Storyboard>
-                                        <DoubleAnimation Duration="0" To="0.8" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="CheckedBorder"/>
-                                        <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_CheckedRectangle"/>
+                                        <DoubleAnimation Duration="0" To="0.8" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="CheckedBorder" />
+                                        <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_CheckedRectangle" />
                                     </Storyboard>
                                 </VisualState>
-                                <VisualState x:Name="Unchecked"/>
+                                <VisualState x:Name="Unchecked" />
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
                         <Grid>
@@ -45,7 +45,7 @@
                                 <Border.Background>
                                     <TemplateBinding Property="Foreground">
                                         <TemplateBinding.Converter>
-                                            <converters:BrushRoundConverter HighValue="Black" LowValue="{StaticResource PrimaryHueMidBrush}"/>
+                                            <converters:BrushRoundConverter HighValue="Black" LowValue="{StaticResource PrimaryHueMidBrush}" />
                                         </TemplateBinding.Converter>
                                     </TemplateBinding>
                                 </Border.Background>
@@ -54,7 +54,7 @@
                                 <Border.Background>
                                     <TemplateBinding Property="Foreground">
                                         <TemplateBinding.Converter>
-                                            <converters:BrushRoundConverter HighValue="Black" LowValue="{StaticResource PrimaryHueMidBrush}"/>
+                                            <converters:BrushRoundConverter HighValue="Black" LowValue="{StaticResource PrimaryHueMidBrush}" />
                                         </TemplateBinding.Converter>
                                     </TemplateBinding>
                                 </Border.Background>
@@ -63,13 +63,13 @@
                                 <materialDesign:Ripple.Feedback>
                                     <TemplateBinding Property="Foreground">
                                         <TemplateBinding.Converter>
-                                            <converters:BrushRoundConverter HighValue="White" LowValue="LightGray"/>
+                                            <converters:BrushRoundConverter HighValue="White" LowValue="LightGray" />
                                         </TemplateBinding.Converter>
                                     </TemplateBinding>
                                 </materialDesign:Ripple.Feedback>
                             </materialDesign:Ripple>
-                            <Rectangle Width="4" HorizontalAlignment="Left" x:Name="PART_CheckedRectangle" Fill="{StaticResource PrimaryHueLightBrush}" Opacity="0"/>
-                            <Rectangle Width="4" HorizontalAlignment="Left" x:Name="PART_MouseOverRectangle" Fill="{StaticResource PrimaryHueLightBrush}" Opacity="0"/>
+                            <Rectangle Width="4" HorizontalAlignment="Left" x:Name="PART_CheckedRectangle" Fill="{StaticResource PrimaryHueLightBrush}" Opacity="0" />
+                            <Rectangle Width="4" HorizontalAlignment="Left" x:Name="PART_MouseOverRectangle" Fill="{StaticResource PrimaryHueLightBrush}" Opacity="0" />
                         </Grid>
                     </Border>
                 </ControlTemplate>

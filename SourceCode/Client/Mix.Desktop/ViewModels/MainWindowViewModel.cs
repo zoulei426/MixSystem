@@ -28,15 +28,12 @@ namespace Mix.Desktop
                 }
             }
         }
+
         private bool _AppStoreIsDisplayed;
-
-
 
         #endregion Properties
 
         #region Fileds
-
-
 
         #endregion Fileds
 
@@ -44,14 +41,12 @@ namespace Mix.Desktop
 
         public ICommand LogoutCommand { get; set; }
 
-
         #endregion Commands
 
         #region Ctor
 
         public MainWindowViewModel(IContainerExtension container) : base(container)
         {
-
         }
 
         #endregion Ctor
@@ -64,7 +59,6 @@ namespace Mix.Desktop
             {
                 ShellManager.Switch<MainWindow, LoginWindow>();
             });
-
         }
 
         public void OnLoaded()
@@ -87,8 +81,6 @@ namespace Mix.Desktop
             _AppStoreIsDisplayed = false;
             RaisePropertyChanged(nameof(AppStoreIsDisplayed));
         }
-
-
 
         #endregion Methods
     }
