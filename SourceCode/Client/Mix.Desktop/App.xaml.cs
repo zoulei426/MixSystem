@@ -95,7 +95,7 @@ namespace Mix.Desktop
         protected override Window CreateShell()
         {
             InitializeCultureInfo();
-            return Container.Resolve<LoginWindow>();
+            return Container.Resolve<MainWindow>();
         }
 
         protected override IModuleCatalog CreateModuleCatalog()
@@ -135,9 +135,10 @@ namespace Mix.Desktop
         private void App_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
             Exception ex = e.Exception;
-            MessageBox.Show($"程序运行出错，原因：{ex.Message}-{ex.InnerException?.Message}",
-                "系统提示", MessageBoxButton.OK, MessageBoxImage.Error);
-            //Log.Error(ex.Message, ex);
+            Container.Resolve<INotifier>().Error(ex.Message);
+            //MessageBox.Show($"程序运行出错，原因：{ex.Message}-{ex.InnerException?.Message}",
+            //    "系统提示", MessageBoxButton.OK, MessageBoxImage.Error);
+
             Container.Resolve<Core.Log.ILogger>().Error(ex.Message, ex);
             e.Handled = true;
         }

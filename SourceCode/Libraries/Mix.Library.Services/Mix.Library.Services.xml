@@ -13,7 +13,7 @@
         </member>
         <member name="M:Mix.Library.Services.CompanyService.#ctor(Mix.Library.Repositories.ICompanyRepository,Mix.Library.Repositories.IEmployeeRepository)">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Library.Services.CompanyService" /> class.
+            Initializes a new instance of the <see cref="T:Mix.Library.Services.CompanyService"/> class.
             </summary>
             <param name="companyRepository">The company repository.</param>
             <param name="employeeRepository">The employee repository.</param>
@@ -53,7 +53,7 @@
         </member>
         <member name="M:Mix.Library.Services.EmployeeService.#ctor(Mix.Library.Repositories.ICompanyRepository,Mix.Library.Repositories.IEmployeeRepository,Mix.Core.Mapping.IPropertyMappingService)">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Library.Services.EmployeeService" /> class.
+            Initializes a new instance of the <see cref="T:Mix.Library.Services.EmployeeService"/> class.
             </summary>
             <param name="companyRepository">The company repository.</param>
             <param name="employeeRepository">The employee repository.</param>
@@ -121,7 +121,7 @@
         </member>
         <member name="M:Mix.Library.Services.PropertyMappingService.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Library.Services.PropertyMappingService" /> class.
+            Initializes a new instance of the <see cref="T:Mix.Library.Services.PropertyMappingService"/> class.
             </summary>
         </member>
         <member name="M:Mix.Library.Services.PropertyMappingService.GetPropertyMapping``2">

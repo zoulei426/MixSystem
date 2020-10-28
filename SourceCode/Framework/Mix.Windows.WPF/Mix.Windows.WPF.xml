@@ -12,7 +12,7 @@
         </member>
         <member name="M:Mix.Windows.WPF.Commands.RelayCommand.#ctor(System.Action,System.Func{System.Boolean})">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.Commands.RelayCommand" /> class.
+            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.Commands.RelayCommand"/> class.
             </summary>
             <param name="execute">The execute.</param>
             <param name="canExecute">The can execute.</param>
@@ -67,7 +67,7 @@
         </member>
         <member name="M:Mix.Windows.WPF.Commands.RelayCommandAsync.#ctor(System.Func{System.Threading.Tasks.Task},System.Func{System.Boolean})">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.Commands.RelayCommandAsync" /> class.
+            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.Commands.RelayCommandAsync"/> class.
             </summary>
             <param name="execute">The execute.</param>
             <param name="canExecute">The can execute.</param>
@@ -123,7 +123,7 @@
         </member>
         <member name="M:Mix.Windows.WPF.Commands.RelayCommandAsync`1.#ctor(System.Func{`0,System.Threading.Tasks.Task},System.Func{`0,System.Boolean})">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.Commands.RelayCommandAsync`1" /> class.
+            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.Commands.RelayCommandAsync`1"/> class.
             </summary>
             <param name="execute">The execute.</param>
             <param name="canExecute">The can execute.</param>
@@ -208,7 +208,7 @@
         </member>
         <member name="M:Mix.Windows.WPF.Commands.RelayCommand`1.#ctor(System.Action{`0},System.Predicate{`0})">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.Commands.RelayCommand`1" /> class.
+            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.Commands.RelayCommand`1"/> class.
             </summary>
             <param name="execute">The execute.</param>
             <param name="canExecute">The can execute.</param>
@@ -397,7 +397,7 @@
         <member name="M:Mix.Windows.WPF.DependencyObjectExtensions.GetParentObject(System.Windows.DependencyObject)">
             <summary>
             This method is an alternative to WPF's
-            <see cref="M:System.Windows.Media.VisualTreeHelper.GetParent(System.Windows.DependencyObject)" /> method, which also
+            <see cref="M:System.Windows.Media.VisualTreeHelper.GetParent(System.Windows.DependencyObject)"/> method, which also
             supports content elements. Keep in mind that for content element,
             this method falls back to the logical tree of the element!
             </summary>
@@ -435,7 +435,7 @@
         </member>
         <member name="M:Mix.Windows.WPF.Localizations.LocalizerExtension.#ctor(System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.Localizations.LocalizerExtension" /> class.
+            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.Localizations.LocalizerExtension"/> class.
             </summary>
             <param name="key">The key.</param>
         </member>
@@ -474,7 +474,7 @@
         </member>
         <member name="M:Mix.Windows.WPF.Localizations.LocalizerManager.#ctor(Mix.Windows.Core.IConfigureFile,Microsoft.Extensions.Localization.IStringLocalizerFactory)">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.Localizations.LocalizerManager" /> class.
+            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.Localizations.LocalizerManager"/> class.
             </summary>
             <param name="configure">The configure.</param>
             <param name="localizerFactory">The localizer factory.</param>
@@ -519,7 +519,7 @@
         </member>
         <member name="M:Mix.Windows.WPF.Localizations.LocalizerSource.#ctor(System.String,System.Windows.FrameworkElement)">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.Localizations.LocalizerSource" /> class.
+            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.Localizations.LocalizerSource"/> class.
             </summary>
             <param name="key">The key.</param>
             <param name="element">The element.</param>
@@ -542,18 +542,18 @@
             Called when [loaded].
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Mix.Windows.WPF.Localizations.LocalizerSource.OnUnloaded(System.Object,System.Windows.RoutedEventArgs)">
             <summary>
             Called when [unloaded].
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Mix.Windows.WPF.Localizations.LocalizerSource.op_Implicit(System.String)~Mix.Windows.WPF.Localizations.LocalizerSource">
             <summary>
-            Performs an implicit conversion from <see cref="T:System.String" /> to <see cref="T:Mix.Windows.WPF.Localizations.LocalizerSource" />.
+            Performs an implicit conversion from <see cref="T:System.String"/> to <see cref="T:Mix.Windows.WPF.Localizations.LocalizerSource"/>.
             </summary>
             <param name="resourceKey">The resource key.</param>
             <returns>
@@ -645,7 +645,7 @@
         </member>
         <member name="M:Mix.Windows.WPF.Mvvm.ModuleBase.#ctor(Unity.IUnityContainer)">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.Mvvm.ModuleBase" /> class.
+            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.Mvvm.ModuleBase"/> class.
             </summary>
             <param name="container">The container.</param>
         </member>
@@ -775,7 +775,7 @@
         </member>
         <member name="M:Mix.Windows.WPF.ViewModelResolver.#ctor(System.Func{Prism.Ioc.IContainerProvider})">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.ViewModelResolver" /> class.
+            Initializes a new instance of the <see cref="T:Mix.Windows.WPF.ViewModelResolver"/> class.
             </summary>
             <param name="containerFactory">The container factory.</param>
         </member>
@@ -854,7 +854,7 @@
             Called when [window loaded].
             </summary>
             <param name="sender">The sender.</param>
-            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Mix.Windows.WPF.ProcessController.Restart">
             <summary>
@@ -900,7 +900,7 @@
             Called when [at end command changed].
             </summary>
             <param name="d">The d.</param>
-            <param name="e">The <see cref="T:System.Windows.DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
+            <param name="e">The <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="T:Mix.Windows.WPF.ShellManager">
             <summary>

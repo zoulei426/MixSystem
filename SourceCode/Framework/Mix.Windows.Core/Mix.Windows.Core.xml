@@ -106,7 +106,7 @@
         </member>
         <member name="M:Mix.Windows.Core.JsonExtension.#cctor">
             <summary>
-            Initializes the <see cref="T:Mix.Windows.Core.JsonExtension" /> class.
+            Initializes the <see cref="T:Mix.Windows.Core.JsonExtension"/> class.
             </summary>
         </member>
         <member name="M:Mix.Windows.Core.JsonExtension.ToJson``1(``0,Newtonsoft.Json.Formatting)">
@@ -249,7 +249,7 @@
         </member>
         <member name="M:Mix.Windows.Core.FileLocator.#ctor(System.String)">
             <summary>
-            Initializes a instance of <see cref="T:Mix.Windows.Core.FileLocator" /> with specified file full path.
+            Initializes a instance of <see cref="T:Mix.Windows.Core.FileLocator"/> with specified file full path.
             </summary>
             <param name="fileFullPath">A string representing the full path of the file. </param>
         </member>
@@ -309,7 +309,7 @@
         </member>
         <member name="M:Mix.Windows.Core.FileLocator.op_Implicit(System.String)~Mix.Windows.Core.FileLocator">
             <summary>
-            Performs an implicit conversion from <see cref="T:System.String" /> to <see cref="T:Mix.Windows.Core.FileLocator" />.
+            Performs an implicit conversion from <see cref="T:System.String"/> to <see cref="T:Mix.Windows.Core.FileLocator"/>.
             </summary>
             <param name="filePath">The file path.</param>
             <returns>
@@ -318,7 +318,7 @@
         </member>
         <member name="M:Mix.Windows.Core.FileLocator.op_Implicit(Mix.Windows.Core.FileLocator)~System.String">
             <summary>
-            Performs an implicit conversion from <see cref="T:Mix.Windows.Core.FileLocator" /> to <see cref="T:System.String" />.
+            Performs an implicit conversion from <see cref="T:Mix.Windows.Core.FileLocator"/> to <see cref="T:System.String"/>.
             </summary>
             <param name="fileLocation">The file location.</param>
             <returns>
@@ -362,7 +362,7 @@
         </member>
         <member name="M:Mix.Windows.Core.GenericInterfaceExtension.GenericInterfaceImpl.#ctor(System.Object,System.Type)">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Windows.Core.GenericInterfaceExtension.GenericInterfaceImpl" /> class.
+            Initializes a new instance of the <see cref="T:Mix.Windows.Core.GenericInterfaceExtension.GenericInterfaceImpl"/> class.
             </summary>
             <param name="instance">The instance.</param>
             <param name="interfaceType">Type of the interface.</param>
@@ -407,6 +407,7 @@
         </member>
         <member name="T:Mix.Windows.Core.GenericInterfaceExtension.GenericInterfaceImpl.DelegateType">
              <summary>
+            
              </summary>
         </member>
         <member name="F:Mix.Windows.Core.GenericInterfaceExtension.GenericInterfaceImpl.DelegateType.NotSupported">
@@ -592,7 +593,7 @@
         </member>
         <member name="M:Mix.Windows.Core.SystemPath.#cctor">
             <summary>
-            Initializes the <see cref="T:Mix.Windows.Core.SystemPath" /> class.
+            Initializes the <see cref="T:Mix.Windows.Core.SystemPath"/> class.
             </summary>
         </member>
         <member name="T:Mix.Windows.Core.ValueChangedEventArgs">
@@ -611,7 +612,7 @@
         </member>
         <member name="M:Mix.Windows.Core.ValueChangedEventArgs.#ctor(System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Mix.Windows.Core.ValueChangedEventArgs" /> class.
+            Initializes a new instance of the <see cref="T:Mix.Windows.Core.ValueChangedEventArgs"/> class.
             </summary>
             <param name="keyName">Name of the key.</param>
         </member>
