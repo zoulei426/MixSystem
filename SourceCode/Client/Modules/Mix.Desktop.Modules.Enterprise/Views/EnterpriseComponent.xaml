@@ -29,57 +29,9 @@
                 <ColumnDefinition Width="6*"/>
                 <ColumnDefinition Width="4*"/>
             </Grid.ColumnDefinitions>
-            <!--<ScrollViewer Grid.Column="0">-->
-            <StackPanel>
-                    <TextBlock Text="{i18n:Localizer Company List}"/>
-                    <ListView Height="500" ItemsSource="{Binding CompanyCards}" wpf:ScrollViewerMonitor.AtEndCommand="{Binding GetCompaniesCommand}">
-                    <!--<ListView.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel />
-                        </ItemsPanelTemplate>
-                    </ListView.ItemsPanel>-->
-                </ListView>
-            </StackPanel>
-            
-        <!--</ScrollViewer>-->
 
-            <StackPanel Grid.Column="1">
-            <TextBlock Text="{i18n:Localizer Employee List}" />
-            <DataGrid ItemsSource="{Binding Employees}"
-                          CanUserAddRows="False"
-                          AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTemplateColumn Header="工号">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding EmployeeNo}" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="姓名">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Name}" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="性别">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding GenderDisplay}" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="年龄">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Age}" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                    </DataGrid.Columns>
-                </DataGrid>
-        </StackPanel>
+            <local:CompaniesPanel/>
+            <local:EmployeesPanel Grid.Column="1"/>
         </Grid>
     </hc:TransitioningContentControl>
 </TabItem>

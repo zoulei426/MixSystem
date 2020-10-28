@@ -34,11 +34,12 @@
             <param name="companyRepository"></param>
             <param name="mapper"></param>
         </member>
-        <member name="M:Mix.Api.Controllers.CompaniesController.GetCompanies(Mix.Library.Entities.DtoParameters.CompanyDtoParameters)">
+        <member name="M:Mix.Api.Controllers.CompaniesController.GetCompanies(Mix.Library.Entities.DtoParameters.CompanyDtoParameters,System.String)">
             <summary>
             Gets the companies.
             </summary>
             <param name="parameters">The parameters.</param>
+            <param name="mediaType"></param>
             <returns></returns>
         </member>
         <member name="M:Mix.Api.Controllers.CompaniesController.GetCompany(System.Guid,System.String,System.String)">

@@ -732,6 +732,11 @@
             注册命令
             </summary>
         </member>
+        <member name="M:Mix.Windows.WPF.ViewModelBase.SubscribeEvents">
+            <summary>
+            订阅消息
+            </summary>
+        </member>
         <member name="M:Mix.Windows.WPF.ViewModelBase.Navigate(System.String,System.String,System.Action{Prism.Regions.NavigationResult})">
             <summary>
             导航到指定Page
@@ -865,6 +870,37 @@
             <summary>
             Activates the existed window.
             </summary>
+        </member>
+        <member name="T:Mix.Windows.WPF.ScrollViewerMonitor">
+            <summary>
+            滚动条监听
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.WPF.ScrollViewerMonitor.GetAtEndCommand(System.Windows.DependencyObject)">
+            <summary>
+            滚动条到底触发命令
+            </summary>
+            <param name="obj">The object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Windows.WPF.ScrollViewerMonitor.SetAtEndCommand(System.Windows.DependencyObject,System.Windows.Input.ICommand)">
+            <summary>
+            Sets at end command.
+            </summary>
+            <param name="obj">The object.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="F:Mix.Windows.WPF.ScrollViewerMonitor.AtEndCommandProperty">
+            <summary>
+            At end command property
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.WPF.ScrollViewerMonitor.OnAtEndCommandChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Called when [at end command changed].
+            </summary>
+            <param name="d">The d.</param>
+            <param name="e">The <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="T:Mix.Windows.WPF.ShellManager">
             <summary>

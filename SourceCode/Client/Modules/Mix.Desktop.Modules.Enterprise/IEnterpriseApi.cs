@@ -8,10 +8,12 @@ using System.Threading.Tasks;
 
 namespace Mix.Desktop.Modules.Enterprise
 {
-    public interface IMixApi
+    public interface IEnterpriseApi
     {
         [Get("/api/companies")]
-        Task<HttpResponseMessage> GetCompaniesAsync(CompanyDtoParameters parameters);
+        //[Headers("Accept: application/vnd.mix.company.friendly+json")]
+        Task<HttpResponseMessage> GetCompaniesAsync(CompanyDtoParameters parameters, 
+            [Header("Accept")] string accept = "application/vnd.mix.company.friendly+json");
 
         [Get("/api/companies/{companyId}/employees")]
         Task<IEnumerable<EmployeeDto>> GetEmployeesForCompany(Guid companyId, EmployeeDtoParameters parameters);

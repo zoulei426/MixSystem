@@ -48,15 +48,14 @@ namespace Mix.Library.Services
         /// </summary>
         /// <param name="parameters">The parameters.</param>
         /// <returns></returns>
-        public async Task<PagedList<CompanyDto>> GetCompaniesAsync(CompanyDtoParameters parameters)
+        public async Task<PagedList<Company>> GetCompaniesAsync(CompanyDtoParameters parameters)
         {
             Guards.ThrowIfNull(parameters);
 
-            var pagedCompanies = await PagedList<CompanyDto>.CreateAsync(
+            var pagedCompanies = await PagedList<Company>.CreateAsync(
                 companyRepository.Select,
                 parameters.PageNumber,
-                parameters.PageSize,
-                Mapper);
+                parameters.PageSize);
 
             return pagedCompanies;
         }
@@ -83,7 +82,7 @@ namespace Mix.Library.Services
         /// </summary>
         /// <param name="companieCollection">The companie collection.</param>
         /// <returns></returns>
-        //[Transactional]
+        //[Data.Aop.Attributes.Transactional]
         public async Task<IEnumerable<CompanyDto>> CreateCompanyCollectionAsync(IEnumerable<CompanyAddDto> companieCollection)
         {
             var entityCollection = Mapper.Map<IEnumerable<Company>>(companieCollection);

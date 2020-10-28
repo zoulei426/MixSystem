@@ -99,6 +99,7 @@ namespace Mix.Windows.WPF
             Notifier = container.Resolve<INotifier>();
 
             RegisterCommands();
+            SubscribeEvents();
         }
 
         #endregion Ctor
@@ -115,6 +116,13 @@ namespace Mix.Windows.WPF
         /// 注册命令
         /// </summary>
         protected virtual void RegisterCommands()
+        {
+        }
+
+        /// <summary>
+        /// 订阅消息
+        /// </summary>
+        protected virtual void SubscribeEvents()
         {
         }
 

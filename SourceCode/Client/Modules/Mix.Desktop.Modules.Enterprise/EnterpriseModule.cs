@@ -21,7 +21,7 @@ namespace Mix.Desktop.Modules.Enterprise
             //containerRegistry.RegisterInstance(FileTransferService.GetDownloaderManager("net-disk"));
 
             // Register for region
-            containerRegistry.RegisterInstance(RestService.For<IMixApi>("https://localhost:5002"));
+            containerRegistry.RegisterInstance(RestService.For<IEnterpriseApi>("https://localhost:5002"));
             RegionManager.RegisterViewWithRegion(SystemRegionNames.MainTabRegion, typeof(EnterpriseComponent));
         }
 

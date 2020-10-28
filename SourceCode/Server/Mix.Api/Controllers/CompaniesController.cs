@@ -22,6 +22,12 @@ namespace Mix.Api.Controllers
     /// <summary>
     /// 公司控制器
     /// </summary>
+    [Produces("application/json",
+            "application/vnd.mix.hateoas+json",
+            "application/vnd.mix.company.friendly+json",
+            "application/vnd.mix.company.friendly.hateoas+json",
+            "application/vnd.mix.company.full+json",
+            "application/vnd.mix.company.full.hateoas+json")]
     [ApiController]
     [Route("api/companies")]
     public class CompaniesController : ControllerBase
@@ -50,10 +56,15 @@ namespace Mix.Api.Controllers
         /// Gets the companies.
         /// </summary>
         /// <param name="parameters">The parameters.</param>
+        /// <param name="mediaType"></param>
         /// <returns></returns>
         [HttpGet(Name = nameof(GetCompanies))]
-        public async Task<IActionResult> GetCompanies([FromQuery] CompanyDtoParameters parameters)
+        public async Task<IActionResult> GetCompanies([FromQuery] CompanyDtoParameters parameters,
+            [FromHeader(Name = "Accept")] string mediaType)
         {
+            if (!MediaTypeHeaderValue.TryParse(mediaType, out MediaTypeHeaderValue mediaTypeHeaderValue))
+                return BadRequest();
+
             var companies = await companyService.GetCompaniesAsync(parameters);
 
             var paginationMetadata = new PaginationMetadata
@@ -71,25 +82,77 @@ namespace Mix.Api.Controllers
                         Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
                     }));
 
-            var shapedData = companies.ShapeDatas(parameters.Fields);
-            var links = CreateLinksForCompany(parameters, companies.HasPrevious, companies.HasNext);
+            // 是否包含链接
+            var isIncludeLinks = mediaTypeHeaderValue.SubTypeWithoutSuffix.EndsWith("hateoas", StringComparison.InvariantCultureIgnoreCase);
 
-            var shapedCompaniesWithLinks = shapedData.Select(t =>
+            IEnumerable<LinkDto> includedLinks = new List<LinkDto>();
+
+            if (isIncludeLinks)
             {
-                var companyDict = t as IDictionary<string, object>;
-                var companyLinks = CreateLinksForCompany((Guid)companyDict[nameof(CompanyDto.Id)], null);
-                companyDict.Add("Links", companyLinks);
-                return companyDict;
-            });
+                includedLinks = CreateLinksForCompany(parameters, companies.HasPrevious, companies.HasNext);
+            }
 
-            var linkedCompanies = new
+            // 自定义MediaType
+            var primaryMediaType = isIncludeLinks
+                ? mediaTypeHeaderValue.SubTypeWithoutSuffix.Substring(0, mediaTypeHeaderValue.SubTypeWithoutSuffix.Length - "hateoas".Length - 1)
+                : mediaTypeHeaderValue.SubTypeWithoutSuffix;
+
+            if (primaryMediaType.Equals("vnd.mix.company.full"))
             {
-                value = shapedCompaniesWithLinks,
-                links
-            };
+                var full = mapper.Map<IEnumerable<CompanyFullDto>>(companies)
+                    .ShapeDatas(parameters.Fields);
 
-            return Ok(linkedCompanies);
+               
+                if (isIncludeLinks)
+                {
+                    var fullWithLinks = full.Select(t =>
+                    {
+                        var companyDict = t as IDictionary<string, object>;
+                        var companyLinks = CreateLinksForCompany((Guid)companyDict[nameof(CompanyFullDto.Id)], parameters.Fields);
+                        companyDict.Add("links", companyLinks);
+                        return companyDict;
+                    });
+
+                    var linkedFull = new
+                    {
+                        Value = fullWithLinks,
+                        Links = includedLinks
+                    };
+                    return Ok(linkedFull);
+                }
+
+                return Ok(full);
+            }
+
+            var friendly = mapper.Map<IEnumerable<CompanyDto>>(companies)
+                .ShapeDatas(parameters.Fields) ;
+
+            if (isIncludeLinks)
+            {
+                var friendlyWithLinks = friendly.Select(t =>
+                {
+                    var companyDict = t as IDictionary<string, object>;
+                    var companyLinks = CreateLinksForCompany((Guid)companyDict[nameof(CompanyDto.Id)], parameters.Fields);
+                    companyDict.Add("links", companyLinks);
+                    return companyDict;
+                });
+
+                var linkedFriendly = new
+                {
+                    Value = friendlyWithLinks,
+                    Links = includedLinks
+                };
+
+                return Ok(linkedFriendly);
+            }
+
+
+            return Ok(friendly);
+
+           
         }
+
+        
 
         /// <summary>
         /// 根据Id获取
@@ -98,12 +161,6 @@ namespace Mix.Api.Controllers
         /// <param name="fields"></param>
         /// <param name="mediaType"></param>
         /// <returns></returns>
-        [Produces("application/json",
-            "application/vnd.mix.hateoas+json",
-            "application/vnd.mix.company.friendly+json",
-            "application/vnd.mix.company.friendly.hateoas+json",
-            "application/vnd.mix.company.full+json",
-            "application/vnd.mix.company.full.hateoas+json")]
         [HttpGet("{companyId}", Name = nameof(GetCompany))]
         public async Task<IActionResult> GetCompany(Guid companyId, string fields,
             [FromHeader(Name = "Accept")] string mediaType)
@@ -127,6 +184,7 @@ namespace Mix.Api.Controllers
                 includedLinks = CreateLinksForCompany(companyId, fields);
             }
 
+            // 自定义MediaType
             var primaryMediaType = isIncludeLinks
                 ? mediaTypeHeaderValue.SubTypeWithoutSuffix.Substring(0, mediaTypeHeaderValue.SubTypeWithoutSuffix.Length - "hateoas".Length - 1)
                 : mediaTypeHeaderValue.SubTypeWithoutSuffix;
@@ -152,8 +210,6 @@ namespace Mix.Api.Controllers
             }
 
             return Ok(friendly);
-
-            //return Ok(mapper.Map<CompanyDto>(company).ShapeData(fields));
         }
 
         /// <summary>
