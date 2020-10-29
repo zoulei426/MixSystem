@@ -1,7 +1,12 @@
+using IdentityServer4.AspNetIdentity;
+using IdentityServer4.Services;
+using IdentityServer4.Test;
+using IdentityServer4.Validation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Mix.Library.Entities.Model;
 
 namespace Mix.IdentityServer4
 {
@@ -25,6 +30,8 @@ namespace Mix.IdentityServer4
                 options.EmitStaticAudienceClaim = true;
             });
 
+            builder.AddTestUsers(TestUsers.Users);
+
             // in-memory, code config
             builder.AddInMemoryIdentityResources(Config.GetIdentityResources());
             builder.AddInMemoryApiResources(Config.GetApiResources());
@@ -34,8 +41,13 @@ namespace Mix.IdentityServer4
             // not recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();
 
+            builder.AddResourceOwnerValidator<ResourceOwnerPasswordValidator>();
+            builder.AddProfileService<ProfileService>();
             //builder.AddSecretParser<JwtBearerClientAssertionSecretParser>();
             //builder.AddSecretValidator<PrivateKeyJwtSecretValidator>();
+
+            //services.AddTransient<IResourceOwnerPasswordValidator, ResourceOwnerPasswordValidator>();
+            //services.AddTransient<IProfileService, ProfileService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

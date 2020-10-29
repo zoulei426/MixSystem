@@ -126,7 +126,7 @@ namespace Mix.Api
             services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
                 .AddIdentityServerAuthentication(options =>
                 {
-                    options.Authority = "http://localhost:5999";
+                    options.Authority = "https://localhost:5999";
                     options.RequireHttpsMetadata = false;
                     options.ApiName = "api1";
                     options.SaveToken = true;

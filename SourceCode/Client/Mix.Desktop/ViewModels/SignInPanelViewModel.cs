@@ -126,9 +126,29 @@ namespace Mix.Desktop
             EventAggregator.GetEvent<MainWindowLoadingEvent>().Publish(true);
 
             var httpClient = new HttpClient();
-            var disco = await httpClient.GetDiscoveryDocumentAsync("http://localhost:5999/");
+
+            var disco = await httpClient.GetDiscoveryDocumentAsync("https://localhost:5999/");
             if (disco.IsError)
             {
+                Notifier.Error(disco.Error);
+                EventAggregator.GetEvent<MainWindowLoadingEvent>().Publish(false);
+                return;
+            }
+
+            var tokenResponse = await httpClient.RequestPasswordTokenAsync(new PasswordTokenRequest
+            {
+                Address = disco.TokenEndpoint,
+                ClientId = "wpf client",
+                ClientSecret = "wpf secrect",
+                Scope = "all",
+                UserName = Email,
+                Password = "123456"
+            });
+
+            if (tokenResponse.IsError)
+            {
+                Notifier.Error(tokenResponse.Error);
+                EventAggregator.GetEvent<MainWindowLoadingEvent>().Publish(false);
                 return;
             }
 

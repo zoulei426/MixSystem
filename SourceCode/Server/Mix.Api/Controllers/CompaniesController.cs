@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using Microsoft.Net.Http.Headers;
@@ -30,6 +31,7 @@ namespace Mix.Api.Controllers
             "application/vnd.mix.company.full.hateoas+json")]
     [ApiController]
     [Route("api/companies")]
+    [Authorize(AuthenticationSchemes = "Bearer")]
     public class CompaniesController : ControllerBase
     {
         private readonly IStringLocalizer localizer;

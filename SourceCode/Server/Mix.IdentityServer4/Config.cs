@@ -19,7 +19,7 @@ namespace Mix.IdentityServer4
         {
             return new List<ApiScope>
             {
-                new ApiScope("all")
+                new ApiScope("api1")
             };
         }
 
@@ -37,10 +37,21 @@ namespace Mix.IdentityServer4
             {
                 new Client
                 {
-                    ClientId="client",
+                    ClientId = "client",
+                    ClientName = "Client Credentials Client",
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     ClientSecrets = {new Secret("secret".Sha256()) },
-                    AllowedScopes = { "all" }
+                    AllowedScopes = { "api1" }
+                },
+                new Client
+                {
+                    ClientId = "wpf client",
+                    AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
+                    ClientSecrets =
+                    {
+                        new Secret("secret".Sha256())
+                    },
+                    AllowedScopes = { "api1" }
                 }
             };
         }
