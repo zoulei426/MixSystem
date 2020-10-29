@@ -6,6 +6,7 @@ using Mix.Windows.WPF;
 using Newtonsoft.Json;
 using Prism.Commands;
 using Prism.Ioc;
+using PropertyChanged;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -18,17 +19,12 @@ using System.Windows.Media;
 
 namespace Mix.Desktop.Modules.Enterprise.ViewModels
 {
+    [AddINotifyPropertyChangedInterface]
     public class CompaniesPanelViewModel : EnterpriseViewModel, IViewLoadedAndUnloadedAware
     {
         #region Properties
 
-        public ObservableCollection<Card> CompanyCards
-        {
-            get { return _CompanyCards; }
-            set { SetProperty(ref _CompanyCards, value); }
-        }
-
-        private ObservableCollection<Card> _CompanyCards;
+        public IList<Card> CompanyCards { get; set; }
 
         #endregion Properties
 
@@ -127,12 +123,12 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
             RowDefinition row2 = new RowDefinition();
             RowDefinition row3 = new RowDefinition();
             //row1.Height = new GridLength(100);
-            
+
             grid.RowDefinitions.Add(row1);
             grid.RowDefinitions.Add(row2);
             grid.RowDefinitions.Add(row3);
 
-            var colorZone = new ColorZone 
+            var colorZone = new ColorZone
             {
                 Content = new PackIcon() { Kind = PackIconKind.People, Height = 100, Width = 100 },
                 Width = 200,
@@ -144,7 +140,7 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
             grid.Children.Add(colorZone);
             Grid.SetRow(colorZone, 0);
 
-            var btn = CreatePackIconButton("员工信息", "MaterialDesignFloatingActionMiniAccentButton", 
+            var btn = CreatePackIconButton("员工信息", "MaterialDesignFloatingActionMiniAccentButton",
                 PackIconKind.People, GetEmployeesForCompanyCommand, company);
             btn.Margin = new Thickness(0, 0, 16, -20);
             btn.HorizontalAlignment = HorizontalAlignment.Right;
@@ -154,7 +150,7 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
 
             var sp = new StackPanel();
             sp.Orientation = Orientation.Vertical;
-            sp.Children.Add(new TextBlock { Text = company.Name }) ;
+            sp.Children.Add(new TextBlock { Text = company.Name });
             sp.Children.Add(new TextBlock { Text = company.Introduction });
             grid.Children.Add(sp);
             Grid.SetRow(sp, 1);
@@ -170,14 +166,13 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
             grid.Children.Add(spBottom);
             Grid.SetRow(spBottom, 2);
 
-            
             card.Content = grid;
 
             CompanyCards.Add(card);
         }
 
-        private Button CreatePackIconButton(string content, 
-            string style, PackIconKind icon, 
+        private Button CreatePackIconButton(string content,
+            string style, PackIconKind icon,
             ICommand command, object parameter)
         {
             var btn = new Button();

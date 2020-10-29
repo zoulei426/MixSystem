@@ -6,6 +6,7 @@ using Mix.Windows.Core;
 using Mix.Windows.WPF;
 using Mix.Windows.WPF.Commands;
 using Prism.Ioc;
+using PropertyChanged;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ using static Mix.Library.Entities.Protos.Accounts;
 
 namespace Mix.Desktop
 {
+    [AddINotifyPropertyChangedInterface]
     public class SignInPanelViewModel : ViewModelBase, IViewLoadedAndUnloadedAware<SignInPanel>
     {
         #region Properties
@@ -21,46 +23,22 @@ namespace Mix.Desktop
         /// <summary>
         /// 邮箱
         /// </summary>
-        public string Email
-        {
-            get { return _Email; }
-            set { SetProperty(ref _Email, value); }
-        }
-
-        private string _Email;
+        public string Email { get; set; }
 
         /// <summary>
         /// 密码
         /// </summary>
-        public string Password
-        {
-            get { return _Password; }
-            set { SetProperty(ref _Password, value); }
-        }
-
-        private string _Password;
+        public string Password { get; set; }
 
         /// <summary>
         /// 是否记住密码
         /// </summary>
-        public bool IsRememberMe
-        {
-            get { return _IsRememberMe; }
-            set { if (SetProperty(ref _IsRememberMe, value) && !value) IsAutoSignIn = false; }
-        }
-
-        private bool _IsRememberMe;
+        public bool IsRememberMe { get; set; }
 
         /// <summary>
         /// 是否自动登录
         /// </summary>
-        public bool IsAutoSignIn
-        {
-            get { return _IsAutoSignIn; }
-            set { if (SetProperty(ref _IsAutoSignIn, value) && value) IsRememberMe = true; }
-        }
-
-        private bool _IsAutoSignIn;
+        public bool IsAutoSignIn { get; set; }
 
         private SignUpArgs signUpArgs;
         private readonly ChannelBase channel;

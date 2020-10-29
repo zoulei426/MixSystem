@@ -3,6 +3,7 @@ using Grpc.Net.Client;
 using Mix.Windows.WPF;
 using Mix.Windows.WPF.Commands;
 using Prism.Ioc;
+using PropertyChanged;
 using System.Linq;
 using System.Windows.Input;
 using static Mix.Library.Entities.Protos.Accounts;
@@ -12,6 +13,7 @@ namespace Mix.Desktop
     /// <summary>
     /// 注册
     /// </summary>
+    [AddINotifyPropertyChangedInterface]
     public class SignUpPanelViewModel : ViewModelBase
     {
         #region Properties
@@ -19,65 +21,29 @@ namespace Mix.Desktop
         /// <summary>
         /// 是否锁定
         /// </summary>
-        public bool IsLocked
-        {
-            get { return _IsLocked; }
-            set { SetProperty(ref _IsLocked, value); }
-        }
+        public bool IsLocked { get; set; }
 
-        private bool _IsLocked;
-
-        public int RemainingTimeBasedSecond
-        {
-            get { return _RemainingTimeBasedSecond; }
-            set { SetProperty(ref _RemainingTimeBasedSecond, value); }
-        }
-
-        private int _RemainingTimeBasedSecond;
+        public int RemainingTimeBasedSecond { get; set; }
 
         /// <summary>
         /// 邮箱
         /// </summary>
-        public string Email
-        {
-            get { return _Email; }
-            set { SetProperty(ref _Email, value); }
-        }
-
-        private string _Email;
+        public string Email { get; set; }
 
         /// <summary>
         /// 用户名
         /// </summary>
-        public string UserName
-        {
-            get { return _UserName; }
-            set { SetProperty(ref _UserName, value); }
-        }
-
-        private string _UserName;
+        public string UserName { get; set; }
 
         /// <summary>
         /// 密码
         /// </summary>
-        public string Password
-        {
-            get { return _Password; }
-            set { SetProperty(ref _Password, value); }
-        }
-
-        private string _Password;
+        public string Password { get; set; }
 
         /// <summary>
         /// 验证码
         /// </summary>
-        public string VerificationCode
-        {
-            get { return _VerificationCode; }
-            set { SetProperty(ref _VerificationCode, value); }
-        }
-
-        private string _VerificationCode;
+        public string VerificationCode { get; set; }
 
         private ChannelBase channel;
         private AccountsClient accountsClient;

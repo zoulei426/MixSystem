@@ -2,21 +2,19 @@
 using Mix.Library.Entities.Dtos;
 using Mix.Windows.WPF;
 using Prism.Ioc;
+using PropertyChanged;
+using System.Collections;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace Mix.Desktop.Modules.Enterprise.ViewModels
 {
+    [AddINotifyPropertyChangedInterface]
     public class EmployeesPanelViewModel : EnterpriseViewModel, IViewLoadedAndUnloadedAware
     {
         #region Properties
 
-        public ObservableCollection<EmployeeDto> Employees
-        {
-            get { return _Employees; }
-            set { SetProperty(ref _Employees, value); }
-        }
-
-        private ObservableCollection<EmployeeDto> _Employees;
+        public IList<EmployeeDto> Employees { get; set; }
 
         #endregion Properties
 

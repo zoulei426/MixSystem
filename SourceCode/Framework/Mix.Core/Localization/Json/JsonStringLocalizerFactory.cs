@@ -74,7 +74,7 @@ namespace Mix.Core.Localization.Json
             var assemblyName = resourceSource.Assembly.GetName().Name;
             var typeName = $"{assemblyName}.{typeInfo.Name}" == typeInfo.FullName
                 ? typeInfo.Name
-                : typeInfo.FullName.Substring(assemblyName.Length + 1);
+                : typeInfo.FullName[(assemblyName.Length + 1)..];
             var resourcesPath = Path.Combine(PathHelpers.GetApplicationRoot(), GetResourcePath(assembly));
 
             typeName = TryFixInnerClassPath(typeName);
@@ -156,7 +156,7 @@ namespace Mix.Core.Localization.Json
         {
             if (name.StartsWith(prefix, StringComparison.Ordinal))
             {
-                return name.Substring(prefix.Length);
+                return name[prefix.Length..];
             }
 
             return name;
