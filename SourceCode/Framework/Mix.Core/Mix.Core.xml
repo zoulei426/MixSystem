@@ -531,69 +531,6 @@
             <param name="propertyExpression">The property expression.</param>
             <returns></returns>
         </member>
-        <member name="T:Mix.Core.Log.ILogger">
-            <summary>
-            日志
-            </summary>
-        </member>
-        <member name="M:Mix.Core.Log.ILogger.Information(System.String)">
-            <summary>
-            Informations the specified message.
-            </summary>
-            <param name="message">The message.</param>
-        </member>
-        <member name="M:Mix.Core.Log.ILogger.Warning(System.String)">
-            <summary>
-            Warnings the specified message.
-            </summary>
-            <param name="message">The message.</param>
-        </member>
-        <member name="M:Mix.Core.Log.ILogger.Error(System.String)">
-            <summary>
-            Errors the specified message.
-            </summary>
-            <param name="message">The message.</param>
-        </member>
-        <member name="M:Mix.Core.Log.ILogger.Error``1(System.String,``0)">
-            <summary>
-            Errors the specified message.
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="message">The message.</param>
-            <param name="propertyValue">The property value.</param>
-        </member>
-        <member name="T:Mix.Core.Log.Logger">
-            <summary>
-            日志器
-            </summary>
-            <seealso cref="T:Mix.Core.Log.ILogger" />
-        </member>
-        <member name="M:Mix.Core.Log.Logger.Error(System.String)">
-            <summary>
-            Errors the specified message.
-            </summary>
-            <param name="message">The message.</param>
-        </member>
-        <member name="M:Mix.Core.Log.Logger.Error``1(System.String,``0)">
-            <summary>
-            Errors the specified message.
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="message">The message.</param>
-            <param name="propertyValue">The property value.</param>
-        </member>
-        <member name="M:Mix.Core.Log.Logger.Information(System.String)">
-            <summary>
-            Informations the specified message.
-            </summary>
-            <param name="message">The message.</param>
-        </member>
-        <member name="M:Mix.Core.Log.Logger.Warning(System.String)">
-            <summary>
-            Warnings the specified message.
-            </summary>
-            <param name="message">The message.</param>
-        </member>
         <member name="T:Mix.Core.Mapping.IPropertyMapping">
             <summary>
             IPropertyMapping
