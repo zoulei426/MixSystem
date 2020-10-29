@@ -43,9 +43,9 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
 
         #region Commands
 
-        public ICommand GetCompaniesCommand { get; set; }
+        public ICommand GetCompaniesCommand { get; private set; }
 
-        public ICommand GetEmployeesForCompanyCommand { get; set; }
+        public ICommand GetEmployeesForCompanyCommand { get; private set; }
 
         #endregion Commands
 
@@ -82,6 +82,9 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
 
         private async void GetCompanies()
         {
+            if (companyParameters is null)
+                return;
+
             if (pagination is not null && companyParameters.PageNumber >= pagination.TotalPages)
                 return;
 
@@ -95,6 +98,9 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
             var result = await response.Content.ReadAsStringAsync();
             //var companies = result.DeserializeJson<IEnumerable<CompanyDto>>();
             var companies = JsonConvert.DeserializeObject<IEnumerable<CompanyDto>>(result);
+
+            //System.Threading.Thread.Sleep(1000);
+
             Application.Current.Dispatcher.Invoke(() =>
             {
                 foreach (var item in companies)
@@ -112,21 +118,67 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
         private void AddCompanyCard(CompanyDto company)
         {
             var card = new Card();
+            card.Width = 200;
+            card.Height = 400;
+            card.Margin = new Thickness(10, 10, 10, 10);
+
+            var grid = new Grid();
+            RowDefinition row1 = new RowDefinition();
+            RowDefinition row2 = new RowDefinition();
+            RowDefinition row3 = new RowDefinition();
+            //row1.Height = new GridLength(100);
+            
+            grid.RowDefinitions.Add(row1);
+            grid.RowDefinitions.Add(row2);
+            grid.RowDefinitions.Add(row3);
+
+            var colorZone = new ColorZone 
+            {
+                Content = new PackIcon() { Kind = PackIconKind.People, Height = 100, Width = 100 },
+                Width = 200,
+                Height = 180,
+                Mode = ColorZoneMode.PrimaryLight,
+                HorizontalContentAlignment = HorizontalAlignment.Center,
+                VerticalContentAlignment = VerticalAlignment.Center,
+            };
+            grid.Children.Add(colorZone);
+            Grid.SetRow(colorZone, 0);
+
+            var btn = CreatePackIconButton("员工信息", "MaterialDesignFloatingActionMiniAccentButton", 
+                PackIconKind.People, GetEmployeesForCompanyCommand, company);
+            btn.Margin = new Thickness(0, 0, 16, -20);
+            btn.HorizontalAlignment = HorizontalAlignment.Right;
+            btn.VerticalAlignment = VerticalAlignment.Bottom;
+            grid.Children.Add(btn);
+            Grid.SetRow(btn, 0);
+
             var sp = new StackPanel();
             sp.Orientation = Orientation.Vertical;
-            sp.Children.Add(new TextBlock { Text = company.Name });
+            sp.Children.Add(new TextBlock { Text = company.Name }) ;
             sp.Children.Add(new TextBlock { Text = company.Introduction });
-            sp.Children.Add(CreatePackIconButton("员工信息", PackIconKind.People, GetEmployeesForCompanyCommand, company));
+            grid.Children.Add(sp);
+            Grid.SetRow(sp, 1);
 
-            card.Width = 180;
-            card.Height = 200;
-            card.Margin = new Thickness(10, 10, 10, 10);
-            card.Content = sp;
+            var spBottom = new StackPanel();
+            spBottom.Orientation = Orientation.Horizontal;
+            spBottom.HorizontalAlignment = HorizontalAlignment.Right;
+            spBottom.Margin = new Thickness(8, 8, 8, 8);
+            spBottom.Children.Add(CreatePackIconButton("分享", "MaterialDesignToolButton",
+                PackIconKind.ShareVariant, null, null));
+            spBottom.Children.Add(CreatePackIconButton("关注", "MaterialDesignToolButton",
+                PackIconKind.Heart, null, null));
+            grid.Children.Add(spBottom);
+            Grid.SetRow(spBottom, 2);
+
+            
+            card.Content = grid;
 
             CompanyCards.Add(card);
         }
 
-        private Button CreatePackIconButton(string content, PackIconKind icon, ICommand command, object parameter)
+        private Button CreatePackIconButton(string content, 
+            string style, PackIconKind icon, 
+            ICommand command, object parameter)
         {
             var btn = new Button();
             var pi = new PackIcon();
@@ -137,7 +189,7 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
             btn.ToolTip = content;
             btn.Command = command;
             btn.CommandParameter = parameter;
-            btn.Style = ButtonResource["MaterialDesignToolButton"] as Style;
+            btn.Style = ButtonResource[style] as Style;
             btn.Foreground = Brushes.GreenYellow;
             btn.Margin = new Thickness(10, 0, 10, 0);
 

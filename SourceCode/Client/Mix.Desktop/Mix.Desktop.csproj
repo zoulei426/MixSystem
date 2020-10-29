@@ -12,7 +12,17 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Remove="D:\Users\zoulei\.nuget\packages\nlog.config\4.7.5\contentFiles\any\any\NLog.config" />
+	  <Compile Remove="Configs\**" />
+	  <Compile Remove="WebApis\**" />
+	  <EmbeddedResource Remove="Configs\**" />
+	  <EmbeddedResource Remove="WebApis\**" />
+	  <None Remove="Configs\**" />
+	  <None Remove="WebApis\**" />
+	  <Page Remove="Configs\**" />
+	  <Page Remove="WebApis\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<None Remove="Resources\en-US.json" />
 		<None Remove="Resources\fr-FR.json" />
 		<None Remove="Resources\zh-CN.json" />
@@ -58,10 +68,5 @@
 
 	<ItemGroup>
 		<Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Folder Include="Configs\" />
-		<Folder Include="WebApis\" />
 	</ItemGroup>
 </Project>
