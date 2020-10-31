@@ -1,4 +1,5 @@
-﻿using IdentityServer4.Models;
+﻿using IdentityServer4;
+using IdentityServer4.Models;
 using System.Collections.Generic;
 
 namespace Mix.IdentityServer4
@@ -19,7 +20,7 @@ namespace Mix.IdentityServer4
         {
             return new List<ApiScope>
             {
-                new ApiScope("api1")
+                new ApiScope("api1"),
             };
         }
 
@@ -27,7 +28,7 @@ namespace Mix.IdentityServer4
         {
             return new List<ApiResource>
             {
-                new ApiResource("api1", "Api 1")
+                new ApiResource("api1", "Api 1"),
             };
         }
 
@@ -40,8 +41,11 @@ namespace Mix.IdentityServer4
                     ClientId = "client",
                     ClientName = "Client Credentials Client",
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
-                    ClientSecrets = {new Secret("secret".Sha256()) },
-                    AllowedScopes = { "api1" }
+                    ClientSecrets = {new Secret("77DAABEF-697A-4CC1-A400-3CC561B9AD83".Sha256()) },
+                    AllowedScopes =
+                    {
+                        "api1"
+                    }
                 },
                 new Client
                 {

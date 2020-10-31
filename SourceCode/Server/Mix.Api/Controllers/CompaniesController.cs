@@ -11,6 +11,7 @@ using Mix.Library.Entities.Dtos;
 using Mix.Library.Repositories;
 using Mix.Library.Services;
 using Mix.Service.Core;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +32,8 @@ namespace Mix.Api.Controllers
             "application/vnd.mix.company.full.hateoas+json")]
     [ApiController]
     [Route("api/companies")]
-    [Authorize(AuthenticationSchemes = "Bearer")]
+    //[Authorize(AuthenticationSchemes = "Bearer")]
+    [Authorize]
     public class CompaniesController : ControllerBase
     {
         private readonly IStringLocalizer localizer;
@@ -52,6 +54,8 @@ namespace Mix.Api.Controllers
             this.companyService = companyService;
             this.companyRepository = companyRepository;
             this.mapper = mapper;
+
+            Guards.ThrowIfNull(localizer, companyService, companyRepository, mapper);
         }
 
         /// <summary>
@@ -64,6 +68,11 @@ namespace Mix.Api.Controllers
         public async Task<IActionResult> GetCompanies([FromQuery] CompanyDtoParameters parameters,
             [FromHeader(Name = "Accept")] string mediaType)
         {
+            Log.Information(nameof(GetCompanies));
+
+            if (mediaType.IsNullOrEmpty())
+                mediaType = "application/json";
+
             if (!MediaTypeHeaderValue.TryParse(mediaType, out MediaTypeHeaderValue mediaTypeHeaderValue))
                 return BadRequest();
 

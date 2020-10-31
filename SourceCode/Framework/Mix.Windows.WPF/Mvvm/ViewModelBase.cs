@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Localization;
 using Mix.Core;
-using Mix.Core.Logs;
+using Mix.Core.Loggers;
 using Mix.Core.Notify;
 using Mix.Windows.Core;
 using Prism.Events;

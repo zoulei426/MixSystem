@@ -17,7 +17,7 @@
 using Microsoft.Extensions.Localization;
 using Mix.Core;
 using Mix.Core.Localization.Json;
-using Mix.Core.Logs;
+using Mix.Core.Loggers;
 using Mix.Core.Notify;
 using Mix.Windows.Controls;
 using Mix.Windows.Core;
@@ -78,7 +78,7 @@ namespace Mix.Desktop
             containerRegistry.RegisterInstance(typeof(IStringLocalizer), typeof(Mix.Core.Localization.Json.Internal.StringLocalizer));
 
             containerRegistry.RegisterInstance(new ConfigureFile().Load());
-            containerRegistry.RegisterSingleton<Core.Logs.ILogger, Logger>();
+            containerRegistry.RegisterSingleton<Core.Loggers.ILogger, Logger>();
             containerRegistry.RegisterSingleton<INotifier, Notifier>();
         }
 
@@ -139,7 +139,7 @@ namespace Mix.Desktop
             //MessageBox.Show($"程序运行出错，原因：{ex.Message}-{ex.InnerException?.Message}",
             //    "系统提示", MessageBoxButton.OK, MessageBoxImage.Error);
 
-            Container.Resolve<Core.Logs.ILogger>().Error(ex.Message, ex);
+            Container.Resolve<Core.Loggers.ILogger>().Error(ex.Message, ex);
             e.Handled = true;
         }
 
@@ -155,7 +155,7 @@ namespace Mix.Desktop
                 MessageBox.Show($"程序组件出错，原因：{ex.Message}",
                     "系统提示", MessageBoxButton.OK, MessageBoxImage.Error);
                 //Log.Error(ex.Message, ex);
-                Container.Resolve<Core.Logs.ILogger>().Error(ex.Message, ex);
+                Container.Resolve<Core.Loggers.ILogger>().Error(ex.Message, ex);
             }
         }
 
@@ -170,7 +170,7 @@ namespace Mix.Desktop
             MessageBox.Show($"执行任务出错，原因：{ex.Message}",
                 "系统提示", MessageBoxButton.OK, MessageBoxImage.Error);
             //Log.Error(ex.Message, ex);
-            Container.Resolve<Core.Logs.ILogger>().Error(ex.Message, ex);
+            Container.Resolve<Core.Loggers.ILogger>().Error(ex.Message, ex);
             //设置该异常已察觉
             e.SetObserved();
         }

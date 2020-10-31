@@ -16,7 +16,7 @@ namespace Mix.IdentityServer4
                 var claims = context.Subject.Claims.ToList();
 
                 //set issued claims to return
-                context.IssuedClaims = claims.ToList();
+                context.IssuedClaims = claims;
             }
             catch (Exception ex)
             {

@@ -3,40 +3,50 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace IdentityServer4Test
 {
     public class IdentityServer4Test
     {
+        private readonly ITestOutputHelper output;
+
+        public IdentityServer4Test(ITestOutputHelper output)
+        {
+            this.output = output;
+        }
+
         [Fact]
         public async Task ClientCredentials_Test()
         {
-            // request token
             var httpClient = new HttpClient();
 
-            var disco = await httpClient.GetDiscoveryDocumentAsync("https://localhost:5999/");
-            //var disco = await DiscoveryClient.GetAsync("http://localhost:5000");
-            //var tokenClient = new TokenClient(disco.TokenEndpoint, "client", "secret");
+            var disco = await httpClient.GetDiscoveryDocumentAsync("http://localhost:5000/");
+
+            Assert.False(disco.IsError);
+            //output.WriteLine(disco.Json.ToString());
 
             var token = await httpClient.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest()
             {
                 Address = disco.TokenEndpoint,
                 ClientId = "client",
-                ClientSecret = "secret",
-                Scope = "all"
+                ClientSecret = "77DAABEF-697A-4CC1-A400-3CC561B9AD83",
+                Scope = "api1",
             });
 
+            output.WriteLine(token.Json.ToString());
             Assert.False(token.IsError);
-            Console.WriteLine(token.Json);
 
             // call api
-            //var client = new HttpClient();
-            //client.SetBearerToken(tokenResponse.AccessToken);
+            var apiClient = new HttpClient();
+            apiClient.SetBearerToken(token.AccessToken);
 
-            //var response = await client.GetAsync("http://localhost:5010/values");
-            //Assert.True(response.IsSuccessStatusCode);
-            //var content = await response.Content.ReadAsStringAsync();
-            //Console.WriteLine(content);
+            var response = await apiClient.GetAsync("http://localhost:5002/api/Companies");
+            var content = await response.Content.ReadAsStringAsync();
+            output.WriteLine(response.StatusCode.ToString());
+            output.WriteLine(response.Headers.ToString());
+            output.WriteLine(content);
+            Assert.True(response.IsSuccessStatusCode);
         }
     }
 }

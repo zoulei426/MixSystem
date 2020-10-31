@@ -531,18 +531,18 @@
             <param name="propertyExpression">The property expression.</param>
             <returns></returns>
         </member>
-        <member name="T:Mix.Core.Logs.ILogger">
+        <member name="T:Mix.Core.Loggers.ILogger">
             <summary>
             ILogger
             </summary>
         </member>
-        <member name="M:Mix.Core.Logs.ILogger.Error(System.String)">
+        <member name="M:Mix.Core.Loggers.ILogger.Error(System.String)">
             <summary>
             Errors the specified message.
             </summary>
             <param name="message">The message.</param>
         </member>
-        <member name="M:Mix.Core.Logs.ILogger.Error``1(System.String,``0)">
+        <member name="M:Mix.Core.Loggers.ILogger.Error``1(System.String,``0)">
             <summary>
             Errors the specified message.
             </summary>
@@ -550,43 +550,43 @@
             <param name="message">The message.</param>
             <param name="propertyValue">The property value.</param>
         </member>
-        <member name="M:Mix.Core.Logs.ILogger.Infomation(System.String)">
+        <member name="M:Mix.Core.Loggers.ILogger.Infomation(System.String)">
             <summary>
             Infomations the specified message.
             </summary>
             <param name="message">The message.</param>
         </member>
-        <member name="M:Mix.Core.Logs.ILogger.Warning(System.String)">
+        <member name="M:Mix.Core.Loggers.ILogger.Warning(System.String)">
             <summary>
             Warnings the specified message.
             </summary>
             <param name="message">The message.</param>
         </member>
-        <member name="T:Mix.Core.Logs.Logger">
+        <member name="T:Mix.Core.Loggers.Logger">
             <summary>
             Logger
             </summary>
-            <seealso cref="T:Mix.Core.Logs.ILogger" />
+            <seealso cref="T:Mix.Core.Loggers.ILogger" />
         </member>
-        <member name="M:Mix.Core.Logs.Logger.Infomation(System.String)">
+        <member name="M:Mix.Core.Loggers.Logger.Infomation(System.String)">
             <summary>
             Infomations the specified message.
             </summary>
             <param name="message">The message.</param>
         </member>
-        <member name="M:Mix.Core.Logs.Logger.Warning(System.String)">
+        <member name="M:Mix.Core.Loggers.Logger.Warning(System.String)">
             <summary>
             Warnings the specified message.
             </summary>
             <param name="message">The message.</param>
         </member>
-        <member name="M:Mix.Core.Logs.Logger.Error(System.String)">
+        <member name="M:Mix.Core.Loggers.Logger.Error(System.String)">
             <summary>
             Errors the specified message.
             </summary>
             <param name="message">The message.</param>
         </member>
-        <member name="M:Mix.Core.Logs.Logger.Error``1(System.String,``0)">
+        <member name="M:Mix.Core.Loggers.Logger.Error``1(System.String,``0)">
             <summary>
             Errors the specified message.
             </summary>

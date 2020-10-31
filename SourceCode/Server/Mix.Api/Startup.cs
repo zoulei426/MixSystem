@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Mix.Data;
 using Mix.Data.Repositories;
 using Mix.Library.Entities.Validators;
@@ -122,15 +123,33 @@ namespace Mix.Api
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies().Where(r => r.FullName.Contains("Mix")).ToArray());
 
             // 注册IdentityServer4授权认证
-            services.AddAuthorization();
-            services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
-                .AddIdentityServerAuthentication(options =>
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("ApiScope", policy =>
                 {
-                    options.Authority = "https://localhost:5999";
-                    options.RequireHttpsMetadata = false;
-                    options.ApiName = "api1";
-                    options.SaveToken = true;
+                    policy.RequireAuthenticatedUser();
+                    policy.RequireClaim("scope", "api1");
                 });
+            });
+            services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+                .AddJwtBearer(IdentityServerAuthenticationDefaults.AuthenticationScheme, options =>
+                {
+                    options.Authority = "http://localhost:5000";
+                    options.RequireHttpsMetadata = false;
+                    options.Audience = "api1";
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateAudience = false
+                    };
+                });
+
+            //builder.AddIdentityServerAuthentication(options =>
+            //{
+            //    options.Authority = "http://localhost:5000";
+            //    options.RequireHttpsMetadata = false;
+            //    options.ApiName = "api1";
+            //    options.SaveToken = true;
+            //});
 
             // 注册国际化
             services.AddJsonLocalization(options => options.ResourcesPath = "Resources");
@@ -200,7 +219,9 @@ namespace Mix.Api
                 });
             }
 
-            app.UseHttpsRedirection();
+            app.UseStaticFiles();
+
+            //app.UseHttpsRedirection();
 
             //app.UseResponseCaching();
 
@@ -214,7 +235,8 @@ namespace Mix.Api
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllers()
+                    .RequireAuthorization("ApiScope");
             });
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
