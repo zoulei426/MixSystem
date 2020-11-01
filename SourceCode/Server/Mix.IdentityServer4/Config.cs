@@ -21,6 +21,8 @@ namespace Mix.IdentityServer4
             return new List<ApiScope>
             {
                 new ApiScope("api1"),
+                new ApiScope(IdentityServerConstants.StandardScopes.OpenId),
+                new ApiScope(IdentityServerConstants.StandardScopes.Profile),
             };
         }
 
@@ -53,9 +55,13 @@ namespace Mix.IdentityServer4
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                     ClientSecrets =
                     {
-                        new Secret("secret".Sha256())
+                        new Secret("77DAABEF-697A-4CC1-A400-3CC561B9AD83".Sha256())
                     },
-                    AllowedScopes = { "api1" }
+                    AllowedScopes =
+                    { "api1",
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile
+                    }
                 }
             };
         }

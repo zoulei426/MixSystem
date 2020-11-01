@@ -24,6 +24,7 @@ using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IdentityModel.Tokens.Jwt;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -121,6 +122,8 @@ namespace Mix.Api
 
             // 注册AutoMapper
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies().Where(r => r.FullName.Contains("Mix")).ToArray());
+
+            //JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             // 注册IdentityServer4授权认证
             services.AddAuthorization(options =>
