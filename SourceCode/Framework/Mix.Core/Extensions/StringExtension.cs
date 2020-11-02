@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -89,5 +90,44 @@ namespace Mix.Core
 
             return builder.ToString();
         }
+
+        #region ICN
+
+        /// <summary>
+        /// 1男0女
+        /// </summary>
+        /// <param name="identityCard"></param>
+        /// <returns></returns>
+        public static int? GetGenderByICN(this string identityCard)
+        {
+            if (identityCard.Length != 15 && identityCard.Length != 18)
+            {
+                Trace.WriteLine($"身份证{identityCard}不合法！");
+                return null;
+            }
+
+            string gender = string.Empty;
+            if (identityCard.Length == 18)
+            {
+                gender = identityCard.Substring(14, 3);
+            }
+            if (identityCard.Length == 15)
+            {
+                gender = identityCard.Substring(12, 3);
+            }
+
+            if (int.Parse(gender) % 2 == 0)//性别代码为偶数是女性奇数为男性
+            {
+                return 0;
+                //return "女";
+            }
+            else
+            {
+                return 1;
+                //return "男";
+            }
+        }
+
+        #endregion ICN
     }
 }

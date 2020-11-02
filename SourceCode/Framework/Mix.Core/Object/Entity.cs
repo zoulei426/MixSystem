@@ -7,12 +7,12 @@ namespace Mix.Core
     /// 数据库实体
     /// </summary>
     [Serializable]
-    public abstract class Entity : IEntity
+    public abstract class Entity<T> : IEntity<T>
     {
         /// <summary>
         /// 主键Id
         /// </summary>
         [Key]
-        public Guid Id { get; set; }
+        public T Id { get; set; }
     }
 }

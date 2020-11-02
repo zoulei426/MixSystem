@@ -5,11 +5,11 @@ namespace Mix.Core
     /// <summary>
     /// IEntity
     /// </summary>
-    public interface IEntity
+    public interface IEntity<T>
     {
         /// <summary>
         /// 主键ID
         /// </summary>
-        Guid Id { get; set; }
+        T Id { get; set; }
     }
 }

@@ -8,7 +8,7 @@ namespace Mix.Data.Entities
     /// 审计实体
     /// </summary>
     [Serializable]
-    public class AduitEntity : Entity, IUpdateAuditEntity, IDeleteAduitEntity, ICreateAduitEntity
+    public class AduitEntity : Entity<Guid>, IUpdateAuditEntity, IDeleteAduitEntity, ICreateAduitEntity
     {
         /// <summary>
         /// 创建者ID

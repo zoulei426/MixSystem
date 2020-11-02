@@ -227,6 +227,27 @@
             删除时间
             </summary>
         </member>
+        <member name="P:Mix.Data.Excel.ExcelReader.FilePath">
+            <summary>
+            读取文件路径
+            </summary>
+        </member>
+        <member name="P:Mix.Data.Excel.ExcelReader.ContainsTitles">
+            <summary>
+            是否包含标题
+            </summary>
+        </member>
+        <member name="P:Mix.Data.Excel.ExcelReader.StartRow">
+            <summary>
+            起始列
+            </summary>
+        </member>
+        <member name="M:Mix.Data.Excel.ExcelReader.ExcelToDataTableAsync">
+            <summary>
+            将excel导入到datatable
+            </summary>
+            <returns>返回datatable</returns>
+        </member>
         <member name="T:Mix.Data.FreeSqlExtensions">
             <summary>
             FreeSql扩展

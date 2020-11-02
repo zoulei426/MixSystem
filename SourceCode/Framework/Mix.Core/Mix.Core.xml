@@ -153,6 +153,13 @@
             <param name="newWordSymbolHandler">The new word symbol handler.</param>
             <returns></returns>
         </member>
+        <member name="M:Mix.Core.StringExtension.GetGenderByICN(System.String)">
+            <summary>
+            1男0女
+            </summary>
+            <param name="identityCard"></param>
+            <returns></returns>
+        </member>
         <member name="T:Mix.Core.Guards">
             <summary>
             守卫
@@ -712,22 +719,22 @@
             回收
             </summary>
         </member>
-        <member name="T:Mix.Core.Entity">
+        <member name="T:Mix.Core.Entity`1">
             <summary>
             数据库实体
             </summary>
         </member>
-        <member name="P:Mix.Core.Entity.Id">
+        <member name="P:Mix.Core.Entity`1.Id">
             <summary>
             主键Id
             </summary>
         </member>
-        <member name="T:Mix.Core.IEntity">
+        <member name="T:Mix.Core.IEntity`1">
             <summary>
             IEntity
             </summary>
         </member>
-        <member name="P:Mix.Core.IEntity.Id">
+        <member name="P:Mix.Core.IEntity`1.Id">
             <summary>
             主键ID
             </summary>

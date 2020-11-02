@@ -161,6 +161,346 @@
             The female
             </summary>
         </member>
+        <member name="T:Mix.Library.Entities.Databases.HouseSites.Cyxx">
+            <summary>
+            成员信息
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Cyxx.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Cyxx.Csgz">
+            <summary>
+            从事工作
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Cyxx.Csrq">
+            <summary>
+            出生日期
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Cyxx.JcxxId">
+            <summary>
+            基础信息id
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Cyxx.Px">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Cyxx.Sfdy">
+            <summary>
+            是否党员
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Cyxx.Sjhm">
+            <summary>
+            手机号码
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Cyxx.Xb">
+            <summary>
+            成员性别，1男0女
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Cyxx.Xl">
+            <summary>
+            学历
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Cyxx.Xm">
+            <summary>
+            成员姓名
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Cyxx.Zjhm">
+            <summary>
+            证件号码
+            </summary>
+        </member>
+        <member name="T:Mix.Library.Entities.Databases.HouseSites.Jcxx">
+            <summary>
+            基础信息表
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Cbdlzdxmc">
+            <summary>
+            承包地流转对象
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Cbdlzmj">
+            <summary>
+            承包地流转面积
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Cbdlzxs">
+            <summary>
+            承包地流转形式
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Cbdmj">
+            <summary>
+            承包地面积
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Cbdsflz">
+            <summary>
+            承包地是否流转
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Cbdsfsbjtjjzzcy">
+            <summary>
+            承包地是否是本集体经济组织成员
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Cbdzzlx">
+            <summary>
+            承包地种植类型
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Ccxsr">
+            <summary>
+            财产收入
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Dzbm">
+            <summary>
+            地址编码
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Dzxq">
+            <summary>
+            地址详情
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Fhxsr">
+            <summary>
+            分红收入
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Fjid">
+            <summary>
+            附件id
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Fwzb">
+            <summary>
+            房屋坐标
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Gzxsr">
+            <summary>
+            工资收入
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Hzxm">
+            <summary>
+            户主姓名
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Jd">
+            <summary>
+            经度
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Jtnsr">
+            <summary>
+            家庭年收入
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Jtrs">
+            <summary>
+            家庭人数
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Jyxsr">
+            <summary>
+            经营收入
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Ldlzdxmc">
+            <summary>
+            林地流转对象
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Ldlzmj">
+            <summary>
+            林地流转面积
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Ldlzxs">
+            <summary>
+            林地流转形式
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Ldmj">
+            <summary>
+            林地面积
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Ldsflz">
+            <summary>
+            林地是否流转
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Ldsfsbjtjjzzcy">
+            <summary>
+            林地是否是本集体经济组织成员
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.OpenId">
+            <summary>
+            调查员openid
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Sfcsdr">
+            <summary>
+            是否初始导入
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Sfpkh">
+            <summary>
+            是否贫困户
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Sjhm">
+            <summary>
+            手机号码
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Wd">
+            <summary>
+            纬度
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Zcxsr">
+            <summary>
+            政策收入
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Zjhm">
+            <summary>
+            证件号码
+            </summary>
+        </member>
+        <member name="T:Mix.Library.Entities.Databases.HouseSites.Nfxx">
+            <summary>
+            农房信息
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Nfxx.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Nfxx.Fjid">
+            <summary>
+            附件id
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Nfxx.Fwcs">
+            <summary>
+            房屋层数
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Nfxx.Fwjg">
+            <summary>
+            房屋结构
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Nfxx.JcxxId">
+            <summary>
+            基础信息id
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Nfxx.Lzdx">
+            <summary>
+            流转对象
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Nfxx.Lzhyt">
+            <summary>
+            流转后用途
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Nfxx.Lzmj">
+            <summary>
+            流转面积
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Nfxx.Lzqyt">
+            <summary>
+            流转前用途
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Nfxx.Lzxs">
+            <summary>
+            流转形式
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Nfxx.Nfmj">
+            <summary>
+            农房面积
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Nfxx.Px">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Nfxx.Sfblcq">
+            <summary>
+            是否办理产权
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Nfxx.Sfkx">
+            <summary>
+            是否空闲
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Nfxx.Sflz">
+            <summary>
+            是否流转
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Nfxx.Sfwf">
+            <summary>
+            是否危房
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Nfxx.Sfyylz">
+            <summary>
+            是否意愿流转
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Nfxx.Sfzzcy">
+            <summary>
+            是否组织成员
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Nfxx.Slms">
+            <summary>
+            数量描述
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Nfxx.Zjdly">
+            <summary>
+            宅基地来源
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Nfxx.Zjdmj">
+            <summary>
+            宅基地面积
+            </summary>
+        </member>
         <member name="T:Mix.Library.Entities.DtoParameters.CompanyDtoParameters">
             <summary>
             CompanyDtoParameters

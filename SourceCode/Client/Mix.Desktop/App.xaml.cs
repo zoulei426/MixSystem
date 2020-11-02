@@ -95,7 +95,7 @@ namespace Mix.Desktop
         protected override Window CreateShell()
         {
             InitializeCultureInfo();
-            return Container.Resolve<LoginWindow>();
+            return Container.Resolve<MainWindow>();
         }
 
         protected override IModuleCatalog CreateModuleCatalog()

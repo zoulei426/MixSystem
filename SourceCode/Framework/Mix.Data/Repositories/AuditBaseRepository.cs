@@ -57,7 +57,7 @@ namespace Mix.Data.Repositories
         private void BeforeInsert(TEntity entity)
         {
             // 创建Id
-            if (entity is IEntity en) en.Id = Guid.NewGuid();
+            if (entity is IEntity<Guid> en) en.Id = Guid.NewGuid();
 
             // 创建Creater信息
             if (entity is not ICreateAduitEntity createAduitEntity) return;

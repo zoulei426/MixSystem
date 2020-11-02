@@ -25,6 +25,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Folder Include="Databases\HouseSites\" />
 		<Folder Include="Protos\cs\" />
 	</ItemGroup>
 

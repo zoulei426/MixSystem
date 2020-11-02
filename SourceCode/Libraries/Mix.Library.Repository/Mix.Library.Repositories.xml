@@ -83,6 +83,16 @@
             <param name="employee">The employee.</param>
             <returns></returns>
         </member>
+        <member name="T:Mix.Library.Repositories.HouseSites.CyxxRepository">
+            <summary>
+            Cyxx Repository
+            </summary>
+        </member>
+        <member name="T:Mix.Library.Repositories.HouseSites.JcxxRepository">
+            <summary>
+            Jcxx Repository
+            </summary>
+        </member>
         <member name="T:Mix.Library.Repositories.ICompanyRepository">
             <summary>
             ICompanyRepository

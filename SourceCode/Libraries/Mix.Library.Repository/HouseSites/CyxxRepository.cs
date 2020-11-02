@@ -1,0 +1,22 @@
+﻿using FreeSql;
+using Mix.Data;
+using Mix.Data.Repositories;
+using Mix.Library.Entities.Databases.HouseSites;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Mix.Library.Repositories.HouseSites
+{
+    /// <summary>
+    /// Cyxx Repository
+    /// </summary>
+    public class CyxxRepository : AuditBaseRepository<Cyxx>, ICyxxRepository
+    {
+        public CyxxRepository(UnitOfWorkManager unitOfWorkManager, ICurrentUser currentUser) : base(unitOfWorkManager, currentUser)
+        {
+        }
+    }
+}

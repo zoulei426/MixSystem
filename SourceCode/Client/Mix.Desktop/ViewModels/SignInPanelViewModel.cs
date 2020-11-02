@@ -57,7 +57,6 @@ namespace Mix.Desktop
         public SignInPanelViewModel(IContainerExtension container) : base(container)
         {
             channel = GrpcChannel.ForAddress("https://localhost:5001");
-            //channel = new Channel("localhost:5001", ChannelCredentials.Insecure);
             accountsClient = new AccountsClient(channel);
 
             EventAggregator.GetEvent<SignUpSuccessEvent>().Subscribe(signUpArgs =>
@@ -127,7 +126,7 @@ namespace Mix.Desktop
 
             var httpClient = new HttpClient();
 
-            var disco = await httpClient.GetDiscoveryDocumentAsync("https://localhost:5999/");
+            var disco = await httpClient.GetDiscoveryDocumentAsync("http://localhost:5000/");
             if (disco.IsError)
             {
                 Notifier.Error(disco.Error);
@@ -139,9 +138,9 @@ namespace Mix.Desktop
             {
                 Address = disco.TokenEndpoint,
                 ClientId = "wpf client",
-                ClientSecret = "wpf secrect",
-                Scope = "all",
-                UserName = Email,
+                ClientSecret = "77DAABEF-697A-4CC1-A400-3CC561B9AD83",
+                Scope = "api1 openid profile",
+                UserName = "alice",
                 Password = "123456"
             });
 
@@ -152,38 +151,24 @@ namespace Mix.Desktop
                 return;
             }
 
-            var token = await httpClient.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest()
-            {
-                Address = disco.TokenEndpoint,
-                ClientId = "client",
-                ClientSecret = "secret",
-                Scope = "all"
-            });
-            var tokenValue = "Bearer " + token.AccessToken;
-            var metadata = new Metadata
-    {
-        { "Authorization", tokenValue }
-    };
-            var callOptions = new CallOptions(metadata);
-            try
-            {
-                LoginResponse response = await accountsClient.LoginAsync(new Library.Entities.Protos.LoginRequest
-                {
-                    Username = Email,
-                    Password = passwordMd5
-                }, callOptions);
+            var apiClient = new HttpClient();
+            apiClient.SetBearerToken(tokenResponse.AccessToken);
 
+            var response = await apiClient.GetAsync(disco.UserInfoEndpoint);
+
+            if (response.IsSuccessStatusCode)
+            {
+                System.Windows.Application.Current.Properties["AccessToken"] = tokenResponse.AccessToken;
+                var content = await response.Content.ReadAsStringAsync();
                 Notifier.Success(Localizer["Login Success"]);
             }
-            catch (Exception ex)
+            else
             {
-                Notifier.Error(ex.Message);
+                Notifier.Error(Localizer["Login Failed"]);
                 EventAggregator.GetEvent<MainWindowLoadingEvent>().Publish(false);
                 ConfigureFile.SetValue(ConfigureKeys.AutoSignIn, false);
                 return;
             }
-
-            //await Container.Resolve<ModuleResolver>().LoadAsync();
 
             // Saves data.
             ConfigureFile.SetValue(ConfigureKeys.Username, IsRememberMe ? username : string.Empty);
