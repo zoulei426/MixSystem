@@ -19,7 +19,7 @@ namespace Mix.Desktop.Modules.DataTransmission.Business
     public class DataImportTask
     {
         public static IFreeSql fsql { get; } =
-        new FreeSql.FreeSqlBuilder().UseConnectionString(FreeSql.DataType.PostgreSQL, @"Host=49.4.66.157;Port=5432;Database=zjddc;Username=postgres;Password=123456;")
+        new FreeSql.FreeSqlBuilder().UseConnectionString(FreeSql.DataType.PostgreSQL, @"Host=;Port=5432;Database=zjddc;Username=postgres;Password=123456;")
         .UseAutoSyncStructure(false) //自动同步实体结构到数据库
             .UseMonitorCommand(cmd =>
             {
