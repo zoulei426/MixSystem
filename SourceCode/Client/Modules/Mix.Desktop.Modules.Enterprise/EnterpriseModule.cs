@@ -1,8 +1,12 @@
-﻿using Mix.Desktop.Modules.Enterprise.Views;
+﻿using IdentityModel.Client;
+using Mix.Desktop.Modules.Enterprise.Views;
 using Mix.Windows.WPF;
 using Mix.Windows.WPF.Mvvm;
 using Prism.Ioc;
 using Refit;
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Unity;
 
 namespace Mix.Desktop.Modules.Enterprise
@@ -19,7 +23,10 @@ namespace Mix.Desktop.Modules.Enterprise
             //containerRegistry.RegisterInstance(FileTransferService.GetDownloaderManager("net-disk"));
 
             // Register for region
-            containerRegistry.RegisterInstance(RestService.For<IEnterpriseApi>("http://localhost:5002"));
+            var accessToken = System.Windows.Application.Current.Properties["AccessToken"].ToString();
+            var client = new HttpClient() { BaseAddress = new Uri("http://localhost:5002") };
+            client.SetBearerToken(accessToken);
+            containerRegistry.RegisterInstance(RestService.For<IEnterpriseApi>(client));
             RegionManager.RegisterViewWithRegion(SystemRegionNames.MainTabRegion, typeof(EnterpriseComponent));
         }
 

@@ -78,6 +78,7 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
 
         private async void GetCompanies()
         {
+            var a = System.Windows.Application.Current.Properties["AccessToken"];
             if (companyParameters is null)
                 return;
 
