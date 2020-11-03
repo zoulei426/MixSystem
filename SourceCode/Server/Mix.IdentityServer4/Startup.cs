@@ -1,12 +1,7 @@
-using IdentityServer4.AspNetIdentity;
-using IdentityServer4.Services;
-using IdentityServer4.Test;
-using IdentityServer4.Validation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Mix.Library.Entities.Model;
 
 namespace Mix.IdentityServer4
 {

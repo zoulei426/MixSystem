@@ -10,10 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FreeSql.Extensions.Linq" Version="1.9.0" />
+    <PackageReference Include="FreeSql.Extensions.Linq" Version="1.10.1" />
     <PackageReference Include="FreeSql.Provider.PostgreSQL" Version="1.10.1" />
-    <PackageReference Include="FreeSql.Provider.Sqlite" Version="1.9.0" />
-    <PackageReference Include="FreeSql.Repository" Version="1.9.0" />
+    <PackageReference Include="FreeSql.Provider.Sqlite" Version="1.10.1" />
+    <PackageReference Include="FreeSql.Repository" Version="1.10.1" />
   </ItemGroup>
 
   <ItemGroup>

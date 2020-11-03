@@ -13,7 +13,7 @@
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 		<PackageReference Include="Autofac.Extras.DynamicProxy" Version="6.0.0" />
 		<PackageReference Include="Castle.Core.AsyncInterceptor" Version="1.7.0" />
-		<PackageReference Include="FreeSql" Version="1.9.0" />
+		<PackageReference Include="FreeSql" Version="1.10.1" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.9" />
 		<PackageReference Include="Serilog" Version="2.10.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />

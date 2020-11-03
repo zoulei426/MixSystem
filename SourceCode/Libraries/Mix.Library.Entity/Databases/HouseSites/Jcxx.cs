@@ -1,6 +1,6 @@
-using Newtonsoft.Json;
 using FreeSql.DataAnnotations;
 using Mix.Core;
+using Newtonsoft.Json;
 using System;
 
 namespace Mix.Library.Entities.Databases.HouseSites
@@ -12,57 +12,51 @@ namespace Mix.Library.Entities.Databases.HouseSites
     public partial class Jcxx : Entity<Guid>
     {
         /// <summary>
-        /// Id
-        /// </summary>
-        [JsonProperty, Column(Name = "id")]
-        public new Guid Id { get; set; }
-
-        /// <summary>
         /// 承包地流转对象
         /// </summary>
-        [JsonProperty, Column(Name = "cbdlzdxmc")]
+        //[JsonProperty, Column(Name = "cbdlzdxmc")]
         public string Cbdlzdxmc { get; set; }
 
         /// <summary>
         /// 承包地流转面积
         /// </summary>
-        [JsonProperty, Column(Name = "cbdlzmj", DbType = "numeric")]
+        //[JsonProperty, Column(Name = "cbdlzmj", DbType = "numeric")]
         public decimal? Cbdlzmj { get; set; }
 
         /// <summary>
         /// 承包地流转形式
         /// </summary>
-        [JsonProperty, Column(Name = "cbdlzxs")]
+        //[JsonProperty, Column(Name = "cbdlzxs")]
         public int? Cbdlzxs { get; set; }
 
         /// <summary>
         /// 承包地面积
         /// </summary>
-        [JsonProperty, Column(Name = "cbdmj", DbType = "numeric")]
+        //[JsonProperty, Column(Name = "cbdmj", DbType = "numeric")]
         public decimal? Cbdmj { get; set; }
 
         /// <summary>
         /// 承包地是否流转
         /// </summary>
-        [JsonProperty, Column(Name = "cbdsflz")]
+        //[JsonProperty, Column(Name = "cbdsflz")]
         public bool? Cbdsflz { get; set; }
 
         /// <summary>
         /// 承包地是否是本集体经济组织成员
         /// </summary>
-        [JsonProperty, Column(Name = "cbdsfsbjtjjzzcy")]
+        //[JsonProperty, Column(Name = "cbdsfsbjtjjzzcy")]
         public bool? Cbdsfsbjtjjzzcy { get; set; }
 
         /// <summary>
         /// 承包地种植类型
         /// </summary>
-        [JsonProperty, Column(Name = "cbdzzlx")]
+        //[JsonProperty, Column(Name = "cbdzzlx")]
         public int? Cbdzzlx { get; set; }
 
         /// <summary>
         /// 财产收入
         /// </summary>
-        [JsonProperty, Column(Name = "ccxsr", DbType = "numeric")]
+        //[JsonProperty, Column(Name = "ccxsr", DbType = "numeric")]
         public decimal? Ccxsr { get; set; }
 
         /// <summary>

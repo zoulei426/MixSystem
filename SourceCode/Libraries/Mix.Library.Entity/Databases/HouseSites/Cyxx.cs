@@ -1,7 +1,7 @@
-using System;
-using Newtonsoft.Json;
 using FreeSql.DataAnnotations;
 using Mix.Core;
+using Newtonsoft.Json;
+using System;
 
 namespace Mix.Library.Entities.Databases.HouseSites
 {

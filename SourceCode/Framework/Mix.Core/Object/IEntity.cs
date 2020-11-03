@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Mix.Core
+﻿namespace Mix.Core
 {
     /// <summary>
     /// IEntity

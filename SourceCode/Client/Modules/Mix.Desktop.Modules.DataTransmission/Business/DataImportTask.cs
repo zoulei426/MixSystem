@@ -1,33 +1,15 @@
-﻿using MaterialDesignColors.Recommended;
-using Mix.Core;
-using Mix.Data.Excel;
+﻿using Mix.Data.Excel;
 using Mix.Library.Entities.Databases.HouseSites;
-using Mix.Library.Repositories.HouseSites;
 using Mix.Library.Services;
-using NPOI.HSSF.UserModel;
-using NPOI.SS.UserModel;
-using NPOI.XSSF.UserModel;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Diagnostics;
-using System.IO;
 using System.Threading.Tasks;
 
 namespace Mix.Desktop.Modules.DataTransmission.Business
 {
     public class DataImportTask
     {
-        public static IFreeSql fsql { get; } =
-        new FreeSql.FreeSqlBuilder().UseConnectionString(FreeSql.DataType.PostgreSQL, @"Host=;Port=5432;Database=zjddc;Username=postgres;Password=123456;")
-        .UseAutoSyncStructure(false) //自动同步实体结构到数据库
-            .UseMonitorCommand(cmd =>
-            {
-                Trace.WriteLine(cmd.CommandText + ";");
-            }
-                   )
-        .Build();
-
         public IHouseSiteService houseSiteService { get; set; }
 
         public DataImportTask()
@@ -89,34 +71,7 @@ namespace Mix.Desktop.Modules.DataTransmission.Business
             if (currentJcxx is not null)
                 currentJcxx.Jtrs = jtrs;
 
-            foreach (var jcxx in jcxxList)
-            {
-                if (await fsql.Select<Jcxx>().Where(t => t.Hzxm.Equals(jcxx.Hzxm) && t.Zjhm.Equals(jcxx.Zjhm)).AnyAsync())
-                {
-                    fsql.Update<Jcxx>().Where(t => t.Hzxm.Equals(jcxx.Id) && t.Zjhm.Equals(jcxx.Zjhm))
-                        //.Set(t => t.Dzxq, jcxx.Dzxq)
-                        .Set(t => t.Jtrs, jcxx.Jtrs)
-                        .Set(t => t.Sjhm, jcxx.Sjhm).ExecuteAffrows();
-                }
-                else
-                {
-                    fsql.Insert(jcxx).ExecuteAffrows();
-                }
-            }
-            foreach (var cyxx in cyxxList)
-            {
-                if (await fsql.Select<Cyxx>().Where(t => t.Xm.Equals(cyxx.Xm) && t.Zjhm.Equals(cyxx.Zjhm)).AnyAsync())
-                {
-                    fsql.Update<Cyxx>().Where(t => t.Xm.Equals(cyxx.Xm) && t.Zjhm.Equals(cyxx.Zjhm))
-                        .Set(t => t.Xb, cyxx.Xb).ExecuteAffrows();
-                }
-                else
-                {
-                    fsql.Insert(cyxx).ExecuteAffrows();
-                }
-            }
-
-            //await houseSiteService.InsertOrUpdateJcxxAndCyxx(jcxxList, cyxxList);
+            await houseSiteService.InsertOrUpdateJcxxAndCyxx(jcxxList, cyxxList);
         }
 
         private int? ToGender(string v)

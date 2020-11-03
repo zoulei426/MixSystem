@@ -7,9 +7,6 @@ using Mix.Library.Services;
 using Mix.Windows.WPF;
 using Mix.Windows.WPF.Mvvm;
 using Prism.Ioc;
-using Prism.Modularity;
-using Prism.Regions;
-using Serilog;
 using System.Diagnostics;
 using Unity;
 
@@ -25,7 +22,7 @@ namespace Mix.Desktop.Modules.DataTransmission
         {
             // Register for container
             containerRegistry.RegisterScoped(typeof(UnitOfWorkManager));
-            containerRegistry.RegisterInstance(AddFreeSql());
+            containerRegistry.RegisterSingleton(typeof(IFreeSql), AddFreeSql);
 
             containerRegistry.Register(typeof(ICurrentUser), typeof(CurrentUser));
             containerRegistry.Register(typeof(IJcxxRepository), typeof(JcxxRepository));
@@ -40,18 +37,17 @@ namespace Mix.Desktop.Modules.DataTransmission
         {
         }
 
-        public static IFreeSql AddFreeSql()
+        public static IFreeSql AddFreeSql(IContainerProvider containerProvider)
         {
             return new FreeSqlBuilder()
                    .UseConnectionString(DataType.Sqlite, "Data Source=D:\\Database\\test2.db; Pooling=true;Min Pool Size=1")
                    .UseNameConvert(NameConvertType.PascalCaseToUnderscoreWithLower)
-                   .UseAutoSyncStructure(true)
+                   .UseAutoSyncStructure(false)
                    .UseNoneCommandParameter(true)
                    .UseMonitorCommand(cmd =>
                    {
                        Trace.WriteLine(cmd.CommandText + ";");
-                   }
-                   )
+                   })
                    .Build()
                    .SetDbContextOptions(opt => opt.EnableAddOrUpdateNavigateList = false);//联级保存功能开启（默认为关闭）
         }

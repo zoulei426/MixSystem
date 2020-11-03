@@ -1,16 +1,10 @@
 ﻿using Mix.Core;
 using Mix.Desktop.Modules.DataTransmission.Business;
-using Mix.Library.Repositories.HouseSites;
 using Mix.Library.Services;
 using Mix.Windows.WPF;
 using Prism.Commands;
 using Prism.Ioc;
 using PropertyChanged;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Mix.Desktop.Modules.DataTransmission.ViewModels

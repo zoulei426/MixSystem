@@ -3,7 +3,6 @@ using Mix.Library.Entities.Dtos;
 using Mix.Windows.WPF;
 using Prism.Ioc;
 using PropertyChanged;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 

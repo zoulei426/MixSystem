@@ -1,13 +1,11 @@
 ﻿using Grpc.Core;
 using Grpc.Net.Client;
 using IdentityModel.Client;
-using Mix.Library.Entities.Protos;
 using Mix.Windows.Core;
 using Mix.Windows.WPF;
 using Mix.Windows.WPF.Commands;
 using Prism.Ioc;
 using PropertyChanged;
-using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Input;

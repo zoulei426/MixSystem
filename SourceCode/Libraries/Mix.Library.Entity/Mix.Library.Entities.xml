@@ -226,11 +226,6 @@
             基础信息表
             </summary>
         </member>
-        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Id">
-            <summary>
-            Id
-            </summary>
-        </member>
         <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Cbdlzdxmc">
             <summary>
             承包地流转对象

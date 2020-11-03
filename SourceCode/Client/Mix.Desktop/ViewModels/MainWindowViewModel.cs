@@ -1,7 +1,6 @@
 ﻿using Mix.Windows.WPF;
 using Prism.Commands;
 using Prism.Ioc;
-using PropertyChanged;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Windows.Input;

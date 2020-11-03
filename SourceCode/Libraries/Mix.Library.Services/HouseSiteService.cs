@@ -1,10 +1,7 @@
 ﻿using Mix.Data.Services;
 using Mix.Library.Entities.Databases.HouseSites;
 using Mix.Library.Repositories.HouseSites;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Mix.Library.Services
@@ -27,11 +24,31 @@ namespace Mix.Library.Services
         {
             foreach (var jcxx in jcxxes)
             {
-                await jcxxRepository.InsertOrUpdateAsync(jcxx);
+                var item = await jcxxRepository.Where(t => t.Hzxm.Equals(jcxx.Hzxm) && t.Zjhm.Equals(jcxx.Zjhm)).FirstAsync();
+                if (item is not null)
+                {
+                    item.Dzxq = jcxx.Dzxq;
+                    item.Jtrs = jcxx.Jtrs;
+                    item.Sjhm = jcxx.Sjhm;
+                    await jcxxRepository.UpdateAsync(item);
+                }
+                else
+                {
+                    await jcxxRepository.InsertAsync(jcxx);
+                }
             }
             foreach (var cyxx in cyxxes)
             {
-                await cyxxRepository.InsertOrUpdateAsync(cyxx);
+                var item = await cyxxRepository.Where(t => t.Xm.Equals(cyxx.Xm) && t.Zjhm.Equals(cyxx.Zjhm)).FirstAsync();
+                if (item is not null)
+                {
+                    item.Xb = cyxx.Xb;
+                    await cyxxRepository.UpdateAsync(item);
+                }
+                else
+                {
+                    await cyxxRepository.InsertAsync(cyxx);
+                }
             }
         }
     }

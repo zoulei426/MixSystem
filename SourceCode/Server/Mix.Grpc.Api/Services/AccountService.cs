@@ -1,5 +1,4 @@
 ﻿using Grpc.Core;
-using Microsoft.AspNetCore.Authorization;
 using Mix.Library.Entities.Databases.Accounts;
 using Mix.Library.Entities.Protos;
 using Mix.Library.Repositories.Accounts;
