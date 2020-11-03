@@ -1,4 +1,5 @@
 ﻿using MaterialDesignThemes.Wpf;
+using Mix.Core.Extensions;
 using Mix.Data.Pagable;
 using Mix.Library.Entities.DtoParameters;
 using Mix.Library.Entities.Dtos;
@@ -20,7 +21,7 @@ using System.Windows.Media;
 namespace Mix.Desktop.Modules.Enterprise.ViewModels
 {
     [AddINotifyPropertyChangedInterface]
-    public class CompaniesPanelViewModel : EnterpriseViewModel, IViewLoadedAndUnloadedAware
+    public class CompaniesPanelViewModel : ViewModelBase, IViewLoadedAndUnloadedAware
     {
         #region Properties
 
@@ -30,6 +31,7 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
 
         #region Fields
 
+        private IEnterpriseApi enterpriseApi;
         private ResourceDictionary ButtonResource = new ResourceDictionary { Source = new Uri("pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml") };
 
         private PaginationMetadata pagination;
@@ -63,6 +65,8 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
 
         public async void OnLoaded()
         {
+            enterpriseApi = Container.Resolve<IEnterpriseApi>();
+
             CompanyCards = new ObservableCollection<Card>();
             companyParameters = new CompanyDtoParameters();
 
@@ -85,7 +89,10 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
             if (pagination is not null && companyParameters.PageNumber >= pagination.TotalPages)
                 return;
 
-            var response = await EnterpriseApi.GetCompaniesAsync(companyParameters);
+            var response = await enterpriseApi.GetCompaniesAsync(companyParameters).RunApi();
+
+            if (response is null) return;
+
             response.Headers.TryGetValues(PaginationMetadata.KEY, out IEnumerable<string> values);
             if (values is not null && values.Any())
             {

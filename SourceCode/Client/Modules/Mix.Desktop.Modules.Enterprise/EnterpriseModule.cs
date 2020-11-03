@@ -23,10 +23,7 @@ namespace Mix.Desktop.Modules.Enterprise
             //containerRegistry.RegisterInstance(FileTransferService.GetDownloaderManager("net-disk"));
 
             // Register for region
-            var accessToken = System.Windows.Application.Current.Properties["AccessToken"].ToString();
-            var client = new HttpClient() { BaseAddress = new Uri("http://localhost:5002") };
-            client.SetBearerToken(accessToken);
-            containerRegistry.RegisterInstance(RestService.For<IEnterpriseApi>(client));
+
             RegionManager.RegisterViewWithRegion(SystemRegionNames.MainTabRegion, typeof(EnterpriseComponent));
         }
 

@@ -1,0 +1,60 @@
+﻿<controlzEx:PopupEx x:Class="Mix.Desktop.Views.SettingsPopup"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Mix.Desktop.Views"
+             xmlns:controlzEx="clr-namespace:ControlzEx;assembly=MaterialDesignThemes.Wpf"
+             xmlns:i18n="clr-namespace:Mix.Windows.WPF.Localizations;assembly=Mix.Windows.WPF"
+             xmlns:ctrls="clr-namespace:Mix.Windows.Controls;assembly=Mix.Windows.Controls"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             AllowsTransparency="True"
+             UseLayoutRounding="True"
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Border Margin="2" Background="White" BorderThickness="1" CornerRadius="2"
+            Effect="{StaticResource MaterialDesignShadowDepth2}">
+        <StackPanel>
+            <Grid Margin="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Ellipse Grid.Column="0" Height="50" Width="50">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="{Binding AcceleriderUser.AvatarUrl,
+                                                          Converter={StaticResource UriToImageSourceConverter},
+                                                          TargetNullValue='pack://application:,,,/Accelerider.Windows.Assets;component/Images/avatar-default.png'}" />
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock Grid.Column="2" Text="{Binding AcceleriderUser.Username}"
+                           VerticalAlignment="Center" FontSize="18" FontWeight="Bold" />
+            </Grid>
+            <StackPanel Margin="0 0 0 8">
+                <!-- open dialog -->
+                <ctrls:SettingItem IconKind="AccountSettings" Command="{Binding ChangeProfileCommand}"
+                                   Label="{i18n:Localizer Profiles}" />
+                <Rectangle Height="2" Margin="0 8" Fill="{StaticResource LightGreyBackgroundBrush}" />
+                <!-- open dialog -->
+                <ctrls:SettingItem IconKind="Settings" Command="{Binding OpenSettingsPanelCommand}"
+                                   Label="{i18n:Localizer Setting}" />
+                <Rectangle Height="2" Margin="0 8" Fill="{StaticResource LightGreyBackgroundBrush}" />
+                <!-- open web -->
+                <ctrls:SettingItem IconKind="HelpCircleOutline" Command="{Binding HelpCommand}"
+                                   Label="{i18n:Localizer Help}" />
+                <!-- open web -->
+                <ctrls:SettingItem IconKind="Web" Command="{Binding OpenOfficialSiteCommand}"
+                                   Label="{i18n:Localizer Web Version}" />
+                <!-- open menu -->
+                <ctrls:SettingItem IconKind="InformationVariant" Command="{Binding AboutCommand}"
+                                   Label="{i18n:Localizer About}" />
+                <Rectangle Height="2" Margin="0 8" Fill="{StaticResource LightGreyBackgroundBrush}" />
+                <!-- open AuthenticationWindow and closes MainWindow -->
+                <ctrls:SettingItem IconKind="Logout" Command="{Binding SignOutCommand}"
+                                   Label="{i18n:Localizer Logout}" />
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</controlzEx:PopupEx>

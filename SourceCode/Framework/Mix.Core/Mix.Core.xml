@@ -4,6 +4,33 @@
         <name>Mix.Core</name>
     </assembly>
     <members>
+        <member name="T:Mix.Core.Extensions.ApiExceptionResolverExtensions">
+            <summary>
+            ApiExceptionResolverExtensions
+            </summary>
+        </member>
+        <member name="M:Mix.Core.Extensions.ApiExceptionResolverExtensions.SetUnityContainer(Prism.Ioc.IContainerProvider)">
+            <summary>
+            Sets the unity container.
+            </summary>
+            <param name="container">The container.</param>
+        </member>
+        <member name="M:Mix.Core.Extensions.ApiExceptionResolverExtensions.RunApi(System.Threading.Tasks.Task,System.Action)">
+            <summary>
+            Runs the API.
+            </summary>
+            <param name="task">The task.</param>
+            <param name="onSuccessCallback">The on success callback.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Core.Extensions.ApiExceptionResolverExtensions.RunApi``1(System.Threading.Tasks.Task{``0})">
+            <summary>
+            Runs the API.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="task">The task.</param>
+            <returns></returns>
+        </member>
         <member name="T:Mix.Core.IEnumerableExtension">
             <summary>
             可枚举扩展

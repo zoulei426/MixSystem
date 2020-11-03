@@ -1,4 +1,5 @@
-﻿using Mix.Library.Entities.DtoParameters;
+﻿using Mix.Core.Extensions;
+using Mix.Library.Entities.DtoParameters;
 using Mix.Library.Entities.Dtos;
 using Mix.Windows.WPF;
 using Prism.Ioc;
@@ -9,7 +10,7 @@ using System.Collections.ObjectModel;
 namespace Mix.Desktop.Modules.Enterprise.ViewModels
 {
     [AddINotifyPropertyChangedInterface]
-    public class EmployeesPanelViewModel : EnterpriseViewModel, IViewLoadedAndUnloadedAware
+    public class EmployeesPanelViewModel : ViewModelBase, IViewLoadedAndUnloadedAware
     {
         #region Properties
 
@@ -18,6 +19,8 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
         #endregion Properties
 
         #region Fields
+
+        private IEnterpriseApi enterpriseApi;
 
         #endregion Fields
 
@@ -46,6 +49,7 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
 
         public void OnLoaded()
         {
+            enterpriseApi = Container.Resolve<IEnterpriseApi>();
             Employees = new ObservableCollection<EmployeeDto>();
         }
 
@@ -59,7 +63,7 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
             Employees.Clear();
 
             var parameters = new EmployeeDtoParameters();
-            var result = await EnterpriseApi.GetEmployeesForCompany(obj.Id, parameters);
+            var result = await enterpriseApi.GetEmployeesForCompany(obj.Id, parameters).RunApi();
             foreach (var item in result)
             {
                 Employees.Add(item);

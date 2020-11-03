@@ -3,4 +3,5 @@
                     xmlns:local="clr-namespace:Mix.Windows.Controls"
                     xmlns:convertors="clr-namespace:Mix.Windows.WPF.Convertors;assembly=Mix.Windows.WPF">
     <convertors:NotConverter x:Key="NotConverter" />
+    <convertors:UriToImageSourceConverter x:Key="UriToImageSourceConverter" />
 </ResourceDictionary>

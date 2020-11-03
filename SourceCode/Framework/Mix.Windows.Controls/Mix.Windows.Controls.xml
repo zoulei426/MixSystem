@@ -73,6 +73,80 @@
             <param name="d">The d.</param>
             <param name="e">The <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> instance containing the event data.</param>
         </member>
+        <member name="T:Mix.Windows.Controls.SettingItem">
+            <summary>
+            SettingItem.xaml 的交互逻辑
+            </summary>
+            <summary>
+            SettingItem
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Controls.SettingItem.LabelProperty">
+            <summary>
+            The label property
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Controls.SettingItem.IconKindProperty">
+            <summary>
+            The icon kind property
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Controls.SettingItem.CommandProperty">
+            <summary>
+            The command property
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Controls.SettingItem.CommandParameterProperty">
+            <summary>
+            The command parameter property
+            </summary>
+        </member>
+        <member name="F:Mix.Windows.Controls.SettingItem.CommandTargetProperty">
+            <summary>
+            The command target property
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.Controls.SettingItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Windows.Controls.SettingItem"/> class.
+            </summary>
+        </member>
+        <member name="P:Mix.Windows.Controls.SettingItem.Label">
+            <summary>
+            Gets or sets the label.
+            </summary>
+            <value>
+            The label.
+            </value>
+        </member>
+        <member name="P:Mix.Windows.Controls.SettingItem.IconKind">
+            <summary>
+            Gets or sets the kind of the icon.
+            </summary>
+            <value>
+            The kind of the icon.
+            </value>
+        </member>
+        <member name="P:Mix.Windows.Controls.SettingItem.Command">
+            <summary>
+            Gets the command that will be executed when the command source is invoked.
+            </summary>
+        </member>
+        <member name="P:Mix.Windows.Controls.SettingItem.CommandParameter">
+            <summary>
+            Represents a user defined data value that can be passed to the command when it is executed.
+            </summary>
+        </member>
+        <member name="P:Mix.Windows.Controls.SettingItem.CommandTarget">
+            <summary>
+            The object that the command is being executed on.
+            </summary>
+        </member>
+        <member name="M:Mix.Windows.Controls.SettingItem.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
         <member name="T:Mix.Windows.Controls.SwitchLoadingViewContainer">
             <summary>
             SwitchLoadingViewContainer
@@ -392,6 +466,36 @@
             </summary>
             <param name="code">The code.</param>
             <param name="result">The result.</param>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
         </member>
     </members>
 </doc>

@@ -16,6 +16,7 @@
 
 using Microsoft.Extensions.Localization;
 using Mix.Core;
+using Mix.Core.Extensions;
 using Mix.Core.Localization.Json;
 using Mix.Core.Loggers;
 using Mix.Core.Notify;
@@ -96,6 +97,18 @@ namespace Mix.Desktop
         {
             InitializeCultureInfo();
             return Container.Resolve<LoginWindow>();
+        }
+
+        protected override void Initialize()
+        {
+            base.Initialize();
+            //Settings.Default.PropertyChanged += (sender, eventArgs) => Settings.Default.Save();
+        }
+
+        protected override void OnInitialized()
+        {
+            ApiExceptionResolverExtensions.SetUnityContainer(Container);
+            base.OnInitialized();
         }
 
         protected override IModuleCatalog CreateModuleCatalog()

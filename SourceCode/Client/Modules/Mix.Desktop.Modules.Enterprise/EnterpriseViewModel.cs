@@ -5,11 +5,11 @@ namespace Mix.Desktop.Modules.Enterprise
 {
     public class EnterpriseViewModel : ViewModelBase
     {
-        protected IEnterpriseApi EnterpriseApi { get; }
+        protected IEnterpriseApi EnterpriseApi { get; set; }
 
         public EnterpriseViewModel(IContainerExtension container) : base(container)
         {
-            EnterpriseApi = Container.Resolve<IEnterpriseApi>();
+            //EnterpriseApi = Container.Resolve<IEnterpriseApi>();
         }
     }
 }

@@ -39,8 +39,6 @@ namespace Mix.Desktop
 
         #region Commands
 
-        public ICommand LogoutCommand { get; set; }
-
         #endregion Commands
 
         #region Ctor
@@ -55,10 +53,6 @@ namespace Mix.Desktop
 
         protected override void RegisterCommands()
         {
-            LogoutCommand = new DelegateCommand(() =>
-            {
-                ShellManager.Switch<MainWindow, LoginWindow>();
-            });
         }
 
         public void OnLoaded()
