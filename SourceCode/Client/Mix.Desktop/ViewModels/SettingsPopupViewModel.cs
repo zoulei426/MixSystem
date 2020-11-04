@@ -1,5 +1,6 @@
 ﻿using MaterialDesignThemes.Wpf;
 using Mix.Desktop.Views;
+using Mix.Desktop.Views.Dialogs;
 using Mix.Windows.WPF;
 using Prism.Commands;
 using Prism.Ioc;
@@ -49,6 +50,8 @@ namespace Mix.Desktop.ViewModels
 
         protected override void RegisterCommands()
         {
+            OpenSettingsPanelCommand = new DelegateCommand(OpenDialog<SettingsDialog>);
+
             SignOutCommand = new DelegateCommand(() =>
             {
                 ShellManager.Switch<MainWindow, LoginWindow>();
