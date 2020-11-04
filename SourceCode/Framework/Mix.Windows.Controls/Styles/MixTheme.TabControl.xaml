@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Mix.Windows.Controls"
                     xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
-                    xmlns:converters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf">
+                    xmlns:converters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf"
+                    xmlns:helpers="clr-namespace:Mix.Windows.Controls.Helpers">
     <Style x:Key="MainTabItemStyle" TargetType="{x:Type TabItem}">
         <Setter Property="Background" Value="{StaticResource PrimaryHueMidBrush}" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -202,8 +203,8 @@
     </Storyboard>
 
     <Style TargetType="{x:Type TabControl}">
-        <Setter Property="local:TabControlHelper.LeftToRightAnimation" Value="{StaticResource LeftToRightMovedStoryboard}" />
-        <Setter Property="local:TabControlHelper.RightToLeftAnimation" Value="{StaticResource RightToLeftMovedStoryboard}" />
+        <Setter Property="helpers:TabControlHelper.LeftToRightAnimation" Value="{StaticResource LeftToRightMovedStoryboard}" />
+        <Setter Property="helpers:TabControlHelper.RightToLeftAnimation" Value="{StaticResource RightToLeftMovedStoryboard}" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="Template">
@@ -226,11 +227,11 @@
         </Setter>
     </Style>
 
-    <EventTrigger x:Key="LeftToRightMovedEventTrigger" RoutedEvent="local:TabControlHelper.LeftToRightMoved">
-        <BeginStoryboard Storyboard="{Binding Path=(local:TabControlHelper.LeftToRightAnimation), RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TabControl, AncestorLevel=1}}" />
+    <EventTrigger x:Key="LeftToRightMovedEventTrigger" RoutedEvent="helpers:TabControlHelper.LeftToRightMoved">
+        <BeginStoryboard Storyboard="{Binding Path=(helpers:TabControlHelper.LeftToRightAnimation), RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TabControl, AncestorLevel=1}}" />
     </EventTrigger>
 
-    <EventTrigger x:Key="RightToLeftMovedEventTrigger" RoutedEvent="local:TabControlHelper.RightToLeftMoved">
-        <BeginStoryboard Storyboard="{Binding Path=(local:TabControlHelper.RightToLeftAnimation), RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TabControl, AncestorLevel=1}}" />
+    <EventTrigger x:Key="RightToLeftMovedEventTrigger" RoutedEvent="helpers:TabControlHelper.RightToLeftMoved">
+        <BeginStoryboard Storyboard="{Binding Path=(helpers:TabControlHelper.RightToLeftAnimation), RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=TabControl, AncestorLevel=1}}" />
     </EventTrigger>
 </ResourceDictionary>

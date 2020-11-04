@@ -8,7 +8,7 @@
              xmlns:ctrls="clr-namespace:Mix.Windows.Controls;assembly=Mix.Windows.Controls"
              xmlns:prism="http://prismlibrary.com/"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:helpers="clr-namespace:Mix.Windows.Controls.Helpers;assembly=Mix.Windows.Controls"
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
         <Grid.RowDefinitions>
@@ -38,11 +38,11 @@
             <md:PackIcon Grid.Column="0" Grid.Row="2" Kind="Key" VerticalAlignment="Bottom" Margin="6" />
             <PasswordBox Name="PasswordBox" Grid.Column="1" Grid.Row="2"
                          md:HintAssist.Hint="{i18n:Localizer Password}"
-                         ctrls:PasswordBoxHelper.Password="{Binding Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                         helpers:PasswordBoxHelper.Password="{Binding Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                          Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
                          FontFamily="Microsoft Yahei Regular">
                 <i:Interaction.Behaviors>
-                    <ctrls:PasswordBoxBehavior />
+                    <helpers:PasswordBoxBehavior />
                 </i:Interaction.Behaviors>
             </PasswordBox>
         </Grid>

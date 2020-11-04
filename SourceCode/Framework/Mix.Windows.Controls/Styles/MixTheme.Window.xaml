@@ -3,7 +3,8 @@
                     xmlns:local="clr-namespace:Mix.Windows.Controls"
                     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
                     xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
-                    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes">
+                    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+                    xmlns:helpers="clr-namespace:Mix.Windows.Controls.Helpers">
     <Style x:Key="MainWindowStyle" TargetType="Window">
         <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" />
         <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
@@ -38,9 +39,9 @@
                                     <!--Window button-->
                                     <StackPanel Grid.Column="2" Orientation="Horizontal">
                                         <StackPanel.Resources>
-                                            <Style x:Key="WindowButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
-                                                <Setter Property="local:ControlHelper.MouseOverBackground" Value="{StaticResource PrimaryHueDarkBrush}" />
-                                                <Setter Property="local:ControlHelper.MouseOverForeground" Value="White" />
+                                            <Style x:Key="WindowButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource FlatButtonStyle}">
+                                                <Setter Property="helpers:ControlHelper.MouseOverBackground" Value="{StaticResource PrimaryHueDarkBrush}" />
+                                                <Setter Property="helpers:ControlHelper.MouseOverForeground" Value="White" />
                                                 <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
                                                 <Setter Property="Width" Value="46" />
                                                 <Setter Property="Margin" Value="4 0 0 0" />
@@ -88,7 +89,7 @@
                                             </i:Interaction.Triggers>
                                             <md:PackIcon Kind="WindowMaximize" />
                                         </Button>
-                                        <Button Style="{StaticResource WindowButtonStyle}" local:ControlHelper.MouseOverBackground="Red">
+                                        <Button Style="{StaticResource WindowButtonStyle}" helpers:ControlHelper.MouseOverBackground="Red">
                                             <i:Interaction.Triggers>
                                                 <i:EventTrigger EventName="Click">
                                                     <ei:CallMethodAction TargetObject="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" MethodName="Close" />

@@ -8,7 +8,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
-namespace Mix.Windows.Controls
+namespace Mix.Windows.Controls.Helpers
 {
     /// <summary>
     /// TabControlHelper

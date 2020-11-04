@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Interactivity;
 
-namespace Mix.Windows.Controls
+namespace Mix.Windows.Controls.Helpers
 {
     /// <summary>
     /// PasswordBoxHelper

@@ -2,7 +2,7 @@
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 
-namespace Mix.Windows.Controls
+namespace Mix.Windows.Controls.Helpers
 {
     /// <summary>
     /// ControlHelper

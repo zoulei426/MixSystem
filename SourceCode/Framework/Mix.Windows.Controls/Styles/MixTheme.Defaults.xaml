@@ -2,12 +2,12 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Mix.Windows.Controls">
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Mix.Windows.Controls;component/Styles/MixTheme.Button.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Mix.Windows.Controls;component/Styles/MixTheme.Converters.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Mix.Windows.Controls;component/Styles/MixTheme.SwitchLoadingViewContainer.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Mix.Windows.Controls;component/Styles/MixTheme.TabControl.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Mix.Windows.Controls;component/Styles/MixTheme.Window.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Mix.Windows.Controls;component/Styles/MixTheme.Brushs.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Mix.Windows.Controls;component/Styles/MixTheme.Button.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Mix.Windows.Controls;component/Styles/MixTheme.Dialog.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Mix.Windows.Controls;component/Styles/MixTheme.Window.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

@@ -31,6 +31,155 @@
             <param name="task">The task.</param>
             <returns></returns>
         </member>
+        <member name="T:Mix.Core.Extensions.TypeExtensions">
+            <summary>
+            类型<see cref="T:System.Type"/>辅助扩展方法类
+            </summary>
+        </member>
+        <member name="M:Mix.Core.Extensions.TypeExtensions.IsDeriveClassFrom``1(System.Type,System.Boolean)">
+            <summary>
+            判断当前类型是否可由指定类型派生
+            </summary>
+        </member>
+        <member name="M:Mix.Core.Extensions.TypeExtensions.IsDeriveClassFrom(System.Type,System.Type,System.Boolean)">
+            <summary>
+            判断当前类型是否可由指定类型派生
+            </summary>
+        </member>
+        <member name="M:Mix.Core.Extensions.TypeExtensions.IsNullableType(System.Type)">
+            <summary>
+            判断类型是否为Nullable类型
+            </summary>
+            <param name="type"> 要处理的类型 </param>
+            <returns> 是返回True，不是返回False </returns>
+        </member>
+        <member name="M:Mix.Core.Extensions.TypeExtensions.GetNonNullableType(System.Type)">
+            <summary>
+            由类型的Nullable类型返回实际类型
+            </summary>
+            <param name="type"> 要处理的类型对象 </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Mix.Core.Extensions.TypeExtensions.GetUnNullableType(System.Type)">
+            <summary>
+            通过类型转换器获取Nullable类型的基础类型
+            </summary>
+            <param name="type"> 要处理的类型对象 </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Mix.Core.Extensions.TypeExtensions.GetDescription(System.Type,System.Boolean)">
+            <summary>
+            获取类型的Description特性描述信息
+            </summary>
+            <param name="type">类型对象</param>
+            <param name="inherit">是否搜索类型的继承链以查找描述特性</param>
+            <returns>返回Description特性描述信息，如不存在则返回类型的全名</returns>
+        </member>
+        <member name="M:Mix.Core.Extensions.TypeExtensions.GetDescription(System.Reflection.MemberInfo,System.Boolean)">
+            <summary>
+            获取成员元数据的Description特性描述信息
+            </summary>
+            <param name="member">成员元数据对象</param>
+            <param name="inherit">是否搜索成员的继承链以查找描述特性</param>
+            <returns>返回Description特性描述信息，如不存在则返回成员的名称</returns>
+        </member>
+        <member name="M:Mix.Core.Extensions.TypeExtensions.HasAttribute``1(System.Reflection.MemberInfo,System.Boolean)">
+            <summary>
+            检查指定指定类型成员中是否存在指定的Attribute特性
+            </summary>
+            <typeparam name="T">要检查的Attribute特性类型</typeparam>
+            <param name="memberInfo">要检查的类型成员</param>
+            <param name="inherit">是否从继承中查找</param>
+            <returns>是否存在</returns>
+        </member>
+        <member name="M:Mix.Core.Extensions.TypeExtensions.GetAttribute``1(System.Reflection.MemberInfo,System.Boolean)">
+            <summary>
+            从类型成员获取指定Attribute特性
+            </summary>
+            <typeparam name="T">Attribute特性类型</typeparam>
+            <param name="memberInfo">类型类型成员</param>
+            <param name="inherit">是否从继承中查找</param>
+            <returns>存在返回第一个，不存在返回null</returns>
+        </member>
+        <member name="M:Mix.Core.Extensions.TypeExtensions.GetAttributes``1(System.Reflection.MemberInfo,System.Boolean)">
+            <summary>
+            从类型成员获取指定Attribute特性
+            </summary>
+            <typeparam name="T">Attribute特性类型</typeparam>
+            <param name="memberInfo">类型类型成员</param>
+            <param name="inherit">是否从继承中查找</param>
+            <returns>返回所有指定Attribute特性的数组</returns>
+        </member>
+        <member name="M:Mix.Core.Extensions.TypeExtensions.IsEnumerable(System.Type)">
+            <summary>
+            判断类型是否为集合类型
+            </summary>
+            <param name="type">要处理的类型</param>
+            <returns>是返回True，不是返回False</returns>
+        </member>
+        <member name="M:Mix.Core.Extensions.TypeExtensions.IsGenericAssignableFrom(System.Type,System.Type)">
+            <summary>
+            判断当前泛型类型是否可由指定类型的实例填充
+            </summary>
+            <param name="genericType">泛型类型</param>
+            <param name="type">指定类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Core.Extensions.TypeExtensions.IsAsync(System.Reflection.MethodInfo)">
+            <summary>
+            方法是否是异步
+            </summary>
+        </member>
+        <member name="M:Mix.Core.Extensions.TypeExtensions.IsBaseOn(System.Type,System.Type)">
+            <summary>
+            返回当前类型是否是指定基类的派生类
+            </summary>
+            <param name="type">当前类型</param>
+            <param name="baseType">要判断的基类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Core.Extensions.TypeExtensions.IsBaseOn``1(System.Type)">
+            <summary>
+            返回当前类型是否是指定基类的派生类
+            </summary>
+            <typeparam name="TBaseType">要判断的基类型</typeparam>
+            <param name="type">当前类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Core.Extensions.TypeExtensions.IsOverridden(System.Reflection.MethodInfo)">
+            <summary>
+            返回当前方法信息是否是重写方法
+            </summary>
+            <param name="method">要判断的方法信息</param>
+            <returns>是否是重写方法</returns>
+        </member>
+        <member name="M:Mix.Core.Extensions.TypeExtensions.IsVirtual(System.Reflection.PropertyInfo)">
+            <summary>
+            返回当前属性信息是否为virtual
+            </summary>
+        </member>
+        <member name="M:Mix.Core.Extensions.TypeExtensions.GetFullNameWithModule(System.Type)">
+            <summary>
+            获取类型的全名，附带所在类库
+            </summary>
+        </member>
+        <member name="M:Mix.Core.Extensions.TypeExtensions.ShortDisplayName(System.Type)">
+            <summary>
+            获取类型的显示短名称
+            </summary>
+        </member>
+        <member name="M:Mix.Core.Extensions.TypeExtensions.DisplayName(System.Type,System.Boolean)">
+            <summary>
+            获取类型的显示名称
+            </summary>
+        </member>
+        <member name="M:Mix.Core.Extensions.TypeExtensions.GetImplementedInterfaces(System.Type)">
+            <summary>
+            获取当前类型实现了哪些接口
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
         <member name="T:Mix.Core.IEnumerableExtension">
             <summary>
             可枚举扩展
@@ -841,6 +990,24 @@
             </summary>
             <param name="dics"></param>
             <param name="dicKey"></param>
+        </member>
+        <member name="T:Mix.Core.Reflection.AppDomainAllAssemblyFinder">
+            <summary>
+            程序集查找
+            </summary>
+        </member>
+        <member name="M:Mix.Core.Reflection.AppDomainAllAssemblyFinder.FindAllItems">
+            <summary>
+            实现程序集的查找
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mix.Core.Reflection.AppDomainAllAssemblyFinder.FindAll``1">
+            <summary>
+            查找所有对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
         </member>
         <member name="T:Mix.Core.SystemConst">
             <summary>

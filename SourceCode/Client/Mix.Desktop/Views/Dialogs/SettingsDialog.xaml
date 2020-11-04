@@ -10,15 +10,18 @@
              xmlns:wpf="clr-namespace:Mix.Windows.WPF;assembly=Mix.Windows.WPF"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:views="clr-namespace:Mix.Desktop.Views"
+             xmlns:settings="clr-namespace:Mix.Desktop.Views.Settings"
              prism:ViewModelLocator.AutoWireViewModel="True"
-             Tag="Settings"
+             Tag="{i18n:Localizer Settings}"
              Style="{StaticResource MixDialogStyle}">
     <Grid Margin="10 0 10 10">
         <TabControl Style="{StaticResource {x:Type TabControl}}"
                     ItemContainerStyle="{StaticResource {x:Type TabItem}}"
                     prism:RegionManager.RegionName="{x:Static wpf:SystemRegionNames.SettingsTabRegion}">
-            <TabItem Header="s"></TabItem>
-            <!--<views:ShellSettingsTabItem />-->
+
+            <settings:BasicSettingTabItem />
+            <settings:ThemeSettingTabItem />
         </TabControl>
     </Grid>
 </UserControl>
