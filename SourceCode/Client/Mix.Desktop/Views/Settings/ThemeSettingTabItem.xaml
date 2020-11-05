@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Mix.Desktop.Views.Settings"
+             xmlns:vm="clr-namespace:Mix.Desktop.ViewModels.Settings"
              xmlns:i18n="clr-namespace:Mix.Windows.WPF.Localizations;assembly=Mix.Windows.WPF"
              xmlns:ctrls="clr-namespace:Mix.Windows.Controls;assembly=Mix.Windows.Controls"
              xmlns:prism="http://prismlibrary.com/"
@@ -11,8 +12,10 @@
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:materialDesignColors="clr-namespace:MaterialDesignColors;assembly=MaterialDesignColors"
              prism:ViewModelLocator.AutoWireViewModel="True"
-             Header="{i18n:Localizer Theme}">
+             Header="{i18n:Localizer Theme}"
+             x:Name="tbitm_themesetting">
     <TabItem.Resources>
+
         <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
             <Setter Property="Margin" Value="0" />
             <Setter Property="CommandParameter" Value="{Binding}" />
@@ -33,11 +36,33 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
         <DataTemplate DataType="{x:Type materialDesignColors:Swatch}">
-            <md:Card
+            <md:Card md:ShadowAssist.ShadowDepth="Depth0"
                 Margin="2 2 6 6"
                 Width="240">
-                <Grid>
+                <md:Card.Effect>
+                    <DropShadowEffect x:Name="DropShadowEffect" BlurRadius="5" ShadowDepth="1" Direction="270" Color="{StaticResource MaterialDesignShadow}" Opacity=".42" RenderingBias="Performance" />
+                </md:Card.Effect>
+                <md:Card.Triggers>
+                    <EventTrigger RoutedEvent="FrameworkElement.MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard TargetName="DropShadowEffect">
+                                <DoubleAnimation Storyboard.TargetProperty="BlurRadius" To="25" Duration="0:0:0.5" />
+                                <DoubleAnimation Storyboard.TargetProperty="ShadowDepth" To="8" Duration="0:0:0.5" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="FrameworkElement.MouseLeave">
+                        <BeginStoryboard>
+                            <Storyboard TargetName="DropShadowEffect">
+                                <DoubleAnimation Storyboard.TargetProperty="BlurRadius" To="5" Duration="0:0:0.5" />
+                                <DoubleAnimation Storyboard.TargetProperty="ShadowDepth" To="1" Duration="0:0:0.5" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </md:Card.Triggers>
+                <Grid RenderOptions.ClearTypeHint="Enabled">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
@@ -62,7 +87,8 @@
                         </Border.Background>
 
                         <Button
-                            Command="{Binding ApplyPrimaryCommand, Mode=TwoWay}"
+                           Command="{Binding ElementName=tbitm_themesetting,
+                                    Path=DataContext.ApplyPrimaryCommand}"
                             CommandParameter="{Binding}">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Primary" />
@@ -85,9 +111,8 @@
                         </Border.Background>
 
                         <Button
-                            Command="{Binding RelativeSource={RelativeSource FindAncestor,
-                                    AncestorType={x:Type local:ThemeSettingTabItem}},
-                                    Path=DataContext.ApplyAccentCommand, Mode=OneTime}"
+                            Command="{Binding ElementName=tbitm_themesetting,
+                                    Path=DataContext.ApplyAccentCommand}"
                             CommandParameter="{Binding}">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Accent" />
@@ -133,7 +158,7 @@
                 VerticalScrollBarVisibility="Auto"
                 HorizontalScrollBarVisibility="Disabled"
                 Margin="0 12 0 0">
-                <ItemsControl ItemsSource="{Binding Swatches, Mode=OneTime}">
+                <ItemsControl ItemsSource="{Binding Swatches}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel />
