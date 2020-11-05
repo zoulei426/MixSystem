@@ -3,6 +3,7 @@ using MaterialDesignThemes.Wpf;
 using Mix.Windows.WPF;
 using Prism.Commands;
 using Prism.Ioc;
+using PropertyChanged;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +14,52 @@ using System.Windows.Input;
 
 namespace Mix.Desktop.ViewModels.Settings
 {
-    public class ThemeSettingTabItemViewModel : ViewModelBase
+    [AddINotifyPropertyChangedInterface]
+    public class ThemeSettingTabItemViewModel : ViewModelBase, IViewLoadedAndUnloadedAware
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        #region Properties
+
+        public bool IsDarkTheme
+        {
+            get { return _IsDarkTheme; }
+            set
+            {
+                if (SetProperty(ref _IsDarkTheme, value))
+                    ModifyTheme(theme => theme.SetBaseTheme(value ? Theme.Dark : Theme.Light));
+            }
+        }
+
+        private bool _IsDarkTheme;
+
+        public IEnumerable<Swatch> Swatches { get; private set; }
+
+        #endregion Properties
+
+        #region Commands
+
+        public ICommand ApplyPrimaryCommand { get; private set; }
+
+        public ICommand ApplyAccentCommand { get; private set; }
+
+        #endregion Commands
+
+        #region Ctor
 
         public ThemeSettingTabItemViewModel(IContainerExtension container) : base(container)
+        {
+        }
+
+        #endregion Ctor
+
+        #region Methods
+
+        protected override void RegisterCommands()
+        {
+            ApplyPrimaryCommand = new DelegateCommand<Swatch>(ApplyPrimary);
+            ApplyAccentCommand = new DelegateCommand<Swatch>(ApplyAccent);
+        }
+
+        public void OnLoaded()
         {
             Swatches = new SwatchesProvider().Swatches;
 
@@ -35,26 +77,12 @@ namespace Mix.Desktop.ViewModels.Settings
             }
         }
 
-        private bool _IsDarkTheme;
-
-        public bool IsDarkTheme
+        public void OnUnloaded()
         {
-            get { return _IsDarkTheme; }
-            set
-            {
-                if (SetProperty(ref _IsDarkTheme, value))
-                    ModifyTheme(theme => theme.SetBaseTheme(value ? Theme.Dark : Theme.Light));
-            }
         }
 
-        public IEnumerable<Swatch> Swatches { get; }
-
-        public ICommand ApplyPrimaryCommand { get; } = new DelegateCommand<Swatch>(ApplyPrimary);
-
         private static void ApplyPrimary(Swatch swatch)
-            => ModifyTheme(theme => theme.SetPrimaryColor(swatch.ExemplarHue.Color));
-
-        public ICommand ApplyAccentCommand { get; } = new DelegateCommand<Swatch>(ApplyAccent);
+           => ModifyTheme(theme => theme.SetPrimaryColor(swatch.ExemplarHue.Color));
 
         private static void ApplyAccent(Swatch swatch)
             => ModifyTheme(theme => theme.SetSecondaryColor(swatch.AccentExemplarHue.Color));
@@ -68,5 +96,7 @@ namespace Mix.Desktop.ViewModels.Settings
 
             paletteHelper.SetTheme(theme);
         }
+
+        #endregion Methods
     }
 }
