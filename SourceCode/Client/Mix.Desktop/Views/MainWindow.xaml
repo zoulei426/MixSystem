@@ -23,7 +23,7 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <Rectangle Fill="{StaticResource PrimaryHueDarkBrush}" />
+            <Rectangle Fill="{DynamicResource PrimaryHueDarkBrush}" />
 
             <TabControl Grid.Column="0" Grid.ColumnSpan="2" SelectedIndex="0"
                         Style="{StaticResource MainTabControlStyle}" ItemContainerStyle="{StaticResource MainTabItemStyle}"

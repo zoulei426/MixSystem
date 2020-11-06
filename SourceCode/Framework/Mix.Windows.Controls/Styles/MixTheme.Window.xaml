@@ -25,7 +25,7 @@
                                 </Grid.RowDefinitions>
 
                                 <!--Title bar-->
-                                <Grid Grid.Row="0" Background="{StaticResource PrimaryHueMidBrush}">
+                                <Grid Grid.Row="0" Background="{DynamicResource PrimaryHueMidBrush}">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition />
@@ -40,7 +40,7 @@
                                     <StackPanel Grid.Column="2" Orientation="Horizontal">
                                         <StackPanel.Resources>
                                             <Style x:Key="WindowButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource FlatButtonStyle}">
-                                                <Setter Property="helpers:ControlHelper.MouseOverBackground" Value="{StaticResource PrimaryHueDarkBrush}" />
+                                                <Setter Property="helpers:ControlHelper.MouseOverBackground" Value="{DynamicResource PrimaryHueDarkBrush}" />
                                                 <Setter Property="helpers:ControlHelper.MouseOverForeground" Value="White" />
                                                 <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
                                                 <Setter Property="Width" Value="46" />

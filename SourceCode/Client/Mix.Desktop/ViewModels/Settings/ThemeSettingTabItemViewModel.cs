@@ -31,7 +31,7 @@ namespace Mix.Desktop.ViewModels.Settings
 
         private bool _IsDarkTheme;
 
-        public IEnumerable<Swatch> Swatches { get; private set; }
+        public IList<Swatch> Swatches { get; private set; }
 
         #endregion Properties
 
@@ -61,7 +61,9 @@ namespace Mix.Desktop.ViewModels.Settings
 
         public void OnLoaded()
         {
-            Swatches = new SwatchesProvider().Swatches;
+            Swatches = new SwatchesProvider().Swatches.ToList();
+
+            //Swatches.Add(new Swatch("default", primaryHues, accentHues);)
 
             PaletteHelper paletteHelper = new PaletteHelper();
             ITheme theme = paletteHelper.GetTheme();

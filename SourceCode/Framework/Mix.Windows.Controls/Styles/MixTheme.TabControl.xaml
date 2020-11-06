@@ -5,7 +5,7 @@
                     xmlns:converters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf"
                     xmlns:helpers="clr-namespace:Mix.Windows.Controls.Helpers">
     <Style x:Key="MainTabItemStyle" TargetType="{x:Type TabItem}">
-        <Setter Property="Background" Value="{StaticResource PrimaryHueMidBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="Template">
@@ -44,23 +44,23 @@
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
 
-                        <Border x:Name="mouseOverBorder" Opacity="0">
-                            <Border.Background>
+                        <Border x:Name="mouseOverBorder" Opacity="0" Background="{DynamicResource PrimaryHueLightBrush}">
+                            <!--<Border.Background>
                                 <TemplateBinding Property="Foreground">
                                     <TemplateBinding.Converter>
                                         <converters:BrushRoundConverter LowValue="{StaticResource PrimaryHueMidBrush}" HighValue="White" />
                                     </TemplateBinding.Converter>
                                 </TemplateBinding>
-                            </Border.Background>
+                            </Border.Background>-->
                         </Border>
-                        <Border x:Name="selectedBorder" Opacity="0" RenderTransformOrigin="0.5,0.5">
-                            <Border.Background>
+                        <Border x:Name="selectedBorder" Opacity="0" RenderTransformOrigin="0.5,0.5" Background="{DynamicResource PrimaryHueMidBrush}">
+                            <!--<Border.Background>
                                 <TemplateBinding Property="Foreground">
                                     <TemplateBinding.Converter>
                                         <converters:BrushRoundConverter LowValue="{StaticResource PrimaryHueMidBrush}" HighValue="White" />
                                     </TemplateBinding.Converter>
                                 </TemplateBinding>
-                            </Border.Background>
+                            </Border.Background>-->
                         </Border>
                         <ContentPresenter x:Name="contentPresenter" ContentSource="Header" Focusable="False" VerticalAlignment="Center" HorizontalAlignment="Center"
                                           Margin="0" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
@@ -74,8 +74,8 @@
                             </md:Ripple.Feedback>
                         </md:Ripple>
 
-                        <Rectangle Width="4" HorizontalAlignment="Left" x:Name="selectedRectangle" Fill="#9FA4FE" Opacity="0" />
-                        <Rectangle Width="4" HorizontalAlignment="Left" x:Name="mouseOverRectangle" Fill="#9FA4FE" Opacity="0" />
+                        <Rectangle Width="4" HorizontalAlignment="Left" x:Name="selectedRectangle" Fill="{DynamicResource SecondaryHueMidBrush}" Opacity="0" />
+                        <Rectangle Width="4" HorizontalAlignment="Left" x:Name="mouseOverRectangle" Fill="{DynamicResource SecondaryHueMidBrush}" Opacity="0" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">
@@ -121,7 +121,7 @@
     </Style>
 
     <Style TargetType="{x:Type TabItem}">
-        <Setter Property="Foreground" Value="{StaticResource PrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="Template">

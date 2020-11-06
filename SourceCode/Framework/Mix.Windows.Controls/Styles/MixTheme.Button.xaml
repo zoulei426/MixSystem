@@ -44,7 +44,7 @@
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Foreground" Value="{StaticResource PrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="FontSize" Value="13" />
         <Setter Property="Template">
             <Setter.Value>
@@ -63,7 +63,7 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Foreground" Value="{StaticResource PrimaryHueDarkBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}" />
                             <Setter Property="TextDecorations" Value="Underline" TargetName="PART_TextBlock" />
                             <Setter Property="Cursor" Value="Hand" />
                         </Trigger>
@@ -82,7 +82,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
-                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" Background="{StaticResource PrimaryHueDarkBrush}" ClipToBounds="{TemplateBinding ClipToBounds}" Margin="{TemplateBinding Margin}">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0"  Background="{DynamicResource PrimaryHueDarkBrush}" ClipToBounds="{TemplateBinding ClipToBounds}" Margin="{TemplateBinding Margin}">
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualStateGroup.Transitions>
@@ -115,23 +115,23 @@
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
                         <Grid>
-                            <Border x:Name="MouseOverBorder" Opacity="0">
-                                <Border.Background>
+                            <Border x:Name="MouseOverBorder" Opacity="0" Background="{DynamicResource PrimaryHueLightBrush}">
+                                <!--<Border.Background>
                                     <TemplateBinding Property="Foreground">
                                         <TemplateBinding.Converter>
                                             <converters:BrushRoundConverter HighValue="Black" LowValue="{StaticResource PrimaryHueMidBrush}" />
                                         </TemplateBinding.Converter>
                                     </TemplateBinding>
-                                </Border.Background>
+                                </Border.Background>-->
                             </Border>
-                            <Border x:Name="CheckedBorder" Opacity="0" RenderTransformOrigin="0.5,0.5">
-                                <Border.Background>
+                            <Border x:Name="CheckedBorder" Opacity="0" RenderTransformOrigin="0.5,0.5" Background="{DynamicResource PrimaryHueMidBrush}">
+                                <!--<Border.Background>
                                     <TemplateBinding Property="Foreground">
                                         <TemplateBinding.Converter>
                                             <converters:BrushRoundConverter HighValue="Black" LowValue="{StaticResource PrimaryHueMidBrush}" />
                                         </TemplateBinding.Converter>
                                     </TemplateBinding>
-                                </Border.Background>
+                                </Border.Background>-->
                             </Border>
                             <materialDesign:Ripple ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Focusable="False" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}">
                                 <materialDesign:Ripple.Feedback>
@@ -142,8 +142,8 @@
                                     </TemplateBinding>
                                 </materialDesign:Ripple.Feedback>
                             </materialDesign:Ripple>
-                            <Rectangle Width="4" HorizontalAlignment="Left" x:Name="PART_CheckedRectangle" Fill="{StaticResource PrimaryHueLightBrush}" Opacity="0" />
-                            <Rectangle Width="4" HorizontalAlignment="Left" x:Name="PART_MouseOverRectangle" Fill="{StaticResource PrimaryHueLightBrush}" Opacity="0" />
+                            <Rectangle Width="4" HorizontalAlignment="Left" x:Name="PART_CheckedRectangle" Fill="{DynamicResource SecondaryHueMidBrush}" Opacity="0" />
+                            <Rectangle Width="4" HorizontalAlignment="Left" x:Name="PART_MouseOverRectangle" Fill="{DynamicResource SecondaryHueMidBrush}" Opacity="0" />
                         </Grid>
                     </Border>
                 </ControlTemplate>

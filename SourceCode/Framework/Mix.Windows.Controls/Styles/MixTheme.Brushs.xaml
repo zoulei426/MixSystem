@@ -11,4 +11,7 @@
     <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="#DDFFFFFF" po:Freeze="True" />
     <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#293851" po:Freeze="True" />
     <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="#DDFFFFFF" po:Freeze="True" />
+
+    <SolidColorBrush x:Key="SecondaryHueMidBrush" Color="#9FA4FE" po:Freeze="True" />
+    <!--<SolidColorBrush x:Key="SecondaryHueMidForegroundBrush" Color="{StaticResource Accent700Foreground}" po:Freeze="True" />-->
 </ResourceDictionary>
