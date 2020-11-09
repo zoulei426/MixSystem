@@ -10,10 +10,13 @@ namespace Mix.Library.Repositories.HouseSites
     /// </summary>
     public class JcxxRepository : AuditBaseRepository<Jcxx>, IJcxxRepository
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="JcxxRepository"/> class.
+        /// </summary>
+        /// <param name="unitOfWorkManager"></param>
+        /// <param name="currentUser"></param>
         public JcxxRepository(UnitOfWorkManager unitOfWorkManager, ICurrentUser currentUser) : base(unitOfWorkManager, currentUser)
         {
         }
-
-
     }
 }

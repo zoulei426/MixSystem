@@ -14,12 +14,23 @@ namespace Mix.Library.Services
         private readonly IJcxxRepository jcxxRepository;
         private readonly ICyxxRepository cyxxRepository;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HouseSiteService"/> class.
+        /// </summary>
+        /// <param name="jcxxRepository">The JCXX repository.</param>
+        /// <param name="cyxxRepository">The cyxx repository.</param>
         public HouseSiteService(IJcxxRepository jcxxRepository, ICyxxRepository cyxxRepository)
         {
             this.jcxxRepository = jcxxRepository;
             this.cyxxRepository = cyxxRepository;
         }
 
+        /// <summary>
+        /// Inserts the or update JCXX and cyxx.
+        /// </summary>
+        /// <param name="jcxxes">The jcxxes.</param>
+        /// <param name="cyxxes">The cyxxes.</param>
+        /// <returns></returns>
         public async Task InsertOrUpdateJcxxAndCyxx(IEnumerable<Jcxx> jcxxes, IEnumerable<Cyxx> cyxxes)
         {
             foreach (var jcxx in jcxxes)

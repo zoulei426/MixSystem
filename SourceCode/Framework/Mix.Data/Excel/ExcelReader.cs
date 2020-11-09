@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Mix.Data.Excel
 {
+    /// <summary>
+    /// ExcelReader
+    /// </summary>
     public class ExcelReader
     {
         #region Properties
@@ -20,8 +23,17 @@ namespace Mix.Data.Excel
         /// <summary>
         /// 是否包含标题
         /// </summary>
+        /// <value>
+        ///   <c>true</c> if [contains titles]; otherwise, <c>false</c>.
+        /// </value>
         public bool ContainsTitles { get; set; }
 
+        /// <summary>
+        /// Gets or sets the index of the sheet.
+        /// </summary>
+        /// <value>
+        /// The index of the sheet.
+        /// </value>
         public int SheetIndex { get; set; }
 
         /// <summary>
@@ -52,6 +64,9 @@ namespace Mix.Data.Excel
 
         #endregion Ctor
 
+        /// <summary>
+        /// Initializes this instance.
+        /// </summary>
         public void Initialize()
         {
             fs = File.OpenRead(FilePath);
@@ -70,12 +85,18 @@ namespace Mix.Data.Excel
             }
         }
 
+        /// <summary>
+        /// Flushes the and close asynchronous.
+        /// </summary>
         public async Task FlushAndCloseAsync()
         {
             await fs.FlushAsync();
             fs.Close();
         }
 
+        /// <summary>
+        /// Closes this instance.
+        /// </summary>
         public void Close()
         {
             fs?.Close();

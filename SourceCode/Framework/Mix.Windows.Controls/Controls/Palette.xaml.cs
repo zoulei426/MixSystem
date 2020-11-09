@@ -20,6 +20,9 @@ namespace Mix.Windows.Controls.Controls
     /// </summary>
     public partial class Palette : UserControl
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Palette"/> class.
+        /// </summary>
         public Palette()
         {
             InitializeComponent();
