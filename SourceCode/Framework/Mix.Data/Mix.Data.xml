@@ -227,6 +227,11 @@
             删除时间
             </summary>
         </member>
+        <member name="T:Mix.Data.Excel.ExcelReader">
+            <summary>
+            ExcelReader
+            </summary>
+        </member>
         <member name="P:Mix.Data.Excel.ExcelReader.FilePath">
             <summary>
             读取文件路径
@@ -236,10 +241,36 @@
             <summary>
             是否包含标题
             </summary>
+            <value>
+              <c>true</c> if [contains titles]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Mix.Data.Excel.ExcelReader.SheetIndex">
+            <summary>
+            Gets or sets the index of the sheet.
+            </summary>
+            <value>
+            The index of the sheet.
+            </value>
         </member>
         <member name="P:Mix.Data.Excel.ExcelReader.StartRow">
             <summary>
             起始列
+            </summary>
+        </member>
+        <member name="M:Mix.Data.Excel.ExcelReader.Initialize">
+            <summary>
+            Initializes this instance.
+            </summary>
+        </member>
+        <member name="M:Mix.Data.Excel.ExcelReader.FlushAndCloseAsync">
+            <summary>
+            Flushes the and close asynchronous.
+            </summary>
+        </member>
+        <member name="M:Mix.Data.Excel.ExcelReader.Close">
+            <summary>
+            Closes this instance.
             </summary>
         </member>
         <member name="M:Mix.Data.Excel.ExcelReader.ExcelToDataTableAsync">

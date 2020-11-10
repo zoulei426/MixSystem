@@ -33,7 +33,7 @@ namespace Mix.Api.Controllers
     [ApiController]
     [Route("api/companies")]
     //[Authorize(AuthenticationSchemes = "Bearer")]
-    [Authorize]
+    //[Authorize]
     public class CompaniesController : ControllerBase
     {
         private readonly IStringLocalizer localizer;
@@ -70,7 +70,7 @@ namespace Mix.Api.Controllers
         {
             Log.Information(nameof(GetCompanies));
 
-            if (mediaType.IsNullOrEmpty())
+            //if (mediaType.IsNullOrEmpty())
                 mediaType = "application/json";
 
             if (!MediaTypeHeaderValue.TryParse(mediaType, out MediaTypeHeaderValue mediaTypeHeaderValue))

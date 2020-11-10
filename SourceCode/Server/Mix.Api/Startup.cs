@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Cors;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -69,6 +70,14 @@ namespace Mix.Api
             // 注册响应缓存
             services.AddResponseCaching();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AngularClientOrigin", builder =>
+                builder.AllowAnyOrigin()
+                       .AllowAnyHeader()
+                       .AllowAnyMethod());
+            });
+
             services.AddMvc(options =>
             {
                 options.ReturnHttpNotAcceptable = true; // 不支持的类型将返回406
@@ -76,6 +85,7 @@ namespace Mix.Api
                 {
                     Duration = 120
                 });
+                //options.Filters.Add(new CorsAuthorizationFilter(""));
             })
             .AddNewtonsoftJson(options =>
             {
@@ -231,14 +241,16 @@ namespace Mix.Api
 
             app.UseRouting();
 
+            app.UseCors("AngularClientOrigin");
+
             app.UseAuthentication();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers()
-                    .RequireAuthorization("ApiScope");
+                endpoints.MapControllers();
+                //.RequireAuthorization("ApiScope");
             });
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.

@@ -88,10 +88,27 @@
             Cyxx Repository
             </summary>
         </member>
+        <member name="T:Mix.Library.Repositories.HouseSites.ICyxxRepository">
+            <summary>
+            ICyxxRepository
+            </summary>
+        </member>
+        <member name="T:Mix.Library.Repositories.HouseSites.IJcxxRepository">
+            <summary>
+            IJcxxRepository
+            </summary>
+        </member>
         <member name="T:Mix.Library.Repositories.HouseSites.JcxxRepository">
             <summary>
             Jcxx Repository
             </summary>
+        </member>
+        <member name="M:Mix.Library.Repositories.HouseSites.JcxxRepository.#ctor(FreeSql.UnitOfWorkManager,Mix.Data.ICurrentUser)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Library.Repositories.HouseSites.JcxxRepository"/> class.
+            </summary>
+            <param name="unitOfWorkManager"></param>
+            <param name="currentUser"></param>
         </member>
         <member name="T:Mix.Library.Repositories.ICompanyRepository">
             <summary>

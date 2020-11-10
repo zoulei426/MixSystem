@@ -78,6 +78,14 @@
             宅基地服务
             </summary>
         </member>
+        <member name="M:Mix.Library.Services.HouseSiteService.InsertOrUpdateJcxxAndCyxx(System.Collections.Generic.IEnumerable{Mix.Library.Entities.Databases.HouseSites.Jcxx},System.Collections.Generic.IEnumerable{Mix.Library.Entities.Databases.HouseSites.Cyxx})">
+            <summary>
+            Inserts the or update JCXX and cyxx.
+            </summary>
+            <param name="jcxxes">The jcxxes.</param>
+            <param name="cyxxes">The cyxxes.</param>
+            <returns></returns>
+        </member>
         <member name="T:Mix.Library.Services.ICompanyService">
             <summary>
             ICompanyService
@@ -122,6 +130,19 @@
             </summary>
             <param name="companyId">The company identifier.</param>
             <param name="parameters">The parameters.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Mix.Library.Services.IHouseSiteService">
+            <summary>
+            IHouseSiteService
+            </summary>
+        </member>
+        <member name="M:Mix.Library.Services.IHouseSiteService.InsertOrUpdateJcxxAndCyxx(System.Collections.Generic.IEnumerable{Mix.Library.Entities.Databases.HouseSites.Jcxx},System.Collections.Generic.IEnumerable{Mix.Library.Entities.Databases.HouseSites.Cyxx})">
+            <summary>
+            Inserts the or update JCXX and cyxx.
+            </summary>
+            <param name="jcxxes">The jcxxes.</param>
+            <param name="cyxxes">The cyxxes.</param>
             <returns></returns>
         </member>
         <member name="T:Mix.Library.Services.PropertyMappingService">
