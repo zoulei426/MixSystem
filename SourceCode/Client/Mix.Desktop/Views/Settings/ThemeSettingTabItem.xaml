@@ -142,7 +142,7 @@
                 Margin="8">
                 <TextBlock
                     VerticalAlignment="Center"
-                    Text="Light" />
+                    Text="{i18n:Localizer Light}" />
 
                 <ToggleButton
                     Margin="8 0 16 0"
@@ -150,7 +150,7 @@
 
                 <TextBlock
                     VerticalAlignment="Center"
-                    Text="Dark" />
+                    Text="{i18n:Localizer Dark}" />
             </StackPanel>
 
             <ScrollViewer

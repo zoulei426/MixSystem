@@ -23,14 +23,6 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold" VerticalAlignment="Center"
-                       Text="{i18n:Localizer Theme}" />
-            <ComboBox Grid.Column="2" Grid.Row="0" Margin="0 16">
-                <ComboBoxItem IsSelected="True"
-                              Content="{i18n:Localizer Light}" />
-                <ComboBoxItem Content="{i18n:Localizer Dark}" />
-            </ComboBox>
-
             <TextBlock Grid.Column="0" Grid.Row="1" Margin="0 22" FontWeight="Bold"
                        Text="{i18n:Localizer Language}" />
             <ComboBox Grid.Column="2" Grid.Row="1" Margin="0 16"

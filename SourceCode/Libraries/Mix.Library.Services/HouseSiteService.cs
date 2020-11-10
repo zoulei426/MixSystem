@@ -37,6 +37,12 @@ namespace Mix.Library.Services
             return await nfxxRepository.Select.ToListAsync();
         }
 
+        /// <summary>
+        /// Inserts the or update JCXX and cyxx.
+        /// </summary>
+        /// <param name="jcxxes">The jcxxes.</param>
+        /// <param name="cyxxes">The cyxxes.</param>
+        /// <returns></returns>
         public async Task InsertOrUpdateJcxxAndCyxx(IEnumerable<Jcxx> jcxxes, IEnumerable<Cyxx> cyxxes)
         {
             foreach (var jcxx in jcxxes)
