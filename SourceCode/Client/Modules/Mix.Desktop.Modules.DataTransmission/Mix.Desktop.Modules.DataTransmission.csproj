@@ -8,6 +8,7 @@
     <OutputPath>bin\Debug\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="15.0.9" />
     <PackageReference Include="HandyControl" Version="2.5.0.2" />
     <PackageReference Include="MaterialDesignThemes" Version="3.2.0" />
     <PackageReference Include="NPOI" Version="2.5.1" />
@@ -24,6 +25,6 @@
     <ProjectReference Include="..\..\..\Libraries\Mix.Library.Services\Mix.Library.Services.csproj" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy  &quot;$(TargetPath)&quot; &quot;$(SolutionDir)SourceCode\Client\Build\$(OutDir)Modules\&quot; /s /e /y" />
+    <Exec Command="xcopy  &quot;$(TargetPath)&quot; &quot;$(SolutionDir)SourceCode\Client\Build\$(OutDir)Modules\&quot; /s /e /y&#xD;&#xA;" />
   </Target>
 </Project>

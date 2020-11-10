@@ -166,11 +166,6 @@
             成员信息
             </summary>
         </member>
-        <member name="P:Mix.Library.Entities.Databases.HouseSites.Cyxx.Id">
-            <summary>
-            Id
-            </summary>
-        </member>
         <member name="P:Mix.Library.Entities.Databases.HouseSites.Cyxx.Csgz">
             <summary>
             从事工作
@@ -366,6 +361,11 @@
             是否贫困户
             </summary>
         </member>
+        <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Sfws">
+            <summary>
+            是否完善
+            </summary>
+        </member>
         <member name="P:Mix.Library.Entities.Databases.HouseSites.Jcxx.Sjhm">
             <summary>
             手机号码
@@ -389,11 +389,6 @@
         <member name="T:Mix.Library.Entities.Databases.HouseSites.Nfxx">
             <summary>
             农房信息
-            </summary>
-        </member>
-        <member name="P:Mix.Library.Entities.Databases.HouseSites.Nfxx.Id">
-            <summary>
-            Id
             </summary>
         </member>
         <member name="P:Mix.Library.Entities.Databases.HouseSites.Nfxx.Fjid">

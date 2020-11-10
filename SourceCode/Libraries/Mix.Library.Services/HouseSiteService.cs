@@ -13,11 +13,28 @@ namespace Mix.Library.Services
     {
         private readonly IJcxxRepository jcxxRepository;
         private readonly ICyxxRepository cyxxRepository;
+        private readonly INfxxRepository nfxxRepository;
 
-        public HouseSiteService(IJcxxRepository jcxxRepository, ICyxxRepository cyxxRepository)
+        public HouseSiteService(IJcxxRepository jcxxRepository, ICyxxRepository cyxxRepository, INfxxRepository nfxxRepository)
         {
             this.jcxxRepository = jcxxRepository;
             this.cyxxRepository = cyxxRepository;
+            this.nfxxRepository = nfxxRepository;
+        }
+
+        public async Task<IEnumerable<Cyxx>> GetCyxxesAsync()
+        {
+            return await cyxxRepository.Select.ToListAsync();
+        }
+
+        public async Task<IEnumerable<Jcxx>> GetJcxxesAsync()
+        {
+            return await jcxxRepository.Select.ToListAsync();
+        }
+
+        public async Task<IEnumerable<Nfxx>> GetNfxxesAsync()
+        {
+            return await nfxxRepository.Select.ToListAsync();
         }
 
         public async Task InsertOrUpdateJcxxAndCyxx(IEnumerable<Jcxx> jcxxes, IEnumerable<Cyxx> cyxxes)

@@ -1,17 +1,20 @@
 ﻿<UserControl x:Class="Mix.Desktop.Modules.DataTransmission.Views.DataTransmissionPanel"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Mix.Desktop.Modules.DataTransmission.Views"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel Orientation="Vertical">
-        <TextBox Text="{Binding InputFile}"/>
-        <Button Content="开始传输" Command="{Binding TransmitDataCommand}"/>
+        <!--<TextBox Text="{Binding InputFile}" />
+        <Button Content="开始传输" Command="{Binding TransmitDataCommand}" />-->
+        <Button Content="导出CSV"
+                Width="100"
+                Command="{Binding ExportCSVCommand}" />
     </StackPanel>
 </UserControl>

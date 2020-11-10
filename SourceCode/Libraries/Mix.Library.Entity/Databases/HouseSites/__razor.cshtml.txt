@@ -59,6 +59,7 @@ namespace @gen.NameSpace {
 		@:/// </summary>
 		}
 		@:@("[JsonProperty" + GetAttributeString(gen.GetColumnAttribute(col, true)) + "]")
+		@:[Name("@col.Coment.Replace("\r\n", "\n").Replace("\n", "\r\n		/// ")")]
 		@:public @gen.GetCsType(col) @gen.GetCsName(col.Name) { get; set; }@GetDefaultValue(gen.GetColumnDefaultValue(col, false))
 @:
 	}

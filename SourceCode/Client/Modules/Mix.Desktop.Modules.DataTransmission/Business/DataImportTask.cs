@@ -36,7 +36,7 @@ namespace Mix.Desktop.Modules.DataTransmission.Business
 
                     currentJcxx = new Jcxx
                     {
-                        Id = Guid.NewGuid(),
+                        Id = Guid.NewGuid().ToString(),
                         //Dzxq = row[1].ToStringSafe().Trim(),
                         Hzxm = row[1].ToStringSafe().Trim(),
                         Zjhm = row[5].ToStringSafe().Trim(),
@@ -50,7 +50,7 @@ namespace Mix.Desktop.Modules.DataTransmission.Business
 
                 var cyxx = new Cyxx
                 {
-                    Id = Guid.NewGuid(),
+                    Id = Guid.NewGuid().ToString(),
                     JcxxId = currentJcxx.Id,
                     Xm = row[1].ToStringSafe().Trim(),
                     Xb = ToGender(row[2].ToStringSafe().Trim()),

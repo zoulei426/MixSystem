@@ -27,6 +27,7 @@ namespace Mix.Desktop.Modules.DataTransmission
             containerRegistry.Register(typeof(ICurrentUser), typeof(CurrentUser));
             containerRegistry.Register(typeof(IJcxxRepository), typeof(JcxxRepository));
             containerRegistry.Register(typeof(ICyxxRepository), typeof(CyxxRepository));
+            containerRegistry.Register(typeof(INfxxRepository), typeof(NfxxRepository));
             containerRegistry.Register(typeof(IHouseSiteService), typeof(HouseSiteService));
 
             // Register for region
@@ -40,7 +41,7 @@ namespace Mix.Desktop.Modules.DataTransmission
         public static IFreeSql AddFreeSql(IContainerProvider containerProvider)
         {
             return new FreeSqlBuilder()
-                   .UseConnectionString(DataType.Sqlite, "Data Source=D:\\Database\\test2.db; Pooling=true;Min Pool Size=1")
+                   .UseConnectionString(DataType.PostgreSQL, "")
                    .UseNameConvert(NameConvertType.PascalCaseToUnderscoreWithLower)
                    .UseAutoSyncStructure(false)
                    .UseNoneCommandParameter(true)
