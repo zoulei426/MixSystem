@@ -170,7 +170,7 @@ namespace Mix.Data.Excel
                             if (cell == null)
                             {
                                 continue;
-                                dataRow[j] = "";
+                                //dataRow[j] = "";
                             }
                             else
                             {

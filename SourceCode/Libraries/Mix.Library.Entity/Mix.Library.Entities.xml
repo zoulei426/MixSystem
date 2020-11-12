@@ -491,6 +491,921 @@
             宅基地面积
             </summary>
         </member>
+        <member name="T:Mix.Library.Entities.Databases.IdentityServer4.ApiResource">
+            <summary>
+            ApiResource
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiResource.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiResource.Enabled">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Mix.Library.Entities.Databases.IdentityServer4.ApiResource"/> is enabled.
+            </summary>
+            <value>
+              <c>true</c> if enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiResource.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiResource.DisplayName">
+            <summary>
+            Gets or sets the display name.
+            </summary>
+            <value>
+            The display name.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiResource.Description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+            <value>
+            The description.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiResource.AllowedAccessTokenSigningAlgorithms">
+            <summary>
+            Gets or sets the allowed access token signing algorithms.
+            </summary>
+            <value>
+            The allowed access token signing algorithms.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiResource.Secrets">
+            <summary>
+            Gets or sets the secrets.
+            </summary>
+            <value>
+            The secrets.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiResource.Scopes">
+            <summary>
+            Gets or sets the scopes.
+            </summary>
+            <value>
+            The scopes.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiResource.UserClaims">
+            <summary>
+            Gets or sets the user claims.
+            </summary>
+            <value>
+            The user claims.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiResource.Properties">
+            <summary>
+            Gets or sets the properties.
+            </summary>
+            <value>
+            The properties.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiResource.Created">
+            <summary>
+            Gets or sets the created.
+            </summary>
+            <value>
+            The created.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiResource.Updated">
+            <summary>
+            Gets or sets the updated.
+            </summary>
+            <value>
+            The updated.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiResource.LastAccessed">
+            <summary>
+            Gets or sets the last accessed.
+            </summary>
+            <value>
+            The last accessed.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiResource.NonEditable">
+            <summary>
+            Gets or sets a value indicating whether [non editable].
+            </summary>
+            <value>
+              <c>true</c> if [non editable]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Mix.Library.Entities.Databases.IdentityServer4.ApiResourceClaim">
+            <summary>
+            ApiResourceClaim
+            </summary>
+            <seealso cref="T:Mix.Library.Entities.Databases.IdentityServer4.UserClaim" />
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiResourceClaim.ApiResourceId">
+            <summary>
+            Gets or sets the API resource identifier.
+            </summary>
+            <value>
+            The API resource identifier.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiResourceClaim.ApiResource">
+            <summary>
+            Gets or sets the API resource.
+            </summary>
+            <value>
+            The API resource.
+            </value>
+        </member>
+        <member name="T:Mix.Library.Entities.Databases.IdentityServer4.ApiResourceProperty">
+            <summary>
+            ApiResourceProperty
+            </summary>
+            <seealso cref="T:Mix.Library.Entities.Databases.IdentityServer4.Property" />
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiResourceProperty.ApiResourceId">
+            <summary>
+            Gets or sets the API resource identifier.
+            </summary>
+            <value>
+            The API resource identifier.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiResourceProperty.ApiResource">
+            <summary>
+            Gets or sets the API resource.
+            </summary>
+            <value>
+            The API resource.
+            </value>
+        </member>
+        <member name="T:Mix.Library.Entities.Databases.IdentityServer4.ApiScope">
+            <summary>
+            ApiScope
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiScope.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiScope.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiScope.DisplayName">
+            <summary>
+            Gets or sets the display name.
+            </summary>
+            <value>
+            The display name.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiScope.Description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+            <value>
+            The description.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiScope.Required">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Mix.Library.Entities.Databases.IdentityServer4.ApiScope"/> is required.
+            </summary>
+            <value>
+              <c>true</c> if required; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiScope.Emphasize">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Mix.Library.Entities.Databases.IdentityServer4.ApiScope"/> is emphasize.
+            </summary>
+            <value>
+              <c>true</c> if emphasize; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiScope.ShowInDiscoveryDocument">
+            <summary>
+            Gets or sets a value indicating whether [show in discovery document].
+            </summary>
+            <value>
+              <c>true</c> if [show in discovery document]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiScope.UserClaims">
+            <summary>
+            Gets or sets the user claims.
+            </summary>
+            <value>
+            The user claims.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiScope.ApiResourceId">
+            <summary>
+            Gets or sets the API resource identifier.
+            </summary>
+            <value>
+            The API resource identifier.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiScope.ApiResource">
+            <summary>
+            Gets or sets the API resource.
+            </summary>
+            <value>
+            The API resource.
+            </value>
+        </member>
+        <member name="T:Mix.Library.Entities.Databases.IdentityServer4.ApiScopeClaim">
+            <summary>
+            ApiScopeClaim
+            </summary>
+            <seealso cref="T:Mix.Library.Entities.Databases.IdentityServer4.UserClaim" />
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiScopeClaim.ApiScopeId">
+            <summary>
+            Gets or sets the API scope identifier.
+            </summary>
+            <value>
+            The API scope identifier.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiScopeClaim.ApiScope">
+            <summary>
+            Gets or sets the API scope.
+            </summary>
+            <value>
+            The API scope.
+            </value>
+        </member>
+        <member name="T:Mix.Library.Entities.Databases.IdentityServer4.ApiSecret">
+            <summary>
+            ApiSecret
+            </summary>
+            <seealso cref="T:Mix.Library.Entities.Databases.IdentityServer4.Secret" />
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiSecret.ApiResourceId">
+            <summary>
+            Gets or sets the API resource identifier.
+            </summary>
+            <value>
+            The API resource identifier.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ApiSecret.ApiResource">
+            <summary>
+            Gets or sets the API resource.
+            </summary>
+            <value>
+            The API resource.
+            </value>
+        </member>
+        <member name="T:Mix.Library.Entities.Databases.IdentityServer4.Client">
+            <summary>
+            Client
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.Enabled">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Mix.Library.Entities.Databases.IdentityServer4.Client"/> is enabled.
+            </summary>
+            <value>
+              <c>true</c> if enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.ClientId">
+            <summary>
+            Gets or sets the client identifier.
+            </summary>
+            <value>
+            The client identifier.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.ProtocolType">
+            <summary>
+            Gets or sets the type of the protocol.
+            </summary>
+            <value>
+            The type of the protocol.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.ClientSecrets">
+            <summary>
+            Gets or sets the client secrets.
+            </summary>
+            <value>
+            The client secrets.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.RequireClientSecret">
+            <summary>
+            Gets or sets a value indicating whether [require client secret].
+            </summary>
+            <value>
+              <c>true</c> if [require client secret]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.ClientName">
+            <summary>
+            Gets or sets the name of the client.
+            </summary>
+            <value>
+            The name of the client.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.Description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+            <value>
+            The description.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.ClientUri">
+            <summary>
+            Gets or sets the client URI.
+            </summary>
+            <value>
+            The client URI.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.LogoUri">
+            <summary>
+            Gets or sets the logo URI.
+            </summary>
+            <value>
+            The logo URI.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.RequireConsent">
+            <summary>
+            Gets or sets a value indicating whether [require consent].
+            </summary>
+            <value>
+              <c>true</c> if [require consent]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.AllowRememberConsent">
+            <summary>
+            Gets or sets a value indicating whether [allow remember consent].
+            </summary>
+            <value>
+              <c>true</c> if [allow remember consent]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.AlwaysIncludeUserClaimsInIdToken">
+            <summary>
+            Gets or sets a value indicating whether [always include user claims in identifier token].
+            </summary>
+            <value>
+              <c>true</c> if [always include user claims in identifier token]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.AllowedGrantTypes">
+            <summary>
+            Gets or sets the allowed grant types.
+            </summary>
+            <value>
+            The allowed grant types.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.RequirePkce">
+            <summary>
+            Gets or sets a value indicating whether [require pkce].
+            </summary>
+            <value>
+              <c>true</c> if [require pkce]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.AllowPlainTextPkce">
+            <summary>
+            Gets or sets a value indicating whether [allow plain text pkce].
+            </summary>
+            <value>
+              <c>true</c> if [allow plain text pkce]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.RequireRequestObject">
+            <summary>
+            Gets or sets a value indicating whether [require request object].
+            </summary>
+            <value>
+              <c>true</c> if [require request object]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.AllowAccessTokensViaBrowser">
+            <summary>
+            Gets or sets a value indicating whether [allow access tokens via browser].
+            </summary>
+            <value>
+              <c>true</c> if [allow access tokens via browser]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.RedirectUris">
+            <summary>
+            Gets or sets the redirect uris.
+            </summary>
+            <value>
+            The redirect uris.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.PostLogoutRedirectUris">
+            <summary>
+            Gets or sets the post logout redirect uris.
+            </summary>
+            <value>
+            The post logout redirect uris.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.FrontChannelLogoutUri">
+            <summary>
+            Gets or sets the front channel logout URI.
+            </summary>
+            <value>
+            The front channel logout URI.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.FrontChannelLogoutSessionRequired">
+            <summary>
+            Gets or sets a value indicating whether [front channel logout session required].
+            </summary>
+            <value>
+              <c>true</c> if [front channel logout session required]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.BackChannelLogoutUri">
+            <summary>
+            Gets or sets the back channel logout URI.
+            </summary>
+            <value>
+            The back channel logout URI.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.BackChannelLogoutSessionRequired">
+            <summary>
+            Gets or sets a value indicating whether [back channel logout session required].
+            </summary>
+            <value>
+              <c>true</c> if [back channel logout session required]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.AllowOfflineAccess">
+            <summary>
+            Gets or sets a value indicating whether [allow offline access].
+            </summary>
+            <value>
+              <c>true</c> if [allow offline access]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.AllowedScopes">
+            <summary>
+            Gets or sets the allowed scopes.
+            </summary>
+            <value>
+            The allowed scopes.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.IdentityTokenLifetime">
+            <summary>
+            Gets or sets the identity token lifetime.
+            </summary>
+            <value>
+            The identity token lifetime.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.AllowedIdentityTokenSigningAlgorithms">
+            <summary>
+            Gets or sets the allowed identity token signing algorithms.
+            </summary>
+            <value>
+            The allowed identity token signing algorithms.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.AccessTokenLifetime">
+            <summary>
+            Gets or sets the access token lifetime.
+            </summary>
+            <value>
+            The access token lifetime.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.AuthorizationCodeLifetime">
+            <summary>
+            Gets or sets the authorization code lifetime.
+            </summary>
+            <value>
+            The authorization code lifetime.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.ConsentLifetime">
+            <summary>
+            Gets or sets the consent lifetime.
+            </summary>
+            <value>
+            The consent lifetime.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.AbsoluteRefreshTokenLifetime">
+            <summary>
+            Gets or sets the absolute refresh token lifetime.
+            </summary>
+            <value>
+            The absolute refresh token lifetime.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.SlidingRefreshTokenLifetime">
+            <summary>
+            Gets or sets the sliding refresh token lifetime.
+            </summary>
+            <value>
+            The sliding refresh token lifetime.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.RefreshTokenUsage">
+            <summary>
+            Gets or sets the refresh token usage.
+            </summary>
+            <value>
+            The refresh token usage.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.UpdateAccessTokenClaimsOnRefresh">
+            <summary>
+            Gets or sets a value indicating whether [update access token claims on refresh].
+            </summary>
+            <value>
+              <c>true</c> if [update access token claims on refresh]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.RefreshTokenExpiration">
+            <summary>
+            Gets or sets the refresh token expiration.
+            </summary>
+            <value>
+            The refresh token expiration.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.AccessTokenType">
+            <summary>
+            Gets or sets the type of the access token.
+            </summary>
+            <value>
+            The type of the access token.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.EnableLocalLogin">
+            <summary>
+            Gets or sets a value indicating whether [enable local login].
+            </summary>
+            <value>
+              <c>true</c> if [enable local login]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.IdentityProviderRestrictions">
+            <summary>
+            Gets or sets the identity provider restrictions.
+            </summary>
+            <value>
+            The identity provider restrictions.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.IncludeJwtId">
+            <summary>
+            Gets or sets a value indicating whether [include JWT identifier].
+            </summary>
+            <value>
+              <c>true</c> if [include JWT identifier]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.Claims">
+            <summary>
+            Gets or sets the claims.
+            </summary>
+            <value>
+            The claims.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.AlwaysSendClientClaims">
+            <summary>
+            Gets or sets a value indicating whether [always send client claims].
+            </summary>
+            <value>
+              <c>true</c> if [always send client claims]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.ClientClaimsPrefix">
+            <summary>
+            Gets or sets the client claims prefix.
+            </summary>
+            <value>
+            The client claims prefix.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.PairWiseSubjectSalt">
+            <summary>
+            Gets or sets the pair wise subject salt.
+            </summary>
+            <value>
+            The pair wise subject salt.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.AllowedCorsOrigins">
+            <summary>
+            Gets or sets the allowed cors origins.
+            </summary>
+            <value>
+            The allowed cors origins.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.Properties">
+            <summary>
+            Gets or sets the properties.
+            </summary>
+            <value>
+            The properties.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.Created">
+            <summary>
+            Gets or sets the created.
+            </summary>
+            <value>
+            The created.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.Updated">
+            <summary>
+            Gets or sets the updated.
+            </summary>
+            <value>
+            The updated.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.LastAccessed">
+            <summary>
+            Gets or sets the last accessed.
+            </summary>
+            <value>
+            The last accessed.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.UserSsoLifetime">
+            <summary>
+            Gets or sets the user sso lifetime.
+            </summary>
+            <value>
+            The user sso lifetime.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.UserCodeType">
+            <summary>
+            Gets or sets the type of the user code.
+            </summary>
+            <value>
+            The type of the user code.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.DeviceCodeLifetime">
+            <summary>
+            Gets or sets the device code lifetime.
+            </summary>
+            <value>
+            The device code lifetime.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.Client.NonEditable">
+            <summary>
+            Gets or sets a value indicating whether [non editable].
+            </summary>
+            <value>
+              <c>true</c> if [non editable]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Mix.Library.Entities.Databases.IdentityServer4.ClientClaim">
+            <summary>
+            ClientClaim
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ClientClaim.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ClientClaim.Type">
+            <summary>
+            Gets or sets the type.
+            </summary>
+            <value>
+            The type.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ClientClaim.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+            <value>
+            The value.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ClientClaim.ClientId">
+            <summary>
+            Gets or sets the client identifier.
+            </summary>
+            <value>
+            The client identifier.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ClientClaim.Client">
+            <summary>
+            Gets or sets the client.
+            </summary>
+            <value>
+            The client.
+            </value>
+        </member>
+        <member name="T:Mix.Library.Entities.Databases.IdentityServer4.ClientCorsOrigin">
+            <summary>
+            ClientCorsOrigin
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ClientCorsOrigin.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ClientCorsOrigin.Origin">
+            <summary>
+            Gets or sets the origin.
+            </summary>
+            <value>
+            The origin.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ClientCorsOrigin.ClientId">
+            <summary>
+            Gets or sets the client identifier.
+            </summary>
+            <value>
+            The client identifier.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ClientCorsOrigin.Client">
+            <summary>
+            Gets or sets the client.
+            </summary>
+            <value>
+            The client.
+            </value>
+        </member>
+        <member name="T:Mix.Library.Entities.Databases.IdentityServer4.ClientGrantType">
+            <summary>
+            ClientGrantType
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ClientGrantType.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ClientGrantType.GrantType">
+            <summary>
+            Gets or sets the type of the grant.
+            </summary>
+            <value>
+            The type of the grant.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ClientGrantType.ClientId">
+            <summary>
+            Gets or sets the client identifier.
+            </summary>
+            <value>
+            The client identifier.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.ClientGrantType.Client">
+            <summary>
+            Gets or sets the client.
+            </summary>
+            <value>
+            The client.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.DeviceFlowCodes.DeviceCode">
+            <summary>
+            Gets or sets the device code.
+            </summary>
+            <value>
+            The device code.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.DeviceFlowCodes.UserCode">
+            <summary>
+            Gets or sets the user code.
+            </summary>
+            <value>
+            The user code.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.DeviceFlowCodes.SubjectId">
+            <summary>
+            Gets or sets the subject identifier.
+            </summary>
+            <value>
+            The subject identifier.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.DeviceFlowCodes.ClientId">
+            <summary>
+            Gets or sets the client identifier.
+            </summary>
+            <value>
+            The client identifier.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.DeviceFlowCodes.CreationTime">
+            <summary>
+            Gets or sets the creation time.
+            </summary>
+            <value>
+            The creation time.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.DeviceFlowCodes.Expiration">
+            <summary>
+            Gets or sets the expiration.
+            </summary>
+            <value>
+            The expiration.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.DeviceFlowCodes.Data">
+            <summary>
+            Gets or sets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="T:Mix.Library.Entities.Databases.IdentityServer4.UserClaim">
+            <summary>
+            UserClaim
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.UserClaim.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.Databases.IdentityServer4.UserClaim.Type">
+            <summary>
+            Gets or sets the type.
+            </summary>
+            <value>
+            The type.
+            </value>
+        </member>
         <member name="T:Mix.Library.Entities.DtoParameters.CompanyDtoParameters">
             <summary>
             CompanyDtoParameters
