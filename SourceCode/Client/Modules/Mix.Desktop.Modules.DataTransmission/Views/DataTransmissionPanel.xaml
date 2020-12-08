@@ -11,8 +11,8 @@
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel Orientation="Vertical">
-        <!--<TextBox Text="{Binding InputFile}" />
-        <Button Content="开始传输" Command="{Binding TransmitDataCommand}" />-->
+        <TextBox Text="{Binding InputFile}" />
+        <Button Content="开始传输" Command="{Binding TransmitDataCommand}" />
         <Button Content="导出CSV"
                 Width="100"
                 Command="{Binding ExportCSVCommand}" />

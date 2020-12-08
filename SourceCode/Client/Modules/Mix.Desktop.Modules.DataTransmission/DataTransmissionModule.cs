@@ -41,7 +41,7 @@ namespace Mix.Desktop.Modules.DataTransmission
         public static IFreeSql AddFreeSql(IContainerProvider containerProvider)
         {
             return new FreeSqlBuilder()
-                   .UseConnectionString(DataType.PostgreSQL, "")
+                   .UseConnectionString(DataType.PostgreSQL, "Host=192.168.20.55;Port=5432;Database=onemap_piduzhanqi;Username=sde;Password=123456;")
                    .UseNameConvert(NameConvertType.PascalCaseToUnderscoreWithLower)
                    .UseAutoSyncStructure(false)
                    .UseNoneCommandParameter(true)

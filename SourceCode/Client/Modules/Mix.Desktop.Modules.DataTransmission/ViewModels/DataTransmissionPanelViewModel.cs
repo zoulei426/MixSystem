@@ -59,7 +59,7 @@ namespace Mix.Desktop.Modules.DataTransmission.ViewModels
 
         private async void TransmitData()
         {
-            string fileName = @"D:\Users\zoulei\Desktop\战旗村人口信息（改）.xls";
+            string fileName = @"D:\Users\zoulei\Desktop\aa.xlsx";
 
             var task = new DataImportTask();
             task.houseSiteService = houseSiteService;

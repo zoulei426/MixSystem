@@ -1,4 +1,5 @@
-﻿using Mix.Data.Excel;
+﻿using Mix.Core;
+using Mix.Data.Excel;
 using Mix.Library.Entities.Databases.HouseSites;
 using Mix.Library.Services;
 using System;
@@ -36,11 +37,11 @@ namespace Mix.Desktop.Modules.DataTransmission.Business
 
                     currentJcxx = new Jcxx
                     {
-                        Id = Guid.NewGuid().ToString(),
-                        //Dzxq = row[1].ToStringSafe().Trim(),
-                        Hzxm = row[1].ToStringSafe().Trim(),
-                        Zjhm = row[5].ToStringSafe().Trim(),
-                        Sjhm = row[6].ToStringSafe().Trim()
+                        Id = row[3].ToStringSafe().Trim(),
+                        Dzxq = row[1].ToStringSafe().Trim(),
+                        Hzxm = row[2].ToStringSafe().Trim(),
+                        Zjhm = row[3].ToStringSafe().Trim(),
+                        //Sjhm = row[6].ToStringSafe().Trim()
                     };
                     if (currentJcxx.Hzxm.IsNullOrEmpty() || currentJcxx.Zjhm.IsNullOrEmpty()) continue;
                     jcxxList.Add(currentJcxx);
@@ -52,17 +53,17 @@ namespace Mix.Desktop.Modules.DataTransmission.Business
                 {
                     Id = Guid.NewGuid().ToString(),
                     JcxxId = currentJcxx.Id,
-                    Xm = row[1].ToStringSafe().Trim(),
-                    Xb = ToGender(row[2].ToStringSafe().Trim()),
+                    Xm = row[4].ToStringSafe().Trim(),
+                    Xb = row[5].ToStringSafe().Trim().GetGenderByICN(),
                     Zjhm = row[5].ToStringSafe().Trim()
                 };
                 if (cyxx.Xm.IsNullOrEmpty() || cyxx.Zjhm.IsNullOrEmpty()) continue;
 
-                if ("是".Equals(row[3].ToStringSafe().Trim()))
-                {
-                    currentJcxx.Hzxm = cyxx.Xm;
-                    currentJcxx.Zjhm = cyxx.Zjhm;
-                }
+                //if ("是".Equals(row[3].ToStringSafe().Trim()))
+                //{
+                //    currentJcxx.Hzxm = cyxx.Xm;
+                //    currentJcxx.Zjhm = cyxx.Zjhm;
+                //}
 
                 cyxxList.Add(cyxx);
 

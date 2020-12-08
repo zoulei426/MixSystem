@@ -17,7 +17,12 @@ namespace Mix.Desktop.Modules.Enterprise.ViewModels
 
         public void OnLoaded()
         {
-            var accessToken = System.Windows.Application.Current.Properties["AccessToken"].ToString();
+            var accessToken = System.Windows.Application.Current.Properties["AccessToken"]?.ToString();
+            if (accessToken.IsNullOrEmpty())
+            {
+                Notifier.Error("认证失败！");
+                return;
+            }
             var client = new HttpClient() { BaseAddress = new Uri("http://localhost:5002") };
             client.SetBearerToken(accessToken);
             Container.RegisterInstance(RestService.For<IEnterpriseApi>(client));
