@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FreeSql.DbContext" Version="1.10.3" />
+    <PackageReference Include="FreeSql.Provider.PostgreSQL" Version="1.10.3" />
+    <PackageReference Include="FreeSql.Provider.Sqlite" Version="1.10.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Framework\Mix.Core\Mix.Core.csproj" />
+    <ProjectReference Include="..\Mix.Library.Entity\Mix.Library.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

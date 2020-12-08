@@ -1,23 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-    <UserSecretsId>4252646a-0215-44fb-9389-0e57a605c05c</UserSecretsId>
-    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
-    <DockerfileContext>..\..\..</DockerfileContext>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+		<UserSecretsId>4252646a-0215-44fb-9389-0e57a605c05c</UserSecretsId>
+		<DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+		<DockerfileContext>..\..\..</DockerfileContext>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="IdentityServer4" Version="4.1.1" />
-    <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
-    <PackageReference Include="IdentityServer4.AspNetIdentity" Version="4.1.1" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="IdentityServer4" Version="4.1.1" />
+		<PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
+		<PackageReference Include="IdentityServer4.AspNetIdentity" Version="4.1.1" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Libraries\Mix.Library.Entity\Mix.Library.Entities.csproj" />
-    <ProjectReference Include="..\..\Libraries\Mix.Library.Repository\Mix.Library.Repositories.csproj" />
-    <ProjectReference Include="..\..\Libraries\Mix.Library.Services\Mix.Library.Services.csproj" />
-  </ItemGroup>
-
+	<ItemGroup>
+		<ProjectReference Include="..\..\Libraries\Mix.Library.DbContexts\Mix.Library.DbContexts.csproj" />
+		<ProjectReference Include="..\..\Libraries\Mix.Library.Entity\Mix.Library.Entities.csproj" />
+		<ProjectReference Include="..\..\Libraries\Mix.Library.Repository\Mix.Library.Repositories.csproj" />
+		<ProjectReference Include="..\..\Libraries\Mix.Library.Services\Mix.Library.Services.csproj" />
+	</ItemGroup>
 </Project>
