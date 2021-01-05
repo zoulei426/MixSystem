@@ -20,4 +20,8 @@
     <ProjectReference Include="..\..\Framework\Mix.Core\Mix.Core.csproj" />
     <ProjectReference Include="..\Mix.Library.Entity\Mix.Library.Entities.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="IdentityServer4\" />
+  </ItemGroup>
 </Project>

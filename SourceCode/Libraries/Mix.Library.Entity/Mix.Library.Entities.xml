@@ -4,6 +4,187 @@
         <name>Mix.Library.Entities</name>
     </assembly>
     <members>
+        <member name="T:Mix.Library.Entities.ConfigurationStoreOptions">
+            <summary>
+            Options for configuring the configuration context.
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.ConfigurationStoreOptions.ConfigureDbContext">
+            <summary>
+            Callback to configure the FreeSql DbContext.
+            </summary>
+            <value>
+            The configure database context.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.ConfigurationStoreOptions.ResolveDbContextOptions">
+            <summary>
+            Callback in DI resolve the FreeSql DbContextOptions. If set, ConfigureDbContext will not be used.
+            </summary>
+            <value>
+            The configure database context.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.ConfigurationStoreOptions.DefaultSchema">
+            <summary>
+            Gets or sets the default schema.
+            </summary>
+            <value>
+            The default schema.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.ConfigurationStoreOptions.IdentityResource">
+            <summary>
+            Gets or sets the identity resource table configuration.
+            </summary>
+            <value>
+            The identity resource.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.ConfigurationStoreOptions.IdentityClaim">
+            <summary>
+            Gets or sets the identity claim table configuration.
+            </summary>
+            <value>
+            The identity claim.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.ConfigurationStoreOptions.ApiResource">
+            <summary>
+            Gets or sets the API resource table configuration.
+            </summary>
+            <value>
+            The API resource.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.ConfigurationStoreOptions.ApiSecret">
+            <summary>
+            Gets or sets the API secret table configuration.
+            </summary>
+            <value>
+            The API secret.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.ConfigurationStoreOptions.ApiScope">
+            <summary>
+            Gets or sets the API scope table configuration.
+            </summary>
+            <value>
+            The API scope.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.ConfigurationStoreOptions.ApiClaim">
+            <summary>
+            Gets or sets the API claim table configuration.
+            </summary>
+            <value>
+            The API claim.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.ConfigurationStoreOptions.ApiScopeClaim">
+            <summary>
+            Gets or sets the API scope claim table configuration.
+            </summary>
+            <value>
+            The API scope claim.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.ConfigurationStoreOptions.Client">
+            <summary>
+            Gets or sets the client table configuration.
+            </summary>
+            <value>
+            The client.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.ConfigurationStoreOptions.ClientGrantType">
+            <summary>
+            Gets or sets the type of the client grant table configuration.
+            </summary>
+            <value>
+            The type of the client grant.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.ConfigurationStoreOptions.ClientRedirectUri">
+            <summary>
+            Gets or sets the client redirect URI table configuration.
+            </summary>
+            <value>
+            The client redirect URI.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.ConfigurationStoreOptions.ClientPostLogoutRedirectUri">
+            <summary>
+            Gets or sets the client post logout redirect URI table configuration.
+            </summary>
+            <value>
+            The client post logout redirect URI.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.ConfigurationStoreOptions.ClientScopes">
+            <summary>
+            Gets or sets the client scopes table configuration.
+            </summary>
+            <value>
+            The client scopes.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.ConfigurationStoreOptions.ClientSecret">
+            <summary>
+            Gets or sets the client secret table configuration.
+            </summary>
+            <value>
+            The client secret.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.ConfigurationStoreOptions.ClientClaim">
+            <summary>
+            Gets or sets the client claim table configuration.
+            </summary>
+            <value>
+            The client claim.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.ConfigurationStoreOptions.ClientIdPRestriction">
+            <summary>
+            Gets or sets the client IdP restriction table configuration.
+            </summary>
+            <value>
+            The client IdP restriction.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.ConfigurationStoreOptions.ClientCorsOrigin">
+            <summary>
+            Gets or sets the client cors origin table configuration.
+            </summary>
+            <value>
+            The client cors origin.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.ConfigurationStoreOptions.ClientProperty">
+            <summary>
+            Gets or sets the client property table configuration.
+            </summary>
+            <value>
+            The client property.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.ConfigurationStoreOptions.ApiResourceProperty">
+            <summary>
+            Gets or sets the API resource property table configuration.
+            </summary>
+            <value>
+            The client property.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.ConfigurationStoreOptions.IdentityResourceProperty">
+            <summary>
+            Gets or sets the identity resource property table configuration.
+            </summary>
+            <value>
+            The client property.
+            </value>
+        </member>
         <member name="T:Mix.Library.Entities.Databases.Accounts.User">
             <summary>
             用户
@@ -1735,6 +1916,77 @@
             构造
             </summary>
         </member>
+        <member name="T:Mix.Library.Entities.OperationalStoreOptions">
+            <summary>
+            Options for configuring the operational context.
+            </summary>
+        </member>
+        <member name="P:Mix.Library.Entities.OperationalStoreOptions.ConfigureDbContext">
+            <summary>
+            Callback to configure the FreeSql DbContext.
+            </summary>
+            <value>
+            The configure database context.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.OperationalStoreOptions.ResolveDbContextOptions">
+            <summary>
+            Callback in DI resolve the FreeSql DbContextOptions. If set, ConfigureDbContext will not be used.
+            </summary>
+            <value>
+            The configure database context.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.OperationalStoreOptions.DefaultSchema">
+            <summary>
+            Gets or sets the default schema.
+            </summary>
+            <value>
+            The default schema.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.OperationalStoreOptions.PersistedGrants">
+            <summary>
+            Gets or sets the persisted grants table configuration.
+            </summary>
+            <value>
+            The persisted grants.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.OperationalStoreOptions.DeviceFlowCodes">
+            <summary>
+            Gets or sets the device flow codes table configuration.
+            </summary>
+            <value>
+            The device flow codes.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.OperationalStoreOptions.EnableTokenCleanup">
+            <summary>
+            Gets or sets a value indicating whether stale entries will be automatically cleaned up from the database.
+            This is implemented by periodically connecting to the database (according to the TokenCleanupInterval) from the hosting application.
+            Defaults to false.
+            </summary>
+            <value>
+              <c>true</c> if [enable token cleanup]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.OperationalStoreOptions.TokenCleanupInterval">
+            <summary>
+            Gets or sets the token cleanup interval (in seconds). The default is 3600 (1 hour).
+            </summary>
+            <value>
+            The token cleanup interval.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.OperationalStoreOptions.TokenCleanupBatchSize">
+            <summary>
+            Gets or sets the number of records to remove at a time. Defaults to 100.
+            </summary>
+            <value>
+            The size of the token cleanup batch.
+            </value>
+        </member>
         <member name="T:Mix.Library.Entities.Profiles.CompanyProfile">
             <summary>
             CompanyProfile
@@ -1902,6 +2154,40 @@
             Note: this method is part of an experimental API that can change or be removed without any prior notice.</summary>
             <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
             <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+        </member>
+        <member name="T:Mix.Library.Entities.TableConfiguration">
+            <summary>
+            Class to control a table's name and schema.
+            </summary>
+        </member>
+        <member name="M:Mix.Library.Entities.TableConfiguration.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Library.Entities.TableConfiguration"/> class.
+            </summary>
+            <param name="name">The name.</param>
+        </member>
+        <member name="M:Mix.Library.Entities.TableConfiguration.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mix.Library.Entities.TableConfiguration"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="schema">The schema.</param>
+        </member>
+        <member name="P:Mix.Library.Entities.TableConfiguration.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:Mix.Library.Entities.TableConfiguration.Schema">
+            <summary>
+            Gets or sets the schema.
+            </summary>
+            <value>
+            The schema.
+            </value>
         </member>
         <member name="T:Mix.Library.Entities.Validators.CompanyAddDtoValidator">
             <summary>

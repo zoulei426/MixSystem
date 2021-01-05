@@ -16,4 +16,8 @@
     <ProjectReference Include="..\Mix.Library.Repository\Mix.Library.Repositories.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="IdentityServer4\" />
+  </ItemGroup>
+
 </Project>
